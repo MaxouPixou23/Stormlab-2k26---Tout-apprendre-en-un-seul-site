@@ -391,3 +391,87 @@ footer {
 
 }
 ```
+```css
+/* =========================================
+   STORMLAB — GALERIE
+========================================= */
+
+.storm-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.storm-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    min-height: 280px;
+    background: #080b12;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.storm-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.storm-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.8),
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+.storm-photo:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.25);
+}
+
+.storm-photo:hover img {
+    transform: scale(1.08);
+}
+
+.storm-photo figcaption {
+    position: absolute;
+    left: 20px;
+    bottom: 18px;
+    z-index: 2;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+
+    .storm-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .storm-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .storm-photo,
+    .storm-photo img {
+        min-height: 240px;
+    }
+
+}
+```
