@@ -475,3 +475,67 @@ footer {
 
 }
 ```
+```css
+/* =========================================
+   STORMLAB — IMAGE FEATURE
+========================================= */
+
+.storm-feature {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    min-height: 430px;
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.storm-feature img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+}
+
+.storm-feature-content {
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.storm-feature-content h2 {
+    font-size: clamp(32px, 4vw, 55px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.storm-feature-content h2 span {
+    background: linear-gradient(90deg, #ffffff, #7fa7ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.storm-feature-content p:not(.eyebrow) {
+    color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 800px) {
+
+    .storm-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .storm-feature img {
+        min-height: 280px;
+    }
+
+    .storm-feature-content {
+        padding: 35px;
+    }
+
+}
+```
