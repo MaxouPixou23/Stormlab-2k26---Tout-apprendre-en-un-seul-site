@@ -1,62 +1,42 @@
-// ==========================================
-// STORMLAB — INTERACTIONS
-// ==========================================
-
+```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Animation d'apparition des cartes
-    const cards = document.querySelectorAll(".card");
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-
-            });
-        },
-        {
-            threshold: 0.15
-        }
+    // Animation d'apparition
+    const elements = document.querySelectorAll(
+        ".card, .section-title, .manual, .chasing"
     );
 
-    cards.forEach((card) => {
-        observer.observe(card);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, {
+        threshold: 0.12
     });
 
+    elements.forEach(element => observer.observe(element));
 
-    // Effet léger de déplacement du symbole de tempête
-    const stormSymbol = document.querySelector(".hero-symbol");
 
-    if (stormSymbol) {
+    // Navigation mobile
+    const navbar = document.querySelector(".navbar");
 
-        document.addEventListener("mousemove", (event) => {
-
-            const x = (window.innerWidth / 2 - event.clientX) / 80;
-            const y = (window.innerHeight / 2 - event.clientY) / 80;
-
-            stormSymbol.style.transform =
-                `translate(${x}px, ${y}px) rotate(4deg)`;
-
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
         });
-
     }
 
 
-    // Fermer les menus déroulants avec la touche Échap
-    document.addEventListener("keydown", (event) => {
-
-        if (event.key === "Escape") {
-
-            document.querySelectorAll(".dropdown-menu").forEach((menu) => {
-                menu.style.opacity = "";
-                menu.style.visibility = "";
-            });
-
-        }
-
+    // Année automatique dans les copyrights
+    document.querySelectorAll(".copyright").forEach(element => {
+        element.textContent = `© ${new Date().getFullYear()} STORMLAB`;
     });
 
 });
+```
