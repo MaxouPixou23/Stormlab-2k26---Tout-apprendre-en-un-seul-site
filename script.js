@@ -1,10 +1,16 @@
 /* =========================================================
-   STORMLAB V2 — NAVBAR
+   STORMLAB V2
+   NAVBAR + INTERACTIONS
+========================================================= */
+
+"use strict";
+
+
+/* =========================================================
+   NAVBAR
 ========================================================= */
 
 (function () {
-
-    "use strict";
 
     function initNavbar() {
 
@@ -21,7 +27,7 @@
         if (!navbar || !button || !menu) {
 
             console.error(
-                "STORMLAB : navbar introuvable."
+                "STORMLAB : éléments de navigation introuvables."
             );
 
             return;
@@ -30,9 +36,7 @@
 
         function openMenu() {
 
-            navbar.classList.add(
-                "menu-open"
-            );
+            navbar.classList.add("menu-open");
 
             button.textContent = "✕";
 
@@ -51,9 +55,7 @@
 
         function closeMenu() {
 
-            navbar.classList.remove(
-                "menu-open"
-            );
+            navbar.classList.remove("menu-open");
 
             button.textContent = "☰";
 
@@ -70,6 +72,23 @@
         }
 
 
+        function toggleMenu() {
+
+            if (
+                navbar.classList.contains("menu-open")
+            ) {
+
+                closeMenu();
+
+            } else {
+
+                openMenu();
+
+            }
+
+        }
+
+
         button.addEventListener(
             "click",
             function (event) {
@@ -78,19 +97,7 @@
 
                 event.stopPropagation();
 
-                if (
-                    navbar.classList.contains(
-                        "menu-open"
-                    )
-                ) {
-
-                    closeMenu();
-
-                } else {
-
-                    openMenu();
-
-                }
+                toggleMenu();
 
             }
         );
@@ -104,7 +111,9 @@
                     event.target.closest("a");
 
                 if (link) {
+
                     closeMenu();
+
                 }
 
             }
@@ -116,9 +125,7 @@
             function (event) {
 
                 if (
-                    navbar.classList.contains(
-                        "menu-open"
-                    ) &&
+                    navbar.classList.contains("menu-open") &&
                     !navbar.contains(event.target)
                 ) {
 
@@ -134,7 +141,29 @@
             "keydown",
             function (event) {
 
-                if (event.key === "Escape") {
+                if (
+                    event.key === "Escape" &&
+                    navbar.classList.contains("menu-open")
+                ) {
+
+                    closeMenu();
+
+                    button.focus();
+
+                }
+
+            }
+        );
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                if (
+                    window.innerWidth > 700 &&
+                    navbar.classList.contains("menu-open")
+                ) {
 
                     closeMenu();
 
@@ -154,8 +183,7 @@
 
 
     if (
-        document.readyState ===
-        "loading"
+        document.readyState === "loading"
     ) {
 
         document.addEventListener(
@@ -166,6 +194,61 @@
     } else {
 
         initNavbar();
+
+    }
+
+})();
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+(function () {
+
+    function initImageFallback() {
+
+        const images =
+            document.querySelectorAll("img");
+
+        images.forEach(function (image) {
+
+            image.addEventListener(
+                "error",
+                function () {
+
+                    image.classList.add(
+                        "image-error"
+                    );
+
+                    console.warn(
+                        "STORMLAB : image introuvable :",
+                        image.src
+                    );
+
+                },
+                {
+                    once: true
+                }
+            );
+
+        });
+
+    }
+
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initImageFallback
+        );
+
+    } else {
+
+        initImageFallback();
 
     }
 
