@@ -1,27 +1,61 @@
 ```javascript
 /* =========================================================
-   STORMLAB V2 — SCRIPT PRINCIPAL
+   STORMLAB V2
+   SCRIPT PRINCIPAL
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const navbar = document.querySelector(".navbar");
     const menuButton = document.querySelector(".mobile-menu-btn");
-    const menuLinks = document.querySelectorAll(".main-nav a");
+    const menu = document.querySelector(".main-nav");
 
-    if (!navbar || !menuButton) {
-        console.warn("STORMLAB : navbar ou bouton de menu introuvable.");
+    /* -----------------------------------------------------
+       Vérification
+    ----------------------------------------------------- */
+
+    if (!navbar || !menuButton || !menu) {
+        console.warn(
+            "STORMLAB : navbar, bouton ou menu introuvable."
+        );
+
         return;
     }
 
 
-    /* =====================================================
-       MENU ☰
-    ===================================================== */
+    /* -----------------------------------------------------
+       Fonction : fermer le menu
+    ----------------------------------------------------- */
 
-    const toggleMenu = () => {
+    function closeMenu() {
 
-        const isOpen = navbar.classList.toggle("menu-open");
+        navbar.classList.remove("menu-open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+        );
+
+        menuButton.textContent = "☰";
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    /* -----------------------------------------------------
+       Fonction : ouvrir / fermer le menu
+    ----------------------------------------------------- */
+
+    function toggleMenu() {
+
+        const isOpen =
+            navbar.classList.toggle("menu-open");
 
         menuButton.setAttribute(
             "aria-expanded",
@@ -30,129 +64,119 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuButton.setAttribute(
             "aria-label",
-            isOpen ? "Fermer le menu" : "Ouvrir le menu"
+            isOpen
+                ? "Fermer le menu"
+                : "Ouvrir le menu"
         );
 
-        menuButton.textContent = isOpen ? "✕" : "☰";
+        menuButton.textContent =
+            isOpen ? "✕" : "☰";
 
         /*
-         * Empêche le défilement de la page lorsque
-         * le menu plein écran est ouvert.
+         * Bloque le défilement de la page
+         * lorsque le menu est ouvert.
          */
-        document.body.style.overflow = isOpen ? "hidden" : "";
 
-    };
+        document.body.style.overflow =
+            isOpen ? "hidden" : "";
+
+    }
 
 
-    menuButton.addEventListener("click", toggleMenu);
+    /* -----------------------------------------------------
+       Clic sur ☰
+    ----------------------------------------------------- */
+
+    menuButton.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            toggleMenu();
+
+        }
+    );
 
 
-    /* =====================================================
-       FERMER APRÈS AVOIR CHOISI UNE PAGE
-    ===================================================== */
+    /* -----------------------------------------------------
+       Clic sur un lien
+    ----------------------------------------------------- */
 
-    menuLinks.forEach((link) => {
+    const links =
+        menu.querySelectorAll("a");
 
-        link.addEventListener("click", () => {
+    links.forEach((link) => {
 
-            navbar.classList.remove("menu-open");
+        link.addEventListener(
+            "click",
+            () => {
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                closeMenu();
 
-            menuButton.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-
-            menuButton.textContent = "☰";
-
-            document.body.style.overflow = "";
-
-        });
+            }
+        );
 
     });
 
 
-    /* =====================================================
-       FERMER AVEC LA TOUCHE ÉCHAP
-    ===================================================== */
+    /* -----------------------------------------------------
+       Touche Échap
+    ----------------------------------------------------- */
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
-        if (event.key === "Escape") {
+            if (event.key === "Escape") {
 
-            navbar.classList.remove("menu-open");
+                closeMenu();
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-
-            menuButton.textContent = "☰";
-
-            document.body.style.overflow = "";
+            }
 
         }
+    );
 
-    });
 
+    /* -----------------------------------------------------
+       Clic en dehors
+    ----------------------------------------------------- */
 
-    /* =====================================================
-       FERMER SI ON CLIQUE EN DEHORS DU MENU
-    ===================================================== */
+    document.addEventListener(
+        "click",
+        (event) => {
 
-    document.addEventListener("click", (event) => {
+            if (!navbar.classList.contains("menu-open")) {
+                return;
+            }
 
-        if (!navbar.classList.contains("menu-open")) {
-            return;
-        }
+            if (!navbar.contains(event.target)) {
 
-        const clickedInsideNavbar = navbar.contains(event.target);
+                closeMenu();
 
-        if (!clickedInsideNavbar) {
-
-            navbar.classList.remove("menu-open");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-
-            menuButton.textContent = "☰";
-
-            document.body.style.overflow = "";
+            }
 
         }
+    );
 
-    });
 
+    /* -----------------------------------------------------
+       Scroll navbar
+    ----------------------------------------------------- */
 
-    /* =====================================================
-       EFFET NAVBAR AU SCROLL
-    ===================================================== */
-
-    const updateNavbar = () => {
+    function updateNavbar() {
 
         if (window.scrollY > 20) {
+
             navbar.classList.add("scrolled");
+
         } else {
+
             navbar.classList.remove("scrolled");
+
         }
 
-    };
+    }
 
 
     window.addEventListener(
@@ -164,33 +188,30 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavbar();
 
 
-    /* =====================================================
-       RETOUR À L'ÉTAT NORMAL SI LA FENÊTRE EST AGRANDIE
-    ===================================================== */
+    /* -----------------------------------------------------
+       Resize
+    ----------------------------------------------------- */
 
-    window.addEventListener("resize", () => {
+    window.addEventListener(
+        "resize",
+        () => {
 
-        if (window.innerWidth > 1000) {
+            /*
+             * On réinitialise le menu lorsque
+             * la fenêtre change de taille.
+             */
 
-            navbar.classList.remove("menu-open");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-
-            menuButton.textContent = "☰";
-
-            document.body.style.overflow = "";
+            closeMenu();
 
         }
+    );
 
-    });
+
+    /* -----------------------------------------------------
+       État initial
+    ----------------------------------------------------- */
+
+    closeMenu();
 
 });
 ```
