@@ -539,3 +539,59 @@ footer {
 
 }
 ```
+```css
+/* =========================================
+   STORMLAB — NAVIGATION COMPLETE
+========================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.main-nav a {
+    padding: 8px 11px;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+.main-nav a:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1100px) {
+
+    .main-nav {
+        gap: 3px;
+    }
+
+    .main-nav a {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+}
+```
