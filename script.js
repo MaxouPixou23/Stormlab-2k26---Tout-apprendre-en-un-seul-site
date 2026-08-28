@@ -1,609 +1,330 @@
 /* =========================================================
-STORMLAB V2
-GLOBAL JAVASCRIPT
-NAVBAR + INTERACTIONS
+   STORMLAB V2
+   SCRIPT GLOBAL
+   NAVBAR UNIVERSELLE
 ========================================================= */
 
 "use strict";
 
-/* =========================================================
-NAVBAR
-========================================================= */
-
 (function () {
 
-```
-function initNavbar() {
+    function initNavbar() {
 
-    const navbar =
-        document.querySelector(".navbar");
+        const navbar =
+            document.querySelector(".navbar");
 
-    const button =
-        document.getElementById("menuButton");
+        const button =
+            document.getElementById("menuButton");
 
-    const menu =
-        document.getElementById("mainNav");
+        const menu =
+            document.getElementById("mainNav");
 
-
-    /*
-     * Si une page ne possède pas de navbar,
-     * le script ne bloque pas le reste du site.
-     */
-
-    if (!navbar || !button || !menu) {
-
-        console.warn(
-            "STORMLAB V2 : navbar absente sur cette page."
-        );
-
-        return;
-    }
-
-
-    /* =================================================
-       OUVRIR
-    ================================================= */
-
-    function openMenu() {
-
-        navbar.classList.add("menu-open");
-
-        button.textContent = "✕";
-
-        button.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        button.setAttribute(
-            "aria-label",
-            "Fermer le menu"
-        );
-
-        /*
-         * Empêche le clic de traverser
-         * vers les éléments derrière le menu.
-         */
-
-        menu.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-    }
-
-
-    /* =================================================
-       FERMER
-    ================================================= */
-
-    function closeMenu() {
-
-        navbar.classList.remove("menu-open");
-
-        button.textContent = "☰";
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        button.setAttribute(
-            "aria-label",
-            "Ouvrir le menu"
-        );
-
-        menu.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-    }
-
-
-    /* =================================================
-       TOGGLE
-    ================================================= */
-
-    function toggleMenu(event) {
-
-        if (event) {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
+        if (!navbar || !button || !menu) {
+            console.warn(
+                "STORMLAB : navbar absente sur cette page."
+            );
+            return;
         }
 
+        function openMenu() {
 
-        if (
-            navbar.classList.contains(
-                "menu-open"
-            )
-        ) {
+            navbar.classList.add("menu-open");
 
-            closeMenu();
+            button.textContent = "✕";
 
-        } else {
+            button.setAttribute(
+                "aria-expanded",
+                "true"
+            );
 
-            openMenu();
-
+            button.setAttribute(
+                "aria-label",
+                "Fermer le menu"
+            );
         }
 
-    }
+        function closeMenu() {
 
+            navbar.classList.remove("menu-open");
 
-    /* =================================================
-       BOUTON MENU
-    ================================================= */
+            button.textContent = "☰";
 
-    button.addEventListener(
-        "click",
-        toggleMenu,
-        false
-    );
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
+            button.setAttribute(
+                "aria-label",
+                "Ouvrir le menu"
+            );
+        }
 
-    /*
-     * Empêche certains scripts/pages
-     * de bloquer le bouton.
-     */
+        function toggleMenu(event) {
 
-    button.addEventListener(
-        "pointerdown",
-        function (event) {
-
-            event.stopPropagation();
-
-        },
-        false
-    );
-
-
-    /* =================================================
-       LIENS DU MENU
-    ================================================= */
-
-    menu.addEventListener(
-        "click",
-        function (event) {
-
-            const link =
-                event.target.closest(
-                    ".menu-link"
-                );
-
-
-            if (!link) {
-
-                return;
-
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
             }
 
-
-            /*
-             * Laisse le navigateur suivre
-             * normalement le href.
-             */
-
-            closeMenu();
-
-        },
-        false
-    );
-
-
-    /* =================================================
-       CLIC EXTÉRIEUR
-    ================================================= */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
             if (
-                !navbar.classList.contains(
-                    "menu-open"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                !navbar.contains(
-                    event.target
-                )
-            ) {
-
-                closeMenu();
-
-            }
-
-        },
-        false
-    );
-
-
-    /* =================================================
-       ESCAPE
-    ================================================= */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Escape" &&
                 navbar.classList.contains(
                     "menu-open"
                 )
             ) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        /* =================================================
+           BOUTON
+        ================================================= */
+
+        button.addEventListener(
+            "click",
+            toggleMenu
+        );
+
+        /* =================================================
+           LIENS DU MENU
+        ================================================= */
+
+        menu.addEventListener(
+            "click",
+            function (event) {
+
+                const link =
+                    event.target.closest(
+                        ".menu-link"
+                    );
+
+                if (!link) {
+                    return;
+                }
+
+                /*
+                 * Laisser le navigateur suivre
+                 * normalement le href.
+                 */
 
                 closeMenu();
-
-                button.focus();
-
             }
-
-        },
-        false
-    );
-
-
-    /* =================================================
-       REDIMENSIONNEMENT
-    ================================================= */
-
-    let resizeTimer = null;
-
-
-    window.addEventListener(
-        "resize",
-        function () {
-
-            clearTimeout(
-                resizeTimer
-            );
-
-
-            resizeTimer =
-                setTimeout(
-                    function () {
-
-                        /*
-                         * On ferme le menu lorsque
-                         * la fenêtre change fortement
-                         * de taille.
-                         */
-
-                        if (
-                            navbar.classList.contains(
-                                "menu-open"
-                            )
-                        ) {
-
-                            closeMenu();
-
-                        }
-
-                    },
-                    120
-                );
-
-        },
-        false
-    );
-
-
-    /* =================================================
-       TOUCH / MOBILE
-    ================================================= */
-
-    menu.addEventListener(
-        "touchstart",
-        function (event) {
-
-            event.stopPropagation();
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    /* =================================================
-       ÉTAT INITIAL
-    ================================================= */
-
-    closeMenu();
-
-
-    console.log(
-        "STORMLAB V2 : navbar chargée."
-    );
-
-}
-
-
-/* =====================================================
-   DOM READY
-===================================================== */
-
-if (
-    document.readyState ===
-    "loading"
-) {
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        initNavbar
-    );
-
-} else {
-
-    initNavbar();
-
-}
-```
-
-})();
-
-/* =========================================================
-IMAGE FALLBACK
-========================================================= */
-
-(function () {
-
-```
-function initImageFallback() {
-
-    const images =
-        document.querySelectorAll(
-            "img"
         );
 
+        /* =================================================
+           CLIC EXTERIEUR
+        ================================================= */
 
-    images.forEach(
-        function (image) {
+        document.addEventListener(
+            "click",
+            function (event) {
 
-            image.addEventListener(
-                "error",
-                function () {
-
-                    image.classList.add(
-                        "image-error"
-                    );
-
-                    console.warn(
-                        "STORMLAB V2 : image introuvable :",
-                        image.src
-                    );
-
-                },
-                {
-                    once: true
+                if (
+                    !navbar.classList.contains(
+                        "menu-open"
+                    )
+                ) {
+                    return;
                 }
-            );
 
-        }
-    );
-
-}
-
-
-if (
-    document.readyState ===
-    "loading"
-) {
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        initImageFallback
-    );
-
-} else {
-
-    initImageFallback();
-
-}
-```
-
-})();
-
-/* =========================================================
-ACTIVE PAGE
-Détermine automatiquement le lien actif.
-========================================================= */
-
-(function () {
-
-```
-function initActivePage() {
-
-    const links =
-        document.querySelectorAll(
-            ".menu-link"
+                if (
+                    !navbar.contains(
+                        event.target
+                    )
+                ) {
+                    closeMenu();
+                }
+            }
         );
 
+        /* =================================================
+           ESC
+        ================================================= */
 
-    if (!links.length) {
+        document.addEventListener(
+            "keydown",
+            function (event) {
 
-        return;
+                if (
+                    event.key === "Escape" &&
+                    navbar.classList.contains(
+                        "menu-open"
+                    )
+                ) {
 
-    }
+                    closeMenu();
 
+                    button.focus();
+                }
+            }
+        );
 
-    /*
-     * Récupération de l'URL actuelle.
-     */
+        /* =================================================
+           REDIMENSIONNEMENT
+        ================================================= */
 
-    const currentPath =
-        window.location.pathname
-            .replace(/\\/g, "/")
-            .split("/")
-            .pop()
-            .toLowerCase();
+        window.addEventListener(
+            "resize",
+            function () {
 
-
-    links.forEach(
-        function (link) {
-
-            const href =
-                link.getAttribute("href");
-
-
-            if (!href) {
-
-                return;
+                if (
+                    window.innerWidth > 700
+                ) {
+                    /*
+                     * On ne ferme pas le menu
+                     * automatiquement ici :
+                     * cela évite les bugs lorsque
+                     * la fenêtre change de taille.
+                     */
+                }
 
             }
+        );
 
+        /* =================================================
+           LIEN ACTIF
+        ================================================= */
 
-            const linkPath =
-                href
-                    .split("/")
-                    .pop()
-                    .split("?")[0]
-                    .toLowerCase();
+        const currentPage =
+            window.location.pathname
+                .split("/")
+                .pop()
+                .toLowerCase();
 
-
-            /*
-             * On ne touche pas aux liens
-             * qui pointent vers des ancres.
-             */
-
-            if (
-                href.startsWith("#")
-            ) {
-
-                return;
-
-            }
-
-
-            link.classList.remove(
-                "active"
+        const links =
+            menu.querySelectorAll(
+                ".menu-link"
             );
 
+        links.forEach(
+            function (link) {
 
-            if (
-                linkPath ===
-                currentPath
-            ) {
+                const href =
+                    link.getAttribute("href");
 
-                link.classList.add(
+                if (!href) {
+                    return;
+                }
+
+                const targetPage =
+                    href
+                        .split("/")
+                        .pop()
+                        .split("?")[0]
+                        .split("#")[0]
+                        .toLowerCase();
+
+                link.classList.remove(
                     "active"
                 );
 
+                if (
+                    targetPage === currentPage
+                ) {
+                    link.classList.add(
+                        "active"
+                    );
+                }
+
             }
+        );
 
+        /*
+         * index.html
+         */
+
+        if (
+            currentPage === "" ||
+            currentPage === "index.html"
+        ) {
+
+            const home =
+                menu.querySelector(
+                    'a[href*="index.html"]'
+                );
+
+            if (home) {
+                home.classList.add("active");
+            }
         }
-    );
 
-}
+        closeMenu();
 
+        console.log(
+            "STORMLAB V2 : navbar universelle OK."
+        );
+    }
 
-if (
-    document.readyState ===
-    "loading"
-) {
+    if (
+        document.readyState === "loading"
+    ) {
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        initActivePage
-    );
+        document.addEventListener(
+            "DOMContentLoaded",
+            initNavbar
+        );
 
-} else {
+    } else {
 
-    initActivePage();
+        initNavbar();
 
-}
-```
+    }
 
 })();
 
+
 /* =========================================================
-PROTECTION DU MENU
+   IMAGE FALLBACK
 ========================================================= */
 
 (function () {
 
-```
-/*
- * Certains éléments avec transform,
- * animation ou z-index peuvent créer
- * des problèmes de clic.
- *
- * On force la priorité de la navbar
- * lorsqu'elle est ouverte.
- */
+    function initImages() {
 
-function protectNavbar() {
+        const images =
+            document.querySelectorAll("img");
 
-    const navbar =
-        document.querySelector(
-            ".navbar"
+        images.forEach(
+            function (image) {
+
+                image.addEventListener(
+                    "error",
+                    function () {
+
+                        image.classList.add(
+                            "image-error"
+                        );
+
+                        console.warn(
+                            "STORMLAB : image introuvable :",
+                            image.src
+                        );
+
+                    },
+                    {
+                        once: true
+                    }
+                );
+
+            }
         );
-
-
-    if (!navbar) {
-
-        return;
-
     }
 
+    if (
+        document.readyState === "loading"
+    ) {
 
-    navbar.style.pointerEvents =
-        "auto";
-
-
-    const button =
-        document.querySelector(
-            "#menuButton"
+        document.addEventListener(
+            "DOMContentLoaded",
+            initImages
         );
 
+    } else {
 
-    const menu =
-        document.querySelector(
-            "#mainNav"
-        );
-
-
-    if (button) {
-
-        button.style.pointerEvents =
-            "auto";
+        initImages();
 
     }
-
-
-    if (menu) {
-
-        menu.style.pointerEvents =
-            "auto";
-
-    }
-
-}
-
-
-if (
-    document.readyState ===
-    "loading"
-) {
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        protectNavbar
-    );
-
-} else {
-
-    protectNavbar();
-
-}
-```
 
 })();
