@@ -1,116 +1,310 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supercellules — STORMLAB</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supercellules — STORMLAB</title>
+
+    <meta name="description"
+          content="STORMLAB — Comprendre les supercellules et les orages les plus organisés.">
+
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
 <header class="navbar">
-<a href="../index.html" class="logo"><span class="logo-icon">🌪️</span><span>STORMLAB</span></a>
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="foudre.html">⚡ Foudre</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="galerie.html">📸 Galerie</a>
-</nav>
+
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">🌪️</span>
+        <span>STORMLAB</span>
+    </a>
+
+    <nav class="main-nav">
+
+        <a href="../index.html">Accueil</a>
+        <a href="manuel.html">📚 Manuel</a>
+        <a href="orages.html">🌩️ Orages</a>
+        <a href="supercellules.html" class="active">🌀 Supercellules</a>
+        <a href="tornades.html">🌪️ Tornades</a>
+        <a href="foudre.html">⚡ Foudre</a>
+        <a href="radar.html">📡 Radar</a>
+        <a href="satellites.html">🛰️ Satellites</a>
+        <a href="storm-chasing.html">🚗 Chasing</a>
+        <a href="reed-timmer.html">❤️ Reed Timmer</a>
+        <a href="galerie.html">📸 Galerie</a>
+        <a href="cartes.html">🗺️ Cartes</a>
+        <a href="alertes.html">🚨 Alertes</a>
+        <a href="quiz.html">🧠 Quiz</a>
+        <a href="laboratoire.html">🔬 Laboratoire</a>
+        <a href="videos.html">🎥 Vidéos</a>
+        <a href="actualites.html">📰 Actualités</a>
+
+    </nav>
+
+    <button class="mobile-menu-btn"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+        ☰
+    </button>
+
 </header>
+
+
+<div class="mobile-menu">
+
+    <a href="../index.html">🏠 Accueil</a>
+    <a href="manuel.html">📚 Manuel</a>
+    <a href="orages.html">🌩️ Orages</a>
+    <a href="supercellules.html" class="active">🌀 Supercellules</a>
+    <a href="tornades.html">🌪️ Tornades</a>
+    <a href="foudre.html">⚡ Foudre</a>
+    <a href="radar.html">📡 Radar</a>
+    <a href="satellites.html">🛰️ Satellites</a>
+    <a href="storm-chasing.html">🚗 Storm Chasing</a>
+    <a href="reed-timmer.html">❤️ Reed Timmer</a>
+    <a href="galerie.html">📸 Galerie</a>
+    <a href="cartes.html">🗺️ Cartes météo</a>
+    <a href="alertes.html">🚨 Alertes</a>
+    <a href="quiz.html">🧠 Quiz</a>
+    <a href="laboratoire.html">🔬 Laboratoire</a>
+    <a href="videos.html">🎥 Vidéos</a>
+    <a href="actualites.html">📰 Actualités</a>
+
+</div>
+
 
 <main>
 
 <section class="hero">
-<div class="hero-content">
-<p class="eyebrow">STORMLAB • ORAGES EXTRÊMES</p>
-<h1>SUPER<span>CELLULES.</span></h1>
-<p class="hero-text">
-Les supercellules sont des orages organisés autour d'un courant
-ascendant en rotation. Certaines peuvent produire grêle,
-vents violents et tornades.
-</p>
-<div class="hero-buttons">
-<a href="orages.html" class="btn secondary">← Les orages</a>
-<a href="tornades.html" class="btn primary">Tornades →</a>
-</div>
-</div>
-<div class="hero-symbol">🌀</div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            STORMLAB • ORAGES ORGANISÉS
+        </p>
+
+        <h1>
+            SUPER
+            <span>CELLULES.</span>
+        </h1>
+
+        <p class="hero-text">
+            Une supercellule est un orage particulièrement
+            organisé autour d'un courant ascendant durable
+            et pouvant produire des phénomènes violents.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="orages.html" class="btn primary">
+                🌩️ Les orages
+            </a>
+
+            <a href="tornades.html" class="btn secondary">
+                🌪️ Tornades
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-symbol">
+        🌀
+    </div>
+
 </section>
+
 
 <section class="section">
 
-<div class="section-title">
-<p>01 • STRUCTURE</p>
-<h2>Une machine atmosphérique</h2>
-<span>La rotation et l'organisation interne distinguent les supercellules des orages ordinaires.</span>
-</div>
+    <div class="storm-feature">
 
-<div class="cards">
+        <img
+            src="../assets/images/supercellule.jpg"
+            alt="Supercellule"
+            loading="eager">
 
-<article class="card">
-<span>🌀</span>
-<h3>Mésocyclone</h3>
-<p>Une région de rotation associée au courant ascendant de la supercellule.</p>
-</article>
+        <div class="storm-feature-content">
 
-<article class="card">
-<span>⬆️</span>
-<h3>Updraft</h3>
-<p>Le puissant courant ascendant alimente et structure l'orage.</p>
-</article>
+            <p class="eyebrow">
+                STRUCTURE
+            </p>
 
-<article class="card">
-<span>🌧️</span>
-<h3>Downdraft</h3>
-<p>Les courants descendants transportent les précipitations vers le sol.</p>
-</article>
+            <h2>
+                Un orage
+                <span>hautement organisé.</span>
+            </h2>
 
-<article class="card">
-<span>🌬️</span>
-<h3>Cisaillement</h3>
-<p>Les changements de vitesse et de direction du vent avec l'altitude favorisent l'organisation.</p>
-</article>
+            <p>
+                Les supercellules possèdent généralement
+                une structure dynamique permettant à leur
+                courant ascendant de rester actif pendant
+                une longue période.
+            </p>
 
-</div>
+        </div>
+
+    </div>
+
 </section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p>01 • CARACTÉRISTIQUES</p>
+
+        <h2>
+            UNE STRUCTURE
+            <span>PARTICULIÈRE.</span>
+        </h2>
+
+        <span>
+            Plusieurs éléments permettent de reconnaître
+            une supercellule.
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <span>⬆️</span>
+
+            <h3>Courant ascendant</h3>
+
+            <p>
+                Une puissante ascendance alimente
+                continuellement le nuage.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🔄</span>
+
+            <h3>Mésocyclone</h3>
+
+            <p>
+                La rotation du courant ascendant
+                est une caractéristique importante.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🌧️</span>
+
+            <h3>Précipitations</h3>
+
+            <p>
+                La structure peut produire de fortes
+                précipitations et de la grêle.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🌪️</span>
+
+            <h3>Tornades</h3>
+
+            <p>
+                Certaines supercellules peuvent
+                générer des tornades.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
 
 <section class="manual">
-<div class="manual-content">
-<p class="eyebrow">POURQUOI SONT-ELLES IMPORTANTES ?</p>
-<h2>Des orages <span>organisés.</span></h2>
-<p>
-Les supercellules peuvent rester actives pendant plusieurs heures.
-Selon leur environnement, elles peuvent produire de très fortes
-précipitations, de la grosse grêle, des vents destructeurs ou des tornades.
-</p>
-<a href="tornades.html" class="btn primary">Comprendre les tornades</a>
-</div>
+
+    <div class="manual-content">
+
+        <p class="eyebrow">
+            02 • PHÉNOMÈNES EXTRÊMES
+        </p>
+
+        <h2>
+            UNE PUISSANCE
+            <span>IMPRESSIONNANTE.</span>
+        </h2>
+
+        <p>
+            Les supercellules peuvent être responsables
+            de vents violents, de grêle importante,
+            de pluies intenses et parfois de tornades.
+        </p>
+
+        <a href="tornades.html" class="btn primary">
+            🌪️ Étudier les tornades
+        </a>
+
+    </div>
+
 </section>
 
+
 <section class="chasing">
-<p class="eyebrow">STORMLAB</p>
-<h2>WATCH THE <span>SKY.</span></h2>
-<p>Une supercellule peut transformer complètement le paysage.</p>
-<a href="galerie.html" class="btn secondary">📸 Voir la galerie</a>
+
+    <p class="eyebrow">
+        STORMLAB
+    </p>
+
+    <h2>
+        UNDERSTAND THE
+        <span>STORM.</span>
+    </h2>
+
+    <p>
+        Observer une supercellule commence par comprendre
+        sa structure.
+    </p>
+
+    <a href="radar.html" class="btn secondary">
+        📡 Lire le radar
+    </a>
+
 </section>
 
 </main>
 
+
 <footer>
-<div class="footer-logo">🌪️ STORMLAB</div>
-<p>Never Stop Chasing.</p>
-<p class="copyright">© 2026 STORMLAB</p>
+
+    <div class="footer-logo">
+        🌪️ STORMLAB
+    </div>
+
+    <p>Never Stop Chasing.</p>
+
+    <p class="copyright">
+        © 2026 STORMLAB
+    </p>
+
 </footer>
 
+
 <script src="../script.js"></script>
+
 </body>
 </html>
 ```
-<img
-    src="../assets/images/supercellule.jpg"
-    alt="Supercellule"
-    loading="eager">
