@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tornades — STORMLAB</title>
-
+    <meta name="theme-color" content="#050816">
     <meta name="description"
-          content="STORMLAB — Comprendre les tornades et leur formation.">
+          content="STORMLAB — Découvrez les tornades et leur formation.">
 
-    <link rel="stylesheet" href="../style.css">
+    <title>Tornades — STORMLAB V2</title>
+
+    <link rel="stylesheet" href="../style.css?v=9">
 </head>
 
 <body>
@@ -18,225 +19,287 @@
 <header class="navbar">
 
     <a href="../index.html" class="logo">
-        🌪️ <span>STORMLAB</span>
+        <span class="logo-symbol">🌪️</span>
+        <span class="logo-text">STORMLAB</span>
     </a>
 
     <button
+        id="menuButton"
         class="mobile-menu-btn"
         type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false">
+        aria-expanded="false"
+        aria-controls="mainNav"
+        aria-label="Ouvrir le menu">
         ☰
     </button>
 
-    <nav class="main-nav">
+    <nav id="mainNav" class="main-nav" aria-label="Navigation principale">
 
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html" class="active">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="chasseurs.html">👥 Chasseurs</a>
-        <a href="dominator.html">🚙 Dominator</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
+        <div class="menu-top">
+            <div class="menu-brand">🌪️ STORMLAB</div>
+            <div class="menu-version">V2 • NEVER STOP CHASING</div>
+            <div class="menu-line"></div>
+            <div class="menu-title">EXPLORER STORMLAB</div>
+        </div>
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">🌦️ MÉTÉOROLOGIE</div>
+
+            <a href="../index.html" class="menu-link">
+                <span class="menu-icon">🏠</span>
+                <span class="menu-name">Accueil</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="manuel.html" class="menu-link">
+                <span class="menu-icon">📚</span>
+                <span class="menu-name">Manuel</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="meteorologie.html" class="menu-link">
+                <span class="menu-icon">🌧️</span>
+                <span class="menu-name">Météorologie</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="orages.html" class="menu-link">
+                <span class="menu-icon">🌩️</span>
+                <span class="menu-name">Orages</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="supercellules.html" class="menu-link">
+                <span class="menu-icon">🌀</span>
+                <span class="menu-name">Supercellules</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="tornades.html" class="menu-link active">
+                <span class="menu-icon">🌪️</span>
+                <span class="menu-name">Tornades</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="foudre.html" class="menu-link">
+                <span class="menu-icon">⚡</span>
+                <span class="menu-name">Foudre</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+        <div class="menu-separator"></div>
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">📡 OBSERVATION</div>
+
+            <a href="radar.html" class="menu-link">
+                <span class="menu-icon">📡</span>
+                <span class="menu-name">Radar</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="satellites.html" class="menu-link">
+                <span class="menu-icon">🛰️</span>
+                <span class="menu-name">Satellites</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="cartes.html" class="menu-link">
+                <span class="menu-icon">🗺️</span>
+                <span class="menu-name">Cartes météo</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+        <div class="menu-separator"></div>
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">🚗 STORM CHASING</div>
+
+            <a href="storm-chasing.html" class="menu-link">
+                <span class="menu-icon">🚗</span>
+                <span class="menu-name">Storm Chasing</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="chasseurs.html" class="menu-link">
+                <span class="menu-icon">👥</span>
+                <span class="menu-name">Chasseurs</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="dominator.html" class="menu-link">
+                <span class="menu-icon">🚙</span>
+                <span class="menu-name">Dominator</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="reed-timmer.html" class="menu-link">
+                <span class="menu-icon">🌪️</span>
+                <span class="menu-name">Reed Timmer</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+        <div class="menu-separator"></div>
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">🔬 STORMLAB</div>
+
+            <a href="galerie.html" class="menu-link">
+                <span class="menu-icon">📸</span>
+                <span class="menu-name">Galerie</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="alertes.html" class="menu-link">
+                <span class="menu-icon">🚨</span>
+                <span class="menu-name">Alertes</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="quiz.html" class="menu-link">
+                <span class="menu-icon">🧠</span>
+                <span class="menu-name">Quiz</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="laboratoire.html" class="menu-link">
+                <span class="menu-icon">🔬</span>
+                <span class="menu-name">Laboratoire</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="videos.html" class="menu-link">
+                <span class="menu-icon">🎥</span>
+                <span class="menu-name">Vidéos</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="actualites.html" class="menu-link">
+                <span class="menu-icon">📰</span>
+                <span class="menu-name">Actualités</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+        <div class="menu-footer">
+            <span>🌪️</span>
+            <span>NEVER STOP CHASING</span>
+            <span>V2</span>
+        </div>
 
     </nav>
 
 </header>
 
-
 <main>
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <p class="eyebrow">
-            STORMLAB • PHÉNOMÈNE EXTRÊME
-        </p>
+            <p class="eyebrow">05 • PHÉNOMÈNES EXTRÊMES</p>
 
-        <h1>
-            LES
-            <span>TORNADES.</span>
-        </h1>
+            <h1>
+                LES
+                <span>TORNADES.</span>
+            </h1>
 
-        <p class="hero-text">
-            Les tornades sont des colonnes d'air
-            en rotation intense pouvant se développer
-            dans certaines structures orageuses.
-        </p>
+            <p class="hero-text">
+                Comprendre la formation des tornades,
+                leur environnement météorologique et les
+                méthodes utilisées pour les observer.
+            </p>
 
-        <div class="hero-buttons">
+            <div class="hero-buttons">
 
-            <a href="supercellules.html" class="btn primary">
-                🌀 Supercellules
-            </a>
+                <a href="supercellules.html" class="btn primary">
+                    🌀 Supercellules
+                </a>
 
-            <a href="alertes.html" class="btn secondary">
-                🚨 Sécurité
-            </a>
+                <a href="storm-chasing.html" class="btn secondary">
+                    🚗 Storm Chasing
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
+        <div class="hero-symbol">🌪️</div>
 
-    <div class="hero-symbol">
-        🌪️
-    </div>
+    </section>
 
-</section>
+    <section class="section">
 
+        <div class="section-title">
 
-<section class="section">
-
-    <div class="storm-feature">
-
-        <img
-            src="../assets/images/tornade.jpg"
-            alt="Tornade"
-            loading="eager">
-
-        <div class="storm-feature-content">
-
-            <p class="eyebrow">
-                PHÉNOMÈNE EXTRÊME
-            </p>
+            <p>FORMATION</p>
 
             <h2>
-                UNE ROTATION
-                <span>INTENSE.</span>
+                UNE COLONNE
+                <span>EN ROTATION.</span>
             </h2>
 
-            <p>
-                Les tornades peuvent présenter
-                des formes, tailles et intensités différentes.
-            </p>
+            <span>
+                Une tornade est une colonne d'air en rotation
+                intense associée à un orage.
+            </span>
 
         </div>
 
-    </div>
+        <div class="cards">
 
-</section>
+            <article class="card">
+                <span class="card-icon">🌩️</span>
+                <h3>Orage</h3>
+                <p>Les tornades sont généralement associées à des orages organisés.</p>
+            </article>
 
+            <article class="card">
+                <span class="card-icon">🔄</span>
+                <h3>Rotation</h3>
+                <p>La rotation de l'air joue un rôle important dans leur développement.</p>
+            </article>
 
-<section class="section">
+            <article class="card">
+                <span class="card-icon">⬇️</span>
+                <h3>Descente</h3>
+                <p>Les mouvements de l'air au sein de l'orage participent à l'organisation du phénomène.</p>
+            </article>
 
-    <div class="section-title">
+            <article class="card">
+                <span class="card-icon">📡</span>
+                <h3>Observation</h3>
+                <p>Les radars permettent d'étudier les structures associées aux orages tornadiques.</p>
+            </article>
 
-        <p>
-            01 • FORMATION
-        </p>
+        </div>
 
-        <h2>
-            LES INGRÉDIENTS
-            <span>ESSENTIELS.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-        <article class="card">
-            <span>🌡️</span>
-            <h3>Instabilité</h3>
-            <p>
-                Une atmosphère instable peut favoriser
-                de puissants mouvements verticaux.
-            </p>
-        </article>
-
-        <article class="card">
-            <span>💨</span>
-            <h3>Cisaillement</h3>
-            <p>
-                Les variations du vent avec l'altitude
-                peuvent favoriser l'organisation.
-            </p>
-        </article>
-
-        <article class="card">
-            <span>🔄</span>
-            <h3>Rotation</h3>
-            <p>
-                La rotation peut être amplifiée
-                au sein d'un orage organisé.
-            </p>
-        </article>
-
-        <article class="card">
-            <span>🌪️</span>
-            <h3>Tornade</h3>
-            <p>
-                Dans certaines situations,
-                la rotation atteint la surface.
-            </p>
-        </article>
-
-    </div>
-
-</section>
-
-
-<section class="manual">
-
-    <div class="manual-content">
-
-        <p class="eyebrow">
-            02 • SÉCURITÉ
-        </p>
-
-        <h2>
-            RESPECTER LA
-            <span>PUISSANCE.</span>
-        </h2>
-
-        <p>
-            Une tornade peut être extrêmement dangereuse.
-            L'observation ne doit jamais passer avant la sécurité.
-        </p>
-
-        <a href="alertes.html" class="btn primary">
-            🚨 Alertes
-        </a>
-
-    </div>
-
-</section>
+    </section>
 
 </main>
 
-
 <footer>
 
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
+    <div class="footer-logo">🌪️ STORMLAB</div>
 
-    <p>
-        Never Stop Chasing.
-    </p>
+    <p>Never Stop Chasing.</p>
 
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
+    <p class="copyright">© 2026 STORMLAB</p>
 
 </footer>
 
-
-<script src="../script.js"></script>
+<script src="../script.js?v=9" defer></script>
 
 </body>
 </html>
