@@ -1,444 +1,219 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Storm Chasing — STORMLAB</title>
-
-    <meta name="description"
-          content="STORMLAB — Découvre l'univers du storm chasing, l'observation des tempêtes et la sécurité.">
-
-    <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storm Chasing — STORMLAB</title>
+<meta name="description" content="STORMLAB — Découvrir l'univers du storm chasing.">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
 <header class="navbar">
 
-    <a href="../index.html" class="logo">
-        🌪️ STORMLAB
-    </a>
+<a href="../index.html" class="logo"><span class="logo-icon">🌪️</span><span>STORMLAB</span></a>
 
-    <nav class="main-nav">
+<nav class="main-nav">
+<a href="../index.html">🏠 Accueil</a>
+<a href="manuel.html">📚 Manuel</a>
+<a href="meteorologie.html">🌧️ Météorologie</a>
+<a href="orages.html">🌩️ Orages</a>
+<a href="supercellules.html">🌀 Supercellules</a>
+<a href="tornades.html">🌪️ Tornades</a>
+<a href="foudre.html">⚡ Foudre</a>
+<a href="radar.html">📡 Radar</a>
+<a href="satellites.html">🛰️ Satellites</a>
+<a href="storm-chasing.html" class="active">🚗 Storm Chasing</a>
+<a href="reed-timmer.html">❤️ Reed Timmer</a>
+<a href="galerie.html">📸 Galerie</a>
+<a href="cartes.html">🗺️ Cartes météo</a>
+<a href="alertes.html">🚨 Alertes</a>
+<a href="quiz.html">🧠 Quiz</a>
+<a href="laboratoire.html">🔬 Laboratoire</a>
+<a href="videos.html">🎥 Vidéos</a>
+<a href="actualites.html">📰 Actualités</a>
+</nav>
 
-        <a href="../index.html">Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
+<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
-    </nav>
-
-    <button
-        class="mobile-menu-btn"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false">
-
-        ☰
-
-    </button>
-
-    <div class="mobile-menu">
-
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
-
-    </div>
+<div class="mobile-menu">
+<a href="../index.html">🏠 Accueil</a>
+<a href="manuel.html">📚 Manuel</a>
+<a href="meteorologie.html">🌧️ Météorologie</a>
+<a href="orages.html">🌩️ Orages</a>
+<a href="supercellules.html">🌀 Supercellules</a>
+<a href="tornades.html">🌪️ Tornades</a>
+<a href="foudre.html">⚡ Foudre</a>
+<a href="radar.html">📡 Radar</a>
+<a href="satellites.html">🛰️ Satellites</a>
+<a href="storm-chasing.html" class="active">🚗 Storm Chasing</a>
+<a href="reed-timmer.html">❤️ Reed Timmer</a>
+<a href="galerie.html">📸 Galerie</a>
+<a href="cartes.html">🗺️ Cartes météo</a>
+<a href="alertes.html">🚨 Alertes</a>
+<a href="quiz.html">🧠 Quiz</a>
+<a href="laboratoire.html">🔬 Laboratoire</a>
+<a href="videos.html">🎥 Vidéos</a>
+<a href="actualites.html">📰 Actualités</a>
+</div>
 
 </header>
 
-
 <main>
 
-    <!-- HERO -->
+<section class="hero">
+<div class="hero-content">
 
-    <section class="hero">
+<p class="eyebrow">STORMLAB • NEVER STOP CHASING</p>
 
-        <div class="hero-content">
+<h1>
+STORM
+<span>CHASING.</span>
+</h1>
 
-            <p class="eyebrow">
-                STORMLAB • NEVER STOP CHASING
-            </p>
+<p class="hero-text">
+Le storm chasing consiste à observer et documenter
+les phénomènes météorologiques violents en combinant
+météorologie, observation et sécurité.
+</p>
 
-            <h1>
-                STORM
-                <span>CHASING.</span>
-            </h1>
+<div class="hero-buttons">
+<a href="meteorologie.html" class="btn primary">🌧️ Météorologie</a>
+<a href="radar.html" class="btn secondary">📡 Radar</a>
+</div>
 
-            <p class="hero-text">
-                Le storm chasing consiste à observer et documenter
-                les phénomènes météorologiques violents, en combinant
-                météorologie, observation et sécurité.
-            </p>
+</div>
 
-            <div class="hero-buttons">
+<div class="hero-symbol">🚗</div>
+</section>
 
-                <a href="meteorologie.html" class="btn primary">
-                    🌧️ Apprendre la météo
-                </a>
+<section class="section">
 
-                <a href="radar.html" class="btn secondary">
-                    📡 Radar
-                </a>
+<div class="storm-feature">
 
-            </div>
+<img src="../assets/images/storm-chasing.jpg" alt="Storm Chasing" loading="eager">
 
-        </div>
+<div class="storm-feature-content">
 
-        <div class="hero-symbol">
-            🚗
-        </div>
+<p class="eyebrow">SUR LA ROUTE</p>
 
-    </section>
+<h2>
+NEVER STOP
+<span>CHASING.</span>
+</h2>
 
+<p>
+Le storm chasing demande avant tout de comprendre la météo,
+d'anticiper les évolutions et de conserver une distance de sécurité.
+</p>
 
-    <!-- IMAGE PRINCIPALE -->
+</div>
+</div>
 
-    <section class="section">
+</section>
 
-        <div class="storm-feature">
+<section class="section">
 
-            <img
-                src="../assets/images/storm-chasing.jpg"
-                alt="Storm Chasing"
-                loading="eager">
+<div class="section-title">
+<p>01 • PRÉPARATION</p>
+<h2>
+AVANT DE
+<span>CHASSER.</span>
+</h2>
+<span>La préparation météorologique est essentielle.</span>
+</div>
 
-            <div class="storm-feature-content">
+<div class="cards">
 
-                <p class="eyebrow">
-                    SUR LA ROUTE
-                </p>
+<article class="card">
+<span>📡</span>
+<h3>Radar</h3>
+<p>Analyser les cellules et leur évolution.</p>
+<a href="radar.html" class="btn primary">Radar →</a>
+</article>
 
-                <h2>
-                    NEVER STOP
-                    <span>CHASING.</span>
-                </h2>
+<article class="card">
+<span>🛰️</span>
+<h3>Satellites</h3>
+<p>Observer les systèmes à grande échelle.</p>
+<a href="satellites.html" class="btn primary">Satellites →</a>
+</article>
 
-                <p>
-                    Le storm chasing demande avant tout de comprendre
-                    la météo, d'anticiper les évolutions et de conserver
-                    une distance de sécurité.
-                </p>
+<article class="card">
+<span>🗺️</span>
+<h3>Cartes</h3>
+<p>Étudier les paramètres atmosphériques.</p>
+<a href="cartes.html" class="btn primary">Cartes →</a>
+</article>
 
-            </div>
+<article class="card">
+<span>🚨</span>
+<h3>Sécurité</h3>
+<p>Respecter les alertes et les consignes officielles.</p>
+<a href="alertes.html" class="btn primary">Alertes →</a>
+</article>
 
-        </div>
+</div>
+</section>
 
-    </section>
+<section class="manual">
 
+<div class="manual-content">
 
-    <!-- PRÉPARATION -->
+<p class="eyebrow">02 • PHILOSOPHIE</p>
 
-    <section class="section">
+<h2>
+OBSERVER.
+COMPRENDRE.
+<span>RESPECTER.</span>
+</h2>
 
-        <div class="section-title">
+<p>
+Le but n'est pas de se rapprocher le plus possible d'une tempête.
+Le but est de comprendre ce que l'on observe tout en restant en sécurité.
+</p>
 
-            <p>
-                01 • PRÉPARATION
-            </p>
+<a href="reed-timmer.html" class="btn primary">
+❤️ Découvrir Reed Timmer
+</a>
 
-            <h2>
-                AVANT DE
-                <span>CHASSER.</span>
-            </h2>
+</div>
 
-            <span>
-                La préparation météorologique est essentielle.
-            </span>
+</section>
 
-        </div>
+<section class="chasing">
 
+<p class="eyebrow">STORMLAB</p>
 
-        <div class="cards">
+<h2>
+NEVER STOP
+<span>CHASING.</span>
+</h2>
 
-            <article class="card">
+<p>
+Mais toujours avec respect pour la puissance de la nature.
+</p>
 
-                <span>📡</span>
+<a href="galerie.html" class="btn secondary">
+📸 Voir la galerie
+</a>
 
-                <h3>
-                    Radar
-                </h3>
-
-                <p>
-                    Analyser les cellules et leur évolution permet
-                    de mieux comprendre la situation.
-                </p>
-
-                <a href="radar.html" class="btn primary">
-                    Radar →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <span>🛰️</span>
-
-                <h3>
-                    Satellites
-                </h3>
-
-                <p>
-                    Les données satellites permettent d'observer
-                    les systèmes à grande échelle.
-                </p>
-
-                <a href="satellites.html" class="btn primary">
-                    Satellites →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <span>🗺️</span>
-
-                <h3>
-                    Cartes météo
-                </h3>
-
-                <p>
-                    Les cartes météo permettent d'étudier les paramètres
-                    favorables aux phénomènes convectifs.
-                </p>
-
-                <a href="cartes.html" class="btn primary">
-                    Cartes →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <span>🚨</span>
-
-                <h3>
-                    Sécurité
-                </h3>
-
-                <p>
-                    Les alertes et informations officielles doivent
-                    toujours être prises en compte.
-                </p>
-
-                <a href="alertes.html" class="btn primary">
-                    Alertes →
-                </a>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- PHILOSOPHIE -->
-
-    <section class="manual">
-
-        <div class="manual-content">
-
-            <p class="eyebrow">
-                02 • PHILOSOPHIE
-            </p>
-
-            <h2>
-                OBSERVER.
-                COMPRENDRE.
-                <span>RESPECTER.</span>
-            </h2>
-
-            <p>
-                Le but n'est pas de se rapprocher le plus possible
-                d'une tempête. Le but est de comprendre ce que l'on
-                observe tout en restant en sécurité.
-            </p>
-
-            <a href="reed-timmer.html" class="btn primary">
-                ❤️ Découvrir Reed Timmer
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- OUTILS -->
-
-    <section class="section dark-section">
-
-        <div class="section-title">
-
-            <p>
-                03 • OUTILS
-            </p>
-
-            <h2>
-                LE KIT DU
-                <span>CHASSEUR.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="cards">
-
-            <article class="card">
-
-                <span>📡</span>
-
-                <h3>
-                    Radar
-                </h3>
-
-                <p>
-                    Suivre les précipitations et l'évolution
-                    des cellules.
-                </p>
-
-                <a href="radar.html" class="btn primary">
-                    Explorer →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <span>🛰️</span>
-
-                <h3>
-                    Satellite
-                </h3>
-
-                <p>
-                    Observer les systèmes nuageux
-                    à grande échelle.
-                </p>
-
-                <a href="satellites.html" class="btn primary">
-                    Explorer →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <span>🗺️</span>
-
-                <h3>
-                    Cartes météo
-                </h3>
-
-                <p>
-                    Analyser les différents paramètres
-                    atmosphériques.
-                </p>
-
-                <a href="cartes.html" class="btn primary">
-                    Explorer →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <span>🚨</span>
-
-                <h3>
-                    Alertes
-                </h3>
-
-                <p>
-                    Rester informé des phénomènes
-                    météorologiques dangereux.
-                </p>
-
-                <a href="alertes.html" class="btn primary">
-                    Explorer →
-                </a>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- FINAL -->
-
-    <section class="chasing">
-
-        <p class="eyebrow">
-            STORMLAB
-        </p>
-
-        <h2>
-            NEVER STOP
-            <span>CHASING.</span>
-        </h2>
-
-        <p>
-            Observer. Comprendre. Respecter.
-        </p>
-
-        <a href="galerie.html" class="btn secondary">
-            📸 Voir la galerie
-        </a>
-
-    </section>
+</section>
 
 </main>
 
-
-<!-- FOOTER -->
-
 <footer>
 
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
-
-    <p>
-        Never Stop Chasing.
-    </p>
-
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
+<div class="footer-logo">🌪️ STORMLAB</div>
+<p>Never Stop Chasing.</p>
+<p class="copyright">© 2026 STORMLAB</p>
 
 </footer>
-
 
 <script src="../script.js"></script>
 
 </body>
 </html>
+```
