@@ -1,17 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="STORMLAB — Manuel de météorologie, orages, supercellules, tornades, foudre, radar, satellites et storm chasing.">
-
-    <meta name="theme-color" content="#000000">
+        content="STORMLAB — Manuel de météorologie, orages, supercellules, tornades et storm chasing.">
 
     <title>STORMLAB — Never Stop Chasing</title>
 
@@ -20,145 +15,78 @@
 
 <body>
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
-
 <header class="navbar">
 
     <a href="index.html" class="logo">
-        <span class="logo-icon">🌪️</span>
-        <span>STORMLAB</span>
+        🌪️ <span>STORMLAB</span>
     </a>
 
-    <nav class="main-nav" aria-label="Navigation principale">
+    <nav class="main-nav">
 
-        <a href="index.html" class="active">Accueil</a>
+        <a href="index.html">Accueil</a>
         <a href="pages/manuel.html">📚 Manuel</a>
+        <a href="pages/meteorologie.html">🌧️ Météorologie</a>
+        <a href="pages/orages.html">🌩️ Orages</a>
+        <a href="pages/supercellules.html">🌀 Supercellules</a>
+        <a href="pages/tornades.html">🌪️ Tornades</a>
+        <a href="pages/foudre.html">⚡ Foudre</a>
+        <a href="pages/radar.html">📡 Radar</a>
+
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Ouvrir le menu">
+        ☰
+    </button>
+
+    <div class="mobile-menu">
+
+        <a href="index.html">🏠 Accueil</a>
+        <a href="pages/manuel.html">📚 Manuel</a>
+        <a href="pages/meteorologie.html">🌧️ Météorologie</a>
         <a href="pages/orages.html">🌩️ Orages</a>
         <a href="pages/supercellules.html">🌀 Supercellules</a>
         <a href="pages/tornades.html">🌪️ Tornades</a>
         <a href="pages/foudre.html">⚡ Foudre</a>
         <a href="pages/radar.html">📡 Radar</a>
         <a href="pages/satellites.html">🛰️ Satellites</a>
-        <a href="pages/storm-chasing.html">🚗 Chasing</a>
+        <a href="pages/storm-chasing.html">🚗 Storm Chasing</a>
         <a href="pages/reed-timmer.html">❤️ Reed Timmer</a>
         <a href="pages/galerie.html">📸 Galerie</a>
-        <a href="pages/cartes.html">🗺️ Cartes</a>
+        <a href="pages/cartes.html">🗺️ Cartes météo</a>
         <a href="pages/alertes.html">🚨 Alertes</a>
         <a href="pages/quiz.html">🧠 Quiz</a>
         <a href="pages/laboratoire.html">🔬 Laboratoire</a>
         <a href="pages/videos.html">🎥 Vidéos</a>
         <a href="pages/actualites.html">📰 Actualités</a>
 
-    </nav>
-
-    <button
-        class="mobile-menu-btn"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
+    </div>
 
 </header>
 
 
-<!-- =========================================
-     MENU MOBILE
-========================================= -->
-
-<div class="mobile-menu" aria-hidden="true">
-
-    <div class="mobile-menu-header">
-        <strong>STORMLAB</strong>
-
-        <button
-            class="mobile-close"
-            type="button"
-            aria-label="Fermer le menu">
-
-            ×
-
-        </button>
-    </div>
-
-    <div class="mobile-menu-links">
-
-        <a href="index.html" class="active">🏠 Accueil</a>
-
-        <a href="pages/manuel.html">📚 Manuel</a>
-
-        <a href="pages/orages.html">🌩️ Orages</a>
-
-        <a href="pages/supercellules.html">🌀 Supercellules</a>
-
-        <a href="pages/tornades.html">🌪️ Tornades</a>
-
-        <a href="pages/foudre.html">⚡ Foudre</a>
-
-        <a href="pages/radar.html">📡 Radar</a>
-
-        <a href="pages/satellites.html">🛰️ Satellites</a>
-
-        <a href="pages/storm-chasing.html">🚗 Storm Chasing</a>
-
-        <a href="pages/reed-timmer.html">❤️ Reed Timmer</a>
-
-        <a href="pages/galerie.html">📸 Galerie</a>
-
-        <a href="pages/cartes.html">🗺️ Cartes météo</a>
-
-        <a href="pages/alertes.html">🚨 Alertes</a>
-
-        <a href="pages/quiz.html">🧠 Quiz</a>
-
-        <a href="pages/laboratoire.html">🔬 Laboratoire</a>
-
-        <a href="pages/videos.html">🎥 Vidéos</a>
-
-        <a href="pages/actualites.html">📰 Actualités</a>
-
-    </div>
-
-</div>
-
-<div class="menu-overlay"></div>
-
-
-<!-- =========================================
-     CONTENU
-========================================= -->
-
 <main>
 
-
-<!-- =========================================
-     HERO
-========================================= -->
+<!-- HERO -->
 
 <section class="hero">
+
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
         <p class="eyebrow">
-            MANUEL DE MÉTÉOROLOGIE
+            STORMLAB • MANUEL DE MÉTÉOROLOGIE
         </p>
 
         <h1>
-            STORM
-            <span>LAB.</span>
+            STORM<span>LAB.</span>
         </h1>
 
         <p class="hero-text">
             Comprendre les orages.
             Observer les supercellules.
             Étudier les tornades.
-            Et apprendre à lire le ciel.
+            Lire le ciel.
         </p>
 
         <div class="hero-buttons">
@@ -175,18 +103,16 @@
 
     </div>
 
-    <div class="hero-symbol" aria-hidden="true">
+    <div class="hero-symbol">
         🌩️
     </div>
 
 </section>
 
 
-<!-- =========================================
-     INTRODUCTION
-========================================= -->
+<!-- INTRO -->
 
-<section class="section reveal">
+<section class="section">
 
     <div class="storm-feature">
 
@@ -194,7 +120,8 @@
 
             <img
                 src="assets/images/orage.jpg"
-                alt="Orage">
+                alt="Orage"
+                loading="eager">
 
         </div>
 
@@ -210,9 +137,9 @@
             </h2>
 
             <p>
-                STORMLAB est un espace consacré à
-                la météorologie et aux phénomènes
-                atmosphériques violents.
+                STORMLAB est un espace consacré à la météorologie,
+                aux phénomènes atmosphériques violents et au
+                storm chasing.
             </p>
 
             <a href="pages/manuel.html" class="btn primary">
@@ -226,11 +153,9 @@
 </section>
 
 
-<!-- =========================================
-     EXPLORER
-========================================= -->
+<!-- CATEGORIES -->
 
-<section class="section reveal">
+<section class="section">
 
     <div class="section-title">
 
@@ -242,8 +167,7 @@
         </h2>
 
         <span>
-            Explore les principaux phénomènes
-            météorologiques.
+            Explore les principaux phénomènes météorologiques.
         </span>
 
     </div>
@@ -251,163 +175,128 @@
 
     <div class="cards">
 
-
         <article class="card">
-
-            <div class="card-icon">🌩️</div>
-
+            <span>🌩️</span>
             <h3>Orages</h3>
-
             <p>
                 Comprends leur formation,
                 leur évolution et leurs dangers.
             </p>
-
             <a href="pages/orages.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">🌀</div>
-
+            <span>🌀</span>
             <h3>Supercellules</h3>
-
             <p>
                 Découvre les orages organisés
                 capables de produire des phénomènes extrêmes.
             </p>
-
             <a href="pages/supercellules.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">🌪️</div>
-
+            <span>🌪️</span>
             <h3>Tornades</h3>
-
             <p>
                 Comprends leur formation,
                 leur structure et leur puissance.
             </p>
-
             <a href="pages/tornades.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">⚡</div>
-
+            <span>⚡</span>
             <h3>Foudre</h3>
-
             <p>
                 Découvre comment naissent
                 les éclairs et le tonnerre.
             </p>
-
             <a href="pages/foudre.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">📡</div>
-
+            <span>📡</span>
             <h3>Radar</h3>
-
             <p>
                 Apprends à comprendre les images
                 radar météorologiques.
             </p>
-
             <a href="pages/radar.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">🛰️</div>
-
+            <span>🛰️</span>
             <h3>Satellites</h3>
-
             <p>
                 Observe les systèmes météorologiques
                 depuis l'espace.
             </p>
-
             <a href="pages/satellites.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">🚗</div>
-
-            <h3>Storm Chasing</h3>
-
+            <span>🌧️</span>
+            <h3>Météorologie</h3>
             <p>
-                Découvre l'observation des tempêtes
-                et l'univers des chasseurs de tornades.
+                Apprends les bases nécessaires
+                pour comprendre l'atmosphère.
             </p>
-
-            <a href="pages/storm-chasing.html" class="card-link">
+            <a href="pages/meteorologie.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
 
 
         <article class="card">
-
-            <div class="card-icon">🔬</div>
-
-            <h3>Laboratoire</h3>
-
+            <span>🚨</span>
+            <h3>Alertes</h3>
             <p>
-                Expériences, phénomènes, analyses
-                et observations météorologiques.
+                Comprends les systèmes d'alerte
+                et les risques météorologiques.
             </p>
-
-            <a href="pages/laboratoire.html" class="card-link">
+            <a href="pages/alertes.html" class="card-link">
                 Explorer →
             </a>
-
         </article>
-
 
     </div>
 
 </section>
 
 
-<!-- =========================================
-     STORM CHASING
-========================================= -->
+<!-- STORM CHASING -->
 
-<section class="manual reveal">
+<section class="storm-chasing">
 
-    <div class="manual-content">
+    <div class="storm-chasing-image">
+
+        <img
+            src="assets/images/storm-chasing.jpg"
+            alt="Storm Chasing"
+            loading="lazy">
+
+    </div>
+
+    <div class="storm-chasing-content">
 
         <p class="eyebrow">
             02 • STORM CHASING
@@ -433,11 +322,9 @@
 </section>
 
 
-<!-- =========================================
-     REED TIMMER
-========================================= -->
+<!-- REED TIMMER -->
 
-<section class="section reveal">
+<section class="section">
 
     <div class="storm-feature">
 
@@ -445,7 +332,8 @@
 
             <img
                 src="assets/images/reed-timmer.jpg"
-                alt="Reed Timmer">
+                alt="Reed Timmer"
+                loading="lazy">
 
         </div>
 
@@ -477,17 +365,13 @@
 </section>
 
 
-<!-- =========================================
-     GALERIE
-========================================= -->
+<!-- GALERIE -->
 
-<section class="section dark-section reveal">
+<section class="section gallery-section">
 
     <div class="section-title">
 
-        <p>
-            03 • GALERIE
-        </p>
+        <p>03 • GALERIE</p>
 
         <h2>
             LE CIEL EN
@@ -556,11 +440,9 @@
 </section>
 
 
-<!-- =========================================
-     CTA
-========================================= -->
+<!-- FINAL -->
 
-<section class="chasing reveal">
+<section class="chasing">
 
     <p class="eyebrow">
         STORMLAB
@@ -581,13 +463,8 @@
 
 </section>
 
-
 </main>
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
 
 <footer>
 
@@ -602,9 +479,8 @@
     <div class="footer-links">
 
         <a href="pages/manuel.html">Manuel</a>
-        <a href="pages/galerie.html">Galerie</a>
         <a href="pages/storm-chasing.html">Storm Chasing</a>
-        <a href="pages/alertes.html">Alertes</a>
+        <a href="pages/galerie.html">Galerie</a>
 
     </div>
 
@@ -619,4 +495,3 @@
 
 </body>
 </html>
-```
