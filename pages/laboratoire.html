@@ -1,101 +1,350 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laboratoire — STORMLAB</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laboratoire — STORMLAB</title>
+
+    <meta name="description"
+          content="STORMLAB — Laboratoire de météorologie et observation des phénomènes atmosphériques.">
+
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
 <header class="navbar">
-<a href="../index.html" class="logo">🌪️ STORMLAB</a>
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="radar.html">📡 Radar</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="quiz.html">🧠 Quiz</a>
-<a href="galerie.html">📸 Galerie</a>
-</nav>
+
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">🌪️</span>
+        <span>STORMLAB</span>
+    </a>
+
+    <nav class="main-nav">
+
+        <a href="../index.html">Accueil</a>
+        <a href="manuel.html">📚 Manuel</a>
+        <a href="orages.html">🌩️ Orages</a>
+        <a href="supercellules.html">🌀 Supercellules</a>
+        <a href="tornades.html">🌪️ Tornades</a>
+        <a href="foudre.html">⚡ Foudre</a>
+        <a href="radar.html">📡 Radar</a>
+        <a href="satellites.html">🛰️ Satellites</a>
+        <a href="storm-chasing.html">🚗 Chasing</a>
+        <a href="reed-timmer.html">❤️ Reed Timmer</a>
+        <a href="galerie.html">📸 Galerie</a>
+        <a href="cartes.html">🗺️ Cartes</a>
+        <a href="alertes.html">🚨 Alertes</a>
+        <a href="quiz.html">🧠 Quiz</a>
+        <a href="laboratoire.html" class="active">🔬 Laboratoire</a>
+        <a href="videos.html">🎥 Vidéos</a>
+        <a href="actualites.html">📰 Actualités</a>
+
+    </nav>
+
+    <button class="mobile-menu-btn"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+        ☰
+    </button>
+
 </header>
+
+
+<div class="mobile-menu">
+
+    <a href="../index.html">🏠 Accueil</a>
+    <a href="manuel.html">📚 Manuel</a>
+    <a href="orages.html">🌩️ Orages</a>
+    <a href="supercellules.html">🌀 Supercellules</a>
+    <a href="tornades.html">🌪️ Tornades</a>
+    <a href="foudre.html">⚡ Foudre</a>
+    <a href="radar.html">📡 Radar</a>
+    <a href="satellites.html">🛰️ Satellites</a>
+    <a href="storm-chasing.html">🚗 Storm Chasing</a>
+    <a href="reed-timmer.html">❤️ Reed Timmer</a>
+    <a href="galerie.html">📸 Galerie</a>
+    <a href="cartes.html">🗺️ Cartes météo</a>
+    <a href="alertes.html">🚨 Alertes</a>
+    <a href="quiz.html">🧠 Quiz</a>
+    <a href="laboratoire.html" class="active">🔬 Laboratoire</a>
+    <a href="videos.html">🎥 Vidéos</a>
+    <a href="actualites.html">📰 Actualités</a>
+
+</div>
+
 
 <main>
 
 <section class="hero">
-<div class="hero-content">
-<p class="eyebrow">STORMLAB • RECHERCHE</p>
-<h1>LE <span>LABORATOIRE.</span></h1>
-<p class="hero-text">
-Un espace dédié aux expériences, observations et analyses
-pour comprendre les mécanismes météorologiques.
-</p>
-</div>
-<div class="hero-symbol">🔬</div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            STORMLAB • LABORATOIRE
+        </p>
+
+        <h1>
+            ENTRE DANS LE
+            <span>LAB.</span>
+        </h1>
+
+        <p class="hero-text">
+            Un espace consacré à l'analyse,
+            à l'observation et à la compréhension
+            des phénomènes atmosphériques.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="manuel.html" class="btn primary">
+                📚 Apprendre
+            </a>
+
+            <a href="quiz.html" class="btn secondary">
+                🧠 Tester mes connaissances
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-symbol">
+        🔬
+    </div>
+
 </section>
+
 
 <section class="section">
-<div class="section-title">
-<p>EXPÉRIENCES</p>
-<h2>La météo en pratique</h2>
-<span>Des expériences simples permettent d'observer certains phénomènes physiques.</span>
-</div>
 
-<div class="cards">
+    <div class="section-title">
 
-<article class="card">
-<span>☁️</span>
-<h3>Créer un nuage</h3>
-<p>Découvrir comment refroidissement, condensation et vapeur d'eau participent à la formation des nuages.</p>
-</article>
+        <p>01 • EXPÉRIENCES</p>
 
-<article class="card">
-<span>🌡️</span>
-<h3>Pression & température</h3>
-<p>Observer les relations entre température, densité de l'air et pression.</p>
-</article>
+        <h2>
+            OBSERVER.
+            <span>ANALYSER.</span>
+        </h2>
 
-<article class="card">
-<span>💨</span>
-<h3>Convection</h3>
-<p>Comprendre comment l'air chaud peut monter et provoquer des mouvements verticaux.</p>
-</article>
+        <span>
+            Comprendre les phénomènes commence
+            par l'observation.
+        </span>
 
-<article class="card">
-<span>⚡</span>
-<h3>Électricité</h3>
-<p>Explorer les principes physiques derrière les décharges électriques atmosphériques.</p>
-</article>
+    </div>
 
-</div>
+
+    <div class="cards">
+
+        <article class="card">
+            <span>🌡️</span>
+            <h3>Température</h3>
+            <p>
+                Étudier la température permet
+                de comprendre les différentes
+                masses d'air.
+            </p>
+        </article>
+
+
+        <article class="card">
+            <span>💨</span>
+            <h3>Vent</h3>
+            <p>
+                Observer le vent permet d'analyser
+                les mouvements de l'atmosphère.
+            </p>
+        </article>
+
+
+        <article class="card">
+            <span>💧</span>
+            <h3>Humidité</h3>
+            <p>
+                L'humidité influence fortement
+                la formation des nuages.
+            </p>
+        </article>
+
+
+        <article class="card">
+            <span>📊</span>
+            <h3>Données</h3>
+            <p>
+                Les données météorologiques permettent
+                de suivre l'évolution des phénomènes.
+            </p>
+        </article>
+
+    </div>
+
 </section>
+
 
 <section class="manual">
-<div class="manual-content">
-<p class="eyebrow">SCIENCE</p>
-<h2>Observer pour <span>comprendre.</span></h2>
-<p>La météorologie transforme les observations en données permettant d'analyser l'atmosphère.</p>
-<a href="manuel.html" class="btn primary">📚 Manuel</a>
-</div>
+
+    <div class="manual-content">
+
+        <p class="eyebrow">
+            02 • MÉTHODE
+        </p>
+
+        <h2>
+            LA SCIENCE
+            <span>AVANT TOUT.</span>
+        </h2>
+
+        <p>
+            Observer, mesurer, comparer et interpréter :
+            une bonne analyse météorologique repose
+            sur plusieurs sources d'informations.
+        </p>
+
+        <a href="cartes.html" class="btn primary">
+            🗺️ Explorer les cartes météo
+        </a>
+
+    </div>
+
 </section>
 
+
+<section class="section dark-section">
+
+    <div class="section-title">
+
+        <p>03 • OUTILS</p>
+
+        <h2>
+            LES YEUX DU
+            <span>MÉTÉOROLOGUE.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <span>📡</span>
+
+            <h3>Radar</h3>
+
+            <p>
+                Observer les précipitations
+                et certaines structures orageuses.
+            </p>
+
+            <a href="radar.html" class="btn primary">
+                Explorer →
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🛰️</span>
+
+            <h3>Satellite</h3>
+
+            <p>
+                Observer les nuages et les systèmes
+                météorologiques depuis l'espace.
+            </p>
+
+            <a href="satellites.html" class="btn primary">
+                Explorer →
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🗺️</span>
+
+            <h3>Cartes</h3>
+
+            <p>
+                Étudier les paramètres
+                de l'atmosphère.
+            </p>
+
+            <a href="cartes.html" class="btn primary">
+                Explorer →
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🧠</span>
+
+            <h3>Quiz</h3>
+
+            <p>
+                Vérifier tes connaissances
+                en météorologie.
+            </p>
+
+            <a href="quiz.html" class="btn primary">
+                Jouer →
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
 <section class="chasing">
-<p class="eyebrow">STORMLAB</p>
-<h2>WELCOME TO THE <span>LAB.</span></h2>
-<a href="../index.html" class="btn secondary">← Retour</a>
+
+    <p class="eyebrow">
+        STORMLAB
+    </p>
+
+    <h2>
+        NEVER STOP
+        <span>EXPLORING.</span>
+    </h2>
+
+    <p>
+        La météorologie est un laboratoire sans fin.
+    </p>
+
+    <a href="../index.html" class="btn secondary">
+        🌪️ Retour à l'accueil
+    </a>
+
 </section>
 
 </main>
 
+
 <footer>
-<div class="footer-logo">🌪️ STORMLAB</div>
-<p>Never Stop Chasing.</p>
-<p class="copyright">© 2026 STORMLAB</p>
+
+    <div class="footer-logo">
+        🌪️ STORMLAB
+    </div>
+
+    <p>Never Stop Chasing.</p>
+
+    <p class="copyright">© 2026 STORMLAB</p>
+
 </footer>
 
+
 <script src="../script.js"></script>
+
 </body>
 </html>
 ```
-
