@@ -1,1 +1,20 @@
-
+[
+    {
+        "id": 1,
+        "name": "Sean Casey",
+        "role": "DOCUMENTAIRE • IMAX",
+        "image": "../assets/images/sean-casey.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Joshua Wurman",
+        "role": "RECHERCHE • RADAR",
+        "image": "../assets/images/Joshua-Wurman.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Reed Timmer",
+        "role": "MÉTÉOROLOGIE • CHASING",
+        "image": "../assets/images/reed-timmer.jpg"
+    }
+]
