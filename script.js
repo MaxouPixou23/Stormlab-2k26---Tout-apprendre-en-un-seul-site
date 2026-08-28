@@ -2,22 +2,33 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
-       NAVBAR AU SCROLL
+       NAVBAR
     ========================================= */
 
-    const navbar = document.querySelector(".navbar");
+    const navbar =
+        document.querySelector(".navbar");
+
 
     if (navbar) {
 
         const updateNavbar = () => {
 
             if (window.scrollY > 40) {
-                navbar.classList.add("scrolled");
+
+                navbar.classList.add(
+                    "scrolled"
+                );
+
             } else {
-                navbar.classList.remove("scrolled");
+
+                navbar.classList.remove(
+                    "scrolled"
+                );
+
             }
 
         };
+
 
         window.addEventListener(
             "scroll",
@@ -25,31 +36,38 @@ document.addEventListener("DOMContentLoaded", () => {
             { passive: true }
         );
 
+
         updateNavbar();
+
     }
 
 
     /* =========================================
-       ANIMATIONS AU SCROLL
+       ANIMATIONS
     ========================================= */
 
-    const revealElements =
+    const elements =
         document.querySelectorAll(".reveal");
+
 
     if (
         "IntersectionObserver" in window &&
-        revealElements.length > 0
+        elements.length
     ) {
 
-        const revealObserver =
+        const observer =
             new IntersectionObserver(
                 (entries, observer) => {
 
                     entries.forEach(entry => {
 
-                        if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                            entry.target.classList.add("visible");
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
                             observer.unobserve(
                                 entry.target
@@ -62,19 +80,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 {
                     threshold: 0.12,
-                    rootMargin: "0px 0px -40px 0px"
+
+                    rootMargin:
+                        "0px 0px -40px 0px"
                 }
             );
 
 
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
+        elements.forEach(element => {
+
+            observer.observe(element);
+
         });
 
     } else {
 
-        revealElements.forEach(element => {
-            element.classList.add("visible");
+        elements.forEach(element => {
+
+            element.classList.add(
+                "visible"
+            );
+
         });
 
     }
@@ -85,19 +111,30 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     const menuButton =
-        document.querySelector(".mobile-menu-btn");
+        document.querySelector(
+            ".mobile-menu-btn"
+        );
 
     const mobileMenu =
-        document.querySelector(".mobile-menu");
+        document.querySelector(
+            ".mobile-menu"
+        );
 
 
-    if (menuButton && mobileMenu) {
+    if (
+        menuButton &&
+        mobileMenu
+    ) {
 
         const closeMenu = () => {
 
-            mobileMenu.classList.remove("open");
+            mobileMenu.classList.remove(
+                "open"
+            );
 
-            menuButton.classList.remove("active");
+            menuButton.classList.remove(
+                "active"
+            );
 
             menuButton.setAttribute(
                 "aria-expanded",
@@ -113,9 +150,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const openMenu = () => {
 
-            mobileMenu.classList.add("open");
+            mobileMenu.classList.add(
+                "open"
+            );
 
-            menuButton.classList.add("active");
+            menuButton.classList.add(
+                "active"
+            );
 
             menuButton.setAttribute(
                 "aria-expanded",
@@ -129,21 +170,27 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
 
-        menuButton.addEventListener("click", () => {
+        menuButton.addEventListener(
+            "click",
+            () => {
 
-            const isOpen =
-                mobileMenu.classList.contains("open");
+                if (
+                    mobileMenu.classList.contains(
+                        "open"
+                    )
+                ) {
 
-            if (isOpen) {
-                closeMenu();
-            } else {
-                openMenu();
+                    closeMenu();
+
+                } else {
+
+                    openMenu();
+
+                }
+
             }
+        );
 
-        });
-
-
-        /* Fermer après clic sur un lien */
 
         mobileMenu
             .querySelectorAll("a")
@@ -157,49 +204,56 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-        /* Fermer avec Échap */
-
         document.addEventListener(
             "keydown",
             event => {
 
                 if (
-                    event.key === "Escape" &&
-                    mobileMenu.classList.contains("open")
+                    event.key === "Escape"
                 ) {
+
                     closeMenu();
+
                 }
 
             }
         );
 
-
-        /* Fermer si on clique en dehors */
 
         document.addEventListener(
             "click",
             event => {
 
                 if (
-                    mobileMenu.classList.contains("open") &&
-                    !mobileMenu.contains(event.target) &&
-                    !menuButton.contains(event.target)
+                    mobileMenu.classList.contains(
+                        "open"
+                    ) &&
+                    !mobileMenu.contains(
+                        event.target
+                    ) &&
+                    !menuButton.contains(
+                        event.target
+                    )
                 ) {
+
                     closeMenu();
+
                 }
 
             }
         );
 
 
-        /* Fermer si retour sur écran PC */
-
         window.addEventListener(
             "resize",
             () => {
 
-                if (window.innerWidth > 780) {
+                if (
+                    window.innerWidth > 780
+                ) {
+
                     closeMenu();
+
                 }
 
             }
@@ -209,11 +263,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       ANNÉE AUTOMATIQUE
+       ANNÉE
     ========================================= */
 
     const year =
         new Date().getFullYear();
+
 
     document
         .querySelectorAll(".copyright")
@@ -226,54 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       PARALLAXE HERO
-    ========================================= */
-
-    const heroSymbol =
-        document.querySelector(".hero-symbol");
-
-
-    if (
-        heroSymbol &&
-        !window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        let ticking = false;
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (!ticking) {
-
-                    window.requestAnimationFrame(
-                        () => {
-
-                            const offset =
-                                window.scrollY * 0.08;
-
-                            heroSymbol.style.transform =
-                                `translateY(${offset}px)`;
-
-                            ticking = false;
-
-                        }
-                    );
-
-                    ticking = true;
-                }
-
-            },
-            { passive: true }
-        );
-
-    }
-
-
-    /* =========================================
-       GESTION DES IMAGES MANQUANTES
+       IMAGES
     ========================================= */
 
     document
@@ -288,10 +296,70 @@ document.addEventListener("DOMContentLoaded", () => {
                         "image-error"
                     );
 
+                    image.alt =
+                        "Image STORMLAB indisponible";
+
                 }
             );
 
         });
+
+
+    /* =========================================
+       PARALLAXE DU SYMBOLE
+    ========================================= */
+
+    const heroSymbol =
+        document.querySelector(
+            ".hero-symbol"
+        );
+
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+    if (
+        heroSymbol &&
+        !reducedMotion
+    ) {
+
+        let ticking = false;
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (ticking) return;
+
+
+                window.requestAnimationFrame(
+                    () => {
+
+                        const offset =
+                            window.scrollY * 0.06;
+
+
+                        heroSymbol.style.transform =
+                            `translateY(${offset}px)`;
+
+
+                        ticking = false;
+
+                    }
+                );
+
+
+                ticking = true;
+
+            },
+            { passive: true }
+        );
+
+    }
 
 });
 ```
