@@ -1,4 +1,8 @@
 ```css
+/* =========================================
+   STORMLAB — STYLE PRINCIPAL
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +11,7 @@
 
 html {
     scroll-behavior: smooth;
+    zoom: 1;
 }
 
 body {
@@ -14,12 +19,23 @@ body {
     background: #05070b;
     color: #ffffff;
     line-height: 1.6;
+    overflow-x: hidden;
+    zoom: 1;
 }
 
 a {
     color: inherit;
     text-decoration: none;
 }
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
 
 .navbar {
     position: fixed;
@@ -31,6 +47,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 25px;
 
     padding: 18px 5%;
 
@@ -39,7 +56,9 @@ a {
 
     border-bottom: 1px solid rgba(255,255,255,0.08);
 
-    transition: 0.3s;
+    transition:
+        padding 0.3s ease,
+        background 0.3s ease;
 }
 
 .navbar.scrolled {
@@ -55,6 +74,8 @@ a {
     font-size: 21px;
     font-weight: 900;
     letter-spacing: 2px;
+
+    white-space: nowrap;
 }
 
 .logo-icon {
@@ -63,21 +84,107 @@ a {
 
 .main-nav {
     display: flex;
-    gap: 22px;
     align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .main-nav a {
+    padding: 8px 10px;
+    border-radius: 8px;
+
     font-size: 13px;
     font-weight: 700;
+
     opacity: 0.72;
-    transition: 0.25s;
+
+    transition:
+        opacity 0.25s ease,
+        background 0.25s ease;
 }
 
 .main-nav a:hover {
     opacity: 1;
-    transform: translateY(-2px);
+    background: rgba(255,255,255,0.07);
 }
+
+
+/* =========================================
+   MENU MOBILE
+========================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 9px 13px;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    touch-action: manipulation;
+}
+
+.mobile-menu {
+    display: none;
+
+    position: fixed;
+
+    top: 75px;
+    left: 5%;
+    right: 5%;
+
+    z-index: 999;
+
+    padding: 20px;
+
+    background: rgba(5,7,11,0.97);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.mobile-menu.open {
+    display: grid;
+    gap: 8px;
+}
+
+.mobile-menu a {
+    display: block;
+
+    padding: 12px;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+    font-weight: 700;
+
+    transition: background 0.2s ease;
+}
+
+.mobile-menu a:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
 
 .hero {
     min-height: 90vh;
@@ -89,8 +196,16 @@ a {
     padding: 150px 8% 80px;
 
     background:
-        radial-gradient(circle at 80% 40%, rgba(80,130,255,0.15), transparent 35%),
-        radial-gradient(circle at 20% 70%, rgba(255,255,255,0.04), transparent 30%);
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(80,130,255,0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(255,255,255,0.04),
+            transparent 30%
+        );
 }
 
 .hero-content {
@@ -115,16 +230,21 @@ a {
 .hero h1 span,
 .section-title h2 span,
 .manual h2 span,
-.chasing h2 span {
+.chasing h2 span,
+.storm-feature-content h2 span {
     background: linear-gradient(90deg, #ffffff, #7fa7ff);
+
     -webkit-background-clip: text;
     background-clip: text;
+
     color: transparent;
 }
 
 .hero-text {
     max-width: 680px;
+
     margin: 30px 0;
+
     font-size: 18px;
     color: rgba(255,255,255,0.68);
 }
@@ -135,22 +255,69 @@ a {
     flex-wrap: wrap;
 }
 
+.hero-symbol {
+    font-size: clamp(90px, 14vw, 190px);
+
+    filter:
+        drop-shadow(
+            0 0 40px rgba(255,255,255,0.12)
+        );
+
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* =========================================
+   BOUTONS
+========================================= */
+
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
+    min-height: 44px;
+
     padding: 13px 22px;
+
     border-radius: 10px;
 
     font-size: 14px;
     font-weight: 800;
 
-    transition: 0.25s;
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        opacity 0.25s ease;
+
+    transform: none !important;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: none !important;
+}
+
+.btn:active,
+.btn:focus {
+    transform: none !important;
 }
 
 .btn.primary {
@@ -163,21 +330,10 @@ a {
     background: rgba(255,255,255,0.04);
 }
 
-.hero-symbol {
-    font-size: clamp(90px, 14vw, 190px);
-    filter: drop-shadow(0 0 40px rgba(255,255,255,0.12));
-    animation: float 4s ease-in-out infinite;
-}
 
-@keyframes float {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
+/* =========================================
+   SECTIONS
+========================================= */
 
 .section {
     padding: 110px 8%;
@@ -206,9 +362,17 @@ a {
     color: rgba(255,255,255,0.6);
 }
 
+
+/* =========================================
+   CARTES
+========================================= */
+
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
     gap: 18px;
 }
 
@@ -223,25 +387,41 @@ a {
 
     border-radius: 18px;
 
-    transition: 0.3s;
+    opacity: 1;
 
-    opacity: 0;
-    transform: translateY(25px);
+    transform: none !important;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .card.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none !important;
 }
 
 .card:hover {
-    transform: translateY(-7px);
+    transform: none !important;
+
     background: rgba(255,255,255,0.06);
+
+    border-color: rgba(255,255,255,0.16);
+}
+
+.card:active,
+.card:focus,
+.card:focus-visible {
+    transform: none !important;
+    scale: 1 !important;
 }
 
 .card > span {
     display: block;
+
     font-size: 28px;
+
     margin-bottom: 20px;
 }
 
@@ -259,14 +439,78 @@ a {
     margin-top: 20px;
 }
 
+
+/* =========================================
+   IMAGE FEATURE
+========================================= */
+
+.storm-feature {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, 1fr);
+
+    min-height: 430px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.035);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.storm-feature img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 430px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.storm-feature-content {
+    padding: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.storm-feature-content h2 {
+    font-size: clamp(32px, 4vw, 55px);
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.storm-feature-content p:not(.eyebrow) {
+    color: rgba(255,255,255,0.6);
+}
+
+
+/* =========================================
+   MANUEL
+========================================= */
+
 .manual {
     margin: 30px 8%;
+
     padding: 90px 8%;
 
     border-radius: 30px;
 
     background:
-        radial-gradient(circle at 80% 20%, rgba(90,130,255,0.18), transparent 40%),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(90,130,255,0.18),
+            transparent 40%
+        ),
         rgba(255,255,255,0.035);
 
     border: 1px solid rgba(255,255,255,0.08);
@@ -278,78 +522,200 @@ a {
 
 .manual h2 {
     font-size: clamp(38px, 5vw, 70px);
+
     line-height: 1;
+
     margin-bottom: 25px;
 }
 
 .manual p:not(.eyebrow) {
     color: rgba(255,255,255,0.62);
+
     margin-bottom: 30px;
 }
+
+
+/* =========================================
+   GALERIE
+========================================= */
 
 .dark-section {
     background: #030509;
 }
 
+.storm-gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.storm-photo {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    min-height: 280px;
+
+    background: #080b12;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition:
+        border-color 0.35s ease;
+}
+
+.storm-photo img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 280px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+.storm-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.8),
+            transparent 55%
+        );
+
+    pointer-events: none;
+}
+
+.storm-photo:hover {
+    border-color: rgba(255,255,255,0.25);
+}
+
+.storm-photo figcaption {
+    position: absolute;
+
+    left: 20px;
+    bottom: 18px;
+
+    z-index: 2;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   CHASING
+========================================= */
+
 .chasing {
     padding: 130px 8%;
+
     text-align: center;
 
     background:
-        radial-gradient(circle, rgba(70,110,255,0.12), transparent 55%);
+        radial-gradient(
+            circle,
+            rgba(70,110,255,0.12),
+            transparent 55%
+        );
 }
 
 .chasing h2 {
     font-size: clamp(45px, 7vw, 90px);
+
     line-height: 1;
+
     margin-bottom: 20px;
 }
 
 .chasing p:not(.eyebrow) {
     color: rgba(255,255,255,0.58);
+
     margin-bottom: 30px;
 }
 
+
+/* =========================================
+   FOOTER
+========================================= */
+
 footer {
     padding: 50px 8%;
+
     border-top: 1px solid rgba(255,255,255,0.08);
+
     text-align: center;
+
     color: rgba(255,255,255,0.5);
 }
 
 .footer-logo {
     color: #ffffff;
+
     font-weight: 900;
+
     font-size: 20px;
+
     margin-bottom: 8px;
 }
 
 .copyright {
     margin-top: 15px;
+
     font-size: 12px;
+
     opacity: 0.5;
 }
+
+
+/* =========================================
+   TABLETTE
+========================================= */
 
 @media (max-width: 1000px) {
 
     .main-nav {
-        gap: 10px;
+        gap: 4px;
     }
 
     .main-nav a {
+        padding: 7px 8px;
         font-size: 11px;
     }
 
     .cards {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .hero-symbol {
         display: none;
     }
+
 }
 
-@media (max-width: 650px) {
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
 
     .navbar {
         padding: 15px 5%;
@@ -359,8 +725,17 @@ footer {
         display: none;
     }
 
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
     .hero {
         min-height: 80vh;
+
         padding: 130px 7% 60px;
     }
 
@@ -382,148 +757,13 @@ footer {
 
     .manual {
         margin: 20px 5%;
+
         padding: 60px 8%;
     }
 
     .chasing {
         padding: 90px 7%;
     }
-
-}
-```
-```css
-/* =========================================
-   STORMLAB — GALERIE
-========================================= */
-
-.storm-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.storm-photo {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    min-height: 280px;
-    background: #080b12;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: transform 0.35s ease, border-color 0.35s ease;
-}
-
-.storm-photo img {
-    width: 100%;
-    height: 100%;
-    min-height: 280px;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.storm-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.8),
-        transparent 55%
-    );
-    pointer-events: none;
-}
-
-.storm-photo:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255,255,255,0.25);
-}
-
-.storm-photo:hover img {
-    transform: scale(1.08);
-}
-
-.storm-photo figcaption {
-    position: absolute;
-    left: 20px;
-    bottom: 18px;
-    z-index: 2;
-
-    font-size: 16px;
-    font-weight: 800;
-
-    color: #ffffff;
-}
-
-@media (max-width: 900px) {
-
-    .storm-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .storm-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .storm-photo,
-    .storm-photo img {
-        min-height: 240px;
-    }
-
-}
-```
-```css
-/* =========================================
-   STORMLAB — IMAGE FEATURE
-========================================= */
-
-.storm-feature {
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    min-height: 430px;
-    overflow: hidden;
-
-    border-radius: 24px;
-
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-.storm-feature img {
-    width: 100%;
-    height: 100%;
-    min-height: 430px;
-    object-fit: cover;
-}
-
-.storm-feature-content {
-    padding: 55px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.storm-feature-content h2 {
-    font-size: clamp(32px, 4vw, 55px);
-    line-height: 1.05;
-    margin-bottom: 20px;
-}
-
-.storm-feature-content h2 span {
-    background: linear-gradient(90deg, #ffffff, #7fa7ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.storm-feature-content p:not(.eyebrow) {
-    color: rgba(255,255,255,0.6);
-}
-
-@media (max-width: 800px) {
 
     .storm-feature {
         grid-template-columns: 1fr;
@@ -537,149 +777,45 @@ footer {
         padding: 35px;
     }
 
+    .storm-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .storm-photo,
+    .storm-photo img {
+        min-height: 240px;
+    }
+
 }
-```
-```css
+
+
 /* =========================================
-   STORMLAB — NAVIGATION COMPLETE
+   PETITS ÉCRANS
 ========================================= */
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
+@media (max-width: 480px) {
 
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-.main-nav a {
-    padding: 8px 11px;
-    border-radius: 8px;
-    transition: 0.25s ease;
-}
-
-.main-nav a:hover {
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-2px);
-}
-
-@media (max-width: 1100px) {
-
-    .main-nav {
-        gap: 3px;
+    .logo {
+        font-size: 18px;
     }
 
-    .main-nav a {
-        padding: 7px 8px;
-        font-size: 11px;
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
     }
 
-}
-
-@media (max-width: 750px) {
-
-    .navbar {
-        justify-content: center;
+    .section {
+        padding-left: 6%;
+        padding-right: 6%;
     }
 
-    .main-nav {
-        display: none;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-}
-```
-```css
-/* =========================================
-   STORMLAB — MENU MOBILE
-========================================= */
-
-.mobile-menu-btn {
-    display: none;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.05);
-    color: #fff;
-    border-radius: 10px;
-    padding: 10px 13px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 75px;
-    left: 5%;
-    right: 5%;
-    z-index: 999;
-
-    padding: 20px;
-
-    background: rgba(5,7,11,0.97);
-    backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-}
-
-.mobile-menu.open {
-    display: grid;
-    gap: 8px;
-}
-
-.mobile-menu a {
-    padding: 12px;
-    border-radius: 9px;
-    color: #fff;
-    font-weight: 700;
-}
-
-.mobile-menu a:hover {
-    background: rgba(255,255,255,0.08);
-}
-
-@media (max-width: 750px) {
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
-}
-```
-```css id="p8y3zk"
-/* =========================================
-   STORMLAB — FIX ZOOM / AGRANDISSEMENT
-========================================= */
-
-html {
-    zoom: 1 !important;
-}
-
-body {
-    zoom: 1 !important;
-    transform: none !important;
-}
-
-a,
-button {
-    touch-action: manipulation;
-}
-
-@media (max-width: 750px) {
-
-    html,
-    body {
+    .btn {
         width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
     }
 
 }
