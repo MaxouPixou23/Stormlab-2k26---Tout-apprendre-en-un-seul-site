@@ -1,1 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard — STORMLAB ADMIN</title>
+
+<link
+    rel="stylesheet"
+    href="css/admin.css">
+```
+
+</head>
+
+<body class="admin-page">
+
+<div class="admin-layout">
+
+```
+<aside
+    id="adminSidebar"
+    class="admin-sidebar">
+
+    <div class="sidebar-brand">
+        <span>🌪️</span>
+        <div>
+            <strong>STORMLAB</strong>
+            <small>ADMIN V2</small>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <a
+            href="dashboard.html"
+            class="sidebar-link active">
+            📊
+            <span>Dashboard</span>
+        </a>
+
+        <a
+            href="chasseurs.html"
+            class="sidebar-link">
+            👥
+            <span>Chasseurs</span>
+        </a>
+
+        <a
+            href="actualites.html"
+            class="sidebar-link">
+            📰
+            <span>Actualités</span>
+        </a>
+
+        <a
+            href="alertes.html"
+            class="sidebar-link">
+            🚨
+            <span>Alertes</span>
+        </a>
+
+        <a
+            href="galerie.html"
+            class="sidebar-link">
+            🖼️
+            <span>Galerie</span>
+        </a>
+
+        <a
+            href="videos.html"
+            class="sidebar-link">
+            🎥
+            <span>Vidéos</span>
+        </a>
+
+        <a
+            href="parametres.html"
+            class="sidebar-link">
+            ⚙️
+            <span>Paramètres</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <button
+            data-logout
+            class="sidebar-logout">
+            ↪ Déconnexion
+        </button>
+
+        <div class="sidebar-slogan">
+            NEVER STOP CHASING
+        </div>
+
+    </div>
+
+</aside>
+
+
+<main class="admin-main">
+
+    <header class="admin-header">
+
+        <button
+            id="sidebarToggle"
+            class="sidebar-toggle">
+            ☰
+        </button>
+
+        <div>
+            <span class="eyebrow">
+                STORMLAB V2
+            </span>
+
+            <h1>
+                Tableau de bord
+            </h1>
+        </div>
+
+        <div class="admin-status">
+            <span></span>
+            SYSTEM ONLINE
+        </div>
+
+    </header>
+
+
+    <section class="admin-content">
+
+        <div class="stats-grid">
+
+            <a
+                href="chasseurs.html"
+                class="stat-card">
+
+                <span class="stat-icon">
+                    👥
+                </span>
+
+                <div>
+                    <small>
+                        CHASSEURS
+                    </small>
+
+                    <strong id="countChasseurs">
+                        0
+                    </strong>
+                </div>
+
+            </a>
+
+
+            <a
+                href="actualites.html"
+                class="stat-card">
+
+                <span class="stat-icon">
+                    📰
+                </span>
+
+                <div>
+                    <small>
+                        ACTUALITÉS
+                    </small>
+
+                    <strong id="countActualites">
+                        0
+                    </strong>
+                </div>
+
+            </a>
+
+
+            <a
+                href="alertes.html"
+                class="stat-card">
+
+                <span class="stat-icon">
+                    🚨
+                </span>
+
+                <div>
+                    <small>
+                        ALERTES
+                    </small>
+
+                    <strong id="countAlertes">
+                        0
+                    </strong>
+                </div>
+
+            </a>
+
+
+            <a
+                href="galerie.html"
+                class="stat-card">
+
+                <span class="stat-icon">
+                    🖼️
+                </span>
+
+                <div>
+                    <small>
+                        GALERIE
+                    </small>
+
+                    <strong id="countGalerie">
+                        0
+                    </strong>
+                </div>
+
+            </a>
+
+
+            <a
+                href="videos.html"
+                class="stat-card">
+
+                <span class="stat-icon">
+                    🎥
+                </span>
+
+                <div>
+                    <small>
+                        VIDÉOS
+                    </small>
+
+                    <strong id="countVideos">
+                        0
+                    </strong>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <section class="admin-panel">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACTIONS RAPIDES
+                    </span>
+
+                    <h2>
+                        Gérer STORMLAB
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <a
+                    href="chasseurs.html"
+                    class="quick-action">
+                    <span>👥</span>
+                    <strong>
+                        Ajouter un chasseur
+                    </strong>
+                </a>
+
+                <a
+                    href="actualites.html"
+                    class="quick-action">
+                    <span>📰</span>
+                    <strong>
+                        Nouvelle actualité
+                    </strong>
+                </a>
+
+                <a
+                    href="alertes.html"
+                    class="quick-action">
+                    <span>🚨</span>
+                    <strong>
+                        Nouvelle alerte
+                    </strong>
+                </a>
+
+                <a
+                    href="galerie.html"
+                    class="quick-action">
+                    <span>🖼️</span>
+                    <strong>
+                        Ajouter une image
+                    </strong>
+                </a>
+
+                <a
+                    href="videos.html"
+                    class="quick-action">
+                    <span>🎥</span>
+                    <strong>
+                        Ajouter une vidéo
+                    </strong>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="system-grid">
+
+            <div class="admin-panel">
+
+                <span class="eyebrow">
+                    SYSTÈME
+                </span>
+
+                <h2>
+                    État de STORMLAB
+                </h2>
+
+                <div class="system-list">
+
+                    <div>
+                        <span>
+                            Site
+                        </span>
+
+                        <strong class="online">
+                            ONLINE
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            Interface
+                        </span>
+
+                        <strong class="online">
+                            ONLINE
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            Stockage local
+                        </span>
+
+                        <strong class="online">
+                            ACTIVE
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-panel">
+
+                <span class="eyebrow">
+                    MAINTENANCE
+                </span>
+
+                <h2>
+                    Données
+                </h2>
+
+                <p class="panel-description">
+                    Les données actuelles sont stockées
+                    localement dans le navigateur.
+                </p>
+
+                <button
+                    id="resetData"
+                    class="admin-button danger">
+                    Réinitialiser les données
+                </button>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+```
+
+</div>
+
+<script src="js/auth.js"></script>
+
+<script src="js/data.js"></script>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>
 
