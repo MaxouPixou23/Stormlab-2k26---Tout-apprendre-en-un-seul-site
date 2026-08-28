@@ -1,324 +1,186 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Météorologie — STORMLAB</title>
-
-    <meta name="description"
-          content="STORMLAB — Comprendre les bases de la météorologie et de l'atmosphère.">
-
-    <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Météorologie — STORMLAB</title>
+<meta name="description" content="STORMLAB — Les bases de la météorologie.">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
 <header class="navbar">
+<a href="../index.html" class="logo">🌪️ STORMLAB</a>
 
-    <a href="../index.html" class="logo">
-        🌪️ STORMLAB
-    </a>
+<nav class="main-nav">
+<a href="../index.html">Accueil</a>
+<a href="manuel.html">📚 Manuel</a>
+<a href="meteorologie.html">🌧️ Météorologie</a>
+<a href="orages.html">🌩️ Orages</a>
+<a href="supercellules.html">🌀 Supercellules</a>
+<a href="tornades.html">🌪️ Tornades</a>
+<a href="foudre.html">⚡ Foudre</a>
+<a href="radar.html">📡 Radar</a>
+<a href="satellites.html">🛰️ Satellites</a>
+</nav>
 
-    <nav class="main-nav">
+<button class="mobile-menu-btn">☰</button>
 
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
-
-    </nav>
-
-    <button class="mobile-menu-btn"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false">
-        ☰
-    </button>
-
-    <div class="mobile-menu">
-
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
-
-    </div>
-
+<div class="mobile-menu">
+<a href="../index.html">🏠 Accueil</a>
+<a href="manuel.html">📚 Manuel</a>
+<a href="meteorologie.html">🌧️ Météorologie</a>
+<a href="orages.html">🌩️ Orages</a>
+<a href="supercellules.html">🌀 Supercellules</a>
+<a href="tornades.html">🌪️ Tornades</a>
+<a href="foudre.html">⚡ Foudre</a>
+<a href="radar.html">📡 Radar</a>
+<a href="satellites.html">🛰️ Satellites</a>
+<a href="storm-chasing.html">🚗 Storm Chasing</a>
+<a href="reed-timmer.html">❤️ Reed Timmer</a>
+<a href="galerie.html">📸 Galerie</a>
+<a href="cartes.html">🗺️ Cartes météo</a>
+<a href="alertes.html">🚨 Alertes</a>
+<a href="quiz.html">🧠 Quiz</a>
+<a href="laboratoire.html">🔬 Laboratoire</a>
+<a href="videos.html">🎥 Vidéos</a>
+<a href="actualites.html">📰 Actualités</a>
+</div>
 </header>
-
 
 <main>
 
 <section class="hero">
+<div class="hero-content">
+<p class="eyebrow">STORMLAB • MÉTÉOROLOGIE</p>
 
-    <div class="hero-content">
+<h1>
+LA
+<span>MÉTÉO.</span>
+</h1>
 
-        <p class="eyebrow">
-            STORMLAB • MÉTÉOROLOGIE
-        </p>
+<p class="hero-text">
+Comprendre l'atmosphère, la pression, la température,
+le vent, l'humidité et les systèmes météorologiques.
+</p>
 
-        <h1>
-            LA
-            <span>MÉTÉO.</span>
-        </h1>
+<div class="hero-buttons">
+<a href="manuel.html" class="btn primary">📚 Manuel</a>
+<a href="radar.html" class="btn secondary">📡 Radar</a>
+</div>
+</div>
 
-        <p class="hero-text">
-            Comprendre l'atmosphère, les échanges de chaleur,
-            la pression, l'humidité, le vent et la stabilité.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="manuel.html" class="btn primary">
-                📚 Manuel
-            </a>
-
-            <a href="orages.html" class="btn secondary">
-                🌩️ Étudier les orages
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="hero-symbol">
-        🌧️
-    </div>
-
+<div class="hero-symbol">🌧️</div>
 </section>
-
 
 <section class="section">
 
-    <div class="section-title">
+<div class="section-title">
+<p>01 • BASES</p>
 
-        <p>01 • ATMOSPHÈRE</p>
+<h2>
+LES INGRÉDIENTS DE LA
+<span>MÉTÉO.</span>
+</h2>
+</div>
 
-        <h2>
-            L'AIR QUI
-            <span>NOUS ENTOURE.</span>
-        </h2>
+<div class="cards">
 
-        <span>
-            L'atmosphère est une enveloppe dynamique
-            composée principalement de gaz.
-        </span>
+<article class="card">
+<span>🌡️</span>
+<h3>Température</h3>
+<p>
+La température mesure le degré de chaleur de l'air
+et influence fortement les phénomènes météo.
+</p>
+</article>
 
-    </div>
+<article class="card">
+<span>💧</span>
+<h3>Humidité</h3>
+<p>
+L'humidité représente la quantité de vapeur d'eau
+présente dans l'atmosphère.
+</p>
+</article>
 
-    <div class="cards">
+<article class="card">
+<span>🎈</span>
+<h3>Pression</h3>
+<p>
+Les variations de pression permettent notamment
+d'identifier les zones dépressionnaires et anticycloniques.
+</p>
+</article>
 
-        <article class="card">
-            <span>🌍</span>
-            <h3>Troposphère</h3>
-            <p>
-                C'est dans cette couche que se produisent
-                la majorité des phénomènes météorologiques.
-            </p>
-        </article>
+<article class="card">
+<span>💨</span>
+<h3>Vent</h3>
+<p>
+Le vent correspond au déplacement de l'air
+d'une zone de pression vers une autre.
+</p>
+</article>
 
-        <article class="card">
-            <span>🌡️</span>
-            <h3>Température</h3>
-            <p>
-                Elle influence la densité de l'air,
-                les mouvements verticaux et les nuages.
-            </p>
-        </article>
-
-        <article class="card">
-            <span>💧</span>
-            <h3>Vapeur d'eau</h3>
-            <p>
-                L'humidité atmosphérique joue un rôle majeur
-                dans la formation des nuages et des précipitations.
-            </p>
-        </article>
-
-        <article class="card">
-            <span>💨</span>
-            <h3>Pression</h3>
-            <p>
-                Les différences de pression sont à l'origine
-                de nombreux mouvements de l'air.
-            </p>
-        </article>
-
-    </div>
-
+</div>
 </section>
-
 
 <section class="section dark-section">
 
-    <div class="section-title">
+<div class="section-title">
+<p>02 • ATMOSPHÈRE</p>
 
-        <p>02 • DYNAMIQUE</p>
+<h2>
+UNE MACHINE
+<span>COMPLEXE.</span>
+</h2>
 
-        <h2>
-            QUAND
-            <span>L'AIR BOUGE.</span>
-        </h2>
+<span>
+L'atmosphère est constamment en mouvement.
+</span>
+</div>
 
-    </div>
+<div class="storm-feature">
 
-    <div class="cards">
+<img src="../assets/images/orage.jpg" alt="Atmosphère">
 
-        <article class="card">
+<div class="storm-feature-content">
+<p class="eyebrow">DYNAMIQUE ATMOSPHÉRIQUE</p>
 
-            <span>💨</span>
+<h2>
+Le temps
+<span>change.</span>
+</h2>
 
-            <h3>Vent</h3>
+<p>
+L'énergie solaire, les différences de température,
+l'humidité et la pression participent à la création
+des systèmes météorologiques.
+</p>
+</div>
 
-            <p>
-                Le vent correspond au déplacement de l'air
-                provoqué notamment par les différences de pression.
-            </p>
-
-        </article>
-
-        <article class="card">
-
-            <span>⬆️</span>
-
-            <h3>Ascendance</h3>
-
-            <p>
-                Un mouvement ascendant peut transporter
-                de l'air chaud et humide vers les hauteurs.
-            </p>
-
-        </article>
-
-        <article class="card">
-
-            <span>⬇️</span>
-
-            <h3>Subsidence</h3>
-
-            <p>
-                Un mouvement descendant peut favoriser
-                l'assèchement et la stabilisation de l'air.
-            </p>
-
-        </article>
-
-        <article class="card">
-
-            <span>🔄</span>
-
-            <h3>Convection</h3>
-
-            <p>
-                Les différences de température peuvent
-                organiser de puissants mouvements verticaux.
-            </p>
-
-        </article>
-
-    </div>
-
+</div>
 </section>
-
-
-<section class="manual">
-
-    <div class="manual-content">
-
-        <p class="eyebrow">
-            03 • STABILITÉ
-        </p>
-
-        <h2>
-            L'ÉQUILIBRE DE
-            <span>L'ATMOSPHÈRE.</span>
-        </h2>
-
-        <p>
-            Une atmosphère instable favorise les mouvements
-            verticaux. Lorsque l'humidité et l'énergie
-            disponibles sont suffisantes, la convection
-            peut devenir particulièrement intense.
-        </p>
-
-        <a href="orages.html" class="btn primary">
-            🌩️ Comprendre les orages
-        </a>
-
-    </div>
-
-</section>
-
 
 <section class="chasing">
-
-    <p class="eyebrow">
-        STORMLAB
-    </p>
-
-    <h2>
-        WATCH THE
-        <span>SKY.</span>
-    </h2>
-
-    <p>
-        La météorologie commence par l'observation.
-    </p>
-
-    <a href="radar.html" class="btn secondary">
-        📡 Lire un radar
-    </a>
-
+<p class="eyebrow">STORMLAB</p>
+<h2>
+LE CIEL N'A
+<span>JAMAIS FINI.</span>
+</h2>
+<p>Continue ton exploration météorologique.</p>
+<a href="orages.html" class="btn secondary">🌩️ Étudier les orages</a>
 </section>
 
 </main>
 
-
 <footer>
-
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
-
-    <p>
-        Never Stop Chasing.
-    </p>
-
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
-
+<div class="footer-logo">🌪️ STORMLAB</div>
+<p>Never Stop Chasing.</p>
+<p class="copyright">© 2026 STORMLAB</p>
 </footer>
 
 <script src="../script.js"></script>
-
 </body>
 </html>
