@@ -1,7 +1,7 @@
 ```css
 /* =========================================================
    STORMLAB V2
-   GLOBAL STYLE — VERSION CORRIGÉE
+   GLOBAL STYLE
 ========================================================= */
 
 * {
@@ -84,7 +84,7 @@ a {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 35px 0 24px;
+    padding: 0 34px 0 24px;
 
     background:
         linear-gradient(
@@ -99,7 +99,7 @@ a {
     box-shadow:
         0 8px 35px rgba(0, 0, 0, .35);
 
-    z-index: 999999;
+    z-index: 99999;
 }
 
 
@@ -141,7 +141,7 @@ a {
 
 
 /* =========================================================
-   BOUTON MENU
+   MENU BUTTON
 ========================================================= */
 
 .mobile-menu-btn {
@@ -180,15 +180,13 @@ a {
 
     cursor: pointer;
 
-    z-index: 1000001;
+    z-index: 100001;
 
     appearance: none;
 
-    -webkit-appearance: none;
+    pointer-events: auto;
 
     touch-action: manipulation;
-
-    pointer-events: auto;
 
     transition:
         background .2s ease,
@@ -221,18 +219,15 @@ a {
 
 .main-nav {
     display: none;
+
+    pointer-events: none;
 }
-
-
-/*
-   IMPORTANT :
-   Le menu est toujours positionné à 35px de la droite.
-*/
 
 .navbar.menu-open .main-nav {
     position: fixed;
 
     top: 84px;
+
     right: 35px;
 
     width: 360px;
@@ -251,6 +246,8 @@ a {
 
     overflow-y: auto;
     overflow-x: hidden;
+
+    pointer-events: auto;
 
     background:
         radial-gradient(
@@ -274,9 +271,7 @@ a {
         0 25px 80px rgba(0, 0, 0, .80),
         0 0 35px rgba(35, 136, 255, .12);
 
-    z-index: 1000000;
-
-    isolation: isolate;
+    z-index: 100000;
 
     animation:
         stormlabMenuOpen .18s ease-out;
@@ -359,7 +354,7 @@ a {
 
 
 /* =========================================================
-   GROUPES
+   MENU GROUPS
 ========================================================= */
 
 .menu-group {
@@ -384,7 +379,7 @@ a {
 
 
 /* =========================================================
-   LIENS
+   MENU LINKS
 ========================================================= */
 
 .menu-link {
@@ -469,8 +464,6 @@ a {
     justify-content: center;
 
     font-size: 17px;
-
-    pointer-events: none;
 }
 
 .menu-name {
@@ -479,8 +472,6 @@ a {
     white-space: nowrap;
 
     text-overflow: ellipsis;
-
-    pointer-events: none;
 }
 
 .menu-arrow {
@@ -491,8 +482,6 @@ a {
     line-height: 1;
 
     text-align: right;
-
-    pointer-events: none;
 }
 
 .menu-link:hover .menu-arrow {
@@ -505,7 +494,7 @@ a {
 
 
 /* =========================================================
-   SÉPARATEUR
+   MENU SEPARATOR
 ========================================================= */
 
 .menu-separator {
@@ -526,7 +515,7 @@ a {
 
 
 /* =========================================================
-   FOOTER MENU
+   MENU FOOTER
 ========================================================= */
 
 .menu-footer {
@@ -675,6 +664,8 @@ a {
     font-size: 13px;
     font-weight: 900;
 
+    cursor: pointer;
+
     transition:
         transform .2s ease,
         box-shadow .2s ease,
@@ -700,6 +691,11 @@ a {
         0 10px 30px rgba(35, 136, 255, .20);
 }
 
+.btn.primary:hover {
+    box-shadow:
+        0 14px 35px rgba(35, 136, 255, .32);
+}
+
 .btn.secondary {
     color: #dceaff;
 
@@ -708,6 +704,51 @@ a {
 
     border:
         1px solid rgba(0, 217, 255, .25);
+}
+
+.btn.secondary:hover {
+    background:
+        rgba(0, 217, 255, .10);
+
+    border-color:
+        rgba(0, 217, 255, .50);
+}
+
+.hero-symbol {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 300px;
+    height: 300px;
+
+    flex: 0 0 300px;
+
+    font-size: 150px;
+
+    filter:
+        drop-shadow(
+            0 0 35px rgba(0, 217, 255, .25)
+        );
+
+    animation:
+        stormFloat 5s ease-in-out infinite;
+}
+
+@keyframes stormFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
 }
 
 
@@ -805,6 +846,14 @@ a {
     display: block;
 
     object-fit: cover;
+
+    transition:
+        transform .6s ease;
+}
+
+.storm-feature:hover img {
+    transform:
+        scale(1.04);
 }
 
 .storm-feature-content {
@@ -868,6 +917,22 @@ a {
         1px solid rgba(79, 151, 255, .12);
 
     border-radius: 16px;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0, 217, 255, .32);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .28);
 }
 
 .card-icon {
@@ -904,7 +969,7 @@ a {
 
 
 /* =========================================================
-   MANUEL
+   MANUAL
 ========================================================= */
 
 .manual {
@@ -957,7 +1022,8 @@ a {
 
     opacity: .08;
 
-    pointer-events: none;
+    filter:
+        blur(1px);
 }
 
 .manual-content {
@@ -1096,7 +1162,7 @@ footer .copyright {
 
 
 /* =========================================================
-   TABLET
+   RESPONSIVE TABLET
 ========================================================= */
 
 @media (max-width: 1000px) {
@@ -1129,6 +1195,7 @@ footer .copyright {
         height: 330px;
         min-height: 330px;
     }
+
 }
 
 
@@ -1158,15 +1225,21 @@ footer .copyright {
         font-size: 22px;
     }
 
+    /*
+     * MENU TÉLÉPHONE
+     * Position : 16px depuis la droite
+     */
+
     .navbar.menu-open .main-nav {
+
         top: 78px;
 
-        right: 35px;
+        right: 16px;
 
         width: 310px;
 
         max-width:
-            calc(100vw - 70px);
+            calc(100vw - 32px);
 
         max-height:
             calc(100vh - 92px);
@@ -1209,7 +1282,8 @@ footer .copyright {
     }
 
     .section {
-        width: calc(100% - 32px);
+        width:
+            calc(100% - 32px);
 
         padding:
             65px 0;
@@ -1256,7 +1330,8 @@ footer .copyright {
     }
 
     .chasing {
-        width: calc(100% - 32px);
+        width:
+            calc(100% - 32px);
 
         padding:
             65px 20px;
@@ -1268,27 +1343,29 @@ footer .copyright {
     .hero-buttons .btn {
         width: 100%;
     }
+
 }
 
 
 /* =========================================================
-   PETIT MOBILE
+   SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 420px) {
 
-    .navbar {
-        padding-right: 14px;
+    .main-nav {
+        font-size: 12px;
     }
 
     .navbar.menu-open .main-nav {
-        right: 35px;
+
+        right: 10px;
 
         width:
-            calc(100vw - 45px);
+            calc(100vw - 20px);
 
         max-width:
-            calc(100vw - 45px);
+            calc(100vw - 20px);
     }
 
     .menu-link {
@@ -1312,5 +1389,6 @@ footer .copyright {
         height: 250px;
         min-height: 250px;
     }
+
 }
 ```
