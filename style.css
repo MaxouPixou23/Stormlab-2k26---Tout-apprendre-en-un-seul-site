@@ -1277,3 +1277,39 @@ strong {
 
 }
 ```
+/* CORRECTION URGENTE NAVBAR */
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: 74px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    z-index: 999999 !important;
+}
+
+.mobile-menu-btn {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    z-index: 1000000 !important;
+
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+main {
+    padding-top: 74px !important;
+}
