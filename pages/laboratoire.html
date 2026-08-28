@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Laboratoire — STORMLAB</title>
-<meta name="description" content="STORMLAB — Laboratoire météorologique.">
+<meta name="description" content="STORMLAB — Laboratoire météo et observation.">
 <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -13,21 +14,10 @@
 <header class="navbar">
 <a href="../index.html" class="logo">🌪️ STORMLAB</a>
 
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="foudre.html">⚡ Foudre</a>
-<a href="radar.html">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
-</nav>
-
-<button class="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
 <div class="mobile-menu">
+
 <a href="../index.html">🏠 Accueil</a>
 <a href="manuel.html">📚 Manuel</a>
 <a href="meteorologie.html">🌧️ Météorologie</a>
@@ -43,77 +33,116 @@
 <a href="cartes.html">🗺️ Cartes météo</a>
 <a href="alertes.html">🚨 Alertes</a>
 <a href="quiz.html">🧠 Quiz</a>
-<a href="laboratoire.html">🔬 Laboratoire</a>
+<a href="laboratoire.html" class="active">🔬 Laboratoire</a>
 <a href="videos.html">🎥 Vidéos</a>
 <a href="actualites.html">📰 Actualités</a>
+
 </div>
 </header>
 
 <main>
 
 <section class="hero">
+
 <div class="hero-content">
+
 <p class="eyebrow">STORMLAB • LABORATOIRE</p>
-<h1>LE <span>LAB.</span></h1>
+
+<h1>
+EXPLORE
+<span>SCIENCE.</span>
+</h1>
+
 <p class="hero-text">
-Un espace pour comprendre les mécanismes physiques
-qui rendent les phénomènes météorologiques possibles.
+Un espace consacré à l'analyse, à l'expérimentation
+et à la compréhension des phénomènes météorologiques.
 </p>
+
+<div class="hero-buttons">
+<a href="radar.html" class="btn primary">📡 Radar</a>
+<a href="cartes.html" class="btn secondary">🗺️ Cartes</a>
 </div>
+
+</div>
+
 <div class="hero-symbol">🔬</div>
+
 </section>
 
 <section class="section">
 
 <div class="section-title">
-<p>01 • SCIENCE</p>
-<h2>COMPRENDRE LES <span>MÉCANISMES.</span></h2>
-<span>La météo repose sur de nombreux paramètres physiques.</span>
+
+<p>01 • ANALYSE</p>
+
+<h2>
+OBSERVER.
+<span>MESURER.</span>
+</h2>
+
 </div>
 
 <div class="cards">
 
 <article class="card">
-<span>🌡️</span>
-<h3>Thermodynamique</h3>
-<p>Étude des échanges de chaleur et de l'énergie dans l'atmosphère.</p>
+<span>📡</span>
+<h3>Radar</h3>
+<p>Analyser les précipitations et les structures convectives.</p>
+<a href="radar.html" class="btn primary">Radar →</a>
 </article>
 
 <article class="card">
-<span>💨</span>
-<h3>Dynamique</h3>
-<p>Analyse des mouvements de l'air et des systèmes atmosphériques.</p>
+<span>🛰️</span>
+<h3>Satellite</h3>
+<p>Observer les systèmes nuageux depuis l'espace.</p>
+<a href="satellites.html" class="btn primary">Satellite →</a>
 </article>
 
 <article class="card">
-<span>💧</span>
-<h3>Humidité</h3>
-<p>La vapeur d'eau joue un rôle essentiel dans la formation des nuages.</p>
-</article>
-
-<article class="card">
-<span>🌍</span>
-<h3>Atmosphère</h3>
-<p>Une enveloppe gazeuse complexe dans laquelle évoluent les phénomènes météo.</p>
+<span>🗺️</span>
+<h3>Cartes</h3>
+<p>Comparer différents paramètres météorologiques.</p>
+<a href="cartes.html" class="btn primary">Cartes →</a>
 </article>
 
 </div>
+
 </section>
 
-<section class="chasing">
-<p class="eyebrow">STORMLAB • SCIENCE</p>
-<h2>OBSERVE <span>LA SCIENCE.</span></h2>
-<p>Comprendre permet de mieux observer.</p>
+<section class="manual">
+
+<div class="manual-content">
+
+<p class="eyebrow">02 • SCIENCE</p>
+
+<h2>
+COMPRENDRE LA
+<span>MÉTÉO.</span>
+</h2>
+
+<p>
+La météorologie repose sur l'observation,
+la mesure et l'analyse de nombreuses données.
+</p>
+
+<a href="meteorologie.html" class="btn primary">
+🌧️ Météorologie
+</a>
+
+</div>
 </section>
 
 </main>
 
 <footer>
+
 <div class="footer-logo">🌪️ STORMLAB</div>
 <p>Never Stop Chasing.</p>
 <p class="copyright">© 2026 STORMLAB</p>
+
 </footer>
 
 <script src="../script.js"></script>
 </body>
 </html>
+```
