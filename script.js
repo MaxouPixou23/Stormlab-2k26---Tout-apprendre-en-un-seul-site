@@ -1,74 +1,69 @@
-```javascript
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
     const navbar = document.querySelector(".navbar");
-    const menuButton = document.querySelector(".mobile-menu-btn");
-    const mainNav = document.querySelector(".main-nav");
+    const button = document.querySelector(".mobile-menu-btn");
+    const menu = document.querySelector(".main-nav");
 
-    if (!navbar || !menuButton || !mainNav) {
-        console.error("STORMLAB : navbar introuvable.");
+    if (!navbar || !button || !menu) {
+        console.error("STORMLAB : éléments de navigation introuvables.");
         return;
     }
 
-    function openMenu() {
-        navbar.classList.add("menu-open");
+    button.addEventListener("click", function (event) {
 
-        menuButton.setAttribute("aria-expanded", "true");
-        menuButton.setAttribute("aria-label", "Fermer le menu");
-
-        menuButton.textContent = "✕";
-
-        document.body.classList.add("menu-active");
-    }
-
-    function closeMenu() {
-        navbar.classList.remove("menu-open");
-
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Ouvrir le menu");
-
-        menuButton.textContent = "☰";
-
-        document.body.classList.remove("menu-active");
-    }
-
-    function toggleMenu() {
-        if (navbar.classList.contains("menu-open")) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    }
-
-    menuButton.addEventListener("click", (event) => {
+        event.preventDefault();
         event.stopPropagation();
-        toggleMenu();
+
+        navbar.classList.toggle("menu-open");
+
+        const opened = navbar.classList.contains("menu-open");
+
+        button.textContent = opened ? "✕" : "☰";
+        button.setAttribute(
+            "aria-expanded",
+            opened ? "true" : "false"
+        );
+
+        button.setAttribute(
+            "aria-label",
+            opened ? "Fermer le menu" : "Ouvrir le menu"
+        );
+
+        document.body.classList.toggle("menu-active", opened);
+
     });
 
-    mainNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            closeMenu();
+
+    menu.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navbar.classList.remove("menu-open");
+            button.textContent = "☰";
+            button.setAttribute("aria-expanded", "false");
+            button.setAttribute("aria-label", "Ouvrir le menu");
+
+            document.body.classList.remove("menu-active");
+
         });
+
     });
 
-    document.addEventListener("keydown", (event) => {
+
+    document.addEventListener("keydown", function (event) {
+
         if (event.key === "Escape") {
-            closeMenu();
-        }
-    });
 
-    document.addEventListener("click", (event) => {
-        if (
-            navbar.classList.contains("menu-open") &&
-            !navbar.contains(event.target)
-        ) {
-            closeMenu();
-        }
-    });
+            navbar.classList.remove("menu-open");
 
-    window.addEventListener("resize", () => {
-        closeMenu();
+            button.textContent = "☰";
+            button.setAttribute("aria-expanded", "false");
+            button.setAttribute("aria-label", "Ouvrir le menu");
+
+            document.body.classList.remove("menu-active");
+
+        }
+
     });
 
 });
-```
