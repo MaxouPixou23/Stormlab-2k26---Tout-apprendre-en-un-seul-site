@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,21 +14,10 @@
 <header class="navbar">
 <a href="../index.html" class="logo">🌪️ STORMLAB</a>
 
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="foudre.html">⚡ Foudre</a>
-<a href="radar.html">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
-</nav>
-
-<button class="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
 <div class="mobile-menu">
+
 <a href="../index.html">🏠 Accueil</a>
 <a href="manuel.html">📚 Manuel</a>
 <a href="meteorologie.html">🌧️ Météorologie</a>
@@ -45,30 +35,55 @@
 <a href="quiz.html">🧠 Quiz</a>
 <a href="laboratoire.html">🔬 Laboratoire</a>
 <a href="videos.html">🎥 Vidéos</a>
-<a href="actualites.html">📰 Actualités</a>
+<a href="actualites.html" class="active">📰 Actualités</a>
+
 </div>
 </header>
 
 <main>
 
 <section class="hero">
+
 <div class="hero-content">
+
 <p class="eyebrow">STORMLAB • ACTUALITÉS</p>
-<h1>STORM <span>NEWS.</span></h1>
+
+<h1>
+WEATHER
+<span>NOW.</span>
+</h1>
+
 <p class="hero-text">
-Suivre les événements météorologiques et les phénomènes
-atmosphériques qui font l'actualité.
+Retrouve ici les événements et informations
+liés à la météorologie et aux phénomènes violents.
 </p>
+
+<div class="hero-buttons">
+<a href="meteorologie.html" class="btn primary">🌧️ Météorologie</a>
+<a href="alertes.html" class="btn secondary">🚨 Alertes</a>
 </div>
+
+</div>
+
 <div class="hero-symbol">📰</div>
+
 </section>
 
 <section class="section">
 
 <div class="section-title">
-<p>01 • ACTUALITÉS</p>
-<h2>LE MONDE DE LA <span>MÉTÉO.</span></h2>
-<span>Une rubrique dédiée aux événements météorologiques.</span>
+
+<p>01 • INFORMATIONS</p>
+
+<h2>
+SUIVRE LA
+<span>MÉTÉO.</span>
+</h2>
+
+<span>
+Comprendre les événements météorologiques grâce aux données disponibles.
+</span>
+
 </div>
 
 <div class="cards">
@@ -76,45 +91,82 @@ atmosphériques qui font l'actualité.
 <article class="card">
 <span>🌩️</span>
 <h3>Orages</h3>
-<p>Suivre les épisodes orageux et leurs évolutions.</p>
+<p>Suivre les phénomènes convectifs et leur évolution.</p>
+<a href="orages.html" class="btn primary">Explorer →</a>
 </article>
 
 <article class="card">
 <span>🌪️</span>
 <h3>Tornades</h3>
-<p>Découvrir les événements tornadiques remarquables.</p>
+<p>Découvrir les phénomènes tornadiques.</p>
+<a href="tornades.html" class="btn primary">Explorer →</a>
 </article>
 
 <article class="card">
-<span>🌍</span>
-<h3>Climat</h3>
-<p>Comprendre les grandes tendances atmosphériques.</p>
+<span>📡</span>
+<h3>Radar</h3>
+<p>Utiliser les observations radar pour suivre les précipitations.</p>
+<a href="radar.html" class="btn primary">Radar →</a>
 </article>
 
 <article class="card">
-<span>🔬</span>
-<h3>Recherche</h3>
-<p>Découvrir les nouvelles avancées scientifiques.</p>
+<span>🚨</span>
+<h3>Alertes</h3>
+<p>Consulter les informations de sécurité météorologique.</p>
+<a href="alertes.html" class="btn primary">Alertes →</a>
 </article>
+
+</div>
+
+</section>
+
+<section class="manual">
+
+<div class="manual-content">
+
+<p class="eyebrow">02 • STORMLAB</p>
+
+<h2>
+STAY
+<span>CURIOUS.</span>
+</h2>
+
+<p>
+La météo évolue constamment. L'observation et l'apprentissage
+permettent de mieux comprendre notre atmosphère.
+</p>
+
+<a href="manuel.html" class="btn primary">
+📚 Continuer le manuel
+</a>
 
 </div>
 </section>
 
 <section class="chasing">
+
 <p class="eyebrow">STORMLAB</p>
-<h2>NEVER STOP <span>LEARNING.</span></h2>
-<p>La météo évolue chaque jour.</p>
-<a href="manuel.html" class="btn secondary">📚 Continuer à apprendre</a>
+
+<h2>
+NEVER STOP
+<span>LEARNING.</span>
+</h2>
+
+<p>Observer. Comprendre. Respecter.</p>
+
 </section>
 
 </main>
 
 <footer>
+
 <div class="footer-logo">🌪️ STORMLAB</div>
 <p>Never Stop Chasing.</p>
 <p class="copyright">© 2026 STORMLAB</p>
+
 </footer>
 
 <script src="../script.js"></script>
 </body>
 </html>
+```
