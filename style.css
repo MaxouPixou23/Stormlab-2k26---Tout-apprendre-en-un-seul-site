@@ -1151,3 +1151,30 @@ footer .copyright {
     background: #101010;
     border-color: #3b3b3b;
 }
+.vehicle-status {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    margin-top: auto;
+
+    padding: 7px 10px;
+
+    background: #090909;
+    color: #777;
+
+    border: 1px solid #2c2c2c;
+    border-radius: 7px;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.vehicle-status.active {
+    color: #fff;
+    background: #151515;
+    border-color: #555;
+}
