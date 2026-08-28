@@ -1,7 +1,6 @@
-```javascript
 /* =========================================================
    STORMLAB V2
-   JAVASCRIPT GLOBAL
+   GLOBAL JAVASCRIPT
 ========================================================= */
 
 "use strict";
@@ -15,39 +14,25 @@
 
     function initNavbar() {
 
-        const navbar =
-            document.querySelector(".navbar");
-
-        const button =
-            document.getElementById("menuButton");
-
-        const menu =
-            document.getElementById("mainNav");
-
-
-        /* -------------------------------------------------
-           Vérification
-        ------------------------------------------------- */
+        const navbar = document.querySelector(".navbar");
+        const button = document.getElementById("menuButton");
+        const menu = document.getElementById("mainNav");
 
         if (!navbar || !button || !menu) {
-
-            console.warn(
-                "STORMLAB V2 : éléments navbar introuvables."
+            console.error(
+                "STORMLAB : navbar introuvable."
             );
-
             return;
         }
 
 
-        /* -------------------------------------------------
-           OUVRIR LE MENU
-        ------------------------------------------------- */
+        /* =================================================
+           OUVRIR
+        ================================================= */
 
         function openMenu() {
 
-            navbar.classList.add(
-                "menu-open"
-            );
+            navbar.classList.add("menu-open");
 
             button.textContent = "✕";
 
@@ -63,15 +48,13 @@
         }
 
 
-        /* -------------------------------------------------
-           FERMER LE MENU
-        ------------------------------------------------- */
+        /* =================================================
+           FERMER
+        ================================================= */
 
         function closeMenu() {
 
-            navbar.classList.remove(
-                "menu-open"
-            );
+            navbar.classList.remove("menu-open");
 
             button.textContent = "☰";
 
@@ -87,23 +70,19 @@
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            TOGGLE
-        ------------------------------------------------- */
+        ================================================= */
 
         function toggleMenu(event) {
 
             if (event) {
-
                 event.preventDefault();
-
                 event.stopPropagation();
             }
 
             if (
-                navbar.classList.contains(
-                    "menu-open"
-                )
+                navbar.classList.contains("menu-open")
             ) {
 
                 closeMenu();
@@ -111,13 +90,14 @@
             } else {
 
                 openMenu();
+
             }
         }
 
 
-        /* -------------------------------------------------
-           BOUTON MENU
-        ------------------------------------------------- */
+        /* =================================================
+           BOUTON ☰
+        ================================================= */
 
         button.addEventListener(
             "click",
@@ -125,150 +105,118 @@
         );
 
 
-        /* -------------------------------------------------
-           LIENS
+        /* =================================================
+           LIENS DU MENU
            
            IMPORTANT :
-           aucun preventDefault().
-           Le href reste totalement fonctionnel.
-        ------------------------------------------------- */
+           on ne bloque PAS la navigation.
+        ================================================= */
 
-        menu
-            .querySelectorAll(
-                "a.menu-link"
-            )
-            .forEach(
-                function (link) {
+        const menuLinks =
+            menu.querySelectorAll(".menu-link");
 
-                    link.addEventListener(
-                        "click",
-                        function () {
+        menuLinks.forEach(function (link) {
 
-                            closeMenu();
-
-                        }
-                    );
-
-                }
-            );
-
-
-        /* -------------------------------------------------
-           LOGO
-        ------------------------------------------------- */
-
-        const logo =
-            navbar.querySelector(
-                "a.logo"
-            );
-
-        if (logo) {
-
-            logo.addEventListener(
+            link.addEventListener(
                 "click",
                 function () {
+
+                    /*
+                     * Laisse le navigateur suivre
+                     * normalement le href.
+                     */
 
                     closeMenu();
 
                 }
             );
-        }
+
+        });
 
 
-        /* -------------------------------------------------
-           CLIC EN DEHORS
-        ------------------------------------------------- */
+        /* =================================================
+           CLIC EXTÉRIEUR
+        ================================================= */
 
         document.addEventListener(
             "click",
             function (event) {
 
                 if (
-                    !navbar.classList.contains(
-                        "menu-open"
-                    )
+                    !navbar.classList.contains("menu-open")
                 ) {
                     return;
                 }
 
                 if (
-                    !navbar.contains(
-                        event.target
-                    )
+                    navbar.contains(event.target)
                 ) {
-
-                    closeMenu();
+                    return;
                 }
+
+                closeMenu();
+
             }
         );
 
 
-        /* -------------------------------------------------
-           TOUCHE ESCAPE
-        ------------------------------------------------- */
+        /* =================================================
+           ÉCHAP
+        ================================================= */
 
         document.addEventListener(
             "keydown",
             function (event) {
 
                 if (
-                    event.key === "Escape" &&
-                    navbar.classList.contains(
-                        "menu-open"
-                    )
+                    event.key !== "Escape"
                 ) {
-
-                    closeMenu();
-
-                    button.focus();
+                    return;
                 }
+
+                if (
+                    !navbar.classList.contains("menu-open")
+                ) {
+                    return;
+                }
+
+                closeMenu();
+
+                button.focus();
+
             }
         );
 
 
-        /* -------------------------------------------------
+        /* =================================================
            REDIMENSIONNEMENT
-        ------------------------------------------------- */
-
-        let resizeTimer = null;
+        ================================================= */
 
         window.addEventListener(
             "resize",
             function () {
 
-                clearTimeout(
-                    resizeTimer
-                );
+                /*
+                 * On ferme uniquement lorsque
+                 * la fenêtre change réellement de taille.
+                 */
 
-                resizeTimer =
-                    setTimeout(
-                        function () {
+                if (
+                    window.innerWidth > 700 &&
+                    navbar.classList.contains("menu-open")
+                ) {
 
-                            /*
-                             * On ferme le menu pendant
-                             * un changement important
-                             * de taille d'écran.
-                             */
+                    closeMenu();
 
-                            if (
-                                navbar.classList.contains(
-                                    "menu-open"
-                                )
-                            ) {
+                }
 
-                                closeMenu();
-                            }
-
-                        },
-                        120
-                    );
             }
         );
 
 
-        /* -------------------------------------------------
+        /* =================================================
            ÉTAT INITIAL
-        ------------------------------------------------- */
+        ================================================= */
 
         closeMenu();
 
@@ -276,11 +224,12 @@
         console.log(
             "STORMLAB V2 : navbar opérationnelle."
         );
+
     }
 
 
     /* =====================================================
-       INITIALISATION
+       DOM READY
     ===================================================== */
 
     if (
@@ -295,13 +244,14 @@
     } else {
 
         initNavbar();
+
     }
 
 })();
 
 
 /* =========================================================
-   FALLBACK DES IMAGES
+   IMAGE FALLBACK
 ========================================================= */
 
 (function () {
@@ -309,34 +259,31 @@
     function initImageFallback() {
 
         const images =
-            document.querySelectorAll(
-                "img"
+            document.querySelectorAll("img");
+
+        images.forEach(function (image) {
+
+            image.addEventListener(
+                "error",
+                function () {
+
+                    image.classList.add(
+                        "image-error"
+                    );
+
+                    console.warn(
+                        "STORMLAB : image introuvable :",
+                        image.src
+                    );
+
+                },
+                {
+                    once: true
+                }
             );
 
-        images.forEach(
-            function (image) {
+        });
 
-                image.addEventListener(
-                    "error",
-                    function () {
-
-                        image.classList.add(
-                            "image-error"
-                        );
-
-                        console.warn(
-                            "STORMLAB V2 : image introuvable :",
-                            image.src
-                        );
-
-                    },
-                    {
-                        once: true
-                    }
-                );
-
-            }
-        );
     }
 
 
@@ -352,54 +299,64 @@
     } else {
 
         initImageFallback();
+
     }
 
 })();
 
 
 /* =========================================================
-   ANIMATION DES IMAGES AU CHARGEMENT
+   LIENS INTERNES
 ========================================================= */
 
 (function () {
 
-    function initImageReveal() {
+    function initInternalLinks() {
 
-        const images =
+        const links =
             document.querySelectorAll(
-                "img"
+                'a[href]'
             );
 
-        images.forEach(
-            function (image) {
+        links.forEach(function (link) {
 
-                if (
-                    image.complete &&
-                    image.naturalWidth > 0
-                ) {
+            link.addEventListener(
+                "click",
+                function (event) {
 
-                    image.classList.add(
-                        "image-loaded"
-                    );
+                    const href =
+                        link.getAttribute("href");
 
-                    return;
-                }
-
-                image.addEventListener(
-                    "load",
-                    function () {
-
-                        image.classList.add(
-                            "image-loaded"
-                        );
-
-                    },
-                    {
-                        once: true
+                    if (!href) {
+                        return;
                     }
-                );
-            }
-        );
+
+                    /*
+                     * Les ancres, liens externes,
+                     * téléchargements et nouveaux onglets
+                     * ne sont pas modifiés.
+                     */
+
+                    if (
+                        href.startsWith("#") ||
+                        href.startsWith("http://") ||
+                        href.startsWith("https://") ||
+                        href.startsWith("mailto:") ||
+                        link.target === "_blank"
+                    ) {
+                        return;
+                    }
+
+                    /*
+                     * Navigation classique :
+                     * aucun preventDefault ici.
+                     */
+
+                }
+            );
+
+        });
+
     }
 
 
@@ -409,13 +366,13 @@
 
         document.addEventListener(
             "DOMContentLoaded",
-            initImageReveal
+            initInternalLinks
         );
 
     } else {
 
-        initImageReveal();
+        initInternalLinks();
+
     }
 
 })();
-```
