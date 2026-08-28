@@ -4,54 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#05070d">
-    <meta name="description" content="STORMLAB V2 — Découvrir le storm chasing, son fonctionnement et les règles essentielles de sécurité.">
+    <meta name="theme-color" content="#050816">
+    <meta name="description" content="STORMLAB V2 — Le storm chasing, les techniques d'observation et la sécurité sur le terrain.">
 
     <title>Storm Chasing — STORMLAB V2</title>
 
-    <link rel="stylesheet" href="../style.css?v=10">
+    <link rel="stylesheet" href="../style.css?v=11">
 
     <style>
+        /* =====================================================
+           STORM CHASING — DESIGN DE PAGE
+        ===================================================== */
+
+        .chasing-page {
+            padding-top: 74px;
+        }
+
         .chasing-hero {
-            min-height: 88vh;
+            min-height: calc(100vh - 74px);
+            position: relative;
             display: flex;
             align-items: center;
-            position: relative;
             overflow: hidden;
-            padding: 145px 8% 90px;
+            padding: 110px 8% 90px;
+            background:
+                radial-gradient(circle at 82% 45%, rgba(0,217,255,.11), transparent 25%),
+                radial-gradient(circle at 68% 80%, rgba(124,77,255,.10), transparent 28%);
         }
 
         .chasing-hero::before {
             content: "";
             position: absolute;
-            width: 650px;
-            height: 650px;
-            right: -180px;
-            top: 80px;
+            width: 720px;
+            height: 720px;
+            right: -260px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid rgba(0,217,255,.08);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0,217,255,.12), transparent 68%);
+            box-shadow:
+                0 0 0 70px rgba(0,217,255,.018),
+                0 0 0 140px rgba(0,217,255,.012);
             pointer-events: none;
         }
 
         .chasing-hero::after {
             content: "";
             position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(90deg, rgba(5,7,13,.98) 0%, rgba(5,7,13,.82) 48%, rgba(5,7,13,.35) 100%);
-            pointer-events: none;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,217,255,.25), transparent);
         }
 
         .chasing-hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 920px;
+            z-index: 3;
+            max-width: 900px;
         }
 
         .chasing-hero h1 {
             margin: 0;
-            font-size: clamp(52px, 8vw, 108px);
-            line-height: .9;
+            font-size: clamp(58px, 8vw, 112px);
+            line-height: .88;
             letter-spacing: -5px;
             font-weight: 950;
         }
@@ -59,12 +75,12 @@
         .chasing-hero h1 span {
             display: block;
             color: #00d9ff;
-            text-shadow: 0 0 35px rgba(0,217,255,.25);
+            text-shadow: 0 0 40px rgba(0,217,255,.24);
         }
 
-        .chasing-hero-text {
-            max-width: 700px;
-            margin-top: 28px;
+        .chasing-intro {
+            max-width: 720px;
+            margin-top: 30px;
             color: #a9b9d0;
             font-size: 18px;
         }
@@ -76,17 +92,57 @@
             margin-top: 32px;
         }
 
-        .chasing-mark {
+        .chasing-orbit {
             position: absolute;
-            right: 8%;
-            bottom: 10%;
-            z-index: 1;
-            font-size: clamp(110px, 18vw, 250px);
-            opacity: .12;
-            filter: drop-shadow(0 0 35px rgba(0,217,255,.25));
+            right: 11%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0,217,255,.14);
+            border-radius: 50%;
+            background: rgba(5,8,22,.25);
+            box-shadow: 0 0 80px rgba(0,217,255,.08);
         }
 
-        .chasing-grid {
+        .chasing-orbit::before,
+        .chasing-orbit::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(0,217,255,.10);
+            border-radius: 50%;
+        }
+
+        .chasing-orbit::before {
+            width: 205px;
+            height: 205px;
+        }
+
+        .chasing-orbit::after {
+            width: 130px;
+            height: 130px;
+        }
+
+        .chasing-orbit-icon {
+            position: relative;
+            z-index: 2;
+            font-size: 82px;
+            filter: drop-shadow(0 0 28px rgba(0,217,255,.28));
+        }
+
+        .section-kicker {
+            color: #00d9ff;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 9px;
+        }
+
+        .chasing-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
@@ -94,10 +150,11 @@
 
         .chasing-card {
             position: relative;
-            min-height: 280px;
+            min-height: 290px;
             padding: 30px;
             overflow: hidden;
-            background: linear-gradient(145deg, #0d1b30, #070d18);
+            background:
+                linear-gradient(145deg, #0d1b30, #070d18);
             border: 1px solid rgba(79,151,255,.12);
             border-radius: 17px;
             transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
@@ -106,17 +163,27 @@
         .chasing-card:hover {
             transform: translateY(-7px);
             border-color: rgba(0,217,255,.32);
-            box-shadow: 0 20px 45px rgba(0,0,0,.28);
+            box-shadow: 0 22px 50px rgba(0,0,0,.30);
+        }
+
+        .chasing-card-number {
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            color: rgba(0,217,255,.12);
+            font-size: 48px;
+            line-height: 1;
+            font-weight: 900;
         }
 
         .chasing-card-icon {
             display: block;
-            margin-bottom: 18px;
+            margin-bottom: 22px;
             font-size: 38px;
         }
 
         .chasing-card h3 {
-            font-size: 23px;
+            font-size: 24px;
             margin-bottom: 10px;
         }
 
@@ -127,72 +194,141 @@
 
         .chasing-feature {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            margin-top: 45px;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .chasing-panel {
-            padding: 32px;
-            background:
-                radial-gradient(circle at top right, rgba(0,217,255,.08), transparent 35%),
-                #091222;
-            border: 1px solid rgba(79,151,255,.14);
+            padding: 34px;
+            border: 1px solid rgba(79,151,255,.13);
             border-radius: 18px;
+            background:
+                radial-gradient(circle at top right, rgba(0,217,255,.08), transparent 34%),
+                linear-gradient(145deg, #0b1729, #070d18);
         }
 
         .chasing-panel h3 {
-            margin-bottom: 14px;
-            font-size: 25px;
+            margin-bottom: 13px;
+            font-size: 28px;
+            line-height: 1.05;
         }
 
-        .chasing-panel p {
-            color: #91a3bd;
-            font-size: 15px;
+        .chasing-panel > p:not(.section-kicker) {
+            color: #899cb6;
+            font-size: 14px;
         }
 
         .chasing-list {
             display: grid;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 24px;
         }
 
         .chasing-list-item {
             display: flex;
-            gap: 12px;
             align-items: flex-start;
-            padding: 13px 14px;
-            color: #dbe8f8;
+            gap: 13px;
+            padding: 14px;
             background: rgba(255,255,255,.025);
             border: 1px solid rgba(79,151,255,.08);
-            border-radius: 10px;
+            border-radius: 11px;
+        }
+
+        .chasing-list-item > span {
+            flex: 0 0 auto;
+            font-size: 20px;
         }
 
         .chasing-list-item strong {
             display: block;
             margin-bottom: 2px;
+            color: #edf5ff;
+            font-size: 14px;
         }
 
         .chasing-list-item small {
-            color: #7387a4;
+            color: #71849f;
             font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .chasing-process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .process-step {
+            padding: 23px 20px;
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(79,151,255,.10);
+            border-radius: 14px;
+        }
+
+        .process-step strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .process-step p {
+            color: #788ca7;
+            font-size: 12px;
+        }
+
+        .safety-box {
+            margin-top: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,179,71,.20);
+            border-radius: 17px;
+            background:
+                radial-gradient(circle at top right, rgba(255,179,71,.08), transparent 35%),
+                #0b111d;
+        }
+
+        .safety-box h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .safety-box p {
+            max-width: 850px;
+            color: #8b9cb4;
+            font-size: 14px;
+        }
+
+        .safety-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .safety-point {
+            padding: 16px;
+            border-radius: 11px;
+            background: rgba(255,255,255,.025);
+            color: #d9e5f4;
+            font-size: 13px;
         }
 
         .chasing-cta {
             width: min(1200px, 90%);
             margin: 30px auto 100px;
-            padding: 70px 35px;
+            padding: 75px 35px;
             text-align: center;
-            background:
-                radial-gradient(circle at center, rgba(0,217,255,.10), transparent 55%),
-                #071022;
             border: 1px solid rgba(0,217,255,.18);
             border-radius: 22px;
+            background:
+                radial-gradient(circle at center, rgba(0,217,255,.10), transparent 55%),
+                linear-gradient(145deg, #081426, #050914);
+            box-shadow: 0 25px 70px rgba(0,0,0,.20);
         }
 
         .chasing-cta h2 {
-            font-size: clamp(38px, 5vw, 65px);
-            line-height: 1;
+            font-size: clamp(40px, 5vw, 68px);
+            line-height: .95;
             letter-spacing: -3px;
         }
 
@@ -200,25 +336,90 @@
             color: #00d9ff;
         }
 
-        .chasing-cta p {
+        .chasing-cta > p:not(.section-kicker) {
             max-width: 650px;
             margin: 18px auto 0;
             color: #8193ad;
+            font-size: 15px;
         }
 
         .chasing-cta .hero-buttons {
             justify-content: center;
         }
 
-        @media (max-width: 800px) {
-            .chasing-grid,
+        /* =====================================================
+           NAVBAR — CORRECTION VISUELLE
+        ===================================================== */
+
+        .navbar {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .navbar .logo {
+            position: relative;
+            z-index: 100002;
+        }
+
+        .navbar .mobile-menu-btn {
+            margin-left: auto;
+        }
+
+        .main-nav {
+            scrollbar-width: thin;
+            scrollbar-color: #2388ff #071022;
+        }
+
+        .main-nav::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .main-nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .main-nav::-webkit-scrollbar-thumb {
+            background: #2388ff;
+            border-radius: 20px;
+        }
+
+        @media (min-width: 701px) {
+            .navbar {
+                padding-left: 35px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .chasing-orbit {
+                opacity: .35;
+                right: -70px;
+            }
+
+            .chasing-cards {
+                grid-template-columns: 1fr;
+            }
+
             .chasing-feature {
                 grid-template-columns: 1fr;
             }
 
+            .chasing-process {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .safety-points {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .chasing-page {
+                padding-top: 68px;
+            }
+
             .chasing-hero {
                 min-height: auto;
-                padding: 130px 20px 70px;
+                padding: 115px 20px 75px;
                 text-align: center;
             }
 
@@ -227,7 +428,7 @@
                 letter-spacing: -3px;
             }
 
-            .chasing-hero-text {
+            .chasing-intro {
                 font-size: 15px;
             }
 
@@ -239,10 +440,37 @@
                 width: 100%;
             }
 
-            .chasing-mark {
+            .chasing-orbit {
+                width: 190px;
+                height: 190px;
                 right: 50%;
+                top: auto;
+                bottom: -35px;
                 transform: translateX(50%);
-                bottom: 5%;
+                opacity: .14;
+            }
+
+            .chasing-orbit::before {
+                width: 140px;
+                height: 140px;
+            }
+
+            .chasing-orbit::after {
+                width: 90px;
+                height: 90px;
+            }
+
+            .chasing-orbit-icon {
+                font-size: 52px;
+            }
+
+            .chasing-process {
+                grid-template-columns: 1fr;
+            }
+
+            .chasing-panel,
+            .safety-box {
+                padding: 25px;
             }
 
             .chasing-cta {
@@ -258,7 +486,7 @@
 
 <header class="navbar">
 
-    <a href="../index.html" class="logo" aria-label="Retour à l'accueil STORMLAB">
+    <a href="../index.html" class="logo" aria-label="Accueil STORMLAB">
         <span class="logo-symbol">🌪️</span>
         <span class="logo-text">STORMLAB</span>
     </a>
@@ -434,7 +662,7 @@
 
 </header>
 
-<main>
+<main class="chasing-page">
 
     <section class="chasing-hero">
 
@@ -447,76 +675,172 @@
                 <span>CHASING.</span>
             </h1>
 
-            <p class="chasing-hero-text">
-                Le storm chasing consiste à observer et documenter
-                les phénomènes météorologiques violents directement
-                sur le terrain, avec préparation, observation et sécurité.
+            <p class="chasing-intro">
+                Observer une tempête demande bien plus que de prendre
+                la route. Le storm chasing combine météorologie,
+                préparation, observation du terrain et respect strict
+                des règles de sécurité.
             </p>
 
             <div class="chasing-hero-buttons">
+
                 <a href="chasseurs.html" class="btn primary">
-                    👥 Les chasseurs
+                    👥 Découvrir les chasseurs
                 </a>
 
                 <a href="dominator.html" class="btn secondary">
-                    🚙 Dominator
+                    🚙 Découvrir le Dominator
                 </a>
+
             </div>
 
         </div>
 
-        <div class="chasing-mark" aria-hidden="true">🌪️</div>
+        <div class="chasing-orbit" aria-hidden="true">
+            <span class="chasing-orbit-icon">🌪️</span>
+        </div>
 
     </section>
+
 
     <section class="section">
 
         <div class="section-title">
-            <p>COMPRENDRE</p>
+
+            <p>LE CONCEPT</p>
 
             <h2>
-                SURVEILLER
+                CHASSER
                 <span>LA TEMPÊTE.</span>
             </h2>
 
             <span>
-                Un chase repose sur l'analyse de la situation météo,
-                le déplacement vers une zone favorable et l'observation
-                des phénomènes sans prendre de risques inutiles.
+                Le but est d'arriver dans une zone d'observation
+                pertinente avant ou pendant l'évolution du phénomène,
+                puis de suivre son comportement depuis une position sûre.
             </span>
+
         </div>
 
-        <div class="chasing-grid">
+        <div class="chasing-cards">
 
             <article class="chasing-card">
+
+                <span class="chasing-card-number">01</span>
                 <span class="chasing-card-icon">🛰️</span>
-                <h3>Préparation</h3>
+
+                <h3>Préparer</h3>
+
                 <p>
-                    Analyse des prévisions, des cartes, du radar,
-                    de la trajectoire des cellules et des conditions
-                    attendues avant de prendre la route.
+                    Étudier les prévisions, les cartes météo, le radar,
+                    le vent, l'humidité et l'environnement avant
+                    de commencer un déplacement.
                 </p>
+
             </article>
 
             <article class="chasing-card">
+
+                <span class="chasing-card-number">02</span>
                 <span class="chasing-card-icon">📡</span>
-                <h3>Observation</h3>
+
+                <h3>Observer</h3>
+
                 <p>
-                    Les chasseurs observent la structure des orages,
-                    leur évolution, les vents, les précipitations
-                    et les éventuels phénomènes tornadiques.
+                    Analyser visuellement la structure des cellules,
+                    leur évolution et les phénomènes associés
+                    tout en maintenant une distance adaptée.
                 </p>
+
             </article>
 
             <article class="chasing-card">
-                <span class="chasing-card-icon">🚨</span>
-                <h3>Sécurité</h3>
+
+                <span class="chasing-card-number">03</span>
+                <span class="chasing-card-icon">🎥</span>
+
+                <h3>Documenter</h3>
+
                 <p>
-                    La priorité reste la sécurité : garder une issue,
-                    éviter les zones dangereuses et ne jamais laisser
-                    l'observation prendre le dessus sur la prudence.
+                    Photos, vidéos et observations permettent
+                    de conserver une trace des événements et
+                    de mieux comprendre les phénomènes violents.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>UNE JOURNÉE DE CHASE</p>
+
+            <h2>
+                DE LA PRÉVISION
+                <span>AU TERRAIN.</span>
+            </h2>
+
+            <span>
+                Un chase efficace commence longtemps avant
+                l'apparition de la première cellule orageuse.
+            </span>
+
+        </div>
+
+        <div class="chasing-process">
+
+            <article class="process-step">
+                <strong>01 — Analyse</strong>
+                <p>
+                    Repérer les zones présentant un potentiel
+                    orageux et comprendre le contexte météo.
                 </p>
             </article>
+
+            <article class="process-step">
+                <strong>02 — Déplacement</strong>
+                <p>
+                    Choisir une trajectoire permettant de conserver
+                    des possibilités de repli.
+                </p>
+            </article>
+
+            <article class="process-step">
+                <strong>03 — Observation</strong>
+                <p>
+                    Suivre la cellule et observer sa structure
+                    depuis une position appropriée.
+                </p>
+            </article>
+
+            <article class="process-step">
+                <strong>04 — Documentation</strong>
+                <p>
+                    Enregistrer les observations et quitter la zone
+                    si les conditions deviennent dangereuses.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>ÉQUIPEMENT</p>
+
+            <h2>
+                LES OUTILS
+                <span>DU CHASSEUR.</span>
+            </h2>
 
         </div>
 
@@ -524,14 +848,14 @@
 
             <article class="chasing-panel">
 
-                <p class="eyebrow">LE MATÉRIEL</p>
+                <p class="section-kicker">SURVEILLANCE</p>
 
-                <h3>DES OUTILS POUR OBSERVER.</h3>
+                <h3>LES DONNÉES EN TEMPS RÉEL.</h3>
 
                 <p>
-                    Les chasseurs utilisent différents outils pour
-                    comprendre la situation en temps réel et
-                    documenter les phénomènes.
+                    Les informations météo permettent de suivre
+                    l'évolution d'une situation et d'adapter
+                    les décisions prises sur le terrain.
                 </p>
 
                 <div class="chasing-list">
@@ -540,23 +864,23 @@
                         <span>📱</span>
                         <div>
                             <strong>Données météo</strong>
-                            <small>Prévisions, observations et informations en temps réel.</small>
+                            <small>Prévisions, observations et alertes disponibles sur le terrain.</small>
                         </div>
                     </div>
 
                     <div class="chasing-list-item">
                         <span>📡</span>
                         <div>
-                            <strong>Radar météo</strong>
-                            <small>Suivi des précipitations et de l'évolution des cellules.</small>
+                            <strong>Radar</strong>
+                            <small>Suivi des précipitations et de la structure des cellules.</small>
                         </div>
                     </div>
 
                     <div class="chasing-list-item">
-                        <span>🎥</span>
+                        <span>🗺️</span>
                         <div>
-                            <strong>Caméras</strong>
-                            <small>Documentation visuelle des phénomènes observés.</small>
+                            <strong>Cartographie</strong>
+                            <small>Routes, relief, position et itinéraires de repli.</small>
                         </div>
                     </div>
 
@@ -564,41 +888,42 @@
 
             </article>
 
+
             <article class="chasing-panel">
 
-                <p class="eyebrow">OBJECTIF</p>
+                <p class="section-kicker">DOCUMENTATION</p>
 
-                <h3>OBSERVER, COMPRENDRE, DOCUMENTER.</h3>
+                <h3>CAPTURER LE PHÉNOMÈNE.</h3>
 
                 <p>
-                    Le storm chasing peut contribuer à la connaissance
-                    des phénomènes violents lorsqu'il est pratiqué
-                    avec méthode et responsabilité.
+                    Le matériel de documentation permet de conserver
+                    des images et des informations utiles après
+                    l'observation.
                 </p>
 
                 <div class="chasing-list">
 
                     <div class="chasing-list-item">
-                        <span>🌩️</span>
+                        <span>🎥</span>
                         <div>
-                            <strong>Orages</strong>
-                            <small>Identifier les structures et leur évolution.</small>
+                            <strong>Caméras</strong>
+                            <small>Images vidéo des structures et phénomènes observés.</small>
                         </div>
                     </div>
 
                     <div class="chasing-list-item">
-                        <span>🌪️</span>
+                        <span>📷</span>
                         <div>
-                            <strong>Tornades</strong>
-                            <small>Observer et documenter les phénomènes tornadiques.</small>
+                            <strong>Photographie</strong>
+                            <small>Documentation visuelle de l'environnement et du ciel.</small>
                         </div>
                     </div>
 
                     <div class="chasing-list-item">
-                        <span>🔬</span>
+                        <span>📝</span>
                         <div>
-                            <strong>Science</strong>
-                            <small>Les observations peuvent participer à l'étude des phénomènes.</small>
+                            <strong>Observations</strong>
+                            <small>Heure, position et évolution du phénomène peuvent être notées.</small>
                         </div>
                     </div>
 
@@ -608,11 +933,42 @@
 
         </div>
 
+
+        <div class="safety-box">
+
+            <h3>⚠️ LA SÉCURITÉ PASSE AVANT L'IMAGE.</h3>
+
+            <p>
+                Le storm chasing se pratique avec prudence. Une situation
+                météorologique peut évoluer rapidement : il faut conserver
+                une bonne visibilité, éviter les zones exposées et disposer
+                d'une possibilité de sortie à tout moment.
+            </p>
+
+            <div class="safety-points">
+
+                <div class="safety-point">
+                    🚗 Ne jamais bloquer une route ou une voie d'évacuation.
+                </div>
+
+                <div class="safety-point">
+                    📡 Surveiller constamment l'évolution de la situation.
+                </div>
+
+                <div class="safety-point">
+                    🛑 S'éloigner dès que les conditions deviennent trop dangereuses.
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
+
 
     <section class="chasing-cta">
 
-        <p class="eyebrow">STORMLAB V2</p>
+        <p class="section-kicker">STORMLAB V2</p>
 
         <h2>
             NEVER STOP
@@ -620,14 +976,19 @@
         </h2>
 
         <p>
-            Continue ton exploration du storm chasing,
-            des chasseurs et des véhicules spécialisés.
+            Continue ton exploration du storm chasing
+            et découvre les personnes et véhicules qui
+            ont marqué cette discipline.
         </p>
 
         <div class="hero-buttons">
 
             <a href="chasseurs.html" class="btn primary">
-                👥 Découvrir les chasseurs
+                👥 Les chasseurs
+            </a>
+
+            <a href="dominator.html" class="btn secondary">
+                🚙 Dominator
             </a>
 
             <a href="reed-timmer.html" class="btn secondary">
@@ -640,6 +1001,7 @@
 
 </main>
 
+
 <footer>
 
     <div class="footer-logo">🌪️ STORMLAB</div>
@@ -650,7 +1012,8 @@
 
 </footer>
 
-<script src="../script.js?v=10" defer></script>
+
+<script src="../script.js?v=11" defer></script>
 
 </body>
 </html>
