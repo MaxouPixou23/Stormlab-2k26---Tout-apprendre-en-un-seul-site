@@ -1,9 +1,12 @@
 ```css
 /* =========================================================
-   STORMLAB V2
-   STYLE PRINCIPAL
-   Full Black / White
-   Navigation Hamburger
+   STORMLAB V2 — STYLE.CSS COMPLET
+   Noir / Blanc — Menu compact à droite
+========================================================= */
+
+
+/* =========================================================
+   RESET
 ========================================================= */
 
 * {
@@ -13,15 +16,24 @@
 }
 
 html {
-    scroll-behavior: smooth;
     background: #000;
+    color: #fff;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
     background: #000;
     color: #fff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     line-height: 1.6;
+
     overflow-x: hidden;
 }
 
@@ -34,49 +46,46 @@ a {
     text-decoration: none;
 }
 
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 img {
     display: block;
     max-width: 100%;
 }
 
 
-```css
-```css
 /* =========================================================
-   STORMLAB V2 — NAVBAR
+   NAVBAR
 ========================================================= */
 
-body.menu-active {
-    overflow: hidden;
-}
-
-
-/* NAVBAR */
-
 .navbar {
-    position: sticky;
+    position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
-
-    min-height: 74px;
+    height: 74px;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
-    padding: 0 24px;
+    padding: 0 28px;
 
-    background: #000;
+    background: rgba(0, 0, 0, 0.97);
 
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #202020;
 
-    z-index: 9999;
+    z-index: 99999;
 }
 
 
-/* LOGO */
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo {
     display: flex;
@@ -89,13 +98,28 @@ body.menu-active {
     font-size: 21px;
     font-weight: 900;
 
+    line-height: 1;
+
     white-space: nowrap;
+
+    user-select: none;
+}
+
+.logo:hover {
+    opacity: 0.8;
 }
 
 
-/* BOUTON ☰ */
+/* =========================================================
+   BOUTON HAMBURGER
+========================================================= */
 
 .mobile-menu-btn {
+    position: absolute;
+
+    top: 13px;
+    right: 28px;
+
     width: 48px;
     height: 48px;
 
@@ -106,96 +130,149 @@ body.menu-active {
     padding: 0;
     margin: 0;
 
-    background: #0b0b0b;
+    background: #0a0a0a;
     color: #fff;
 
     border: 1px solid #333;
     border-radius: 10px;
 
-    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
     font-weight: 700;
+
+    line-height: 1;
 
     cursor: pointer;
 
-    z-index: 10001;
+    z-index: 100001;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
 }
 
 .mobile-menu-btn:hover {
     background: #fff;
     color: #000;
+
+    border-color: #fff;
+}
+
+.mobile-menu-btn:active {
+    transform: scale(0.96);
+}
+
+.mobile-menu-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
 }
 
 
-/* MENU FERMÉ */
+/* =========================================================
+   NAVIGATION — FERMÉE
+========================================================= */
 
 .main-nav {
     display: none;
 }
 
 
-/* MENU OUVERT */
+/* =========================================================
+   NAVIGATION — OUVERTE
+========================================================= */
 
 .navbar.menu-open .main-nav {
     position: fixed;
 
-    top: 74px;
-    left: 0;
+    top: 82px;
+    right: 28px;
+    left: auto;
 
-    width: 100%;
-    height: calc(100vh - 74px);
+    width: 320px;
+    max-width: calc(100vw - 56px);
+
+    max-height: calc(100vh - 100px);
 
     display: flex;
     flex-direction: column;
 
-    gap: 8px;
+    gap: 6px;
 
-    padding: 20px;
+    padding: 12px;
 
     margin: 0;
 
     overflow-y: auto;
+    overflow-x: hidden;
 
-    background: #000;
+    background: #050505;
 
-    border-top: 1px solid #222;
+    border: 1px solid #2b2b2b;
+    border-radius: 14px;
 
-    box-sizing: border-box;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.75);
 
-    z-index: 10000;
+    z-index: 100000;
+
+    animation: stormMenuIn 0.18s ease-out;
+}
+
+@keyframes stormMenuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
-/* LIENS */
+/* =========================================================
+   LIENS DU MENU
+========================================================= */
 
 .navbar.menu-open .main-nav a {
     width: 100%;
-    min-height: 52px;
+    min-height: 45px;
 
     display: flex;
     align-items: center;
 
-    padding: 14px 18px;
+    padding: 10px 14px;
 
     background: #0b0b0b;
     color: #fff;
 
-    border: 1px solid #222;
-    border-radius: 12px;
+    border: 1px solid #202020;
+    border-radius: 9px;
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
 
-    box-sizing: border-box;
+    line-height: 1.3;
 
-    transition: 0.2s ease;
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
 }
 
 .navbar.menu-open .main-nav a:hover {
-    background: #181818;
+    background: #191919;
 
-    border-color: #555;
+    border-color: #4a4a4a;
 
-    transform: translateX(4px);
+    transform: translateX(3px);
 }
 
 .navbar.menu-open .main-nav a.active {
@@ -205,11 +282,18 @@ body.menu-active {
     border-color: #fff;
 }
 
+.navbar.menu-open .main-nav a.active:hover {
+    background: #fff;
+    color: #000;
+}
 
-/* SCROLLBAR DU MENU */
+
+/* =========================================================
+   SCROLLBAR DU PETIT MENU
+========================================================= */
 
 .navbar.menu-open .main-nav::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 
 .navbar.menu-open .main-nav::-webkit-scrollbar-track {
@@ -221,41 +305,19 @@ body.menu-active {
     border-radius: 20px;
 }
 
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .navbar {
-        min-height: 68px;
-        padding: 0 14px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .mobile-menu-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 22px;
-    }
-
-    .navbar.menu-open .main-nav {
-        top: 68px;
-        height: calc(100vh - 68px);
-
-        padding: 14px;
-    }
-
-    .navbar.menu-open .main-nav a {
-        min-height: 50px;
-
-        font-size: 15px;
-    }
-
+.navbar.menu-open .main-nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
-```
+
+
+/* =========================================================
+   ESPACE POUR LA NAVBAR FIXE
+========================================================= */
+
+main {
+    padding-top: 74px;
+}
+
 
 /* =========================================================
    HERO
@@ -279,32 +341,10 @@ body.menu-active {
             circle at 80% 45%,
             #171717 0%,
             #070707 30%,
-            #000 62%
+            #000 65%
         );
 
     overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    right: 0;
-
-    width: 55%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 0%,
-            rgba(255,255,255,0.015) 50%,
-            transparent 100%
-        );
-
-    pointer-events: none;
 }
 
 .hero-content {
@@ -322,7 +362,7 @@ body.menu-active {
     font-size: 12px;
     font-weight: 800;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     text-transform: uppercase;
 }
@@ -330,14 +370,13 @@ body.menu-active {
 .hero h1 {
     margin-bottom: 28px;
 
-    color: #fff;
-
     font-size: clamp(55px, 9vw, 120px);
+
     line-height: 0.9;
 
     font-weight: 900;
 
-    letter-spacing: -6px;
+    letter-spacing: -5px;
 }
 
 .hero h1 span,
@@ -360,37 +399,21 @@ body.menu-active {
 
 .hero-symbol {
     position: relative;
-    z-index: 2;
 
     flex: 0 0 auto;
 
-    color: #fff;
-
-    font-size: clamp(100px, 16vw, 230px);
-
-    filter: grayscale(1);
+    font-size: clamp(100px, 15vw, 220px);
 
     opacity: 0.75;
 
+    filter: grayscale(1);
+
     user-select: none;
-
-    animation: stormFloat 4s ease-in-out infinite;
-}
-
-@keyframes stormFloat {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
 }
 
 
 /* =========================================================
-   HERO BUTTONS
+   BOUTONS
 ========================================================= */
 
 .hero-buttons {
@@ -409,14 +432,14 @@ body.menu-active {
 
     min-height: 46px;
 
-    padding: 13px 21px;
+    padding: 12px 20px;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
     font-size: 14px;
     font-weight: 800;
 
-    cursor: pointer;
+    border: 1px solid transparent;
 
     transition:
         background 0.2s ease,
@@ -429,15 +452,11 @@ body.menu-active {
     transform: translateY(-2px);
 }
 
-.btn:active {
-    transform: translateY(0);
-}
-
 .btn.primary {
     background: #fff;
     color: #000;
 
-    border: 1px solid #fff;
+    border-color: #fff;
 }
 
 .btn.primary:hover {
@@ -449,11 +468,11 @@ body.menu-active {
     background: transparent;
     color: #fff;
 
-    border: 1px solid #3a3a3a;
+    border-color: #444;
 }
 
 .btn.secondary:hover {
-    background: #141414;
+    background: #151515;
     border-color: #666;
 }
 
@@ -463,22 +482,23 @@ body.menu-active {
 ========================================================= */
 
 .section {
-    padding: 110px 8%;
+    padding: 100px 8%;
+
     background: #000;
 }
 
 .dark-section {
-    background: #050505;
+    background: #060606;
 }
 
 .section-title {
     max-width: 850px;
 
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 }
 
 .section-title > p {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 
     color: #666;
 
@@ -496,6 +516,7 @@ body.menu-active {
     color: #fff;
 
     font-size: clamp(38px, 6vw, 74px);
+
     line-height: 0.95;
 
     font-weight: 900;
@@ -520,7 +541,7 @@ body.menu-active {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.25fr)
+        minmax(0, 1.2fr)
         minmax(0, 1fr);
 
     min-height: 450px;
@@ -531,7 +552,7 @@ body.menu-active {
 
     border: 1px solid #222;
 
-    border-radius: 22px;
+    border-radius: 20px;
 }
 
 .storm-feature img {
@@ -541,14 +562,6 @@ body.menu-active {
     min-height: 450px;
 
     object-fit: cover;
-
-    filter: grayscale(0.15);
-
-    transition: filter 0.3s ease;
-}
-
-.storm-feature:hover img {
-    filter: grayscale(0);
 }
 
 .storm-feature-content {
@@ -564,7 +577,8 @@ body.menu-active {
 
     color: #fff;
 
-    font-size: clamp(35px, 5vw, 65px);
+    font-size: clamp(35px, 5vw, 64px);
+
     line-height: 0.95;
 
     font-weight: 900;
@@ -574,7 +588,6 @@ body.menu-active {
 
 .storm-feature-content p:last-child {
     color: #999;
-    font-size: 16px;
 }
 
 
@@ -606,10 +619,9 @@ body.menu-active {
     border-radius: 16px;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .card:hover {
@@ -617,16 +629,13 @@ body.menu-active {
 
     background: #101010;
 
-    border-color: #4a4a4a;
-
-    box-shadow:
-        0 18px 50px rgba(0,0,0,0.45);
+    border-color: #444;
 }
 
 .card > span {
     display: block;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     font-size: 34px;
 
@@ -639,25 +648,27 @@ body.menu-active {
     color: #fff;
 
     font-size: 22px;
+
     line-height: 1.2;
 }
 
 .card p {
     margin-bottom: 20px;
 
-    color: #969696;
+    color: #999;
 
     font-size: 14px;
 }
 
 .card .btn {
     margin-top: auto;
+
     align-self: flex-start;
 }
 
 
 /* =========================================================
-   MANUEL / BLOC CTA
+   MANUAL
 ========================================================= */
 
 .manual {
@@ -668,7 +679,7 @@ body.menu-active {
             circle at 80% 20%,
             #151515 0%,
             #070707 38%,
-            #000 72%
+            #000 75%
         );
 
     border-top: 1px solid #111;
@@ -685,6 +696,7 @@ body.menu-active {
     color: #fff;
 
     font-size: clamp(42px, 7vw, 88px);
+
     line-height: 0.92;
 
     font-weight: 900;
@@ -693,7 +705,7 @@ body.menu-active {
 }
 
 .manual p:not(.eyebrow) {
-    max-width: 780px;
+    max-width: 760px;
 
     margin-bottom: 30px;
 
@@ -704,7 +716,7 @@ body.menu-active {
 
 
 /* =========================================================
-   CHASING
+   CHASING FINAL
 ========================================================= */
 
 .chasing {
@@ -721,6 +733,7 @@ body.menu-active {
     color: #fff;
 
     font-size: clamp(45px, 8vw, 105px);
+
     line-height: 0.9;
 
     font-weight: 900;
@@ -732,8 +745,6 @@ body.menu-active {
     margin-bottom: 30px;
 
     color: #888;
-
-    font-size: 17px;
 }
 
 
@@ -759,18 +770,15 @@ body.menu-active {
 
     background: #080808;
 
-    border: 1px solid #202020;
+    border: 1px solid #222;
 
-    border-radius: 17px;
+    border-radius: 16px;
 
-    transition:
-        border-color 0.25s ease,
-        transform 0.25s ease;
+    transition: transform 0.2s ease;
 }
 
 .storm-photo:hover {
     transform: translateY(-4px);
-    border-color: #444;
 }
 
 .storm-photo img {
@@ -780,15 +788,6 @@ body.menu-active {
     min-height: 280px;
 
     object-fit: cover;
-
-    transition:
-        transform 0.35s ease,
-        filter 0.35s ease;
-}
-
-.storm-photo:hover img {
-    transform: scale(1.03);
-    filter: grayscale(0);
 }
 
 .storm-photo::after {
@@ -801,7 +800,7 @@ body.menu-active {
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,0.8),
+            rgba(0, 0, 0, 0.8),
             transparent 60%
         );
 
@@ -811,14 +810,14 @@ body.menu-active {
 .storm-photo figcaption {
     position: absolute;
 
-    left: 20px;
-    bottom: 17px;
+    left: 18px;
+    bottom: 15px;
 
     z-index: 2;
 
     color: #fff;
 
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
 }
 
@@ -828,13 +827,13 @@ body.menu-active {
 ========================================================= */
 
 .page-header {
-    padding: 110px 8% 80px;
+    padding: 100px 8% 70px;
 
     background:
         radial-gradient(
             circle at 80% 20%,
             #161616 0%,
-            #050505 38%,
+            #050505 40%,
             #000 70%
         );
 }
@@ -842,9 +841,8 @@ body.menu-active {
 .page-header h1 {
     margin-bottom: 20px;
 
-    color: #fff;
-
     font-size: clamp(48px, 8vw, 100px);
+
     line-height: 0.9;
 
     font-weight: 900;
@@ -866,7 +864,7 @@ body.menu-active {
 
 
 /* =========================================================
-   CONTENU CLASSIQUE
+   CONTENU
 ========================================================= */
 
 .content {
@@ -875,7 +873,7 @@ body.menu-active {
 
     margin: 0 auto;
 
-    padding: 90px 8%;
+    padding: 80px 8%;
 }
 
 .content h2 {
@@ -884,6 +882,7 @@ body.menu-active {
     color: #fff;
 
     font-size: 38px;
+
     line-height: 1.1;
 }
 
@@ -963,25 +962,18 @@ td {
     border-radius: 14px;
 }
 
-.quiz-question h3 {
-    margin-bottom: 12px;
-}
-
 .quiz-question button {
     margin: 8px 5px 0 0;
 
     padding: 11px 17px;
 
     background: #111;
-
     color: #fff;
 
     border: 1px solid #333;
     border-radius: 8px;
 
     cursor: pointer;
-
-    transition: 0.2s ease;
 }
 
 .quiz-question button:hover {
@@ -1001,7 +993,7 @@ footer {
 
     background: #000;
 
-    border-top: 1px solid #1d1d1d;
+    border-top: 1px solid #202020;
 }
 
 .footer-logo {
@@ -1027,12 +1019,8 @@ footer .copyright {
 
 
 /* =========================================================
-   ÉLÉMENTS DIVERS
+   SÉLECTION
 ========================================================= */
-
-strong {
-    color: #fff;
-}
 
 ::selection {
     background: #fff;
@@ -1041,39 +1029,30 @@ strong {
 
 
 /* =========================================================
-   SCROLLBAR GÉNÉRALE
-========================================================= */
-
-::-webkit-scrollbar {
-    width: 9px;
-}
-
-::-webkit-scrollbar-track {
-    background: #000;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #2e2e2e;
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #505050;
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLETTE
+   RESPONSIVE TABLETTE
 ========================================================= */
 
 @media (max-width: 1000px) {
 
     .navbar {
-        padding: 0 24px;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .mobile-menu-btn {
+        right: 22px;
+    }
+
+    .navbar.menu-open .main-nav {
+        right: 22px;
+
+        width: 310px;
+        max-width: calc(100vw - 44px);
     }
 
     .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .storm-feature {
@@ -1082,40 +1061,28 @@ strong {
 
     .storm-feature img {
         min-height: 320px;
-        max-height: 500px;
+        max-height: 480px;
     }
 
     .storm-gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
 }
 
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   RESPONSIVE MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
 
     .navbar {
-        min-height: 68px;
-        padding: 0 16px;
-    }
+        height: 68px;
 
-    .navbar.menu-open .main-nav {
-        top: 68px;
-        height: calc(100vh - 68px);
-
-        padding: 16px;
-    }
-
-    .navbar.menu-open .main-nav a {
-        min-height: 52px;
-
-        padding: 14px 16px;
-
-        font-size: 15px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .logo {
@@ -1123,28 +1090,56 @@ strong {
     }
 
     .mobile-menu-btn {
-        width: 45px;
-        height: 45px;
+        top: 11px;
+        right: 16px;
+
+        width: 44px;
+        height: 44px;
 
         font-size: 22px;
     }
 
+    .navbar.menu-open .main-nav {
+        top: 76px;
+        right: 16px;
+
+        width: min(300px, calc(100vw - 32px));
+
+        max-height: calc(100vh - 90px);
+
+        padding: 10px;
+    }
+
+    .navbar.menu-open .main-nav a {
+        min-height: 44px;
+
+        padding: 10px 12px;
+
+        font-size: 13px;
+    }
+
+    main {
+        padding-top: 68px;
+    }
+
     .hero {
-        min-height: 620px;
+        min-height: 600px;
 
         padding: 75px 6%;
-
-        gap: 25px;
     }
 
     .hero h1 {
-        font-size: clamp(50px, 16vw, 85px);
+        font-size: clamp(50px, 15vw, 82px);
 
         letter-spacing: -4px;
     }
 
     .hero-text {
         font-size: 16px;
+    }
+
+    .hero-symbol {
+        display: none;
     }
 
     .hero-buttons {
@@ -1156,22 +1151,10 @@ strong {
         width: 100%;
     }
 
-    .hero-symbol {
-        display: none;
-    }
-
     .section,
     .manual,
     .chasing {
         padding: 75px 6%;
-    }
-
-    .section-title {
-        margin-bottom: 38px;
-    }
-
-    .section-title h2 {
-        font-size: clamp(35px, 11vw, 58px);
     }
 
     .cards {
@@ -1199,10 +1182,6 @@ strong {
         padding: 80px 6% 55px;
     }
 
-    .page-header h1 {
-        font-size: clamp(45px, 14vw, 75px);
-    }
-
     .content {
         padding: 60px 6%;
     }
@@ -1215,49 +1194,35 @@ strong {
 
 
 /* =========================================================
-   PETITS ÉCRANS
+   TRÈS PETITS ÉCRANS
 ========================================================= */
 
 @media (max-width: 420px) {
 
-    .logo {
-        font-size: 16px;
+    .navbar {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
     .mobile-menu-btn {
-        width: 42px;
-        height: 42px;
-
-        font-size: 21px;
+        right: 12px;
     }
 
     .navbar.menu-open .main-nav {
-        padding: 12px;
+        right: 12px;
+
+        width: calc(100vw - 24px);
     }
 
-    .navbar.menu-open .main-nav a {
-        padding: 13px 14px;
-
-        font-size: 14px;
-    }
-
-    .hero {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .section,
-    .manual,
-    .chasing {
-        padding-left: 5%;
-        padding-right: 5%;
+    .logo {
+        font-size: 16px;
     }
 
 }
 
 
 /* =========================================================
-   ACCESSIBILITÉ
+   RÉDUCTION DES ANIMATIONS
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1272,326 +1237,7 @@ strong {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
     }
 
 }
 ```
-/* CORRECTION URGENTE NAVBAR */
-.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-
-    width: 100% !important;
-    height: 74px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    z-index: 999999 !important;
-}
-
-.mobile-menu-btn {
-    position: relative !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    width: 48px !important;
-    height: 48px !important;
-
-    z-index: 1000000 !important;
-
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
-
-main {
-    padding-top: 74px !important;
-}
-/* =========================================================
-   FIX NAVBAR STORMLAB
-========================================================= */
-
-.navbar {
-    position: fixed !important;
-
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-
-    width: 100% !important;
-    height: 74px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    padding: 0 20px !important;
-
-    background: #000 !important;
-
-    z-index: 999999 !important;
-}
-
-.logo {
-    margin-left: 0 !important;
-}
-
-.mobile-menu-btn {
-    position: relative !important;
-
-    margin-left: auto !important;
-    margin-right: 0 !important;
-
-    width: 48px !important;
-    height: 48px !important;
-
-    display: flex !important;
-
-    align-items: center !important;
-    justify-content: center !important;
-
-    z-index: 1000000 !important;
-
-    pointer-events: auto !important;
-}
-
-
-/* MENU FERME */
-
-.main-nav {
-    display: none !important;
-}
-
-
-/* MENU OUVERT */
-
-.navbar.menu-open .main-nav {
-    position: fixed !important;
-
-    top: 74px !important;
-    left: 0 !important;
-    right: 0 !important;
-
-    width: 100% !important;
-    height: calc(100vh - 74px) !important;
-
-    display: flex !important;
-
-    flex-direction: column !important;
-    gap: 8px !important;
-
-    padding: 20px !important;
-
-    margin: 0 !important;
-
-    overflow-y: auto !important;
-
-    background: #000 !important;
-
-    z-index: 999998 !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* LIENS */
-
-.navbar.menu-open .main-nav a {
-    display: flex !important;
-
-    align-items: center !important;
-
-    width: 100% !important;
-    min-height: 52px !important;
-
-    padding: 14px 18px !important;
-
-    background: #0b0b0b !important;
-    color: #fff !important;
-
-    border: 1px solid #222 !important;
-    border-radius: 12px !important;
-
-    text-decoration: none !important;
-
-    box-sizing: border-box !important;
-}
-
-.navbar.menu-open .main-nav a:hover {
-    background: #181818 !important;
-    border-color: #555 !important;
-}
-
-.navbar.menu-open .main-nav a.active {
-    background: #fff !important;
-    color: #000 !important;
-}
-
-
-/* CONTENU SOUS LA NAVBAR */
-
-main {
-    padding-top: 74px !important;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .navbar {
-        height: 68px !important;
-        padding: 0 14px !important;
-    }
-
-    .mobile-menu-btn {
-        width: 44px !important;
-        height: 44px !important;
-    }
-
-    .navbar.menu-open .main-nav {
-        top: 68px !important;
-        height: calc(100vh - 68px) !important;
-        padding: 14px !important;
-    }
-
-    main {
-        padding-top: 68px !important;
-    }
-
-}
-/* =========================================================
-   STORMLAB — PETIT MENU À DROITE
-========================================================= */
-
-.navbar {
-    padding-left: 24px !important;
-    padding-right: 120px !important;
-}
-
-.mobile-menu-btn {
-    position: absolute !important;
-
-    top: 13px !important;
-    right: 70px !important;
-
-    width: 48px !important;
-    height: 48px !important;
-
-    z-index: 1000001 !important;
-}
-
-
-/* MENU FERMÉ */
-
-.navbar .main-nav {
-    display: none !important;
-}
-
-
-/* PETITE LISTE À DROITE */
-
-.navbar.menu-open .main-nav {
-    position: absolute !important;
-
-    top: 68px !important;
-    right: 70px !important;
-    left: auto !important;
-
-    width: 310px !important;
-    height: auto !important;
-    max-height: calc(100vh - 85px) !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-
-    gap: 5px !important;
-
-    padding: 12px !important;
-    margin: 0 !important;
-
-    overflow-y: auto !important;
-
-    background: #050505 !important;
-
-    border: 1px solid #2a2a2a !important;
-    border-radius: 14px !important;
-
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7) !important;
-
-    z-index: 1000000 !important;
-}
-
-
-/* LIENS */
-
-.navbar.menu-open .main-nav a {
-    width: 100% !important;
-    min-height: 45px !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    padding: 11px 14px !important;
-
-    background: #0b0b0b !important;
-    color: #fff !important;
-
-    border: 1px solid #1f1f1f !important;
-    border-radius: 9px !important;
-
-    font-size: 14px !important;
-    font-weight: 700 !important;
-
-    box-sizing: border-box !important;
-
-    transition: .2s ease !important;
-}
-
-.navbar.menu-open .main-nav a:hover {
-    background: #181818 !important;
-    border-color: #444 !important;
-    transform: translateX(2px) !important;
-}
-
-.navbar.menu-open .main-nav a.active {
-    background: #fff !important;
-    color: #000 !important;
-    border-color: #fff !important;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .navbar {
-        padding-left: 14px !important;
-        padding-right: 75px !important;
-    }
-
-    .mobile-menu-btn {
-        top: 12px !important;
-        right: 18px !important;
-
-        width: 44px !important;
-        height: 44px !important;
-    }
-
-    .navbar.menu-open .main-nav {
-        top: 63px !important;
-        right: 18px !important;
-
-        width: min(310px, calc(100vw - 36px)) !important;
-        max-height: calc(100vh - 80px) !important;
-    }
-
-}
