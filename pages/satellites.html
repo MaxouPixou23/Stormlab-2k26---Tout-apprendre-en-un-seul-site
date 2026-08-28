@@ -1,14 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Satellites — STORMLAB</title>
-
-<meta name="description"
-content="STORMLAB — Observer la météo depuis l'espace grâce aux satellites.">
-
+<meta name="description" content="STORMLAB — Observer la météo depuis les satellites.">
 <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -16,10 +13,10 @@ content="STORMLAB — Observer la météo depuis l'espace grâce aux satellites.
 
 <header class="navbar">
 
-<a href="../index.html" class="logo">🌪️ STORMLAB</a>
+<a href="../index.html" class="logo"><span class="logo-icon">🌪️</span><span>STORMLAB</span></a>
 
 <nav class="main-nav">
-<a href="../index.html">Accueil</a>
+<a href="../index.html">🏠 Accueil</a>
 <a href="manuel.html">📚 Manuel</a>
 <a href="meteorologie.html">🌧️ Météorologie</a>
 <a href="orages.html">🌩️ Orages</a>
@@ -27,10 +24,19 @@ content="STORMLAB — Observer la météo depuis l'espace grâce aux satellites.
 <a href="tornades.html">🌪️ Tornades</a>
 <a href="foudre.html">⚡ Foudre</a>
 <a href="radar.html">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
+<a href="satellites.html" class="active">🛰️ Satellites</a>
+<a href="storm-chasing.html">🚗 Storm Chasing</a>
+<a href="reed-timmer.html">❤️ Reed Timmer</a>
+<a href="galerie.html">📸 Galerie</a>
+<a href="cartes.html">🗺️ Cartes météo</a>
+<a href="alertes.html">🚨 Alertes</a>
+<a href="quiz.html">🧠 Quiz</a>
+<a href="laboratoire.html">🔬 Laboratoire</a>
+<a href="videos.html">🎥 Vidéos</a>
+<a href="actualites.html">📰 Actualités</a>
 </nav>
 
-<button class="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
 <div class="mobile-menu">
 <a href="../index.html">🏠 Accueil</a>
@@ -41,7 +47,7 @@ content="STORMLAB — Observer la météo depuis l'espace grâce aux satellites.
 <a href="tornades.html">🌪️ Tornades</a>
 <a href="foudre.html">⚡ Foudre</a>
 <a href="radar.html">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
+<a href="satellites.html" class="active">🛰️ Satellites</a>
 <a href="storm-chasing.html">🚗 Storm Chasing</a>
 <a href="reed-timmer.html">❤️ Reed Timmer</a>
 <a href="galerie.html">📸 Galerie</a>
@@ -58,7 +64,6 @@ content="STORMLAB — Observer la météo depuis l'espace grâce aux satellites.
 <main>
 
 <section class="hero">
-
 <div class="hero-content">
 
 <p class="eyebrow">STORMLAB • OBSERVATION SPATIALE</p>
@@ -69,8 +74,8 @@ LES
 </h1>
 
 <p class="hero-text">
-Depuis l'espace, les satellites permettent d'observer
-les nuages, les systèmes météorologiques et leur évolution.
+Les satellites météorologiques permettent d'observer
+les nuages et les systèmes atmosphériques à grande échelle.
 </p>
 
 <div class="hero-buttons">
@@ -81,20 +86,16 @@ les nuages, les systèmes météorologiques et leur évolution.
 </div>
 
 <div class="hero-symbol">🛰️</div>
-
 </section>
 
 <section class="section">
 
 <div class="section-title">
-
-<p>01 • OBSERVATION</p>
-
+<p>01 • OBSERVER</p>
 <h2>
-LA TERRE VUE DE
-<span>L'ESPACE.</span>
+LA MÉTÉO
+<span>DEPUIS L'ESPACE.</span>
 </h2>
-
 </div>
 
 <div class="cards">
@@ -102,125 +103,59 @@ LA TERRE VUE DE
 <article class="card">
 <span>☁️</span>
 <h3>Nuages</h3>
-<p>
-Les images satellites permettent de suivre les structures
-nuageuses à grande échelle.
-</p>
+<p>Les satellites permettent d'observer leur organisation.</p>
 </article>
 
 <article class="card">
 <span>🌍</span>
-<h3>Vue globale</h3>
-<p>
-Les satellites offrent une vision très large de l'atmosphère
-terrestre.
-</p>
+<h3>Grande échelle</h3>
+<p>Ils offrent une vision très large des systèmes météorologiques.</p>
 </article>
 
 <article class="card">
 <span>🌡️</span>
-<h3>Température</h3>
-<p>
-Certaines données permettent d'étudier les températures
-des nuages et de la surface.
-</p>
+<h3>Infrarouge</h3>
+<p>Certaines observations permettent d'étudier les températures.</p>
 </article>
 
 <article class="card">
-<span>🌀</span>
-<h3>Systèmes météo</h3>
-<p>
-Dépressions, fronts et systèmes nuageux peuvent être suivis
-depuis l'espace.
-</p>
+<span>🌈</span>
+<h3>Canaux</h3>
+<p>Différents canaux d'observation apportent différentes informations.</p>
 </article>
 
 </div>
-
-</section>
-
-<section class="section dark-section">
-
-<div class="storm-feature">
-
-<div class="storm-feature-content">
-
-<p class="eyebrow">VISION SATELLITAIRE</p>
-
-<h2>
-UNE AUTRE
-<span>PERSPECTIVE.</span>
-</h2>
-
-<p>
-Les satellites complètent les observations au sol
-et les données radar pour analyser l'atmosphère.
-</p>
-
-<a href="radar.html" class="btn primary">
-📡 Comparer avec le radar
-</a>
-
-</div>
-
-</div>
-
 </section>
 
 <section class="manual">
-
 <div class="manual-content">
 
-<p class="eyebrow">02 • STORMLAB</p>
+<p class="eyebrow">02 • ANALYSE</p>
 
 <h2>
-OBSERVER LA
-<span>PLANÈTE.</span>
+SATELLITE +
+<span>RADAR.</span>
 </h2>
 
 <p>
-L'observation météorologique moderne combine de nombreuses
-sources de données pour mieux comprendre les phénomènes.
+Associer plusieurs sources d'information permet d'obtenir
+une meilleure compréhension de la situation météorologique.
 </p>
 
-<a href="laboratoire.html" class="btn primary">
-🔬 Entrer au laboratoire
-</a>
+<a href="radar.html" class="btn primary">📡 Retour au radar</a>
 
 </div>
-
-</section>
-
-<section class="chasing">
-
-<p class="eyebrow">STORMLAB</p>
-
-<h2>
-SEE THE
-<span>BIG PICTURE.</span>
-</h2>
-
-<p>
-Chaque phénomène commence quelque part.
-</p>
-
-<a href="storm-chasing.html" class="btn secondary">
-🚗 Storm Chasing
-</a>
-
 </section>
 
 </main>
 
 <footer>
-
 <div class="footer-logo">🌪️ STORMLAB</div>
 <p>Never Stop Chasing.</p>
 <p class="copyright">© 2026 STORMLAB</p>
-
 </footer>
 
 <script src="../script.js"></script>
-
 </body>
 </html>
+```
