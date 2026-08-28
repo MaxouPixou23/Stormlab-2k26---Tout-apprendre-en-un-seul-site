@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,23 +14,10 @@
 <header class="navbar">
 <a href="../index.html" class="logo">🌪️ STORMLAB</a>
 
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="foudre.html">⚡ Foudre</a>
-<a href="radar.html">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
-<a href="storm-chasing.html">🚗 Chasing</a>
-<a href="reed-timmer.html">❤️ Reed Timmer</a>
-</nav>
-
-<button class="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
 <div class="mobile-menu">
+
 <a href="../index.html">🏠 Accueil</a>
 <a href="manuel.html">📚 Manuel</a>
 <a href="meteorologie.html">🌧️ Météorologie</a>
@@ -42,35 +30,61 @@
 <a href="storm-chasing.html">🚗 Storm Chasing</a>
 <a href="reed-timmer.html">❤️ Reed Timmer</a>
 <a href="galerie.html">📸 Galerie</a>
-<a href="cartes.html">🗺️ Cartes météo</a>
+<a href="cartes.html" class="active">🗺️ Cartes météo</a>
 <a href="alertes.html">🚨 Alertes</a>
 <a href="quiz.html">🧠 Quiz</a>
 <a href="laboratoire.html">🔬 Laboratoire</a>
 <a href="videos.html">🎥 Vidéos</a>
 <a href="actualites.html">📰 Actualités</a>
+
 </div>
 </header>
 
 <main>
 
 <section class="hero">
+
 <div class="hero-content">
+
 <p class="eyebrow">STORMLAB • ANALYSE</p>
-<h1>CARTES <span>MÉTÉO.</span></h1>
+
+<h1>
+CARTES
+<span>MÉTÉO.</span>
+</h1>
+
 <p class="hero-text">
-Les cartes météorologiques permettent de visualiser
-la situation atmosphérique et son évolution.
+Les cartes météorologiques permettent d'étudier
+la situation atmosphérique et les paramètres favorables
+aux phénomènes convectifs.
 </p>
+
+<div class="hero-buttons">
+<a href="meteorologie.html" class="btn primary">🌧️ Météorologie</a>
+<a href="radar.html" class="btn secondary">📡 Radar</a>
 </div>
+
+</div>
+
 <div class="hero-symbol">🗺️</div>
+
 </section>
 
 <section class="section">
 
 <div class="section-title">
-<p>01 • ANALYSER</p>
-<h2>APPRENDRE À <span>LIRE.</span></h2>
-<span>Les principales informations présentes sur une carte météo.</span>
+
+<p>01 • PARAMÈTRES</p>
+
+<h2>
+LIRE
+<span>L'ATMOSPHÈRE.</span>
+</h2>
+
+<span>
+Différents paramètres permettent d'analyser la situation.
+</span>
+
 </div>
 
 <div class="cards">
@@ -78,50 +92,81 @@ la situation atmosphérique et son évolution.
 <article class="card">
 <span>🌡️</span>
 <h3>Température</h3>
-<p>Permet d'identifier les zones plus chaudes ou plus froides.</p>
+<p>La température permet d'évaluer la structure thermique.</p>
+</article>
+
+<article class="card">
+<span>💧</span>
+<h3>Humidité</h3>
+<p>L'humidité joue un rôle important dans la convection.</p>
 </article>
 
 <article class="card">
 <span>💨</span>
 <h3>Vent</h3>
-<p>Indique la direction et l'intensité des flux atmosphériques.</p>
+<p>La direction et la vitesse du vent sont essentielles.</p>
 </article>
 
 <article class="card">
-<span>🔵</span>
-<h3>Pression</h3>
-<p>Les isobares permettent d'étudier les différences de pression.</p>
+<span>⚡</span>
+<h3>Instabilité</h3>
+<p>L'instabilité peut favoriser le développement convectif.</p>
 </article>
 
-<article class="card">
-<span>🌧️</span>
-<h3>Précipitations</h3>
-<p>Elles permettent de suivre les zones pluvieuses et orageuses.</p>
-</article>
+</div>
+
+</section>
+
+<section class="manual">
+
+<div class="manual-content">
+
+<p class="eyebrow">02 • ANALYSE</p>
+
+<h2>
+COMPRENDRE AVANT
+<span>D'OBSERVER.</span>
+</h2>
+
+<p>
+Une carte météo ne doit pas être étudiée seule.
+La combinaison de plusieurs paramètres permet
+d'obtenir une vision plus complète de la situation.
+</p>
+
+<a href="laboratoire.html" class="btn primary">
+🔬 Laboratoire
+</a>
 
 </div>
 </section>
 
-<section class="manual">
-<div class="manual-content">
-<p class="eyebrow">STORMLAB • ANALYSE</p>
-<h2>OBSERVE. <span>ANALYSE.</span></h2>
-<p>
-Une bonne lecture des cartes permet de mieux comprendre
-l'évolution des systèmes météorologiques.
-</p>
-<a href="radar.html" class="btn primary">📡 Aller au radar</a>
-</div>
+<section class="chasing">
+
+<p class="eyebrow">STORMLAB</p>
+
+<h2>
+READ THE
+<span>SKY.</span>
+</h2>
+
+<a href="radar.html" class="btn secondary">
+📡 Explorer le radar
+</a>
+
 </section>
 
 </main>
 
 <footer>
+
 <div class="footer-logo">🌪️ STORMLAB</div>
 <p>Never Stop Chasing.</p>
 <p class="copyright">© 2026 STORMLAB</p>
+
 </footer>
 
 <script src="../script.js"></script>
 </body>
 </html>
+```
