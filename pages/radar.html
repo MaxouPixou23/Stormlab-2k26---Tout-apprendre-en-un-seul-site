@@ -1,161 +1,229 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Radar — STORMLAB</title>
-<meta name="description" content="STORMLAB — Apprendre à comprendre les radars météorologiques.">
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Radar — STORMLAB</title>
+
+    <meta name="description"
+          content="STORMLAB — Comprendre les radars météorologiques.">
+
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
 <header class="navbar">
 
-<a href="../index.html" class="logo"><span class="logo-icon">🌪️</span><span>STORMLAB</span></a>
+    <a href="../index.html" class="logo">
+        🌪️ <span>STORMLAB</span>
+    </a>
 
-<nav class="main-nav">
-<a href="../index.html">🏠 Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="foudre.html">⚡ Foudre</a>
-<a href="radar.html" class="active">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
-<a href="storm-chasing.html">🚗 Storm Chasing</a>
-<a href="reed-timmer.html">❤️ Reed Timmer</a>
-<a href="galerie.html">📸 Galerie</a>
-<a href="cartes.html">🗺️ Cartes météo</a>
-<a href="alertes.html">🚨 Alertes</a>
-<a href="quiz.html">🧠 Quiz</a>
-<a href="laboratoire.html">🔬 Laboratoire</a>
-<a href="videos.html">🎥 Vidéos</a>
-<a href="actualites.html">📰 Actualités</a>
-</nav>
+    <button
+        class="mobile-menu-btn"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false">
+        ☰
+    </button>
 
-<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="main-nav">
 
-<div class="mobile-menu">
-<a href="../index.html">🏠 Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="foudre.html">⚡ Foudre</a>
-<a href="radar.html" class="active">📡 Radar</a>
-<a href="satellites.html">🛰️ Satellites</a>
-<a href="storm-chasing.html">🚗 Storm Chasing</a>
-<a href="reed-timmer.html">❤️ Reed Timmer</a>
-<a href="galerie.html">📸 Galerie</a>
-<a href="cartes.html">🗺️ Cartes météo</a>
-<a href="alertes.html">🚨 Alertes</a>
-<a href="quiz.html">🧠 Quiz</a>
-<a href="laboratoire.html">🔬 Laboratoire</a>
-<a href="videos.html">🎥 Vidéos</a>
-<a href="actualites.html">📰 Actualités</a>
-</div>
+        <a href="../index.html">🏠 Accueil</a>
+        <a href="manuel.html">📚 Manuel</a>
+        <a href="meteorologie.html">🌧️ Météorologie</a>
+        <a href="orages.html">🌩️ Orages</a>
+        <a href="supercellules.html">🌀 Supercellules</a>
+        <a href="tornades.html">🌪️ Tornades</a>
+        <a href="foudre.html">⚡ Foudre</a>
+        <a href="radar.html" class="active">📡 Radar</a>
+        <a href="satellites.html">🛰️ Satellites</a>
+        <a href="storm-chasing.html">🚗 Storm Chasing</a>
+        <a href="reed-timmer.html">❤️ Reed Timmer</a>
+        <a href="galerie.html">📸 Galerie</a>
+        <a href="cartes.html">🗺️ Cartes météo</a>
+        <a href="alertes.html">🚨 Alertes</a>
+        <a href="quiz.html">🧠 Quiz</a>
+        <a href="laboratoire.html">🔬 Laboratoire</a>
+        <a href="videos.html">🎥 Vidéos</a>
+        <a href="actualites.html">📰 Actualités</a>
+
+    </nav>
 
 </header>
 
 <main>
 
-<section class="hero">
-<div class="hero-content">
+    <section class="hero">
 
-<p class="eyebrow">STORMLAB • OBSERVATION</p>
+        <div class="hero-content">
 
-<h1>
-LE
-<span>RADAR.</span>
-</h1>
+            <p class="eyebrow">
+                STORMLAB • OBSERVATION
+            </p>
 
-<p class="hero-text">
-Le radar météorologique permet d'observer les précipitations
-et de suivre l'évolution des cellules orageuses.
-</p>
+            <h1>
+                LE
+                <span>RADAR.</span>
+            </h1>
 
-<div class="hero-buttons">
-<a href="supercellules.html" class="btn primary">🌀 Supercellules</a>
-<a href="storm-chasing.html" class="btn secondary">🚗 Chasing</a>
-</div>
+            <p class="hero-text">
+                Le radar météorologique permet d'observer
+                les précipitations et de suivre l'évolution
+                des cellules.
+            </p>
 
-</div>
+            <div class="hero-buttons">
 
-<div class="hero-symbol">📡</div>
-</section>
+                <a href="supercellules.html" class="btn primary">
+                    🌀 Supercellules
+                </a>
 
-<section class="section">
+                <a href="cartes.html" class="btn secondary">
+                    🗺️ Cartes
+                </a>
 
-<div class="section-title">
-<p>01 • LECTURE</p>
-<h2>
-APPRENDRE À LIRE
-<span>UN RADAR.</span>
-</h2>
-</div>
+            </div>
 
-<div class="cards">
+        </div>
 
-<article class="card">
-<span>🌧️</span>
-<h3>Réflectivité</h3>
-<p>Elle permet notamment d'observer l'intensité des précipitations.</p>
-</article>
+        <div class="hero-symbol">
+            📡
+        </div>
 
-<article class="card">
-<span>🌀</span>
-<h3>Rotation</h3>
-<p>Certaines signatures radar peuvent aider à identifier une rotation.</p>
-</article>
+    </section>
 
-<article class="card">
-<span>➡️</span>
-<h3>Déplacement</h3>
-<p>L'animation radar permet de suivre le mouvement des cellules.</p>
-</article>
 
-<article class="card">
-<span>⏱️</span>
-<h3>Évolution</h3>
-<p>Comparer plusieurs images permet d'étudier les changements.</p>
-</article>
+    <section class="section">
 
-</div>
-</section>
+        <div class="section-title">
 
-<section class="manual">
-<div class="manual-content">
+            <p>01 • LECTURE</p>
 
-<p class="eyebrow">02 • STORMLAB</p>
+            <h2>
+                APPRENDRE À LIRE
+                <span>UN RADAR.</span>
+            </h2>
 
-<h2>
-RADAR +
-<span>OBSERVATION.</span>
-</h2>
+            <span>
+                Le radar fournit des informations précieuses
+                sur les précipitations et leur évolution.
+            </span>
 
-<p>
-Le radar est un outil puissant, mais il doit être interprété
-avec les autres données météorologiques disponibles.
-</p>
+        </div>
 
-<a href="cartes.html" class="btn primary">🗺️ Cartes météo</a>
 
-</div>
-</section>
+        <div class="cards">
+
+            <article class="card">
+                <span>🌧️</span>
+                <h3>Précipitations</h3>
+                <p>
+                    Les échos permettent d'observer
+                    la présence de précipitations.
+                </p>
+            </article>
+
+            <article class="card">
+                <span>🎨</span>
+                <h3>Intensité</h3>
+                <p>
+                    Les différentes intensités sont
+                    représentées par des couleurs.
+                </p>
+            </article>
+
+            <article class="card">
+                <span>➡️</span>
+                <h3>Déplacement</h3>
+                <p>
+                    Les animations permettent de suivre
+                    le déplacement des cellules.
+                </p>
+            </article>
+
+            <article class="card">
+                <span>🌀</span>
+                <h3>Structure</h3>
+                <p>
+                    Certaines structures radar peuvent
+                    apporter des indices sur l'organisation.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="manual">
+
+        <div class="manual-content">
+
+            <p class="eyebrow">
+                02 • ANALYSE
+            </p>
+
+            <h2>
+                RADAR +
+                <span>OBSERVATION.</span>
+            </h2>
+
+            <p>
+                Le radar doit être combiné avec d'autres
+                données pour obtenir une analyse complète.
+            </p>
+
+            <a href="satellites.html" class="btn primary">
+                🛰️ Satellites
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="chasing">
+
+        <p class="eyebrow">
+            STORMLAB
+        </p>
+
+        <h2>
+            WATCH THE
+            <span>STORM.</span>
+        </h2>
+
+        <p>
+            Observer. Analyser. Comprendre.
+        </p>
+
+        <a href="storm-chasing.html" class="btn secondary">
+            🚗 Storm Chasing
+        </a>
+
+    </section>
 
 </main>
 
 <footer>
-<div class="footer-logo">🌪️ STORMLAB</div>
-<p>Never Stop Chasing.</p>
-<p class="copyright">© 2026 STORMLAB</p>
+
+    <div class="footer-logo">
+        🌪️ STORMLAB
+    </div>
+
+    <p>
+        Never Stop Chasing.
+    </p>
+
+    <p class="copyright">
+        © 2026 STORMLAB
+    </p>
+
 </footer>
 
 <script src="../script.js"></script>
+
 </body>
 </html>
-```
