@@ -1108,3 +1108,46 @@ footer .copyright {
     }
 
 }
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    margin-top: auto;
+    padding: 7px 10px;
+
+    border: 1px solid #333;
+    border-radius: 7px;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.status-active {
+    color: #fff;
+    background: #151515;
+    border-color: #555;
+}
+
+.status-repair {
+    color: #bbb;
+    background: #101010;
+    border-color: #444;
+}
+
+.status-history,
+.status-retired {
+    color: #777;
+    background: #080808;
+    border-color: #292929;
+}
+
+.status-independent {
+    color: #aaa;
+    background: #101010;
+    border-color: #3b3b3b;
+}
