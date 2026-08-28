@@ -1,299 +1,82 @@
-```javascript
 /* =========================================================
-   STORMLAB V2
-   SCRIPT GLOBAL
-   NAVBAR + INTERACTIONS
+STORMLAB V2
+GLOBAL JAVASCRIPT
+NAVBAR + INTERACTIONS
 ========================================================= */
 
 "use strict";
 
-
 /* =========================================================
-   NAVBAR STORMLAB
+NAVBAR
 ========================================================= */
 
 (function () {
 
-    function initNavbar() {
+```
+function initNavbar() {
 
-        const navbar = document.querySelector(".navbar");
-        const button = document.getElementById("menuButton");
-        const menu = document.getElementById("mainNav");
+    const navbar =
+        document.querySelector(".navbar");
+
+    const button =
+        document.getElementById("menuButton");
+
+    const menu =
+        document.getElementById("mainNav");
+
+
+    /*
+     * Si une page ne possède pas de navbar,
+     * le script ne bloque pas le reste du site.
+     */
+
+    if (!navbar || !button || !menu) {
+
+        console.warn(
+            "STORMLAB V2 : navbar absente sur cette page."
+        );
+
+        return;
+    }
+
+
+    /* =================================================
+       OUVRIR
+    ================================================= */
+
+    function openMenu() {
+
+        navbar.classList.add("menu-open");
+
+        button.textContent = "✕";
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        button.setAttribute(
+            "aria-label",
+            "Fermer le menu"
+        );
 
         /*
-         * Si la page ne possède pas de navbar,
-         * on arrête proprement le script.
-         */
-        if (!navbar || !button || !menu) {
-            console.warn(
-                "STORMLAB V2 : navbar absente sur cette page."
-            );
-            return;
-        }
-
-
-        /* =================================================
-           ÉTAT DU MENU
-        ================================================= */
-
-        let isOpen = false;
-
-
-        /* =================================================
-           OUVRIR
-        ================================================= */
-
-        function openMenu() {
-
-            if (isOpen) {
-                return;
-            }
-
-            isOpen = true;
-
-            navbar.classList.add("menu-open");
-
-            button.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            button.setAttribute(
-                "aria-label",
-                "Fermer le menu"
-            );
-
-            button.textContent = "✕";
-        }
-
-
-        /* =================================================
-           FERMER
-        ================================================= */
-
-        function closeMenu() {
-
-            if (!isOpen) {
-                return;
-            }
-
-            isOpen = false;
-
-            navbar.classList.remove("menu-open");
-
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            button.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-
-            button.textContent = "☰";
-        }
-
-
-        /* =================================================
-           TOGGLE
-        ================================================= */
-
-        function toggleMenu(event) {
-
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            if (isOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-
-
-        /* =================================================
-           BOUTON MENU
-        ================================================= */
-
-        button.addEventListener(
-            "click",
-            toggleMenu,
-            false
-        );
-
-
-        /*
-         * Certains navigateurs/appareils utilisent
-         * pointerup pour les boutons tactiles.
-         *
-         * On ne l'utilise pas ici afin d'éviter
-         * un double déclenchement click + pointerup.
+         * Empêche le clic de traverser
+         * vers les éléments derrière le menu.
          */
 
-
-        /* =================================================
-           CLIC DANS LE MENU
-        ================================================= */
-
-        menu.addEventListener(
-            "click",
-            function (event) {
-
-                const link =
-                    event.target.closest(".menu-link");
-
-                /*
-                 * Si ce n'est pas un lien STORMLAB,
-                 * on ne fait rien.
-                 */
-                if (!link) {
-                    return;
-                }
-
-                /*
-                 * On ferme le menu immédiatement,
-                 * puis le navigateur suit normalement
-                 * le href du lien.
-                 */
-                closeMenu();
-            },
-            false
+        menu.setAttribute(
+            "aria-hidden",
+            "false"
         );
+    }
 
 
-        /* =================================================
-           CLIC SUR LE LOGO
-        ================================================= */
+    /* =================================================
+       FERMER
+    ================================================= */
 
-        const logo =
-            navbar.querySelector(".logo");
-
-        if (logo) {
-
-            logo.addEventListener(
-                "click",
-                function () {
-
-                    closeMenu();
-
-                },
-                false
-            );
-        }
-
-
-        /* =================================================
-           CLIC EN DEHORS DU MENU
-        ================================================= */
-
-        document.addEventListener(
-            "click",
-            function (event) {
-
-                if (!isOpen) {
-                    return;
-                }
-
-                /*
-                 * Si le clic est dans la navbar,
-                 * on ne ferme pas.
-                 */
-                if (
-                    event.target.closest(".navbar")
-                ) {
-                    return;
-                }
-
-                closeMenu();
-
-            },
-            false
-        );
-
-
-        /* =================================================
-           TOUCHE ESCAPE
-        ================================================= */
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "Escape" &&
-                    isOpen
-                ) {
-
-                    closeMenu();
-
-                    button.focus();
-                }
-
-            },
-            false
-        );
-
-
-        /* =================================================
-           REDIMENSIONNEMENT
-        ================================================= */
-
-        let resizeTimer = null;
-
-        window.addEventListener(
-            "resize",
-            function () {
-
-                clearTimeout(resizeTimer);
-
-                resizeTimer =
-                    setTimeout(
-                        function () {
-
-                            /*
-                             * On ferme uniquement lorsque
-                             * la fenêtre dépasse la largeur
-                             * prévue pour le comportement mobile.
-                             */
-                            if (
-                                window.innerWidth > 700 &&
-                                isOpen
-                            ) {
-                                closeMenu();
-                            }
-
-                        },
-                        100
-                    );
-
-            },
-            false
-        );
-
-
-        /* =================================================
-           CHANGEMENT D'ORIENTATION
-        ================================================= */
-
-        window.addEventListener(
-            "orientationchange",
-            function () {
-
-                if (isOpen) {
-                    closeMenu();
-                }
-
-            },
-            false
-        );
-
-
-        /* =================================================
-           CHARGEMENT INITIAL
-        ================================================= */
+    function closeMenu() {
 
         navbar.classList.remove("menu-open");
 
@@ -309,266 +92,518 @@
             "Ouvrir le menu"
         );
 
-        isOpen = false;
-
-
-        console.log(
-            "STORMLAB V2 : navbar chargée avec succès."
+        menu.setAttribute(
+            "aria-hidden",
+            "true"
         );
     }
 
 
-    /* =====================================================
-       INITIALISATION
-    ===================================================== */
+    /* =================================================
+       TOGGLE
+    ================================================= */
 
-    if (
-        document.readyState === "loading"
-    ) {
+    function toggleMenu(event) {
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            initNavbar,
-            {
-                once: true
-            }
-        );
+        if (event) {
 
-    } else {
+            event.preventDefault();
 
-        initNavbar();
+            event.stopPropagation();
 
-    }
-
-})();
-
-
-/* =========================================================
-   IMAGE FALLBACK
-========================================================= */
-
-(function () {
-
-    function initImageFallback() {
-
-        const images =
-            document.querySelectorAll("img");
-
-        if (!images.length) {
-            return;
         }
 
-        images.forEach(
-            function (image) {
 
-                image.addEventListener(
-                    "error",
-                    function () {
+        if (
+            navbar.classList.contains(
+                "menu-open"
+            )
+        ) {
 
-                        image.classList.add(
-                            "image-error"
-                        );
+            closeMenu();
 
-                        console.warn(
-                            "STORMLAB V2 : image introuvable :",
-                            image.getAttribute("src")
-                        );
+        } else {
 
-                    },
-                    {
-                        once: true
-                    }
+            openMenu();
+
+        }
+
+    }
+
+
+    /* =================================================
+       BOUTON MENU
+    ================================================= */
+
+    button.addEventListener(
+        "click",
+        toggleMenu,
+        false
+    );
+
+
+    /*
+     * Empêche certains scripts/pages
+     * de bloquer le bouton.
+     */
+
+    button.addEventListener(
+        "pointerdown",
+        function (event) {
+
+            event.stopPropagation();
+
+        },
+        false
+    );
+
+
+    /* =================================================
+       LIENS DU MENU
+    ================================================= */
+
+    menu.addEventListener(
+        "click",
+        function (event) {
+
+            const link =
+                event.target.closest(
+                    ".menu-link"
                 );
 
+
+            if (!link) {
+
+                return;
+
             }
-        );
-    }
 
 
-    /* =====================================================
-       INITIALISATION
-    ===================================================== */
+            /*
+             * Laisse le navigateur suivre
+             * normalement le href.
+             */
 
-    if (
-        document.readyState === "loading"
-    ) {
+            closeMenu();
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            initImageFallback,
-            {
-                once: true
+        },
+        false
+    );
+
+
+    /* =================================================
+       CLIC EXTÉRIEUR
+    ================================================= */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !navbar.classList.contains(
+                    "menu-open"
+                )
+            ) {
+
+                return;
+
             }
-        );
-
-    } else {
-
-        initImageFallback();
-
-    }
-
-})();
 
 
-/* =========================================================
-   STORMLAB V2 — LIENS INTERNES
-========================================================= */
+            if (
+                !navbar.contains(
+                    event.target
+                )
+            ) {
 
-(function () {
+                closeMenu();
 
-    function initInternalLinks() {
+            }
 
-        const links =
-            document.querySelectorAll(
-                'a[href]'
+        },
+        false
+    );
+
+
+    /* =================================================
+       ESCAPE
+    ================================================= */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                navbar.classList.contains(
+                    "menu-open"
+                )
+            ) {
+
+                closeMenu();
+
+                button.focus();
+
+            }
+
+        },
+        false
+    );
+
+
+    /* =================================================
+       REDIMENSIONNEMENT
+    ================================================= */
+
+    let resizeTimer = null;
+
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            clearTimeout(
+                resizeTimer
             );
 
-        links.forEach(
-            function (link) {
 
-                const href =
-                    link.getAttribute("href");
-
-                /*
-                 * Les liens externes, ancres,
-                 * mailto, tel, etc. ne sont pas modifiés.
-                 */
-                if (
-                    !href ||
-                    href.startsWith("#") ||
-                    href.startsWith("http://") ||
-                    href.startsWith("https://") ||
-                    href.startsWith("mailto:") ||
-                    href.startsWith("tel:")
-                ) {
-                    return;
-                }
-
-
-                /*
-                 * Lorsque l'utilisateur clique sur
-                 * une page interne, le menu est fermé
-                 * avant la navigation.
-                 */
-                link.addEventListener(
-                    "click",
+            resizeTimer =
+                setTimeout(
                     function () {
 
-                        const navbar =
-                            document.querySelector(".navbar");
+                        /*
+                         * On ferme le menu lorsque
+                         * la fenêtre change fortement
+                         * de taille.
+                         */
 
-                        const button =
-                            document.getElementById(
-                                "menuButton"
-                            );
-
-                        if (navbar) {
-                            navbar.classList.remove(
+                        if (
+                            navbar.classList.contains(
                                 "menu-open"
-                            );
-                        }
+                            )
+                        ) {
 
-                        if (button) {
+                            closeMenu();
 
-                            button.textContent = "☰";
-
-                            button.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-
-                            button.setAttribute(
-                                "aria-label",
-                                "Ouvrir le menu"
-                            );
                         }
 
                     },
-                    false
+                    120
                 );
 
-            }
-        );
+        },
+        false
+    );
 
-    }
+
+    /* =================================================
+       TOUCH / MOBILE
+    ================================================= */
+
+    menu.addEventListener(
+        "touchstart",
+        function (event) {
+
+            event.stopPropagation();
+
+        },
+        {
+            passive: true
+        }
+    );
 
 
-    if (
-        document.readyState === "loading"
-    ) {
+    /* =================================================
+       ÉTAT INITIAL
+    ================================================= */
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            initInternalLinks,
-            {
-                once: true
-            }
-        );
+    closeMenu();
 
-    } else {
 
-        initInternalLinks();
+    console.log(
+        "STORMLAB V2 : navbar chargée."
+    );
 
-    }
+}
+
+
+/* =====================================================
+   DOM READY
+===================================================== */
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initNavbar
+    );
+
+} else {
+
+    initNavbar();
+
+}
+```
 
 })();
 
-
 /* =========================================================
-   STORMLAB V2 — PROTECTION DU BOUTON
+IMAGE FALLBACK
 ========================================================= */
-
-/*
- * Empêche certains éléments ou scripts de la page
- * de bloquer involontairement les interactions du bouton.
- */
 
 (function () {
 
-    function protectMenuButton() {
+```
+function initImageFallback() {
 
-        const button =
-            document.getElementById("menuButton");
+    const images =
+        document.querySelectorAll(
+            "img"
+        );
 
-        if (!button) {
-            return;
+
+    images.forEach(
+        function (image) {
+
+            image.addEventListener(
+                "error",
+                function () {
+
+                    image.classList.add(
+                        "image-error"
+                    );
+
+                    console.warn(
+                        "STORMLAB V2 : image introuvable :",
+                        image.src
+                    );
+
+                },
+                {
+                    once: true
+                }
+            );
+
         }
+    );
 
-        button.style.pointerEvents = "auto";
-
-        button.style.cursor = "pointer";
-
-        button.style.touchAction =
-            "manipulation";
-
-        button.removeAttribute(
-            "disabled"
-        );
-
-        button.removeAttribute(
-            "aria-disabled"
-        );
-
-    }
+}
 
 
-    if (
-        document.readyState === "loading"
-    ) {
+if (
+    document.readyState ===
+    "loading"
+) {
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            protectMenuButton,
-            {
-                once: true
-            }
-        );
+    document.addEventListener(
+        "DOMContentLoaded",
+        initImageFallback
+    );
 
-    } else {
+} else {
 
-        protectMenuButton();
+    initImageFallback();
 
-    }
+}
+```
 
 })();
+
+/* =========================================================
+ACTIVE PAGE
+Détermine automatiquement le lien actif.
+========================================================= */
+
+(function () {
+
 ```
+function initActivePage() {
+
+    const links =
+        document.querySelectorAll(
+            ".menu-link"
+        );
+
+
+    if (!links.length) {
+
+        return;
+
+    }
+
+
+    /*
+     * Récupération de l'URL actuelle.
+     */
+
+    const currentPath =
+        window.location.pathname
+            .replace(/\\/g, "/")
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+
+    links.forEach(
+        function (link) {
+
+            const href =
+                link.getAttribute("href");
+
+
+            if (!href) {
+
+                return;
+
+            }
+
+
+            const linkPath =
+                href
+                    .split("/")
+                    .pop()
+                    .split("?")[0]
+                    .toLowerCase();
+
+
+            /*
+             * On ne touche pas aux liens
+             * qui pointent vers des ancres.
+             */
+
+            if (
+                href.startsWith("#")
+            ) {
+
+                return;
+
+            }
+
+
+            link.classList.remove(
+                "active"
+            );
+
+
+            if (
+                linkPath ===
+                currentPath
+            ) {
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initActivePage
+    );
+
+} else {
+
+    initActivePage();
+
+}
+```
+
+})();
+
+/* =========================================================
+PROTECTION DU MENU
+========================================================= */
+
+(function () {
+
+```
+/*
+ * Certains éléments avec transform,
+ * animation ou z-index peuvent créer
+ * des problèmes de clic.
+ *
+ * On force la priorité de la navbar
+ * lorsqu'elle est ouverte.
+ */
+
+function protectNavbar() {
+
+    const navbar =
+        document.querySelector(
+            ".navbar"
+        );
+
+
+    if (!navbar) {
+
+        return;
+
+    }
+
+
+    navbar.style.pointerEvents =
+        "auto";
+
+
+    const button =
+        document.querySelector(
+            "#menuButton"
+        );
+
+
+    const menu =
+        document.querySelector(
+            "#mainNav"
+        );
+
+
+    if (button) {
+
+        button.style.pointerEvents =
+            "auto";
+
+    }
+
+
+    if (menu) {
+
+        menu.style.pointerEvents =
+            "auto";
+
+    }
+
+}
+
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        protectNavbar
+    );
+
+} else {
+
+    protectNavbar();
+
+}
+```
+
+})();
