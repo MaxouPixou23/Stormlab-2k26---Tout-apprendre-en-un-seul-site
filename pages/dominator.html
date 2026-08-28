@@ -1,1413 +1,1023 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050816">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+```
+<meta name="description"
+      content="STORMLAB — Découvrez les véhicules emblématiques du storm chasing : TIV et Dominator.">
 
-    <meta name="theme-color"
-          content="#000000">
+<title>Dominator & TIV — STORMLAB V2</title>
 
-    <meta name="description"
-          content="STORMLAB — Histoire, véhicules et statuts des Dominator, TIV et DOW.">
+<link rel="stylesheet" href="../style.css?v=9">
 
-    <title>Dominator &amp; Véhicules — STORMLAB</title>
+<style>
 
-    <link rel="stylesheet"
-          href="../style.css">
+    /* =====================================================
+       DOMINATOR — STORMLAB V2
+    ===================================================== */
+
+    .dominator-page {
+        padding-top: 74px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .dominator-hero {
+        min-height: 620px;
+
+        display: flex;
+        align-items: center;
+
+        position: relative;
+        overflow: hidden;
+
+        padding: 100px 8%;
+
+        background:
+            radial-gradient(
+                circle at 80% 40%,
+                rgba(124,77,255,.14),
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at 20% 70%,
+                rgba(0,217,255,.08),
+                transparent 30%
+            ),
+            linear-gradient(
+                135deg,
+                #050816,
+                #081426
+            );
+    }
+
+    .dominator-hero::after {
+        content: "🚙";
+
+        position: absolute;
+
+        right: 4%;
+        top: 50%;
+
+        transform:
+            translateY(-50%);
+
+        font-size: 310px;
+
+        opacity: .045;
+
+        pointer-events: none;
+    }
+
+    .dominator-hero-content {
+        max-width: 850px;
+
+        position: relative;
+
+        z-index: 2;
+    }
+
+    .dominator-hero h1 {
+        margin-top: 12px;
+
+        font-size:
+            clamp(52px, 9vw, 110px);
+
+        line-height: .88;
+
+        letter-spacing: -5px;
+    }
+
+    .dominator-hero h1 span {
+        color: #00d9ff;
+
+        text-shadow:
+            0 0 35px rgba(0,217,255,.25);
+    }
+
+    .dominator-hero-text {
+        max-width: 680px;
+
+        margin-top: 30px;
+
+        color: #91a4bf;
+
+        font-size: 18px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .dominator-section {
+        width:
+            min(1200px, 90%);
+
+        margin: auto;
+
+        padding: 100px 0;
+    }
+
+    .dominator-heading {
+        max-width: 850px;
+
+        margin-bottom: 45px;
+    }
+
+    .dominator-heading h2 {
+        margin-top: 10px;
+
+        font-size:
+            clamp(38px, 5vw, 65px);
+
+        line-height: 1;
+    }
+
+    .dominator-heading h2 span {
+        color: #00d9ff;
+    }
+
+    .dominator-heading > span {
+        display: block;
+
+        margin-top: 16px;
+
+        color: #8193ad;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       VEHICLE CARDS
+    ===================================================== */
+
+    .vehicle-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 22px;
+    }
+
+    .vehicle-card {
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                145deg,
+                #0c1a2e,
+                #070e19
+            );
+
+        border:
+            1px solid rgba(79,151,255,.16);
+
+        border-radius: 20px;
+
+        transition:
+            transform .25s ease,
+            border-color .25s ease,
+            box-shadow .25s ease;
+    }
+
+    .vehicle-card:hover {
+        transform:
+            translateY(-7px);
+
+        border-color:
+            rgba(0,217,255,.40);
+
+        box-shadow:
+            0 25px 65px rgba(0,0,0,.45);
+    }
+
+    .vehicle-card img {
+        width: 100%;
+        height: 330px;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform .4s ease;
+    }
+
+    .vehicle-card:hover img {
+        transform:
+            scale(1.04);
+    }
+
+    .vehicle-content {
+        padding: 27px;
+    }
+
+    .vehicle-tag {
+        color: #00d9ff;
+
+        font-size: 9px;
+        font-weight: 900;
+
+        letter-spacing: 2px;
+    }
+
+    .vehicle-content h3 {
+        margin-top: 8px;
+
+        font-size: 30px;
+    }
+
+    .vehicle-content p {
+        margin-top: 12px;
+
+        color: #879ab4;
+
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+
+    /* =====================================================
+       GALERIE
+    ===================================================== */
+
+    .vehicle-gallery {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 14px;
+    }
+
+    .gallery-image {
+        position: relative;
+
+        overflow: hidden;
+
+        min-height: 260px;
+
+        border-radius: 15px;
+
+        border:
+            1px solid rgba(79,151,255,.13);
+
+        background: #07101c;
+    }
+
+    .gallery-image.large {
+        grid-column:
+            span 2;
+
+        grid-row:
+            span 2;
+    }
+
+    .gallery-image img {
+        width: 100%;
+        height: 100%;
+
+        min-height: 260px;
+
+        object-fit: cover;
+
+        display: block;
+
+        transition:
+            transform .4s ease;
+    }
+
+    .gallery-image:hover img {
+        transform:
+            scale(1.06);
+    }
+
+    .gallery-caption {
+        position: absolute;
+
+        left: 12px;
+        bottom: 12px;
+
+        padding: 7px 11px;
+
+        color: #fff;
+
+        background:
+            rgba(3,8,15,.80);
+
+        border:
+            1px solid rgba(0,217,255,.22);
+
+        border-radius: 7px;
+
+        font-size: 9px;
+        font-weight: 900;
+
+        letter-spacing: 1.5px;
+
+        backdrop-filter:
+            blur(8px);
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+    ===================================================== */
+
+    .comparison {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+    .comparison-card {
+        padding: 32px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(35,136,255,.08),
+                rgba(124,77,255,.07)
+            );
+
+        border:
+            1px solid rgba(79,151,255,.16);
+
+        border-radius: 18px;
+    }
+
+    .comparison-card h3 {
+        font-size: 25px;
+    }
+
+    .comparison-card h3 span {
+        color: #00d9ff;
+    }
+
+    .comparison-card p {
+        margin-top: 12px;
+
+        color: #8497b1;
+
+        line-height: 1.75;
+
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .dominator-cta {
+        width:
+            min(1100px, 90%);
+
+        margin:
+            0 auto 100px;
+
+        padding: 80px 30px;
+
+        text-align: center;
+
+        background:
+            radial-gradient(
+                circle at center,
+                rgba(0,217,255,.11),
+                transparent 60%
+            ),
+            #07101d;
+
+        border:
+            1px solid rgba(0,217,255,.17);
+
+        border-radius: 24px;
+    }
+
+    .dominator-cta h2 {
+        margin-top: 10px;
+
+        font-size:
+            clamp(40px, 6vw, 72px);
+
+        line-height: .95;
+    }
+
+    .dominator-cta h2 span {
+        color: #00d9ff;
+    }
+
+    .dominator-cta p {
+        margin-top: 15px;
+
+        color: #8193ad;
+    }
+
+    .dominator-cta .hero-buttons {
+        justify-content: center;
+
+        margin-top: 25px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 800px) {
+
+        .vehicle-grid,
+        .comparison {
+            grid-template-columns:
+                1fr;
+        }
+
+        .vehicle-gallery {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .dominator-page {
+            padding-top: 68px;
+        }
+
+        .dominator-hero {
+            min-height: 540px;
+
+            padding:
+                80px 20px;
+
+            text-align: center;
+        }
+
+        .dominator-hero h1 {
+            font-size: 52px;
+
+            letter-spacing: -3px;
+        }
+
+        .dominator-hero-text {
+            font-size: 15px;
+        }
+
+        .dominator-section {
+            width:
+                calc(100% - 32px);
+
+            padding:
+                65px 0;
+        }
+
+        .vehicle-gallery {
+            grid-template-columns:
+                1fr;
+        }
+
+        .gallery-image.large {
+            grid-column:
+                span 1;
+
+            grid-row:
+                span 1;
+        }
+
+        .dominator-cta {
+            width:
+                calc(100% - 32px);
+
+            padding:
+                60px 20px;
+        }
+
+    }
+
+</style>
+```
 
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
 
 <header class="navbar">
 
-    <a href="../index.html" class="logo">
-        🌪️ <span>STORMLAB</span>
-    </a>
+```
+<a href="../index.html" class="logo">
+
+    <span class="logo-symbol">
+        🌪️
+    </span>
+
+    <span class="logo-text">
+        STORMLAB
+    </span>
+
+</a>
 
 
-    <button
-        id="menuButton"
-        class="mobile-menu-btn"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mainNav"
-        aria-label="Ouvrir le menu">
+<button
+    id="menuButton"
+    class="mobile-menu-btn"
+    type="button"
+    aria-expanded="false"
+    aria-controls="mainNav"
+    aria-label="Ouvrir le menu">
 
-        ☰
+    ☰
 
-    </button>
-
-
-    <nav
-        id="mainNav"
-        class="main-nav"
-        aria-label="Navigation principale">
+</button>
 
 
-        <div class="menu-top">
+<nav
+    id="mainNav"
+    class="main-nav"
+    aria-label="Navigation principale">
 
-            <div class="menu-brand">
-                🌪️ STORMLAB
-            </div>
 
-            <div class="menu-version">
-                V2 • NEVER STOP CHASING
-            </div>
+    <div class="menu-top">
 
-            <div class="menu-top-line"></div>
-
-            <div class="menu-title">
-                EXPLORER STORMLAB
-            </div>
-
+        <div class="menu-brand">
+            🌪️ STORMLAB
         </div>
 
-
-        <div class="menu-group">
-
-            <div class="menu-group-title">
-                🌦️ MÉTÉOROLOGIE
-            </div>
-
-            <a href="../index.html" class="menu-link">
-                <span class="menu-icon">🏠</span>
-                <span class="menu-name">Accueil</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="manuel.html" class="menu-link">
-                <span class="menu-icon">📚</span>
-                <span class="menu-name">Manuel</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="meteorologie.html" class="menu-link">
-                <span class="menu-icon">🌧️</span>
-                <span class="menu-name">Météorologie</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="orages.html" class="menu-link">
-                <span class="menu-icon">🌩️</span>
-                <span class="menu-name">Orages</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="supercellules.html" class="menu-link">
-                <span class="menu-icon">🌀</span>
-                <span class="menu-name">Supercellules</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="tornades.html" class="menu-link">
-                <span class="menu-icon">🌪️</span>
-                <span class="menu-name">Tornades</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="foudre.html" class="menu-link">
-                <span class="menu-icon">⚡</span>
-                <span class="menu-name">Foudre</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
+        <div class="menu-version">
+            V2 • NEVER STOP CHASING
         </div>
 
+        <div class="menu-line"></div>
 
-        <div class="menu-separator"></div>
-
-
-        <div class="menu-group">
-
-            <div class="menu-group-title">
-                📡 OBSERVATION
-            </div>
-
-            <a href="radar.html" class="menu-link">
-                <span class="menu-icon">📡</span>
-                <span class="menu-name">Radar</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="satellites.html" class="menu-link">
-                <span class="menu-icon">🛰️</span>
-                <span class="menu-name">Satellites</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="cartes.html" class="menu-link">
-                <span class="menu-icon">🗺️</span>
-                <span class="menu-name">Cartes météo</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-        </div>
-
-
-        <div class="menu-separator"></div>
-
-
-        <div class="menu-group">
-
-            <div class="menu-group-title">
-                🚗 STORM CHASING
-            </div>
-
-            <a href="storm-chasing.html" class="menu-link">
-                <span class="menu-icon">🚗</span>
-                <span class="menu-name">Storm Chasing</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="chasseurs.html" class="menu-link">
-                <span class="menu-icon">👥</span>
-                <span class="menu-name">Chasseurs</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="dominator.html" class="menu-link active">
-                <span class="menu-icon">🚙</span>
-                <span class="menu-name">Dominator</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="reed-timmer.html" class="menu-link">
-                <span class="menu-icon">❤️</span>
-                <span class="menu-name">Reed Timmer</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-        </div>
-
-
-        <div class="menu-separator"></div>
-
-
-        <div class="menu-group">
-
-            <div class="menu-group-title">
-                🔬 STORMLAB
-            </div>
-
-            <a href="galerie.html" class="menu-link">
-                <span class="menu-icon">📸</span>
-                <span class="menu-name">Galerie</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="alertes.html" class="menu-link">
-                <span class="menu-icon">🚨</span>
-                <span class="menu-name">Alertes</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="quiz.html" class="menu-link">
-                <span class="menu-icon">🧠</span>
-                <span class="menu-name">Quiz</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="laboratoire.html" class="menu-link">
-                <span class="menu-icon">🔬</span>
-                <span class="menu-name">Laboratoire</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="videos.html" class="menu-link">
-                <span class="menu-icon">🎥</span>
-                <span class="menu-name">Vidéos</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-            <a href="actualites.html" class="menu-link">
-                <span class="menu-icon">📰</span>
-                <span class="menu-name">Actualités</span>
-                <span class="menu-arrow">›</span>
-            </a>
-
-        </div>
-
-
-        <div class="menu-footer">
-            <span>🌪️</span>
-            <span>NEVER STOP CHASING</span>
-            <span>V2</span>
-        </div>
-
-    </nav>
-
-</header>
-
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <p class="eyebrow">
-            STORMLAB • VÉHICULES &amp; RADARS
-        </p>
-
-        <h1>
-            MACHINES
-            <span>DE TEMPÊTE.</span>
-        </h1>
-
-        <p class="hero-text">
-            Explore les véhicules d'interception,
-            les plateformes de tournage et les radars
-            mobiles qui ont marqué l'histoire de
-            l'observation des phénomènes violents.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#dominators" class="btn primary">
-                🚙 DOMINATOR
-            </a>
-
-            <a href="#tiv" class="btn secondary">
-                🎬 TIV
-            </a>
-
-            <a href="#dows" class="btn secondary">
-                📡 DOW
-            </a>
-
+        <div class="menu-title">
+            EXPLORER STORMLAB
         </div>
 
     </div>
 
 
-    <div class="hero-symbol">
-        🚙
-    </div>
+    <div class="menu-group">
 
-</section>
-
-
-
-<!-- =====================================================
-     INTRODUCTION
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-title">
-
-        <p>
-            01 • COLLECTION
-        </p>
-
-        <h2>
-            TROIS FAMILLES,
-            <span>UNE HISTOIRE.</span>
-        </h2>
-
-        <span>
-            DOMINATOR • TIV • DOW
-        </span>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <article class="card">
-
-            <span>🚙</span>
-
-            <h3>
-                DOMINATOR
-            </h3>
-
-            <p>
-                Les trois générations associées
-                au Team Dominator.
-            </p>
-
-            <a href="#dominators" class="btn primary">
-                Explorer →
-            </a>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>🎬</span>
-
-            <h3>
-                TIV
-            </h3>
-
-            <p>
-                Les Tornado Intercept Vehicles
-                conçus autour du tournage des tornades.
-            </p>
-
-            <a href="#tiv" class="btn primary">
-                Explorer →
-            </a>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>📡</span>
-
-            <h3>
-                DOW
-            </h3>
-
-            <p>
-                Les Doppler on Wheels utilisés
-                pour la recherche météorologique.
-            </p>
-
-            <a href="#dows" class="btn primary">
-                Explorer →
-            </a>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOMINATOR
-===================================================== -->
-
-<section
-    class="section dark-section"
-    id="dominators">
-
-    <div class="section-title">
-
-        <p>
-            02 • TEAM DOMINATOR
-        </p>
-
-        <h2>
-            DOMINATOR
-            <span>1 • 2 • 3.</span>
-        </h2>
-
-        <span>
-            Les trois générations de véhicules.
-        </span>
-
-    </div>
-
-
-    <div class="vehicle-grid">
-
-
-        <!-- DOMINATOR 1 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image placeholder">
-
-                <div>
-                    🚙
-                </div>
-
-                <span>
-                    PHOTO À AJOUTER
-                </span>
-
-            </div>
-
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    SRV • GÉNÉRATION 01
-                </p>
-
-                <h3>
-                    DOMINATOR 1
-                </h3>
-
-                <p>
-                    Première génération de la famille
-                    SRV Dominator, développée autour
-                    des activités de storm chasing
-                    de Reed Timmer.
-                </p>
-
-                <p>
-                    Cette génération appartient aujourd'hui
-                    à l'histoire du projet et permet de
-                    comprendre l'évolution vers les
-                    véhicules suivants.
-                </p>
-
-                <div class="vehicle-status">
-                    HISTORIQUE
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOMINATOR 2 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SRV_Dominator_2.jpg"
-                    alt="SRV Dominator 2"
-                    loading="lazy">
-
-            </div>
-
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    SRV • GÉNÉRATION 02
-                </p>
-
-                <h3>
-                    DOMINATOR 2
-                </h3>
-
-                <p>
-                    Deuxième génération de la famille
-                    Dominator, photographiée au
-                    Southwestern Illinois College.
-                </p>
-
-                <p>
-                    Le véhicule constitue une étape
-                    importante dans l'évolution de la
-                    plateforme d'interception.
-                </p>
-
-                <div class="vehicle-credit">
-                    Wikimedia Commons • RadarSean • Domaine public
-                </div>
-
-                <div class="vehicle-status">
-                    PROJET DE REMISE EN ÉTAT
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOMINATOR 3 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Gear_Dominator3_TornadoChaser_RetoSterchi_DSC7280.webp"
-                    alt="Dominator 3"
-                    loading="lazy">
-
-            </div>
-
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    SRV • GÉNÉRATION 03
-                </p>
-
-                <h3>
-                    DOMINATOR 3
-                </h3>
-
-                <p>
-                    Troisième génération associée au
-                    Team Dominator et à Reed Timmer.
-                </p>
-
-                <p>
-                    Cette plateforme dispose notamment
-                    d'équipements destinés à la recherche
-                    et à l'observation rapprochée.
-                </p>
-
-                <div class="vehicle-credit">
-                    Photo : Reed Timmer • CC BY-SA 4.0
-                </div>
-
-                <div class="vehicle-status active">
-                    ACTIF • TEAM DOMINATOR
-                </div>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOMINATOR 3 — ÉQUIPEMENTS
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-title">
-
-        <p>
-            03 • TECHNOLOGIE
-        </p>
-
-        <h2>
-            DANS LE
-            <span>DOMINATOR 3.</span>
-        </h2>
-
-        <span>
-            Une plateforme pensée pour l'observation
-            et la recherche sur les phénomènes violents.
-        </span>
-
-    </div>
-
-
-    <div class="storm-feature">
-
-        <img
-            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Dominator_3_control_panel_2019.jpg"
-            alt="Panneau de contrôle du Dominator 3"
-            loading="lazy">
-
-
-        <div class="storm-feature-content">
-
-            <p class="eyebrow">
-                ÉQUIPEMENT
-            </p>
-
-            <h2>
-                POSTE DE
-                <span>CONTRÔLE.</span>
-            </h2>
-
-            <p>
-                Le Dominator 3 embarque différents
-                équipements utilisés pour les observations
-                de terrain et les expériences scientifiques.
-            </p>
-
-            <p class="vehicle-credit">
-                Wikimedia Commons • Reed Timmer et collaborateurs
-                • CC BY 4.0
-            </p>
-
+        <div class="menu-group-title">
+            🌦️ MÉTÉOROLOGIE
         </div>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TIV
-===================================================== -->
-
-<section
-    class="section dark-section"
-    id="tiv">
-
-    <div class="section-title">
-
-        <p>
-            04 • TORNADO INTERCEPT VEHICLES
-        </p>
-
-        <h2>
-            TIV
-            <span>1 • 2.</span>
-        </h2>
-
-        <span>
-            Des véhicules construits autour
-            de l'interception et du tournage.
-        </span>
-
-    </div>
-
-
-    <div class="vehicle-grid">
-
-
-        <!-- TIV 1 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sean_Casey_and_TIV.jpg"
-                    alt="Sean Casey et le TIV"
-                    loading="lazy">
-
-            </div>
-
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    TORNADO INTERCEPT VEHICLE
-                </p>
-
-                <h3>
-                    TIV 1
-                </h3>
-
-                <p>
-                    Premier véhicule d'interception
-                    associé à Sean Casey et à son
-                    travail de documentation des tornades.
-                </p>
-
-                <p>
-                    Cette photographie montre Sean Casey
-                    devant le TIV lors d'une sortie en 2011.
-                </p>
-
-                <div class="vehicle-credit">
-                    Derek A. Rice • Wikimedia Commons • CC BY-SA 3.0
-                </div>
-
-                <div class="vehicle-status">
-                    HISTORIQUE • RESTAURATION
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- TIV 2 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Tornado_Intercept_Vehicle_2.jpg"
-                    alt="Tornado Intercept Vehicle 2"
-                    loading="lazy">
-
-            </div>
-
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    TORNADO INTERCEPT VEHICLE
-                </p>
-
-                <h3>
-                    TIV 2
-                </h3>
-
-                <p>
-                    Deuxième génération du concept TIV,
-                    conçue pour améliorer la protection
-                    et les possibilités de tournage.
-                </p>
-
-                <p>
-                    Cette photographie a été prise
-                    lors de la Maker Faire Detroit 2011.
-                </p>
-
-                <div class="vehicle-credit">
-                    James Bastow • Wikimedia Commons • CC BY-SA 2.0
-                </div>
-
-                <div class="vehicle-status active">
-                    INDÉPENDANT • VÉHICULE RESTAURÉ
-                </div>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TIV — DÉTAILS
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-title">
-
-        <p>
-            05 • ARCHITECTURE
-        </p>
-
-        <h2>
-            CONSTRUIRE POUR
-            <span>RÉSISTER.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <article class="card">
-
-            <span>
-                🛡️
-            </span>
-
-            <h3>
-                Protection
-            </h3>
-
-            <p>
-                Les TIV ont été conçus autour
-                d'une cellule protégée permettant
-                de poursuivre le tournage dans
-                des conditions difficiles.
-            </p>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>
-                🎥
-            </span>
-
-            <h3>
-                Cinéma
-            </h3>
-
-            <p>
-                Leur conception répondait aussi
-                à un objectif de documentation
-                audiovisuelle des tornades.
-            </p>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>
-                ⚙️
-            </span>
-
-            <h3>
-                Mobilité
-            </h3>
-
-            <p>
-                Les véhicules devaient conserver
-                une capacité de déplacement
-                pour accompagner les opérations
-                de terrain.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOW
-===================================================== -->
-
-<section
-    class="section dark-section"
-    id="dows">
-
-    <div class="section-title">
-
-        <p>
-            06 • DOPPLER ON WHEELS
-        </p>
-
-        <h2>
-            DOW
-            <span>1 → B.</span>
-        </h2>
-
-        <span>
-            Des radars mobiles développés
-            pour la recherche météorologique.
-        </span>
-
-    </div>
-
-
-
-    <div class="vehicle-grid">
-
-
-        <!-- DOW 1 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Doppler_on_Wheels_1_%28DOW_1%29_During_Project_VORTEX_1995.jpg"
-                    alt="DOW 1 pendant VORTEX 1995"
-                    loading="lazy">
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • GÉNÉRATION 01
-                </p>
-
-                <h3>
-                    DOW 1
-                </h3>
-
-                <p>
-                    Premier radar de la famille
-                    Doppler on Wheels, utilisé dès
-                    les premières campagnes de recherche
-                    mobiles sur les tornades.
-                </p>
-
-                <div class="vehicle-credit">
-                    NOAA / Wikimedia Commons • Domaine public
-                </div>
-
-                <div class="vehicle-status">
-                    HISTORIQUE • RETIRÉ
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW 2 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Doppler_on_Wheels_2_%28DOW_2%29_Participating_in_Intermountain_Precipitation_EXperiment_%28IPEX%29_2000.jpg"
-                    alt="DOW 2 pendant IPEX 2000"
-                    loading="lazy">
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • GÉNÉRATION 02
-                </p>
-
-                <h3>
-                    DOW 2
-                </h3>
-
-                <p>
-                    Deuxième génération utilisée
-                    dans différentes campagnes,
-                    dont IPEX 2000.
-                </p>
-
-                <div class="vehicle-credit">
-                    David Schultz / NOAA • Wikimedia Commons • Domaine public
-                </div>
-
-                <div class="vehicle-status">
-                    HISTORIQUE • RETIRÉ
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW 3 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Doppler_on_Wheels_3_%28DOW_3%29_Participating_in_Intermountain_Precipitation_EXperiment_%28IPEX%29_2000.jpg"
-                    alt="DOW 3 pendant IPEX 2000"
-                    loading="lazy">
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • GÉNÉRATION 02
-                </p>
-
-                <h3>
-                    DOW 3
-                </h3>
-
-                <p>
-                    DOW 3 a participé à plusieurs
-                    campagnes scientifiques destinées
-                    à mieux comprendre les systèmes
-                    météorologiques.
-                </p>
-
-                <div class="vehicle-credit">
-                    David Schultz • Wikimedia Commons • Domaine public
-                </div>
-
-                <div class="vehicle-status">
-                    HISTORIQUE
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW 4 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image placeholder">
-
-                <div>
-                    📡
-                </div>
-
-                <span>
-                    PHOTO À AJOUTER
-                </span>
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • RECHERCHE
-                </p>
-
-                <h3>
-                    DOW 4
-                </h3>
-
-                <p>
-                    DOW 4 est associé aux recherches
-                    météorologiques et à l'évolution
-                    des capacités de radar mobile.
-                </p>
-
-                <p>
-                    Nous conserverons une photo spécifique
-                    au véhicule lorsqu'une source libre
-                    et vérifiée sera disponible.
-                </p>
-
-                <div class="vehicle-status">
-                    HISTORIQUE • TRANSFÉRÉ
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW 5 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Doppler_on_Wheels_5_%28DOW_5%29_Rapid_Scan_with_Tornado_2003.jpg"
-                    alt="DOW 5 Rapid Scan avec une tornade"
-                    loading="lazy">
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • RAPID SCAN
-                </p>
-
-                <h3>
-                    DOW 5
-                </h3>
-
-                <p>
-                    DOW 5 est associé au développement
-                    des capacités Rapid Scan pour observer
-                    l'évolution rapide des phénomènes.
-                </p>
-
-                <div class="vehicle-credit">
-                    Caryle Calvin / NOAA • Wikimedia Commons • Domaine public
-                </div>
-
-                <div class="vehicle-status">
-                    HISTORIQUE • EXPÉRIMENTAL
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW 6 -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Doppler_on_Wheels_6_%28DOW_6%29_2009_VORTEX_2.jpg"
-                    alt="DOW 6 pendant VORTEX2"
-                    loading="lazy">
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • VORTEX2
-                </p>
-
-                <h3>
-                    DOW 6
-                </h3>
-
-                <p>
-                    DOW 6 a notamment participé à
-                    VORTEX2 et à de nombreuses campagnes
-                    scientifiques de terrain.
-                </p>
-
-                <div class="vehicle-credit">
-                    NOAA / VORTEX2 • Wikimedia Commons • Domaine public
-                </div>
-
-                <div class="vehicle-status">
-                    RETIRÉ • 2025
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW A -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image placeholder">
-
-                <div>
-                    🛰️
-                </div>
-
-                <span>
-                    PHOTO À AJOUTER
-                </span>
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • NOUVELLE GÉNÉRATION
-                </p>
-
-                <h3>
-                    DOW A
-                </h3>
-
-                <p>
-                    DOW A fait partie de la nouvelle
-                    génération de plateformes développées
-                    pour les opérations modernes de
-                    recherche météorologique.
-                </p>
-
-                <div class="vehicle-status active">
-                    NOUVELLE GÉNÉRATION
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DOW B -->
-
-        <article class="vehicle-card">
-
-            <div class="vehicle-image">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Doppler_on_Wheels_B_%28DOW_B%29_Front_View_%282026%29.png"
-                    alt="DOW B en 2026"
-                    loading="lazy">
-
-            </div>
-
-            <div class="vehicle-content">
-
-                <p class="vehicle-kicker">
-                    DOW • NOUVELLE GÉNÉRATION
-                </p>
-
-                <h3>
-                    DOW B
-                </h3>
-
-                <p>
-                    DOW B représente la nouvelle génération
-                    de Doppler on Wheels destinée aux
-                    campagnes scientifiques modernes.
-                </p>
-
-                <div class="vehicle-credit">
-                    William Spencer • Wikimedia Commons • CC BY-SA 4.0
-                </div>
-
-                <div class="vehicle-status active">
-                    NOUVELLE GÉNÉRATION
-                </div>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CHRONOLOGIE
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-title">
-
-        <p>
-            07 • CHRONOLOGIE
-        </p>
-
-        <h2>
-            L'ÉVOLUTION DES
-            <span>MACHINES.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <article class="card">
-
-            <span>
-                01
-            </span>
-
-            <h3>
-                Premiers DOW
-            </h3>
-
-            <p>
-                Les premières plateformes Doppler
-                mobiles permettent de rapprocher
-                les radars des phénomènes observés.
-            </p>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>
-                02
-            </span>
-
-            <h3>
-                TIV
-            </h3>
-
-            <p>
-                Les Tornado Intercept Vehicles
-                développent une approche orientée
-                vers le tournage et la documentation.
-            </p>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>
-                03
-            </span>
-
-            <h3>
-                Dominator
-            </h3>
-
-            <p>
-                Les générations de Dominator
-                rapprochent davantage les véhicules
-                de l'univers de la recherche terrain.
-            </p>
-
-        </article>
-
-
-        <article class="card">
-
-            <span>
-                04
-            </span>
-
-            <h3>
-                Nouvelle génération DOW
-            </h3>
-
-            <p>
-                DOW A et DOW B représentent
-                la génération moderne des radars
-                mobiles du programme.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PHILOSOPHIE
-===================================================== -->
-
-<section class="manual">
-
-    <div class="manual-content">
-
-        <p class="eyebrow">
-            08 • PHILOSOPIE
-        </p>
-
-        <h2>
-            INTERCEPTER.
-            MESURER.
-            <span>COMPRENDRE.</span>
-        </h2>
-
-        <p>
-            Chaque machine répond à un objectif différent :
-            documenter, observer ou mesurer les phénomènes
-            météorologiques violents.
-        </p>
-
-        <a
-            href="chasseurs.html"
-            class="btn primary">
-
-            👥 Découvrir les chasseurs
-
+        <a href="../index.html" class="menu-link">
+            <span class="menu-icon">🏠</span>
+            <span class="menu-name">Accueil</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="manuel.html" class="menu-link">
+            <span class="menu-icon">📚</span>
+            <span class="menu-name">Manuel</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="meteorologie.html" class="menu-link">
+            <span class="menu-icon">🌧️</span>
+            <span class="menu-name">Météorologie</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="orages.html" class="menu-link">
+            <span class="menu-icon">🌩️</span>
+            <span class="menu-name">Orages</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="supercellules.html" class="menu-link">
+            <span class="menu-icon">🌀</span>
+            <span class="menu-name">Supercellules</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="tornades.html" class="menu-link">
+            <span class="menu-icon">🌪️</span>
+            <span class="menu-name">Tornades</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="foudre.html" class="menu-link">
+            <span class="menu-icon">⚡</span>
+            <span class="menu-name">Foudre</span>
+            <span class="menu-arrow">›</span>
         </a>
 
     </div>
 
+
+    <div class="menu-separator"></div>
+
+
+    <div class="menu-group">
+
+        <div class="menu-group-title">
+            📡 OBSERVATION
+        </div>
+
+        <a href="radar.html" class="menu-link">
+            <span class="menu-icon">📡</span>
+            <span class="menu-name">Radar</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="satellites.html" class="menu-link">
+            <span class="menu-icon">🛰️</span>
+            <span class="menu-name">Satellites</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="cartes.html" class="menu-link">
+            <span class="menu-icon">🗺️</span>
+            <span class="menu-name">Cartes météo</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+    </div>
+
+
+    <div class="menu-separator"></div>
+
+
+    <div class="menu-group">
+
+        <div class="menu-group-title">
+            🚗 STORM CHASING
+        </div>
+
+        <a href="storm-chasing.html" class="menu-link">
+            <span class="menu-icon">🚗</span>
+            <span class="menu-name">Storm Chasing</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="chasseurs.html" class="menu-link">
+            <span class="menu-icon">👥</span>
+            <span class="menu-name">Chasseurs</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="dominator.html" class="menu-link active">
+            <span class="menu-icon">🚙</span>
+            <span class="menu-name">Dominator</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="reed-timmer.html" class="menu-link">
+            <span class="menu-icon">🌪️</span>
+            <span class="menu-name">Reed Timmer</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+    </div>
+
+
+    <div class="menu-separator"></div>
+
+
+    <div class="menu-group">
+
+        <div class="menu-group-title">
+            🔬 STORMLAB
+        </div>
+
+        <a href="galerie.html" class="menu-link">
+            <span class="menu-icon">📸</span>
+            <span class="menu-name">Galerie</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="alertes.html" class="menu-link">
+            <span class="menu-icon">🚨</span>
+            <span class="menu-name">Alertes</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="quiz.html" class="menu-link">
+            <span class="menu-icon">🧠</span>
+            <span class="menu-name">Quiz</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="laboratoire.html" class="menu-link">
+            <span class="menu-icon">🔬</span>
+            <span class="menu-name">Laboratoire</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="videos.html" class="menu-link">
+            <span class="menu-icon">🎥</span>
+            <span class="menu-name">Vidéos</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="actualites.html" class="menu-link">
+            <span class="menu-icon">📰</span>
+            <span class="menu-name">Actualités</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+    </div>
+
+
+    <div class="menu-footer">
+
+        <span>🌪️</span>
+
+        <span>
+            NEVER STOP CHASING
+        </span>
+
+        <span>V2</span>
+
+    </div>
+
+</nav>
+```
+
+</header>
+
+<main class="dominator-page">
+
+```
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="dominator-hero">
+
+    <div class="dominator-hero-content">
+
+        <p class="eyebrow">
+            05 • VÉHICULES
+        </p>
+
+        <h1>
+            TIV &
+            <span>DOMINATOR.</span>
+        </h1>
+
+        <p class="dominator-hero-text">
+            Découvrez les véhicules spécialement conçus
+            ou utilisés pour documenter les phénomènes
+            météorologiques violents au plus près du terrain.
+        </p>
+
+    </div>
+
 </section>
 
+
+<!-- =====================================================
+     TIV
+====================================================== -->
+
+<section class="dominator-section">
+
+    <div class="dominator-heading">
+
+        <p class="eyebrow">
+            SEAN CASEY
+        </p>
+
+        <h2>
+            TORNADO
+            <span>INTERCEPT VEHICLE.</span>
+        </h2>
+
+        <span>
+            Le TIV est un véhicule emblématique du
+            documentaire sur les tornades. Sa conception
+            vise notamment à permettre la réalisation
+            d'images au plus près des phénomènes.
+        </span>
+
+    </div>
+
+
+    <div class="vehicle-grid">
+
+        <article class="vehicle-card">
+
+            <img
+                src="../assets/images/Tiv1.jpg"
+                alt="TIV"
+                loading="lazy">
+
+            <div class="vehicle-content">
+
+                <div class="vehicle-tag">
+                    TIV • 01
+                </div>
+
+                <h3>
+                    TIV
+                </h3>
+
+                <p>
+                    Un véhicule spécialement conçu pour
+                    les opérations de tournage liées aux
+                    phénomènes météorologiques extrêmes.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="vehicle-card">
+
+            <img
+                src="../assets/images/Tiv2.jpg"
+                alt="TIV"
+                loading="lazy">
+
+            <div class="vehicle-content">
+
+                <div class="vehicle-tag">
+                    TIV • 02
+                </div>
+
+                <h3>
+                    SUR LE TERRAIN
+                </h3>
+
+                <p>
+                    Le TIV est devenu l'un des véhicules
+                    les plus reconnaissables de l'univers
+                    du storm chasing télévisé.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DOMINATOR
+====================================================== -->
+
+<section class="dominator-section">
+
+    <div class="dominator-heading">
+
+        <p class="eyebrow">
+            REED TIMMER
+        </p>
+
+        <h2>
+            TEAM
+            <span>DOMINATOR.</span>
+        </h2>
+
+        <span>
+            Les véhicules Dominator sont associés au travail
+            de Reed Timmer et à ses observations de phénomènes
+            météorologiques violents.
+        </span>
+
+    </div>
+
+
+    <div class="vehicle-gallery">
+
+
+        <div class="gallery-image large">
+
+            <img
+                src="../assets/images/Dom1.jpg"
+                alt="Dominator"
+                loading="lazy">
+
+            <span class="gallery-caption">
+                DOMINATOR 01
+            </span>
+
+        </div>
+
+
+        <div class="gallery-image">
+
+            <img
+                src="../assets/images/Dom2.jpg"
+                alt="Dominator"
+                loading="lazy">
+
+            <span class="gallery-caption">
+                DOMINATOR 02
+            </span>
+
+        </div>
+
+
+        <div class="gallery-image">
+
+            <img
+                src="../assets/images/Dom3.jpg"
+                alt="Dominator"
+                loading="lazy">
+
+            <span class="gallery-caption">
+                DOMINATOR 03
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COMPARAISON
+====================================================== -->
+
+<section class="dominator-section">
+
+    <div class="dominator-heading">
+
+        <p class="eyebrow">
+            STORMLAB • COMPARAISON
+        </p>
+
+        <h2>
+            DEUX APPROCHES.
+            <span>UN MÊME CIEL.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="comparison">
+
+
+        <article class="comparison-card">
+
+            <h3>
+                TIV <span>•</span>
+            </h3>
+
+            <p>
+                Le Tornado Intercept Vehicle est principalement
+                associé à la réalisation d'images et de
+                documentaires consacrés aux tornades.
+            </p>
+
+        </article>
+
+
+        <article class="comparison-card">
+
+            <h3>
+                DOMINATOR <span>•</span>
+            </h3>
+
+            <p>
+                Les véhicules Dominator sont associés au
+                storm chasing de Reed Timmer et à l'observation
+                de phénomènes météorologiques violents.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
      CTA
-===================================================== -->
+====================================================== -->
 
-<section class="chasing">
+<section class="dominator-cta">
 
     <p class="eyebrow">
-        STORMLAB
+        STORMLAB V2
     </p>
 
     <h2>
@@ -1416,57 +1026,49 @@
     </h2>
 
     <p>
-        Véhicules, radars et histoire du storm chasing.
+        Découvre maintenant les chasseurs derrière ces véhicules.
     </p>
 
-    <div
-        class="hero-buttons"
-        style="justify-content:center;">
+    <div class="hero-buttons">
 
         <a
             href="chasseurs.html"
             class="btn primary">
-            👥 Chasseurs
+            👥 Les chasseurs
         </a>
 
         <a
-            href="storm-chasing.html"
+            href="../index.html"
             class="btn secondary">
-            🚗 Storm Chasing
+            🏠 Accueil
         </a>
 
     </div>
 
 </section>
-
+```
 
 </main>
 
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
+```
+<div class="footer-logo">
+    🌪️ STORMLAB
+</div>
 
-    <p>
-        Never Stop Chasing.
-    </p>
+<p>
+    Never Stop Chasing.
+</p>
 
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
+<p class="copyright">
+    © 2026 STORMLAB
+</p>
+```
 
 </footer>
 
-
-
-<script src="../script.js?v=2"></script>
+<script src="../script.js?v=9" defer></script>
 
 </body>
 </html>
