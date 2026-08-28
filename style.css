@@ -1313,3 +1313,156 @@ strong {
 main {
     padding-top: 74px !important;
 }
+/* =========================================================
+   FIX NAVBAR STORMLAB
+========================================================= */
+
+.navbar {
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: 74px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 0 20px !important;
+
+    background: #000 !important;
+
+    z-index: 999999 !important;
+}
+
+.logo {
+    margin-left: 0 !important;
+}
+
+.mobile-menu-btn {
+    position: relative !important;
+
+    margin-left: auto !important;
+    margin-right: 0 !important;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 1000000 !important;
+
+    pointer-events: auto !important;
+}
+
+
+/* MENU FERME */
+
+.main-nav {
+    display: none !important;
+}
+
+
+/* MENU OUVERT */
+
+.navbar.menu-open .main-nav {
+    position: fixed !important;
+
+    top: 74px !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: calc(100vh - 74px) !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+    gap: 8px !important;
+
+    padding: 20px !important;
+
+    margin: 0 !important;
+
+    overflow-y: auto !important;
+
+    background: #000 !important;
+
+    z-index: 999998 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* LIENS */
+
+.navbar.menu-open .main-nav a {
+    display: flex !important;
+
+    align-items: center !important;
+
+    width: 100% !important;
+    min-height: 52px !important;
+
+    padding: 14px 18px !important;
+
+    background: #0b0b0b !important;
+    color: #fff !important;
+
+    border: 1px solid #222 !important;
+    border-radius: 12px !important;
+
+    text-decoration: none !important;
+
+    box-sizing: border-box !important;
+}
+
+.navbar.menu-open .main-nav a:hover {
+    background: #181818 !important;
+    border-color: #555 !important;
+}
+
+.navbar.menu-open .main-nav a.active {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+
+/* CONTENU SOUS LA NAVBAR */
+
+main {
+    padding-top: 74px !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: 68px !important;
+        padding: 0 14px !important;
+    }
+
+    .mobile-menu-btn {
+        width: 44px !important;
+        height: 44px !important;
+    }
+
+    .navbar.menu-open .main-nav {
+        top: 68px !important;
+        height: calc(100vh - 68px) !important;
+        padding: 14px !important;
+    }
+
+    main {
+        padding-top: 68px !important;
+    }
+
+}
