@@ -1830,3 +1830,100 @@ footer p {
         width: 100%;
     }
 }
+/* =========================================
+   STORM CHASING
+========================================= */
+
+.chasing {
+    position: relative;
+
+    min-height: 500px;
+
+    margin: 0;
+
+    padding: 130px 8%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("assets/images/chasing.jpg") center center / cover no-repeat;
+
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+
+    color: #ffffff;
+}
+
+/* Contenu au-dessus de l'image */
+
+.chasing > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Petit texte */
+
+.chasing .eyebrow {
+    color: #ffffff !important;
+    opacity: 0.65;
+}
+
+/* Titre */
+
+.chasing h2 {
+    color: #ffffff !important;
+
+    font-size: clamp(45px, 7vw, 90px);
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+
+    font-weight: 900;
+}
+
+/* Texte */
+
+.chasing p:not(.eyebrow) {
+    color: #ffffff !important;
+
+    opacity: 0.75;
+
+    margin-bottom: 30px;
+}
+
+/* Bouton */
+
+.chasing .btn {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =========================================
+   MOBILE — CHASING
+========================================= */
+
+@media (max-width: 750px) {
+
+    .chasing {
+        min-height: 450px;
+
+        padding: 90px 7%;
+
+        background-position: center center;
+    }
+
+}
