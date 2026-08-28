@@ -1008,29 +1008,41 @@
 <!-- =====================================================
      FOOTER
 ===================================================== -->
+    
+<script>
+    
+document.addEventListener("DOMContentLoaded", function () {
 
-<footer>
+    const navbar = document.querySelector(".navbar");
+    const button = document.querySelector(".mobile-menu-btn");
 
+    if (!navbar || !button) {
+        return;
+    }
 
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
+    button.addEventListener("click", function () {
 
+        navbar.classList.toggle("menu-open");
 
-    <p>
-        Never Stop Chasing.
-    </p>
+        const ouvert = navbar.classList.contains("menu-open");
 
+        button.textContent = ouvert ? "✕" : "☰";
 
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
+        button.setAttribute(
+            "aria-expanded",
+            ouvert ? "true" : "false"
+        );
 
+        button.setAttribute(
+            "aria-label",
+            ouvert ? "Fermer le menu" : "Ouvrir le menu"
+        );
 
-</footer>
+    });
 
-
-
+});
+</script>
+    
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
