@@ -1,9 +1,3 @@
-```css
-/* =========================================
-   STORMLAB
-   FULL BLACK DESIGN
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -12,19 +6,25 @@
 
 html {
     scroll-behavior: smooth;
-    background: #000000;
+    background: #000;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #000000;
-    color: #ffffff;
+    background: #000;
+    color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-body.menu-open {
-    overflow: hidden;
+body,
+section,
+header,
+footer,
+.card,
+.storm-feature,
+.storm-chasing {
+    background-color: #000;
 }
 
 a {
@@ -33,14 +33,13 @@ a {
 }
 
 img {
-    display: block;
     max-width: 100%;
 }
 
 
-/* =========================================
+/* =========================
    NAVBAR
-========================================= */
+========================= */
 
 .navbar {
     position: fixed;
@@ -48,39 +47,30 @@ img {
     left: 0;
 
     width: 100%;
+
     z-index: 1000;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 30px;
+    gap: 25px;
 
     padding: 18px 5%;
 
-    background: rgba(0, 0, 0, 0.90);
+    background: rgba(0,0,0,0.94);
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid #1a1a1a;
 
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(15px);
 
-    transition:
-        padding 0.3s ease,
-        background 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .navbar.scrolled {
-    padding-top: 12px;
-    padding-bottom: 12px;
-
-    background: rgba(0,0,0,0.98);
+    padding: 12px 5%;
+    background: #000;
 }
-
-
-/* =========================================
-   LOGO
-========================================= */
 
 .logo {
     display: flex;
@@ -88,260 +78,160 @@ img {
 
     gap: 10px;
 
-    flex-shrink: 0;
-
     font-size: 21px;
     font-weight: 900;
 
     letter-spacing: 2px;
+
+    white-space: nowrap;
 }
 
-.logo-icon {
-    font-size: 24px;
+.logo span {
+    color: #fff;
 }
-
-
-/* =========================================
-   NAVIGATION DESKTOP
-========================================= */
 
 .main-nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
-    gap: 3px;
+    gap: 5px;
 
-    max-width: 100%;
-
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-
-.main-nav::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
 }
 
 .main-nav a {
-    padding: 8px 9px;
+    padding: 8px 10px;
 
     border-radius: 7px;
-
-    white-space: nowrap;
 
     font-size: 12px;
     font-weight: 700;
 
-    color: rgba(255,255,255,0.62);
+    color: #fff;
 
-    transition:
-        color 0.2s ease,
-        background 0.2s ease;
+    opacity: 0.65;
+
+    transition: 0.25s ease;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-    color: #ffffff;
-    background: rgba(255,255,255,0.08);
+.main-nav a:hover {
+    opacity: 1;
+
+    background: #111;
 }
 
 
-/* =========================================
-   MOBILE BUTTON
-========================================= */
+/* =========================
+   MOBILE MENU
+========================= */
 
 .mobile-menu-btn {
     display: none;
 
-    width: 44px;
-    height: 44px;
+    color: #fff;
 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background: #000;
 
-    gap: 5px;
+    border: 1px solid #222;
 
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 10px;
+    border-radius: 9px;
 
-    background: #050505;
+    padding: 9px 13px;
+
+    font-size: 20px;
 
     cursor: pointer;
 }
 
-.mobile-menu-btn span {
-    width: 20px;
-    height: 2px;
-
-    background: #ffffff;
-
-    border-radius: 10px;
-
-    transition:
-        transform 0.25s ease,
-        opacity 0.25s ease;
-}
-
-
-/* =========================================
-   MENU MOBILE
-========================================= */
-
 .mobile-menu {
+    display: none;
+
     position: fixed;
 
-    top: 0;
-    right: -100%;
+    top: 72px;
+    left: 5%;
+    right: 5%;
 
-    width: min(380px, 92vw);
-    height: 100vh;
+    padding: 20px;
 
-    z-index: 2000;
+    background: #000;
 
-    background: #000000;
+    border: 1px solid #222;
 
-    border-left: 1px solid rgba(255,255,255,0.10);
+    border-radius: 15px;
 
-    overflow-y: auto;
-
-    transition: right 0.35s ease;
+    box-shadow: 0 20px 60px #000;
 }
 
 .mobile-menu.open {
-    right: 0;
-}
-
-.mobile-menu-header {
-    position: sticky;
-    top: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 22px;
-
-    background: #000000;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.mobile-menu-header strong {
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-
-.mobile-close {
-    width: 40px;
-    height: 40px;
-
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 9px;
-
-    background: #050505;
-
-    color: #ffffff;
-
-    font-size: 28px;
-
-    cursor: pointer;
-}
-
-.mobile-menu-links {
     display: grid;
 
     gap: 5px;
-
-    padding: 18px;
 }
 
-.mobile-menu-links a {
-    display: block;
+.mobile-menu a {
+    padding: 12px;
 
-    padding: 13px 15px;
+    border-radius: 8px;
 
-    border-radius: 9px;
-
-    color: rgba(255,255,255,0.72);
+    color: #fff;
 
     font-weight: 700;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
 }
 
-.mobile-menu-links a:hover,
-.mobile-menu-links a.active {
-    color: #ffffff;
-
-    background: rgba(255,255,255,0.08);
-}
-
-.menu-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1500;
-
-    background: rgba(0,0,0,0.75);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
-
-.menu-overlay.open {
-    opacity: 1;
-    visibility: visible;
+.mobile-menu a:hover {
+    background: #111;
 }
 
 
-/* =========================================
+/* =========================
    HERO
-========================================= */
+========================= */
 
 .hero {
+    position: relative;
+
     min-height: 100vh;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 50px;
-
     padding: 150px 8% 90px;
 
     background:
         radial-gradient(
-            circle at 80% 45%,
-            rgba(255,255,255,0.035),
-            transparent 30%
+            circle at 80% 50%,
+            #111 0%,
+            #000 45%
         );
 }
 
 .hero-content {
-    max-width: 850px;
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
 }
 
 .eyebrow {
-    margin-bottom: 18px;
+    font-size: 11px;
 
-    font-size: 12px;
     font-weight: 800;
 
     letter-spacing: 4px;
 
-    color: rgba(255,255,255,0.48);
+    color: #fff;
+
+    opacity: 0.45;
+
+    margin-bottom: 18px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 9vw, 115px);
+    font-size: clamp(60px, 10vw, 130px);
 
     line-height: 0.9;
 
@@ -352,20 +242,20 @@ img {
 
 .hero h1 span,
 .section-title h2 span,
-.manual h2 span,
-.chasing h2 span,
-.storm-feature-content h2 span {
-    color: #ffffff;
+.storm-feature-content h2 span,
+.storm-chasing-content h2 span,
+.chasing h2 span {
+    color: #fff;
 }
 
 .hero-text {
-    max-width: 650px;
+    max-width: 700px;
 
     margin: 30px 0;
 
     font-size: 18px;
 
-    color: rgba(255,255,255,0.58);
+    color: #aaa;
 }
 
 .hero-buttons {
@@ -377,11 +267,15 @@ img {
 }
 
 .hero-symbol {
-    flex-shrink: 0;
+    position: relative;
 
-    font-size: clamp(80px, 13vw, 180px);
+    z-index: 2;
 
-    opacity: 0.85;
+    font-size: clamp(100px, 15vw, 210px);
+
+    filter: grayscale(1);
+
+    opacity: 0.8;
 
     animation: float 4s ease-in-out infinite;
 }
@@ -394,15 +288,15 @@ img {
     }
 
     50% {
-        transform: translateY(-14px);
+        transform: translateY(-18px);
     }
 
 }
 
 
-/* =========================================
-   BOUTONS
-========================================= */
+/* =========================
+   BUTTONS
+========================= */
 
 .btn {
     display: inline-flex;
@@ -410,94 +304,88 @@ img {
     align-items: center;
     justify-content: center;
 
-    min-height: 46px;
+    min-height: 45px;
 
-    padding: 12px 21px;
+    padding: 13px 22px;
 
     border-radius: 9px;
 
     font-size: 14px;
+
     font-weight: 800;
 
-    border: 1px solid transparent;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
+    transition: 0.25s ease;
 }
 
 .btn.primary {
-    background: #ffffff;
-    color: #000000;
+    background: #fff;
+
+    color: #000;
 }
 
 .btn.primary:hover {
-    background: #dddddd;
+    background: #ddd;
+
+    transform: translateY(-2px);
 }
 
 .btn.secondary {
-    background: #050505;
+    background: #000;
 
-    color: #ffffff;
+    border: 1px solid #333;
 
-    border-color: rgba(255,255,255,0.16);
+    color: #fff;
 }
 
 .btn.secondary:hover {
-    background: #111111;
+    background: #111;
 
-    border-color: rgba(255,255,255,0.28);
+    border-color: #555;
 }
 
 
-/* =========================================
+/* =========================
    SECTIONS
-========================================= */
+========================= */
 
 .section {
-    padding: 110px 8%;
-}
+    padding: 120px 8%;
 
-.dark-section {
-    background: #000000;
+    background: #000;
 }
 
 .section-title {
-    max-width: 850px;
+    max-width: 800px;
 
     margin-bottom: 55px;
 }
 
 .section-title p {
-    margin-bottom: 10px;
-
-    font-size: 12px;
-    font-weight: 800;
+    font-size: 11px;
 
     letter-spacing: 3px;
 
-    color: rgba(255,255,255,0.42);
+    opacity: 0.4;
+
+    margin-bottom: 10px;
 }
 
 .section-title h2 {
-    margin-bottom: 18px;
-
-    font-size: clamp(35px, 5vw, 64px);
+    font-size: clamp(38px, 6vw, 70px);
 
     line-height: 1;
 
-    font-weight: 900;
+    margin-bottom: 20px;
 }
 
 .section-title > span {
-    color: rgba(255,255,255,0.55);
+    color: #777;
 }
 
 
-/* =========================================
-   CARTES
-========================================= */
+/* =========================
+   CARDS
+========================= */
 
 .cards {
     display: grid;
@@ -509,80 +397,87 @@ img {
 }
 
 .card {
-    min-height: 245px;
+    min-height: 250px;
 
-    display: flex;
-    flex-direction: column;
+    padding: 30px;
 
-    padding: 28px;
+    background: #000;
 
-    background: #050505;
-
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid #1d1d1d;
 
     border-radius: 16px;
 
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease;
+    transition: 0.3s ease;
 }
 
 .card:hover {
-    background: #0a0a0a;
+    border-color: #444;
 
-    border-color: rgba(255,255,255,0.20);
+    background: #050505;
+
+    transform: translateY(-5px);
 }
 
-.card-icon {
-    margin-bottom: 18px;
+.card > span {
+    display: block;
 
     font-size: 30px;
+
+    margin-bottom: 20px;
+
+    filter: grayscale(1);
 }
 
 .card h3 {
-    margin-bottom: 10px;
+    font-size: 21px;
 
-    font-size: 20px;
+    margin-bottom: 12px;
 }
 
 .card p {
-    flex: 1;
-
-    color: rgba(255,255,255,0.53);
-
     font-size: 14px;
+
+    color: #777;
+
+    margin-bottom: 20px;
 }
 
 .card-link {
-    margin-top: 22px;
-
     font-size: 13px;
+
     font-weight: 800;
 
-    color: #ffffff;
+    color: #fff;
+
+    border-bottom: 1px solid #333;
+
+    padding-bottom: 4px;
+}
+
+.card-link:hover {
+    border-color: #fff;
 }
 
 
-/* =========================================
-   IMAGE FEATURE
-========================================= */
+/* =========================
+   FEATURE
+========================= */
 
 .storm-feature {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.35fr)
-        minmax(0, 1fr);
-
-    min-height: 450px;
+        1.35fr 1fr;
 
     overflow: hidden;
 
-    background: #050505;
+    min-height: 450px;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    background: #000;
 
-    border-radius: 22px;
+    border: 1px solid #1c1c1c;
+
+    border-radius: 20px;
 }
 
 .storm-feature-image {
@@ -593,76 +488,116 @@ img {
     width: 100%;
     height: 100%;
 
+    display: block;
+
     object-fit: cover;
+
+    filter: grayscale(0.25);
 }
 
 .storm-feature-content {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 
-    padding: 55px;
+    padding: 60px;
 }
 
 .storm-feature-content h2 {
+    font-size: clamp(34px, 4vw, 58px);
+
+    line-height: 1.05;
+
     margin-bottom: 20px;
-
-    font-size: clamp(32px, 4vw, 55px);
-
-    line-height: 1;
 }
 
 .storm-feature-content p:not(.eyebrow) {
+    color: #777;
+
     margin-bottom: 28px;
-
-    color: rgba(255,255,255,0.56);
-}
-
-.storm-feature-content .btn {
-    align-self: flex-start;
 }
 
 
-/* =========================================
-   MANUEL / CHASING
-========================================= */
+/* =========================
+   STORM CHASING
+========================= */
 
-.manual {
-    margin: 30px 8%;
+.storm-chasing {
+    display: grid;
 
-    padding: 95px 8%;
+    grid-template-columns:
+        1.15fr 1fr;
 
-    background: #050505;
+    min-height: 560px;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    margin: 20px 0;
 
-    border-radius: 26px;
+    background: #000;
+
+    border-top: 1px solid #1a1a1a;
+
+    border-bottom: 1px solid #1a1a1a;
 }
 
-.manual-content {
-    max-width: 760px;
+.storm-chasing-image {
+    min-height: 560px;
+
+    overflow: hidden;
 }
 
-.manual h2 {
-    margin-bottom: 24px;
+.storm-chasing-image img {
+    width: 100%;
+    height: 100%;
 
-    font-size: clamp(40px, 6vw, 75px);
+    object-fit: cover;
+
+    display: block;
+
+    filter: grayscale(0.2);
+
+    transition: transform 0.7s ease;
+}
+
+.storm-chasing:hover .storm-chasing-image img {
+    transform: scale(1.03);
+}
+
+.storm-chasing-content {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 70px 8%;
+}
+
+.storm-chasing-content h2 {
+    font-size: clamp(45px, 6vw, 80px);
 
     line-height: 0.95;
 
-    font-weight: 900;
+    margin-bottom: 25px;
 }
 
-.manual p:not(.eyebrow) {
+.storm-chasing-content p:not(.eyebrow) {
+    max-width: 550px;
+
+    color: #777;
+
     margin-bottom: 30px;
-
-    color: rgba(255,255,255,0.56);
 }
 
 
-/* =========================================
+/* =========================
    GALERIE
-========================================= */
+========================= */
+
+.gallery-section {
+    background: #000;
+}
 
 .storm-gallery {
     display: grid;
@@ -680,11 +615,11 @@ img {
 
     overflow: hidden;
 
-    background: #050505;
+    border: 1px solid #1d1d1d;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 15px;
 
-    border-radius: 17px;
+    background: #000;
 }
 
 .storm-photo img {
@@ -692,6 +627,8 @@ img {
     height: 100%;
 
     min-height: 300px;
+
+    display: block;
 
     object-fit: cover;
 
@@ -708,8 +645,6 @@ img {
     position: absolute;
 
     inset: 0;
-
-    pointer-events: none;
 
     background:
         linear-gradient(
@@ -728,6 +663,7 @@ img {
     z-index: 2;
 
     font-size: 16px;
+
     font-weight: 800;
 }
 
@@ -736,65 +672,63 @@ img {
 
     justify-content: center;
 
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 
-/* =========================================
-   CTA
-========================================= */
+/* =========================
+   FINAL CTA
+========================= */
 
 .chasing {
-    padding: 140px 8%;
+    padding: 150px 8%;
 
     text-align: center;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.035),
-            transparent 55%
-        );
+    background: #000;
+
+    border-top: 1px solid #111;
 }
 
 .chasing h2 {
-    margin-bottom: 20px;
-
-    font-size: clamp(45px, 7vw, 92px);
+    font-size: clamp(50px, 8vw, 100px);
 
     line-height: 0.95;
 
-    font-weight: 900;
+    margin-bottom: 20px;
 }
 
 .chasing p:not(.eyebrow) {
-    margin-bottom: 30px;
+    color: #777;
 
-    color: rgba(255,255,255,0.55);
+    margin-bottom: 30px;
 }
 
 
-/* =========================================
+/* =========================
    FOOTER
-========================================= */
+========================= */
 
 footer {
-    padding: 55px 8%;
+    padding: 60px 8%;
 
     text-align: center;
 
-    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #000;
 
-    color: rgba(255,255,255,0.45);
+    border-top: 1px solid #1a1a1a;
+
+    color: #777;
 }
 
 .footer-logo {
-    margin-bottom: 7px;
+    color: #fff;
 
-    color: #ffffff;
+    font-size: 22px;
 
-    font-size: 21px;
     font-weight: 900;
+
+    margin-bottom: 8px;
 }
 
 .footer-links {
@@ -802,19 +736,15 @@ footer {
 
     justify-content: center;
 
-    gap: 20px;
-
-    flex-wrap: wrap;
+    gap: 25px;
 
     margin: 25px 0;
-}
 
-.footer-links a {
     font-size: 13px;
 }
 
 .footer-links a:hover {
-    color: #ffffff;
+    color: #fff;
 }
 
 .copyright {
@@ -824,42 +754,18 @@ footer {
 }
 
 
-/* =========================================
-   ANIMATIONS
-========================================= */
+/* =========================
+   TABLET
+========================= */
 
-.reveal {
-    opacity: 1;
-}
+@media (max-width: 1100px) {
 
-.js-enabled .reveal {
-    opacity: 0;
+    .main-nav {
+        display: none;
+    }
 
-    transform: translateY(25px);
-
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-}
-
-.js-enabled .reveal.visible {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================================
-   TABLETTE
-========================================= */
-
-@media (max-width: 1200px) {
-
-    .main-nav a {
-        padding-left: 7px;
-        padding-right: 7px;
-
-        font-size: 11px;
+    .mobile-menu-btn {
+        display: block;
     }
 
     .cards {
@@ -870,23 +776,11 @@ footer {
 }
 
 
-/* =========================================
+/* =========================
    MOBILE
-========================================= */
+========================= */
 
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 14px 5%;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-    }
+@media (max-width: 750px) {
 
     .hero {
         min-height: 90vh;
@@ -906,6 +800,16 @@ footer {
         font-size: 16px;
     }
 
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
     .section {
         padding: 80px 7%;
     }
@@ -923,870 +827,19 @@ footer {
     }
 
     .storm-feature-content {
-        padding: 38px;
+        padding: 40px;
     }
 
-    .storm-gallery {
+    .storm-chasing {
         grid-template-columns: 1fr;
     }
 
-    .manual {
-        margin: 20px 5%;
-
-        padding: 65px 8%;
+    .storm-chasing-image {
+        min-height: 300px;
     }
 
-    .chasing {
-        padding: 100px 7%;
-    }
-
-}
-
-
-/* =========================================
-   PETITS ÉCRANS
-========================================= */
-
-@media (max-width: 480px) {
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .hero {
-        padding-left: 6%;
-        padding-right: 6%;
-    }
-
-    .section {
-        padding-left: 6%;
-        padding-right: 6%;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons .btn,
-    .center-button .btn {
-        width: 100%;
-    }
-
-    .storm-feature-content {
-        padding: 30px;
-    }
-
-    .storm-feature-content .btn {
-        width: 100%;
-    }
-
-}
-```
-/* =========================================
-   STORMLAB — BLACK THEME
-   Fond noir partout • Texte blanc partout
-========================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    background: #000000;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #000000 !important;
-    color: #ffffff !important;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-main,
-section,
-header,
-footer,
-article,
-div {
-    color: #ffffff;
-}
-
-a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 25px;
-
-    padding: 18px 5%;
-
-    background: #000000 !important;
-
-    border-bottom: 1px solid #1a1a1a;
-
-    transition: padding 0.3s ease;
-}
-
-.navbar.scrolled {
-    padding: 12px 5%;
-    background: #000000 !important;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    color: #ffffff !important;
-
-    font-size: 21px;
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    white-space: nowrap;
-}
-
-
-/* =========================================
-   NAVIGATION
-========================================= */
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    gap: 5px;
-
-    flex-wrap: wrap;
-}
-
-.main-nav a {
-    padding: 8px 10px;
-
-    border-radius: 8px;
-
-    color: #ffffff !important;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    opacity: 0.7;
-
-    transition:
-        opacity 0.2s ease,
-        background 0.2s ease;
-}
-
-.main-nav a:hover {
-    opacity: 1;
-
-    background: #111111;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-.mobile-menu-btn {
-    display: none;
-
-    border: 1px solid #222222;
-
-    background: #080808;
-
-    color: #ffffff;
-
-    border-radius: 10px;
-
-    padding: 9px 13px;
-
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-.mobile-menu {
-    display: none;
-
-    position: fixed;
-
-    top: 75px;
-    left: 5%;
-    right: 5%;
-
-    z-index: 999;
-
-    padding: 20px;
-
-    background: #000000 !important;
-
-    border: 1px solid #222222;
-
-    border-radius: 16px;
-}
-
-.mobile-menu.open {
-    display: grid;
-
-    gap: 8px;
-}
-
-.mobile-menu a {
-    display: block;
-
-    padding: 12px;
-
-    border-radius: 9px;
-
-    color: #ffffff !important;
-
-    font-weight: 700;
-}
-
-.mobile-menu a:hover {
-    background: #111111;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-    min-height: 90vh;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 150px 8% 80px;
-
-    background: #000000 !important;
-}
-
-.hero-content {
-    max-width: 850px;
-}
-
-.eyebrow {
-    color: #ffffff !important;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 4px;
-
-    opacity: 0.5;
-
-    margin-bottom: 18px;
-}
-
-.hero h1 {
-    color: #ffffff !important;
-
-    font-size: clamp(50px, 8vw, 105px);
-
-    line-height: 0.95;
-
-    font-weight: 900;
-
-    letter-spacing: -5px;
-}
-
-.hero h1 span,
-.section-title h2 span,
-.manual h2 span,
-.chasing h2 span,
-.storm-feature-content h2 span {
-    color: #ffffff !important;
-
-    background: none !important;
-
-    -webkit-text-fill-color: #ffffff !important;
-}
-
-.hero-text {
-    max-width: 680px;
-
-    margin: 30px 0;
-
-    color: #ffffff !important;
-
-    opacity: 0.65;
-
-    font-size: 18px;
-}
-
-.hero-symbol {
-    font-size: clamp(90px, 14vw, 190px);
-
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-
-/* =========================================
-   BOUTONS
-========================================= */
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 44px;
-
-    padding: 13px 22px;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: 0.25s ease;
-}
-
-.btn.primary {
-    background: #ffffff !important;
-
-    color: #000000 !important;
-
-    border: 1px solid #ffffff;
-}
-
-.btn.primary:hover {
-    background: #dddddd !important;
-
-    color: #000000 !important;
-}
-
-.btn.secondary {
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border: 1px solid #444444;
-}
-
-.btn.secondary:hover {
-    background: #111111 !important;
-
-    border-color: #ffffff;
-}
-
-
-/* =========================================
-   SECTIONS
-========================================= */
-
-.section {
-    padding: 110px 8%;
-
-    background: #000000 !important;
-}
-
-.dark-section {
-    background: #000000 !important;
-}
-
-.section-title {
-    max-width: 800px;
-
-    margin-bottom: 55px;
-}
-
-.section-title p {
-    color: #ffffff !important;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-
-    opacity: 0.5;
-
-    margin-bottom: 10px;
-}
-
-.section-title h2 {
-    color: #ffffff !important;
-
-    font-size: clamp(34px, 5vw, 62px);
-
-    line-height: 1.05;
-
-    margin-bottom: 18px;
-}
-
-.section-title > span {
-    color: #ffffff !important;
-
-    opacity: 0.6;
-}
-
-
-/* =========================================
-   CARTES
-========================================= */
-
-.cards {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 18px;
-}
-
-.card {
-    padding: 30px;
-
-    min-height: 220px;
-
-    background: #050505 !important;
-
-    border: 1px solid #1c1c1c;
-
-    border-radius: 18px;
-
-    color: #ffffff !important;
-
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.card:hover {
-    background: #0b0b0b !important;
-
-    border-color: #333333;
-}
-
-.card > span {
-    display: block;
-
-    font-size: 28px;
-
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    color: #ffffff !important;
-
-    font-size: 21px;
-
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #ffffff !important;
-
-    opacity: 0.58;
-
-    font-size: 14px;
-}
-
-.card .btn {
-    margin-top: 20px;
-}
-
-
-/* =========================================
-   IMAGE FEATURE
-========================================= */
-
-.storm-feature {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.35fr)
-        minmax(0, 1fr);
-
-    min-height: 430px;
-
-    overflow: hidden;
-
-    border-radius: 24px;
-
-    background: #050505 !important;
-
-    border: 1px solid #1c1c1c;
-}
-
-.storm-feature img {
-    width: 100%;
-
-    height: 100%;
-
-    min-height: 430px;
-
-    object-fit: cover;
-}
-
-.storm-feature-content {
-    padding: 55px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    background: #050505 !important;
-}
-
-.storm-feature-content h2 {
-    color: #ffffff !important;
-
-    font-size: clamp(32px, 4vw, 55px);
-
-    line-height: 1.05;
-
-    margin-bottom: 20px;
-}
-
-.storm-feature-content p:not(.eyebrow) {
-    color: #ffffff !important;
-
-    opacity: 0.6;
-}
-
-
-/* =========================================
-   MANUEL
-========================================= */
-
-.manual {
-    margin: 30px 8%;
-
-    padding: 90px 8%;
-
-    border-radius: 30px;
-
-    background: #050505 !important;
-
-    border: 1px solid #1c1c1c;
-
-    color: #ffffff !important;
-}
-
-.manual-content {
-    max-width: 750px;
-}
-
-.manual h2 {
-    color: #ffffff !important;
-
-    font-size: clamp(38px, 5vw, 70px);
-
-    line-height: 1;
-
-    margin-bottom: 25px;
-}
-
-.manual p:not(.eyebrow) {
-    color: #ffffff !important;
-
-    opacity: 0.62;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================
-   GALERIE
-========================================= */
-
-.storm-gallery {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 20px;
-}
-
-.storm-photo {
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    min-height: 280px;
-
-    background: #050505 !important;
-
-    border: 1px solid #1c1c1c;
-}
-
-.storm-photo img {
-    width: 100%;
-
-    height: 100%;
-
-    min-height: 280px;
-
-    object-fit: cover;
-}
-
-.storm-photo::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.85),
-            transparent 55%
-        );
-
-    pointer-events: none;
-}
-
-.storm-photo figcaption {
-    position: absolute;
-
-    left: 20px;
-
-    bottom: 18px;
-
-    z-index: 2;
-
-    color: #ffffff !important;
-
-    font-size: 16px;
-
-    font-weight: 800;
-}
-
-
-/* =========================================
-   CHASING
-========================================= */
-
-.chasing {
-    padding: 130px 8%;
-
-    text-align: center;
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-}
-
-.chasing h2 {
-    color: #ffffff !important;
-
-    font-size: clamp(45px, 7vw, 90px);
-
-    line-height: 1;
-
-    margin-bottom: 20px;
-}
-
-.chasing p:not(.eyebrow) {
-    color: #ffffff !important;
-
-    opacity: 0.58;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
-    padding: 50px 8%;
-
-    background: #000000 !important;
-
-    border-top: 1px solid #1a1a1a;
-
-    text-align: center;
-
-    color: #ffffff !important;
-}
-
-.footer-logo {
-    color: #ffffff !important;
-
-    font-weight: 900;
-
-    font-size: 20px;
-
-    margin-bottom: 8px;
-}
-
-footer p {
-    color: #ffffff !important;
-
-    opacity: 0.5;
-}
-
-.copyright {
-    margin-top: 15px;
-
-    font-size: 12px;
-
-    opacity: 0.4;
-}
-
-
-/* =========================================
-   ANIMATIONS
-========================================= */
-
-.card,
-.section-title,
-.manual,
-.chasing {
-    opacity: 1;
-
-    transform: none;
-}
-
-
-/* =========================================
-   TABLETTE
-========================================= */
-
-@media (max-width: 1000px) {
-
-    .main-nav {
-        gap: 4px;
-    }
-
-    .main-nav a {
-        padding: 7px 8px;
-
-        font-size: 11px;
-    }
-
-    .cards {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .hero-symbol {
-        display: none;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 750px) {
-
-    .navbar {
-        padding: 15px 5%;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .hero {
-        min-height: 80vh;
-
-        padding: 130px 7% 60px;
-    }
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    .hero-text {
-        font-size: 16px;
-    }
-
-    .section {
-        padding: 75px 7%;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .manual {
-        margin: 20px 5%;
-
-        padding: 60px 8%;
-    }
-
-    .chasing {
-        padding: 90px 7%;
-    }
-
-    .storm-feature {
-        grid-template-columns: 1fr;
-    }
-
-    .storm-feature img {
-        min-height: 280px;
-    }
-
-    .storm-feature-content {
-        padding: 35px;
+    .storm-chasing-content {
+        padding: 55px 7%;
     }
 
     .storm-gallery {
@@ -1795,14 +848,21 @@ footer p {
 
     .storm-photo,
     .storm-photo img {
-        min-height: 240px;
+        min-height: 260px;
     }
+
+    .footer-links {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
 }
 
 
-/* =========================================
+/* =========================
    PETITS ÉCRANS
-========================================= */
+========================= */
 
 @media (max-width: 480px) {
 
@@ -1820,110 +880,8 @@ footer p {
         padding-right: 6%;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .btn {
-        width: 100%;
-    }
-}
-/* =========================================
-   STORM CHASING
-========================================= */
-
-.chasing {
-    position: relative;
-
-    min-height: 500px;
-
-    margin: 0;
-
-    padding: 130px 8%;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.72),
-            rgba(0, 0, 0, 0.88)
-        ),
-        url("assets/images/storm-chasing.jpg") center center / cover no-repeat;
-
-    border-top: 1px solid #1a1a1a;
-    border-bottom: 1px solid #1a1a1a;
-
-    color: #ffffff;
-}
-
-/* Contenu au-dessus de l'image */
-
-.chasing > * {
-    position: relative;
-    z-index: 2;
-}
-
-/* Petit texte */
-
-.chasing .eyebrow {
-    color: #ffffff !important;
-    opacity: 0.65;
-}
-
-/* Titre */
-
-.chasing h2 {
-    color: #ffffff !important;
-
-    font-size: clamp(45px, 7vw, 90px);
-
-    line-height: 1;
-
-    margin-bottom: 20px;
-
-    font-weight: 900;
-}
-
-/* Texte */
-
-.chasing p:not(.eyebrow) {
-    color: #ffffff !important;
-
-    opacity: 0.75;
-
-    margin-bottom: 30px;
-}
-
-/* Bouton */
-
-.chasing .btn {
-    position: relative;
-    z-index: 3;
-}
-
-
-/* =========================================
-   MOBILE — CHASING
-========================================= */
-
-@media (max-width: 750px) {
-
-    .chasing {
-        min-height: 450px;
-
-        padding: 90px 7%;
-
-        background-position: center center;
+    .storm-feature-content {
+        padding: 32px;
     }
 
 }
