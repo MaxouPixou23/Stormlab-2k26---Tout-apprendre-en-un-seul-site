@@ -1,121 +1,172 @@
 /* =========================================================
-   STORMLAB V2 — MENU
+   STORMLAB V2 — NAVBAR
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-    const navbar = document.querySelector(".navbar");
-    const button = document.getElementById("menuButton");
-    const menu = document.getElementById("mainNav");
+    "use strict";
 
-    if (!navbar || !button || !menu) {
-        console.error("STORMLAB : éléments de navigation introuvables.");
-        return;
-    }
+    function initNavbar() {
 
+        const navbar =
+            document.querySelector(".navbar");
 
-    function openMenu() {
+        const button =
+            document.getElementById("menuButton");
 
-        navbar.classList.add("menu-open");
-
-        button.textContent = "✕";
-
-        button.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        button.setAttribute(
-            "aria-label",
-            "Fermer le menu"
-        );
-
-        document.body.classList.add("menu-active");
-    }
+        const menu =
+            document.getElementById("mainNav");
 
 
-    function closeMenu() {
+        if (!navbar || !button || !menu) {
 
-        navbar.classList.remove("menu-open");
+            console.error(
+                "STORMLAB : navbar introuvable."
+            );
 
-        button.textContent = "☰";
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        button.setAttribute(
-            "aria-label",
-            "Ouvrir le menu"
-        );
-
-        document.body.classList.remove("menu-active");
-    }
-
-
-    button.addEventListener("click", function (event) {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        if (navbar.classList.contains("menu-open")) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-
-    });
-
-
-    menu.addEventListener("click", function (event) {
-
-        const link = event.target.closest("a");
-
-        if (!link) {
             return;
         }
+
+
+        function openMenu() {
+
+            navbar.classList.add(
+                "menu-open"
+            );
+
+            button.textContent = "✕";
+
+            button.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+            button.setAttribute(
+                "aria-label",
+                "Fermer le menu"
+            );
+
+        }
+
+
+        function closeMenu() {
+
+            navbar.classList.remove(
+                "menu-open"
+            );
+
+            button.textContent = "☰";
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            button.setAttribute(
+                "aria-label",
+                "Ouvrir le menu"
+            );
+
+        }
+
+
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                if (
+                    navbar.classList.contains(
+                        "menu-open"
+                    )
+                ) {
+
+                    closeMenu();
+
+                } else {
+
+                    openMenu();
+
+                }
+
+            }
+        );
+
+
+        menu.addEventListener(
+            "click",
+            function (event) {
+
+                const link =
+                    event.target.closest("a");
+
+                if (link) {
+                    closeMenu();
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    navbar.classList.contains(
+                        "menu-open"
+                    ) &&
+                    !navbar.contains(event.target)
+                ) {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
 
         closeMenu();
 
-    });
+        console.log(
+            "STORMLAB V2 : navbar opérationnelle."
+        );
+
+    }
 
 
-    document.addEventListener("click", function (event) {
+    if (
+        document.readyState ===
+        "loading"
+    ) {
 
-        if (!navbar.classList.contains("menu-open")) {
-            return;
-        }
+        document.addEventListener(
+            "DOMContentLoaded",
+            initNavbar
+        );
 
-        if (!navbar.contains(event.target)) {
-            closeMenu();
-        }
+    } else {
 
-    });
+        initNavbar();
 
+    }
 
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
-            closeMenu();
-        }
-
-    });
-
-
-    window.addEventListener("resize", function () {
-
-        if (window.innerWidth <= 700) {
-            return;
-        }
-
-        closeMenu();
-
-    });
-
-
-    closeMenu();
-
-    console.log("STORMLAB V2 : menu chargé.");
-
-});
+})();
