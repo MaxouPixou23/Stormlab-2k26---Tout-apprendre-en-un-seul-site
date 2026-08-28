@@ -1,18 +1,44 @@
-```javascript
 /* =========================================================
    STORMLAB V2
-   MENU HAMBURGER
+   SCRIPT NAVIGATION
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     const navbar = document.querySelector(".navbar");
-    const button = document.querySelector(".mobile-menu-btn");
-    const menu = document.querySelector(".main-nav");
+    const menuButton = document.getElementById("menuButton");
+    const mainNav = document.getElementById("mainNav");
 
-    if (!navbar || !button || !menu) {
-        console.error("STORMLAB : éléments du menu introuvables.");
+    /* Vérification */
+    if (!navbar) {
+        console.error("STORMLAB : .navbar introuvable.");
         return;
+    }
+
+    if (!menuButton) {
+        console.error("STORMLAB : #menuButton introuvable.");
+        return;
+    }
+
+    if (!mainNav) {
+        console.error("STORMLAB : #mainNav introuvable.");
+        return;
+    }
+
+
+    /* =====================================================
+       OUVRIR / FERMER LE MENU
+    ===================================================== */
+
+    function toggleMenu() {
+
+        const isOpen = navbar.classList.contains("menu-open");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     }
 
 
@@ -20,14 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         navbar.classList.add("menu-open");
 
-        button.textContent = "✕";
+        menuButton.textContent = "✕";
 
-        button.setAttribute(
+        menuButton.setAttribute(
             "aria-expanded",
             "true"
         );
 
-        button.setAttribute(
+        menuButton.setAttribute(
             "aria-label",
             "Fermer le menu"
         );
@@ -40,14 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         navbar.classList.remove("menu-open");
 
-        button.textContent = "☰";
+        menuButton.textContent = "☰";
 
-        button.setAttribute(
+        menuButton.setAttribute(
             "aria-expanded",
             "false"
         );
 
-        button.setAttribute(
+        menuButton.setAttribute(
             "aria-label",
             "Ouvrir le menu"
         );
@@ -56,102 +82,77 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function toggleMenu(event) {
+    /* =====================================================
+       BOUTON ☰
+    ===================================================== */
 
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
+    menuButton.addEventListener("click", (event) => {
 
-        const isOpen =
-            navbar.classList.contains("menu-open");
+        event.preventDefault();
+        event.stopPropagation();
 
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    }
-
-
-    /* Bouton hamburger */
-
-    button.addEventListener(
-        "click",
-        toggleMenu
-    );
-
-
-    /* Liens du menu */
-
-    const links =
-        menu.querySelectorAll("a");
-
-    links.forEach(function (link) {
-
-        link.addEventListener(
-            "click",
-            function () {
-
-                closeMenu();
-
-            }
-        );
+        toggleMenu();
 
     });
 
 
-    /* Touche Échap */
+    /* =====================================================
+       LIENS DU MENU
+    ===================================================== */
 
-    document.addEventListener(
-        "keydown",
-        function (event) {
+    const links = mainNav.querySelectorAll("a");
 
-            if (event.key === "Escape") {
-                closeMenu();
-            }
+    links.forEach((link) => {
 
-        }
-    );
+        link.addEventListener("click", () => {
 
+            closeMenu();
 
-    /* Clic extérieur */
+        });
 
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                navbar.classList.contains("menu-open") &&
-                !navbar.contains(event.target)
-            ) {
-                closeMenu();
-            }
-
-        }
-    );
+    });
 
 
-    /* Réinitialisation au redimensionnement */
+    /* =====================================================
+       TOUCHE ESC
+    ===================================================== */
 
-    window.addEventListener(
-        "resize",
-        function () {
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape") {
 
             closeMenu();
 
         }
-    );
+
+    });
 
 
-    /* État initial */
+    /* =====================================================
+       CLIC EN DEHORS
+    ===================================================== */
+
+    document.addEventListener("click", (event) => {
+
+        if (!navbar.classList.contains("menu-open")) {
+            return;
+        }
+
+        if (!navbar.contains(event.target)) {
+
+            closeMenu();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       INITIALISATION
+    ===================================================== */
 
     closeMenu();
 
-
-    console.log(
-        "STORMLAB : menu correctement chargé."
-    );
+    console.log("STORMLAB V2 : navigation chargée.");
 
 });
-```
