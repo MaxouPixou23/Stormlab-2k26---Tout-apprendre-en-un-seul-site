@@ -3,378 +3,528 @@
 <html lang="fr">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="STORMLAB V2 — Manuel de météorologie, phénomènes violents et storm chasing.">
+          content="STORMLAB — Manuel de météorologie, orages, supercellules, tornades et storm chasing.">
 
-    <meta name="theme-color" content="#000000">
-
-    <title>STORMLAB V2 — Never Stop Chasing</title>
+    <title>STORMLAB — Never Stop Chasing</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-<header class="navbar" id="navbar">
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
 
     <a href="index.html" class="logo">
-        <span class="logo-icon">🌪️</span>
-        <span>STORMLAB</span>
-        <small>V2</small>
+        🌪️ <span>STORMLAB</span>
     </a>
 
-    <nav class="main-nav">
-
-        <a href="index.html" class="active">Accueil</a>
-        <a href="pages/manuel.html">📚 Manuel</a>
-        <a href="pages/meteorologie.html">🌧️ Météo</a>
-        <a href="pages/orages.html">🌩️ Orages</a>
-        <a href="pages/supercellules.html">🌀 Supercellules</a>
-        <a href="pages/tornades.html">🌪️ Tornades</a>
-        <a href="pages/radar.html">📡 Radar</a>
-
-    </nav>
 
     <button
         class="mobile-menu-btn"
         type="button"
         aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="mobileMenu">
+        aria-expanded="false">
 
         ☰
 
     </button>
 
-    <div class="mobile-menu" id="mobileMenu">
 
-        <a href="index.html">🏠 Accueil</a>
+    <nav class="main-nav" aria-label="Navigation principale">
+
+        <a href="index.html" class="active">🏠 Accueil</a>
+
         <a href="pages/manuel.html">📚 Manuel</a>
+
         <a href="pages/meteorologie.html">🌧️ Météorologie</a>
+
         <a href="pages/orages.html">🌩️ Orages</a>
+
         <a href="pages/supercellules.html">🌀 Supercellules</a>
+
         <a href="pages/tornades.html">🌪️ Tornades</a>
+
         <a href="pages/foudre.html">⚡ Foudre</a>
+
         <a href="pages/radar.html">📡 Radar</a>
+
         <a href="pages/satellites.html">🛰️ Satellites</a>
+
         <a href="pages/storm-chasing.html">🚗 Storm Chasing</a>
+
+        <a href="pages/chasseurs.html">👥 Chasseurs</a>
+
+        <a href="pages/dominator.html">🚙 Dominator</a>
+
         <a href="pages/reed-timmer.html">❤️ Reed Timmer</a>
+
         <a href="pages/galerie.html">📸 Galerie</a>
+
         <a href="pages/cartes.html">🗺️ Cartes météo</a>
+
         <a href="pages/alertes.html">🚨 Alertes</a>
+
         <a href="pages/quiz.html">🧠 Quiz</a>
+
         <a href="pages/laboratoire.html">🔬 Laboratoire</a>
+
         <a href="pages/videos.html">🎥 Vidéos</a>
+
         <a href="pages/actualites.html">📰 Actualités</a>
 
-    </div>
+    </nav>
 
 </header>
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <main>
 
 <section class="hero">
 
-    <div class="hero-grid"></div>
-
     <div class="hero-content">
-
-        <div class="status">
-            <span class="status-dot"></span>
-            STORMLAB V2 • ONLINE
-        </div>
 
         <p class="eyebrow">
             MANUEL DE MÉTÉOROLOGIE
         </p>
 
+
         <h1>
-            NEVER STOP
-            <span>CHASING.</span>
+
+            STORM
+            <span>LAB.</span>
+
         </h1>
 
-        <p class="hero-description">
-            Comprendre l'atmosphère.
-            Observer les phénomènes extrêmes.
-            Apprendre à lire le ciel.
+
+        <p class="hero-text">
+
+            Comprendre les orages.
+            Observer les supercellules.
+            Étudier les tornades.
+            Et apprendre à lire le ciel.
+
         </p>
+
 
         <div class="hero-buttons">
 
-            <a href="pages/manuel.html" class="btn primary">
-                📚 Explorer STORMLAB
+            <a
+                href="pages/manuel.html"
+                class="btn primary">
+
+                📚 Ouvrir le manuel
+
             </a>
 
-            <a href="pages/storm-chasing.html" class="btn secondary">
-                🌪️ Storm Chasing
+
+            <a
+                href="pages/storm-chasing.html"
+                class="btn secondary">
+
+                🚗 Storm Chasing
+
             </a>
-
-        </div>
-
-        <div class="hero-stats">
-
-            <div>
-                <strong>17</strong>
-                <span>Sections</span>
-            </div>
-
-            <div>
-                <strong>∞</strong>
-                <span>Phénomènes</span>
-            </div>
-
-            <div>
-                <strong>24/7</strong>
-                <span>Curiosité</span>
-            </div>
 
         </div>
 
     </div>
 
-    <div class="hero-visual">
 
-        <div class="radar-circle"></div>
+    <div class="hero-symbol">
+        🌩️
+    </div>
 
-        <div class="storm-orb">
-            🌩️
+</section>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="section">
+
+    <div class="storm-feature">
+
+        <img
+            src="assets/images/orage.jpg"
+            alt="Orage"
+            loading="eager">
+
+
+        <div class="storm-feature-content">
+
+            <p class="eyebrow">
+                BIENVENUE DANS STORMLAB
+            </p>
+
+
+            <h2>
+
+                REGARDE LE CIEL.
+                <span>COMPRENDS-LE.</span>
+
+            </h2>
+
+
+            <p>
+
+                STORMLAB est un espace consacré à la
+                météorologie, aux phénomènes atmosphériques
+                violents et à leur observation.
+
+            </p>
+
+
+            <a
+                href="pages/manuel.html"
+                class="btn primary">
+
+                Découvrir le manuel →
+
+            </a>
+
         </div>
-
-        <span class="orbit orbit-1"></span>
-        <span class="orbit orbit-2"></span>
-        <span class="orbit orbit-3"></span>
 
     </div>
 
 </section>
 
 
+<!-- =====================================================
+     EXPLORER
+===================================================== -->
+
 <section class="section">
 
-    <div class="section-heading">
-
-        <div>
-            <p class="eyebrow">01 • STORMLAB</p>
-
-            <h2>
-                LE CIEL N'EST PAS
-                <span>SILENCIEUX.</span>
-            </h2>
-        </div>
+    <div class="section-title">
 
         <p>
-            STORMLAB rassemble les connaissances essentielles
-            pour comprendre les phénomènes atmosphériques.
+            01 • EXPLORER
         </p>
+
+
+        <h2>
+
+            ENTRE DANS LE
+            <span>LABORATOIRE.</span>
+
+        </h2>
+
+
+        <span>
+
+            Découvre les principaux phénomènes
+            météorologiques.
+
+        </span>
 
     </div>
 
 
-    <div class="feature-card">
+    <div class="cards">
 
-        <div class="feature-image">
 
-            <img
-                src="assets/images/orage.jpg"
-                alt="Orage"
-                loading="lazy">
+        <article class="card">
 
-        </div>
-
-        <div class="feature-content">
-
-            <span class="number">01</span>
+            <span>🌧️</span>
 
             <h3>
-                Comprendre avant
-                <span>d'observer.</span>
+                Météorologie
             </h3>
 
             <p>
-                De la formation d'un simple cumulonimbus
-                aux structures les plus complexes,
-                découvre comment fonctionne l'atmosphère.
+                Découvre les bases de l'atmosphère,
+                de la température, de l'humidité et du vent.
             </p>
 
-            <a href="pages/manuel.html" class="text-link">
-                Ouvrir le manuel →
+            <a
+                href="pages/meteorologie.html"
+                class="btn primary">
+
+                Explorer →
+
             </a>
 
-        </div>
+        </article>
+
+
+        <article class="card">
+
+            <span>🌩️</span>
+
+            <h3>
+                Orages
+            </h3>
+
+            <p>
+                Comprends leur formation,
+                leur structure et leur évolution.
+            </p>
+
+            <a
+                href="pages/orages.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🌀</span>
+
+            <h3>
+                Supercellules
+            </h3>
+
+            <p>
+                Découvre les orages organisés
+                autour d'un courant ascendant rotatif.
+            </p>
+
+            <a
+                href="pages/supercellules.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🌪️</span>
+
+            <h3>
+                Tornades
+            </h3>
+
+            <p>
+                Étudie leur formation,
+                leur structure et leurs dangers.
+            </p>
+
+            <a
+                href="pages/tornades.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>⚡</span>
+
+            <h3>
+                Foudre
+            </h3>
+
+            <p>
+                Découvre les phénomènes électriques
+                associés aux orages.
+            </p>
+
+            <a
+                href="pages/foudre.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>📡</span>
+
+            <h3>
+                Radar
+            </h3>
+
+            <p>
+                Apprends à lire les observations radar
+                et à suivre les cellules.
+            </p>
+
+            <a
+                href="pages/radar.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🛰️</span>
+
+            <h3>
+                Satellites
+            </h3>
+
+            <p>
+                Observe les systèmes météorologiques
+                depuis l'espace.
+            </p>
+
+            <a
+                href="pages/satellites.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🗺️</span>
+
+            <h3>
+                Cartes météo
+            </h3>
+
+            <p>
+                Analyse les paramètres atmosphériques
+                grâce aux cartes météorologiques.
+            </p>
+
+            <a
+                href="pages/cartes.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
 
     </div>
 
 </section>
 
+
+<!-- =====================================================
+     STORM CHASING
+===================================================== -->
+
+<section class="manual">
+
+    <div class="manual-content">
+
+        <p class="eyebrow">
+            02 • STORM CHASING
+        </p>
+
+
+        <h2>
+
+            NEVER STOP
+            <span>CHASING.</span>
+
+        </h2>
+
+
+        <p>
+
+            Entre dans l'univers du storm chasing :
+            observation, météorologie, préparation,
+            véhicules et chasseurs de tempêtes.
+
+        </p>
+
+
+        <a
+            href="pages/storm-chasing.html"
+            class="btn primary">
+
+            🚗 Découvrir le Storm Chasing
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHASSEURS
+===================================================== -->
 
 <section class="section">
 
-    <div class="section-heading">
-
-        <div>
-            <p class="eyebrow">02 • PHÉNOMÈNES</p>
-
-            <h2>
-                EXPLORE LES
-                <span>STORMS.</span>
-            </h2>
-        </div>
-
-        <p>
-            Les principaux phénomènes météorologiques
-            expliqués simplement.
-        </p>
-
-    </div>
-
-
-    <div class="phenomena-grid">
-
-        <a href="pages/orages.html" class="phenomenon-card">
-            <span class="phenomenon-icon">🌩️</span>
-            <span class="phenomenon-number">01</span>
-            <h3>Orages</h3>
-            <p>Formation, structure et évolution.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-
-        <a href="pages/supercellules.html" class="phenomenon-card">
-            <span class="phenomenon-icon">🌀</span>
-            <span class="phenomenon-number">02</span>
-            <h3>Supercellules</h3>
-            <p>Les orages les plus organisés.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-
-        <a href="pages/tornades.html" class="phenomenon-card">
-            <span class="phenomenon-icon">🌪️</span>
-            <span class="phenomenon-number">03</span>
-            <h3>Tornades</h3>
-            <p>Comprendre leur formation.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-
-        <a href="pages/foudre.html" class="phenomenon-card">
-            <span class="phenomenon-icon">⚡</span>
-            <span class="phenomenon-number">04</span>
-            <h3>Foudre</h3>
-            <p>Éclairs, charges et tonnerre.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-
-        <a href="pages/radar.html" class="phenomenon-card">
-            <span class="phenomenon-icon">📡</span>
-            <span class="phenomenon-number">05</span>
-            <h3>Radar</h3>
-            <p>Lire et comprendre le radar météo.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-
-        <a href="pages/satellites.html" class="phenomenon-card">
-            <span class="phenomenon-icon">🛰️</span>
-            <span class="phenomenon-number">06</span>
-            <h3>Satellites</h3>
-            <p>Observer la Terre depuis l'espace.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-    </div>
-
-</section>
-
-
-<section class="chasing-section">
-
-    <div class="chasing-image">
+    <div class="storm-feature">
 
         <img
             src="assets/images/storm-chasing.jpg"
             alt="Storm Chasing"
             loading="lazy">
 
-    </div>
 
-    <div class="chasing-content">
-
-        <p class="eyebrow">
-            03 • STORM CHASING
-        </p>
-
-        <h2>
-            FOLLOW
-            <span>THE STORM.</span>
-        </h2>
-
-        <p>
-            Découvre le monde du storm chasing,
-            des premières prévisions jusqu'à
-            l'observation d'une tempête sur le terrain.
-        </p>
-
-        <a href="pages/storm-chasing.html" class="btn primary">
-            🚗 Entrer dans le monde du chasing
-        </a>
-
-    </div>
-
-</section>
-
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-            <p class="eyebrow">04 • CHASSEURS</p>
-
-            <h2>
-                CEUX QUI
-                <span>CHASSENT.</span>
-            </h2>
-        </div>
-
-    </div>
-
-
-    <div class="chaser-card">
-
-        <div class="chaser-image">
-
-            <img
-                src="assets/images/reed-timmer.jpg"
-                alt="Reed Timmer"
-                loading="lazy">
-
-        </div>
-
-        <div class="chaser-content">
+        <div class="storm-feature-content">
 
             <p class="eyebrow">
-                STORMLAB • STORM CHASER
+                STORMLAB • CHASSEURS
             </p>
 
-            <h3>
-                REED
-                <span>TIMMER</span>
-            </h3>
+
+            <h2>
+
+                DANS LE MONDE DU
+                <span>STORM CHASING.</span>
+
+            </h2>
+
 
             <p>
-                Découvre le parcours de Reed Timmer,
-                ses chasses aux tempêtes et l'histoire
-                des véhicules Dominator.
+
+                Découvre les chasseurs de tempêtes,
+                leur matériel, leur préparation et
+                leur manière d'observer les phénomènes.
+
             </p>
 
-            <a href="pages/reed-timmer.html" class="text-link">
-                Découvrir son histoire →
+
+            <a
+                href="pages/chasseurs.html"
+                class="btn primary">
+
+                👥 Découvrir les chasseurs
+
             </a>
 
         </div>
@@ -384,46 +534,226 @@
 </section>
 
 
+<!-- =====================================================
+     DOMINATOR
+===================================================== -->
+
 <section class="section">
 
-    <div class="section-heading">
+    <div class="section-title">
 
-        <div>
-            <p class="eyebrow">05 • EXPÉRIENCE</p>
+        <p>
+            03 • VÉHICULES
+        </p>
 
-            <h2>
-                VA PLUS
-                <span>LOIN.</span>
-            </h2>
-        </div>
+
+        <h2>
+
+            AU CŒUR DU
+            <span>DOMINATOR.</span>
+
+        </h2>
+
+
+        <span>
+
+            Découvre les véhicules associés
+            au storm chasing.
+
+        </span>
 
     </div>
 
 
-    <div class="experience-grid">
+    <div class="cards">
 
-        <a href="pages/quiz.html" class="experience-card">
-            <span>🧠</span>
-            <h3>Quiz</h3>
-            <p>Teste tes connaissances.</p>
-        </a>
 
-        <a href="pages/galerie.html" class="experience-card">
+        <article class="card">
+
+            <span>🚙</span>
+
+            <h3>
+                Dominator
+            </h3>
+
+            <p>
+                Découvre l'univers des véhicules
+                conçus pour l'observation des tempêtes.
+            </p>
+
+            <a
+                href="pages/dominator.html"
+                class="btn primary">
+
+                Découvrir →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>❤️</span>
+
+            <h3>
+                Reed Timmer
+            </h3>
+
+            <p>
+                Explore l'univers d'un célèbre
+                storm chaser.
+            </p>
+
+            <a
+                href="pages/reed-timmer.html"
+                class="btn primary">
+
+                Découvrir →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>👥</span>
+
+            <h3>
+                Chasseurs
+            </h3>
+
+            <p>
+                Découvre les différents profils
+                des chasseurs de tempêtes.
+            </p>
+
+            <a
+                href="pages/chasseurs.html"
+                class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
             <span>📸</span>
-            <h3>Galerie</h3>
-            <p>Explore les phénomènes en images.</p>
-        </a>
 
-        <a href="pages/cartes.html" class="experience-card">
-            <span>🗺️</span>
-            <h3>Cartes météo</h3>
-            <p>Analyse les situations météo.</p>
-        </a>
+            <h3>
+                Galerie
+            </h3>
 
-        <a href="pages/laboratoire.html" class="experience-card">
-            <span>🔬</span>
-            <h3>Laboratoire</h3>
-            <p>Expériences et observations.</p>
+            <p>
+                Observe les phénomènes
+                en images.
+            </p>
+
+            <a
+                href="pages/galerie.html"
+                class="btn primary">
+
+                Voir →
+
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALERIE
+===================================================== -->
+
+<section class="section dark-section">
+
+    <div class="section-title">
+
+        <p>
+            04 • GALERIE
+        </p>
+
+
+        <h2>
+
+            LE CIEL EN
+            <span>IMAGES.</span>
+
+        </h2>
+
+
+        <span>
+
+            Explore les phénomènes météorologiques
+            à travers notre galerie.
+
+        </span>
+
+    </div>
+
+
+    <div class="storm-gallery">
+
+
+        <figure class="storm-photo">
+
+            <img
+                src="assets/images/orage.jpg"
+                alt="Orage"
+                loading="lazy">
+
+            <figcaption>
+                Orage
+            </figcaption>
+
+        </figure>
+
+
+        <figure class="storm-photo">
+
+            <img
+                src="assets/images/supercellule.jpg"
+                alt="Supercellule"
+                loading="lazy">
+
+            <figcaption>
+                Supercellule
+            </figcaption>
+
+        </figure>
+
+
+        <figure class="storm-photo">
+
+            <img
+                src="assets/images/tornade.jpg"
+                alt="Tornade"
+                loading="lazy">
+
+            <figcaption>
+                Tornade
+            </figcaption>
+
+        </figure>
+
+    </div>
+
+
+    <div class="hero-buttons">
+
+        <a
+            href="pages/galerie.html"
+            class="btn primary">
+
+            📸 Voir toute la galerie
+
         </a>
 
     </div>
@@ -431,23 +761,36 @@
 </section>
 
 
-<section class="final-cta">
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="chasing">
 
     <p class="eyebrow">
-        STORMLAB V2
+        STORMLAB
     </p>
 
+
     <h2>
+
         RESPECT THE
         <span>STORM.</span>
+
     </h2>
+
 
     <p>
         Observer. Comprendre. Respecter.
     </p>
 
-    <a href="pages/manuel.html" class="btn primary">
-        📚 Commencer maintenant
+
+    <a
+        href="pages/manuel.html"
+        class="btn secondary">
+
+        📚 Commencer l'aventure
+
     </a>
 
 </section>
@@ -455,24 +798,21 @@
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-    <div class="footer-brand">
+    <div class="footer-logo">
         🌪️ STORMLAB
     </div>
+
 
     <p>
         Never Stop Chasing.
     </p>
 
-    <div class="footer-links">
-
-        <a href="pages/manuel.html">Manuel</a>
-        <a href="pages/storm-chasing.html">Storm Chasing</a>
-        <a href="pages/galerie.html">Galerie</a>
-        <a href="pages/quiz.html">Quiz</a>
-
-    </div>
 
     <p class="copyright">
         © 2026 STORMLAB
@@ -480,6 +820,10 @@
 
 </footer>
 
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
 
 <script src="script.js"></script>
 
