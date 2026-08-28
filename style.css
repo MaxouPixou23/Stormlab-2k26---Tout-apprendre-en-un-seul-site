@@ -694,3 +694,36 @@ footer {
     min-height: 44px;
 }
 ```
+```css
+/* FIX DEFINITIF — STORMLAB */
+
+.card,
+.card:hover,
+.card:active,
+.card:focus,
+.card:focus-visible,
+.card a,
+.card a:hover,
+.card a:active,
+.card a:focus,
+.btn,
+.btn:hover,
+.btn:active,
+.btn:focus {
+    transform: none !important;
+    scale: 1 !important;
+}
+
+.card {
+    transition: box-shadow 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease !important;
+}
+
+.card a,
+.btn {
+    transition: background 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease !important;
+}
+```
