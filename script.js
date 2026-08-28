@@ -1,330 +1,230 @@
-/* =========================================================
-   STORMLAB V2
-   SCRIPT GLOBAL
-   NAVBAR UNIVERSELLE
-========================================================= */
-
 "use strict";
+
+/* =========================================================
+STORMLAB V2
+SCRIPT GLOBAL
+NAVBAR UNIVERSELLE
+========================================================= */
 
 (function () {
 
-    function initNavbar() {
+```
+function initNavbar() {
 
-        const navbar =
-            document.querySelector(".navbar");
+    const navbar = document.querySelector(".navbar");
+    const button = document.getElementById("menuButton");
+    const menu = document.getElementById("mainNav");
 
-        const button =
-            document.getElementById("menuButton");
+    if (!navbar || !button || !menu) {
+        console.warn("STORMLAB : navbar absente sur cette page.");
+        return;
+    }
 
-        const menu =
-            document.getElementById("mainNav");
+    function openMenu() {
 
-        if (!navbar || !button || !menu) {
-            console.warn(
-                "STORMLAB : navbar absente sur cette page."
-            );
+        navbar.classList.add("menu-open");
+
+        button.textContent = "✕";
+        button.setAttribute("aria-expanded", "true");
+        button.setAttribute("aria-label", "Fermer le menu");
+
+        document.body.classList.add("nav-open");
+    }
+
+    function closeMenu() {
+
+        navbar.classList.remove("menu-open");
+
+        button.textContent = "☰";
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-label", "Ouvrir le menu");
+
+        document.body.classList.remove("nav-open");
+    }
+
+    button.addEventListener("click", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (navbar.classList.contains("menu-open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+
+    });
+
+
+    menu.addEventListener("click", function (event) {
+
+        const link = event.target.closest(".menu-link");
+
+        if (!link) {
             return;
-        }
-
-        function openMenu() {
-
-            navbar.classList.add("menu-open");
-
-            button.textContent = "✕";
-
-            button.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            button.setAttribute(
-                "aria-label",
-                "Fermer le menu"
-            );
-        }
-
-        function closeMenu() {
-
-            navbar.classList.remove("menu-open");
-
-            button.textContent = "☰";
-
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            button.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-        }
-
-        function toggleMenu(event) {
-
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            if (
-                navbar.classList.contains(
-                    "menu-open"
-                )
-            ) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-
-        /* =================================================
-           BOUTON
-        ================================================= */
-
-        button.addEventListener(
-            "click",
-            toggleMenu
-        );
-
-        /* =================================================
-           LIENS DU MENU
-        ================================================= */
-
-        menu.addEventListener(
-            "click",
-            function (event) {
-
-                const link =
-                    event.target.closest(
-                        ".menu-link"
-                    );
-
-                if (!link) {
-                    return;
-                }
-
-                /*
-                 * Laisser le navigateur suivre
-                 * normalement le href.
-                 */
-
-                closeMenu();
-            }
-        );
-
-        /* =================================================
-           CLIC EXTERIEUR
-        ================================================= */
-
-        document.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    !navbar.classList.contains(
-                        "menu-open"
-                    )
-                ) {
-                    return;
-                }
-
-                if (
-                    !navbar.contains(
-                        event.target
-                    )
-                ) {
-                    closeMenu();
-                }
-            }
-        );
-
-        /* =================================================
-           ESC
-        ================================================= */
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "Escape" &&
-                    navbar.classList.contains(
-                        "menu-open"
-                    )
-                ) {
-
-                    closeMenu();
-
-                    button.focus();
-                }
-            }
-        );
-
-        /* =================================================
-           REDIMENSIONNEMENT
-        ================================================= */
-
-        window.addEventListener(
-            "resize",
-            function () {
-
-                if (
-                    window.innerWidth > 700
-                ) {
-                    /*
-                     * On ne ferme pas le menu
-                     * automatiquement ici :
-                     * cela évite les bugs lorsque
-                     * la fenêtre change de taille.
-                     */
-                }
-
-            }
-        );
-
-        /* =================================================
-           LIEN ACTIF
-        ================================================= */
-
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .toLowerCase();
-
-        const links =
-            menu.querySelectorAll(
-                ".menu-link"
-            );
-
-        links.forEach(
-            function (link) {
-
-                const href =
-                    link.getAttribute("href");
-
-                if (!href) {
-                    return;
-                }
-
-                const targetPage =
-                    href
-                        .split("/")
-                        .pop()
-                        .split("?")[0]
-                        .split("#")[0]
-                        .toLowerCase();
-
-                link.classList.remove(
-                    "active"
-                );
-
-                if (
-                    targetPage === currentPage
-                ) {
-                    link.classList.add(
-                        "active"
-                    );
-                }
-
-            }
-        );
-
-        /*
-         * index.html
-         */
-
-        if (
-            currentPage === "" ||
-            currentPage === "index.html"
-        ) {
-
-            const home =
-                menu.querySelector(
-                    'a[href*="index.html"]'
-                );
-
-            if (home) {
-                home.classList.add("active");
-            }
         }
 
         closeMenu();
 
-        console.log(
-            "STORMLAB V2 : navbar universelle OK."
-        );
+    });
+
+
+    document.addEventListener("click", function (event) {
+
+        if (!navbar.classList.contains("menu-open")) {
+            return;
+        }
+
+        if (!navbar.contains(event.target)) {
+            closeMenu();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Escape" &&
+            navbar.classList.contains("menu-open")
+        ) {
+
+            closeMenu();
+            button.focus();
+
+        }
+
+    });
+
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 700) {
+            closeMenu();
+        }
+
+    });
+
+
+    /* =================================================
+       PAGE ACTIVE AUTOMATIQUE
+    ================================================= */
+
+    let currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+    if (!currentPage) {
+        currentPage = "index.html";
     }
 
-    if (
-        document.readyState === "loading"
-    ) {
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            initNavbar
-        );
+    const links =
+        menu.querySelectorAll(".menu-link");
 
-    } else {
 
-        initNavbar();
+    links.forEach(function (link) {
 
-    }
+        link.classList.remove("active");
+
+        const href =
+            link.getAttribute("href");
+
+        if (!href) {
+            return;
+        }
+
+        const targetPage =
+            href
+                .split("/")
+                .pop()
+                .split("?")[0]
+                .split("#")[0]
+                .toLowerCase();
+
+        if (targetPage === currentPage) {
+            link.classList.add("active");
+        }
+
+    });
+
+
+    closeMenu();
+
+    console.log(
+        "STORMLAB V2 : navbar universelle OK."
+    );
+
+}
+
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initNavbar
+    );
+
+} else {
+
+    initNavbar();
+
+}
+```
 
 })();
 
-
 /* =========================================================
-   IMAGE FALLBACK
+IMAGE FALLBACK
 ========================================================= */
 
 (function () {
 
-    function initImages() {
+```
+function initImages() {
 
-        const images =
-            document.querySelectorAll("img");
+    const images =
+        document.querySelectorAll("img");
 
-        images.forEach(
-            function (image) {
 
-                image.addEventListener(
-                    "error",
-                    function () {
+    images.forEach(function (image) {
 
-                        image.classList.add(
-                            "image-error"
-                        );
+        image.addEventListener(
+            "error",
+            function () {
 
-                        console.warn(
-                            "STORMLAB : image introuvable :",
-                            image.src
-                        );
+                image.classList.add("image-error");
 
-                    },
-                    {
-                        once: true
-                    }
+                console.warn(
+                    "STORMLAB : image introuvable :",
+                    image.src
                 );
 
+            },
+            {
+                once: true
             }
         );
-    }
 
-    if (
-        document.readyState === "loading"
-    ) {
+    });
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            initImages
-        );
+}
 
-    } else {
 
-        initImages();
+if (document.readyState === "loading") {
 
-    }
+    document.addEventListener(
+        "DOMContentLoaded",
+        initImages
+    );
+
+} else {
+
+    initImages();
+
+}
+```
 
 })();
