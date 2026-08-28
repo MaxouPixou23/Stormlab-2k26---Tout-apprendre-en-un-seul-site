@@ -1,6 +1,7 @@
+```javascript
 /* =========================================================
    STORMLAB V2
-   NAVBAR + INTERACTIONS
+   JAVASCRIPT GLOBAL
 ========================================================= */
 
 "use strict";
@@ -14,20 +15,39 @@
 
     function initNavbar() {
 
-        const navbar = document.querySelector(".navbar");
-        const button = document.getElementById("menuButton");
-        const menu = document.getElementById("mainNav");
+        const navbar =
+            document.querySelector(".navbar");
+
+        const button =
+            document.getElementById("menuButton");
+
+        const menu =
+            document.getElementById("mainNav");
+
+
+        /* -------------------------------------------------
+           Vérification
+        ------------------------------------------------- */
 
         if (!navbar || !button || !menu) {
-            console.error(
-                "STORMLAB : éléments de navigation introuvables."
+
+            console.warn(
+                "STORMLAB V2 : éléments navbar introuvables."
             );
+
             return;
         }
 
+
+        /* -------------------------------------------------
+           OUVRIR LE MENU
+        ------------------------------------------------- */
+
         function openMenu() {
 
-            navbar.classList.add("menu-open");
+            navbar.classList.add(
+                "menu-open"
+            );
 
             button.textContent = "✕";
 
@@ -42,9 +62,16 @@
             );
         }
 
+
+        /* -------------------------------------------------
+           FERMER LE MENU
+        ------------------------------------------------- */
+
         function closeMenu() {
 
-            navbar.classList.remove("menu-open");
+            navbar.classList.remove(
+                "menu-open"
+            );
 
             button.textContent = "☰";
 
@@ -59,65 +86,126 @@
             );
         }
 
-        function toggleMenu() {
+
+        /* -------------------------------------------------
+           TOGGLE
+        ------------------------------------------------- */
+
+        function toggleMenu(event) {
+
+            if (event) {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+            }
 
             if (
-                navbar.classList.contains("menu-open")
+                navbar.classList.contains(
+                    "menu-open"
+                )
             ) {
+
                 closeMenu();
+
             } else {
+
                 openMenu();
             }
         }
 
 
-        /* BOUTON MENU */
+        /* -------------------------------------------------
+           BOUTON MENU
+        ------------------------------------------------- */
 
         button.addEventListener(
             "click",
-            function (event) {
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                toggleMenu();
-            }
+            toggleMenu
         );
 
 
-        /* LIENS DU MENU */
+        /* -------------------------------------------------
+           LIENS
+           
+           IMPORTANT :
+           aucun preventDefault().
+           Le href reste totalement fonctionnel.
+        ------------------------------------------------- */
 
-        menu.addEventListener(
-            "click",
-            function (event) {
+        menu
+            .querySelectorAll(
+                "a.menu-link"
+            )
+            .forEach(
+                function (link) {
 
-                const link =
-                    event.target.closest("a");
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-                if (link) {
-                    closeMenu();
+                            closeMenu();
+
+                        }
+                    );
+
                 }
-            }
-        );
+            );
 
 
-        /* CLIC EN DEHORS */
+        /* -------------------------------------------------
+           LOGO
+        ------------------------------------------------- */
+
+        const logo =
+            navbar.querySelector(
+                "a.logo"
+            );
+
+        if (logo) {
+
+            logo.addEventListener(
+                "click",
+                function () {
+
+                    closeMenu();
+
+                }
+            );
+        }
+
+
+        /* -------------------------------------------------
+           CLIC EN DEHORS
+        ------------------------------------------------- */
 
         document.addEventListener(
             "click",
             function (event) {
 
                 if (
-                    navbar.classList.contains("menu-open") &&
-                    !navbar.contains(event.target)
+                    !navbar.classList.contains(
+                        "menu-open"
+                    )
                 ) {
+                    return;
+                }
+
+                if (
+                    !navbar.contains(
+                        event.target
+                    )
+                ) {
+
                     closeMenu();
                 }
             }
         );
 
 
-        /* TOUCHE ÉCHAP */
+        /* -------------------------------------------------
+           TOUCHE ESCAPE
+        ------------------------------------------------- */
 
         document.addEventListener(
             "keydown",
@@ -125,7 +213,9 @@
 
                 if (
                     event.key === "Escape" &&
-                    navbar.classList.contains("menu-open")
+                    navbar.classList.contains(
+                        "menu-open"
+                    )
                 ) {
 
                     closeMenu();
@@ -136,31 +226,62 @@
         );
 
 
-        /* REDIMENSIONNEMENT */
+        /* -------------------------------------------------
+           REDIMENSIONNEMENT
+        ------------------------------------------------- */
+
+        let resizeTimer = null;
 
         window.addEventListener(
             "resize",
             function () {
 
-                if (
-                    window.innerWidth > 700 &&
-                    navbar.classList.contains("menu-open")
-                ) {
-                    closeMenu();
-                }
+                clearTimeout(
+                    resizeTimer
+                );
+
+                resizeTimer =
+                    setTimeout(
+                        function () {
+
+                            /*
+                             * On ferme le menu pendant
+                             * un changement important
+                             * de taille d'écran.
+                             */
+
+                            if (
+                                navbar.classList.contains(
+                                    "menu-open"
+                                )
+                            ) {
+
+                                closeMenu();
+                            }
+
+                        },
+                        120
+                    );
             }
         );
 
 
-        /* ÉTAT INITIAL */
+        /* -------------------------------------------------
+           ÉTAT INITIAL
+        ------------------------------------------------- */
 
         closeMenu();
+
 
         console.log(
             "STORMLAB V2 : navbar opérationnelle."
         );
     }
 
+
+    /* =====================================================
+       INITIALISATION
+    ===================================================== */
 
     if (
         document.readyState === "loading"
@@ -180,7 +301,7 @@
 
 
 /* =========================================================
-   IMAGE FALLBACK
+   FALLBACK DES IMAGES
 ========================================================= */
 
 (function () {
@@ -188,7 +309,9 @@
     function initImageFallback() {
 
         const images =
-            document.querySelectorAll("img");
+            document.querySelectorAll(
+                "img"
+            );
 
         images.forEach(
             function (image) {
@@ -202,14 +325,16 @@
                         );
 
                         console.warn(
-                            "STORMLAB : image introuvable :",
+                            "STORMLAB V2 : image introuvable :",
                             image.src
                         );
+
                     },
                     {
                         once: true
                     }
                 );
+
             }
         );
     }
@@ -230,3 +355,67 @@
     }
 
 })();
+
+
+/* =========================================================
+   ANIMATION DES IMAGES AU CHARGEMENT
+========================================================= */
+
+(function () {
+
+    function initImageReveal() {
+
+        const images =
+            document.querySelectorAll(
+                "img"
+            );
+
+        images.forEach(
+            function (image) {
+
+                if (
+                    image.complete &&
+                    image.naturalWidth > 0
+                ) {
+
+                    image.classList.add(
+                        "image-loaded"
+                    );
+
+                    return;
+                }
+
+                image.addEventListener(
+                    "load",
+                    function () {
+
+                        image.classList.add(
+                            "image-loaded"
+                        );
+
+                    },
+                    {
+                        once: true
+                    }
+                );
+            }
+        );
+    }
+
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initImageReveal
+        );
+
+    } else {
+
+        initImageReveal();
+    }
+
+})();
+```
