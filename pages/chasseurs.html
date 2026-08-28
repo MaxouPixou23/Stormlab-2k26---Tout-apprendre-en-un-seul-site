@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#000000">
+
+    <meta name="description"
+          content="STORMLAB — Les grands chasseurs de tempêtes, leurs véhicules et leurs projets.">
 
     <title>Chasseurs — STORMLAB</title>
 
-    <meta name="description"
-          content="STORMLAB — Découvrir l'univers des chasseurs de tempêtes.">
+    <link rel="stylesheet"
+          href="../style.css">
 
-    <link rel="stylesheet" href="../style.css">
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header class="navbar">
 
@@ -20,41 +35,238 @@
         🌪️ <span>STORMLAB</span>
     </a>
 
-    <button class="mobile-menu-btn"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false">
+
+    <button
+        id="menuButton"
+        class="mobile-menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        aria-label="Ouvrir le menu">
+
         ☰
+
     </button>
 
-    <nav class="main-nav" aria-label="Navigation principale">
 
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="chasseurs.html" class="active">👥 Chasseurs</a>
-        <a href="dominator.html">🚙 Dominator</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
+    <nav
+        id="mainNav"
+        class="main-nav"
+        aria-label="Navigation principale">
+
+
+        <div class="menu-top">
+
+            <div class="menu-brand">
+                🌪️ STORMLAB
+            </div>
+
+            <div class="menu-version">
+                V2 • NEVER STOP CHASING
+            </div>
+
+            <div class="menu-top-line"></div>
+
+            <div class="menu-title">
+                EXPLORER STORMLAB
+            </div>
+
+        </div>
+
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">
+                🌦️ MÉTÉOROLOGIE
+            </div>
+
+            <a href="../index.html" class="menu-link">
+                <span class="menu-icon">🏠</span>
+                <span class="menu-name">Accueil</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="manuel.html" class="menu-link">
+                <span class="menu-icon">📚</span>
+                <span class="menu-name">Manuel</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="meteorologie.html" class="menu-link">
+                <span class="menu-icon">🌧️</span>
+                <span class="menu-name">Météorologie</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="orages.html" class="menu-link">
+                <span class="menu-icon">🌩️</span>
+                <span class="menu-name">Orages</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="supercellules.html" class="menu-link">
+                <span class="menu-icon">🌀</span>
+                <span class="menu-name">Supercellules</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="tornades.html" class="menu-link">
+                <span class="menu-icon">🌪️</span>
+                <span class="menu-name">Tornades</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="foudre.html" class="menu-link">
+                <span class="menu-icon">⚡</span>
+                <span class="menu-name">Foudre</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+
+        <div class="menu-separator"></div>
+
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">
+                📡 OBSERVATION
+            </div>
+
+            <a href="radar.html" class="menu-link">
+                <span class="menu-icon">📡</span>
+                <span class="menu-name">Radar</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="satellites.html" class="menu-link">
+                <span class="menu-icon">🛰️</span>
+                <span class="menu-name">Satellites</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="cartes.html" class="menu-link">
+                <span class="menu-icon">🗺️</span>
+                <span class="menu-name">Cartes météo</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+
+        <div class="menu-separator"></div>
+
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">
+                🚗 STORM CHASING
+            </div>
+
+            <a href="storm-chasing.html" class="menu-link">
+                <span class="menu-icon">🚗</span>
+                <span class="menu-name">Storm Chasing</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="chasseurs.html" class="menu-link active">
+                <span class="menu-icon">👥</span>
+                <span class="menu-name">Chasseurs</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="dominator.html" class="menu-link">
+                <span class="menu-icon">🚙</span>
+                <span class="menu-name">Dominator</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="reed-timmer.html" class="menu-link">
+                <span class="menu-icon">❤️</span>
+                <span class="menu-name">Reed Timmer</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+
+        <div class="menu-separator"></div>
+
+
+        <div class="menu-group">
+
+            <div class="menu-group-title">
+                🔬 STORMLAB
+            </div>
+
+            <a href="galerie.html" class="menu-link">
+                <span class="menu-icon">📸</span>
+                <span class="menu-name">Galerie</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="alertes.html" class="menu-link">
+                <span class="menu-icon">🚨</span>
+                <span class="menu-name">Alertes</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="quiz.html" class="menu-link">
+                <span class="menu-icon">🧠</span>
+                <span class="menu-name">Quiz</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="laboratoire.html" class="menu-link">
+                <span class="menu-icon">🔬</span>
+                <span class="menu-name">Laboratoire</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="videos.html" class="menu-link">
+                <span class="menu-icon">🎥</span>
+                <span class="menu-name">Vidéos</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="actualites.html" class="menu-link">
+                <span class="menu-icon">📰</span>
+                <span class="menu-name">Actualités</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+        </div>
+
+
+        <div class="menu-footer">
+
+            <span>🌪️</span>
+
+            <span>
+                NEVER STOP CHASING
+            </span>
+
+            <span>V2</span>
+
+        </div>
 
     </nav>
 
 </header>
 
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -64,30 +276,46 @@
             STORMLAB • STORM CHASERS
         </p>
 
+
         <h1>
             LES
             <span>CHASSEURS.</span>
         </h1>
 
+
         <p class="hero-text">
-            Découvre l'univers des chasseurs de tempêtes,
-            leur préparation, leurs outils et leur approche
-            de l'observation météorologique.
+
+            Des cinéastes aux chercheurs scientifiques,
+            les chasseurs de tempêtes utilisent des approches
+            très différentes pour observer et documenter
+            les phénomènes atmosphériques violents.
+
         </p>
+
 
         <div class="hero-buttons">
 
-            <a href="storm-chasing.html" class="btn primary">
+            <a
+                href="storm-chasing.html"
+                class="btn primary">
+
                 🚗 Storm Chasing
+
             </a>
 
-            <a href="dominator.html" class="btn secondary">
-                🚙 Dominator
+
+            <a
+                href="dominator.html"
+                class="btn secondary">
+
+                🚙 Véhicules
+
             </a>
 
         </div>
 
     </div>
+
 
     <div class="hero-symbol">
         👥
@@ -96,30 +324,551 @@
 </section>
 
 
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
 <section class="section">
+
+    <div class="section-title">
+
+        <p>
+            01 • PROFILS
+        </p>
+
+
+        <h2>
+            QUATRE APPROCHES,
+            <span>UNE PASSION.</span>
+        </h2>
+
+
+        <span>
+            Observation, recherche scientifique,
+            cinéma et documentation.
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <span>
+                🎬
+            </span>
+
+            <h3>
+                Sean Casey
+            </h3>
+
+            <p>
+
+                Cinéaste et storm chaser connu pour
+                avoir créé les Tornado Intercept Vehicles,
+                notamment le TIV et le TIV2.
+
+            </p>
+
+
+            <a
+                href="#sean-casey"
+                class="btn primary">
+
+                Découvrir →
+
+            </a>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span>
+                📡
+            </span>
+
+            <h3>
+                Joshua Wurman
+            </h3>
+
+            <p>
+
+                Scientifique spécialisé dans l'étude
+                des phénomènes météorologiques violents
+                et associé aux radars Doppler on Wheels.
+
+            </p>
+
+
+            <a
+                href="#joshua-wurman"
+                class="btn primary">
+
+                Découvrir →
+
+            </a>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span>
+                ❤️
+            </span>
+
+            <h3>
+                Reed Timmer
+            </h3>
+
+            <p>
+
+                Storm chaser connu pour ses véhicules
+                Dominator et ses observations de
+                phénomènes météorologiques violents.
+
+            </p>
+
+
+            <a
+                href="reed-timmer.html"
+                class="btn primary">
+
+                Sa page →
+
+            </a>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span>
+                🔬
+            </span>
+
+            <h3>
+                Tim Samaras
+            </h3>
+
+            <p>
+
+                Chercheur et storm chaser associé
+                au projet TWISTEX et à des recherches
+                sur les tornades.
+
+            </p>
+
+
+            <a
+                href="#tim-samaras"
+                class="btn primary">
+
+                Découvrir →
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SEAN CASEY
+===================================================== -->
+
+<section
+    class="section dark-section"
+    id="sean-casey">
 
     <div class="storm-feature">
 
+
         <img
-            src="../assets/images/storm-chasing.jpg"
-            alt="Storm Chasing"
-            loading="eager">
+            src="../assets/images/sean-casey.jpg"
+            alt="Sean Casey"
+            loading="lazy">
+
 
         <div class="storm-feature-content">
 
+
             <p class="eyebrow">
-                SUR LE TERRAIN
+                02 • SEAN CASEY
             </p>
 
+
             <h2>
-                OBSERVER LA
-                <span>TEMPÊTE.</span>
+
+                LE CINÉASTE
+                <span>DES TEMPÊTES.</span>
+
             </h2>
 
+
             <p>
-                Une observation responsable repose sur
-                la préparation, l'analyse météorologique
-                et le respect de la sécurité.
+
+                Sean Casey est un cinéaste IMAX et storm
+                chaser américain. Pour son travail autour
+                des tornades, il a conçu les Tornado Intercept
+                Vehicles afin de filmer les phénomènes
+                dans des conditions difficiles.
+
+            </p>
+
+
+            <p>
+
+                Son travail est notamment associé au film
+                IMAX <strong>Tornado Alley</strong> et à la
+                série <strong>Storm Chasers</strong>.
+
+            </p>
+
+
+            <a
+                href="dominator.html"
+                class="btn secondary">
+
+                🚙 Voir les véhicules
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TIV
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p>
+            03 • TORNADO INTERCEPT VEHICLES
+        </p>
+
+
+        <h2>
+
+            LES
+            <span>TIV.</span>
+
+        </h2>
+
+
+        <span>
+
+            Des véhicules spécialement conçus
+            pour le travail de Sean Casey.
+
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <span>
+                🚙
+            </span>
+
+            <h3>
+                TIV 1
+            </h3>
+
+            <p>
+
+                Premier Tornado Intercept Vehicle
+                développé par Sean Casey pour ses
+                productions et ses recherches visuelles.
+
+            </p>
+
+
+            <a
+                href="dominator.html"
+                class="btn primary">
+
+                Véhicule →
+
+            </a>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span>
+                🚙
+            </span>
+
+            <h3>
+                TIV 2
+            </h3>
+
+            <p>
+
+                Seconde génération développée pour
+                améliorer plusieurs aspects du premier
+                véhicule et poursuivre le travail
+                de tournage.
+
+            </p>
+
+
+            <a
+                href="dominator.html"
+                class="btn primary">
+
+                Véhicule →
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JOSHUA WURMAN
+===================================================== -->
+
+<section
+    class="section dark-section"
+    id="joshua-wurman">
+
+    <div class="storm-feature">
+
+
+        <img
+            src="../assets/images/joshua-wurman.jpg"
+            alt="Joshua Wurman"
+            loading="lazy">
+
+
+        <div class="storm-feature-content">
+
+
+            <p class="eyebrow">
+                04 • JOSHUA WURMAN
+            </p>
+
+
+            <h2>
+
+                LA CHASSE
+                <span>SCIENTIFIQUE.</span>
+
+            </h2>
+
+
+            <p>
+
+                Joshua Wurman est un scientifique spécialisé
+                dans l'observation des phénomènes météorologiques
+                violents.
+
+            </p>
+
+
+            <p>
+
+                Il est notamment associé au réseau
+                <strong>Doppler on Wheels</strong>, qui utilise
+                des radars mobiles pour étudier les structures
+                atmosphériques.
+
+            </p>
+
+
+            <a
+                href="radar.html"
+                class="btn primary">
+
+                📡 Découvrir le radar
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REED TIMMER
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p>
+            05 • REED TIMMER
+        </p>
+
+
+        <h2>
+
+            DU CHASING À
+            <span>L'OBSERVATION.</span>
+
+        </h2>
+
+
+        <span>
+            Une approche mêlant météo, vidéo,
+            véhicules et observation.
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <span>
+                🚙
+            </span>
+
+            <h3>
+                Dominator
+            </h3>
+
+            <p>
+
+                Reed Timmer a développé plusieurs
+                générations de véhicules Dominator
+                pour ses activités de storm chasing.
+
+            </p>
+
+
+            <a
+                href="dominator.html"
+                class="btn primary">
+
+                Découvrir →
+
+            </a>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span>
+                ❤️
+            </span>
+
+            <h3>
+                Reed Timmer
+            </h3>
+
+            <p>
+
+                Découvre son parcours, ses projets
+                et son approche de l'observation.
+
+            </p>
+
+
+            <a
+                href="reed-timmer.html"
+                class="btn primary">
+
+                Ouvrir la page →
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TIM SAMARAS
+===================================================== -->
+
+<section
+    class="section dark-section"
+    id="tim-samaras">
+
+    <div class="storm-feature">
+
+
+        <img
+            src="../assets/images/tim-samaras.jpg"
+            alt="Tim Samaras"
+            loading="lazy">
+
+
+        <div class="storm-feature-content">
+
+
+            <p class="eyebrow">
+                06 • TIM SAMARAS
+            </p>
+
+
+            <h2>
+
+                MESURER LA
+                <span>TEMPÊTE.</span>
+
+            </h2>
+
+
+            <p>
+
+                Tim Samaras était un chercheur et storm
+                chaser connu pour son travail de terrain
+                consacré notamment aux tornades.
+
+            </p>
+
+
+            <p>
+
+                Avec TWISTEX, son équipe utilisait différents
+                instruments et véhicules pour recueillir
+                des données sur les phénomènes violents.
+
             </p>
 
         </div>
@@ -129,81 +878,188 @@
 </section>
 
 
+
+<!-- =====================================================
+     COMPARAISON
+===================================================== -->
+
 <section class="section">
 
     <div class="section-title">
 
-        <p>01 • OUTILS</p>
+        <p>
+            07 • APPROCHES
+        </p>
+
 
         <h2>
-            LE MATÉRIEL DU
-            <span>CHASSEUR.</span>
+
+            DES MÉTHODES
+            <span>DIFFÉRENTES.</span>
+
         </h2>
 
     </div>
 
+
     <div class="cards">
 
-        <article class="card">
-            <span>📡</span>
-            <h3>Radar</h3>
-            <p>Suivre les précipitations et les cellules.</p>
-            <a href="radar.html" class="btn primary">Explorer →</a>
-        </article>
 
         <article class="card">
-            <span>🛰️</span>
-            <h3>Satellite</h3>
-            <p>Observer les systèmes nuageux à grande échelle.</p>
-            <a href="satellites.html" class="btn primary">Explorer →</a>
+
+            <span>
+                🎬
+            </span>
+
+            <h3>
+                Cinéma
+            </h3>
+
+            <p>
+
+                Documenter les phénomènes
+                pour le grand public.
+
+            </p>
+
         </article>
 
-        <article class="card">
-            <span>🗺️</span>
-            <h3>Cartes</h3>
-            <p>Analyser les paramètres météorologiques.</p>
-            <a href="cartes.html" class="btn primary">Explorer →</a>
-        </article>
+
 
         <article class="card">
-            <span>🚨</span>
-            <h3>Sécurité</h3>
-            <p>Suivre les alertes et recommandations officielles.</p>
-            <a href="alertes.html" class="btn primary">Explorer →</a>
+
+            <span>
+                📡
+            </span>
+
+            <h3>
+                Science
+            </h3>
+
+            <p>
+
+                Recueillir des données et étudier
+                la structure des phénomènes.
+
+            </p>
+
         </article>
+
+
+
+        <article class="card">
+
+            <span>
+                📹
+            </span>
+
+            <h3>
+                Documentation
+            </h3>
+
+            <p>
+
+                Filmer et analyser l'évolution
+                des systèmes orageux.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+            <span>
+                🛡️
+            </span>
+
+            <h3>
+                Sécurité
+            </h3>
+
+            <p>
+
+                L'observation doit toujours
+                rester associée à la sécurité.
+
+            </p>
+
+            <a
+                href="alertes.html"
+                class="btn primary">
+
+                Sécurité →
+
+            </a>
+
+        </article>
+
 
     </div>
 
 </section>
 
 
-<section class="manual">
 
-    <div class="manual-content">
+<!-- =====================================================
+     CTA FINAL
+===================================================== -->
 
-        <p class="eyebrow">
-            02 • PHILOSOPHIE
-        </p>
+<section class="chasing">
 
-        <h2>
-            CHASSER POUR
-            <span>COMPRENDRE.</span>
-        </h2>
+    <p class="eyebrow">
+        STORMLAB
+    </p>
 
-        <p>
-            Le but n'est pas de prendre des risques inutiles,
-            mais de mieux observer et comprendre les phénomènes.
-        </p>
 
-        <a href="reed-timmer.html" class="btn primary">
-            ❤️ Reed Timmer
+    <h2>
+
+        NEVER STOP
+        <span>CHASING.</span>
+
+    </h2>
+
+
+    <p>
+        Observer. Comprendre. Respecter.
+    </p>
+
+
+    <div
+        class="hero-buttons"
+        style="justify-content:center;">
+
+
+        <a
+            href="storm-chasing.html"
+            class="btn primary">
+
+            🚗 Storm Chasing
+
+        </a>
+
+
+        <a
+            href="dominator.html"
+            class="btn secondary">
+
+            🚙 Véhicules
+
         </a>
 
     </div>
 
 </section>
 
+
 </main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -211,7 +1067,9 @@
         🌪️ STORMLAB
     </div>
 
-    <p>Never Stop Chasing.</p>
+    <p>
+        Never Stop Chasing.
+    </p>
 
     <p class="copyright">
         © 2026 STORMLAB
@@ -219,7 +1077,9 @@
 
 </footer>
 
-<script src="../script.js"></script>
+
+
+<script src="../script.js?v=2"></script>
 
 </body>
 </html>
