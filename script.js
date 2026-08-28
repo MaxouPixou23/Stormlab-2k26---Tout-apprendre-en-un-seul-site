@@ -2,33 +2,31 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
-       NAVBAR
+       JAVASCRIPT ACTIVÉ
     ========================================= */
 
-    const navbar =
-        document.querySelector(".navbar");
+    document.documentElement.classList.add("js-enabled");
 
+
+    /* =========================================
+       NAVBAR AU SCROLL
+    ========================================= */
+
+    const navbar = document.querySelector(".navbar");
 
     if (navbar) {
 
         const updateNavbar = () => {
 
             if (window.scrollY > 40) {
-
-                navbar.classList.add(
-                    "scrolled"
-                );
-
+                navbar.classList.add("scrolled");
             } else {
-
-                navbar.classList.remove(
-                    "scrolled"
-                );
-
+                navbar.classList.remove("scrolled");
             }
 
         };
 
+        updateNavbar();
 
         window.addEventListener(
             "scroll",
@@ -36,24 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
             { passive: true }
         );
 
-
-        updateNavbar();
-
     }
 
 
     /* =========================================
-       ANIMATIONS
+       ANIMATIONS AU SCROLL
     ========================================= */
 
-    const elements =
+    const revealElements =
         document.querySelectorAll(".reveal");
 
-
-    if (
-        "IntersectionObserver" in window &&
-        elements.length
-    ) {
+    if ("IntersectionObserver" in window) {
 
         const observer =
             new IntersectionObserver(
@@ -61,13 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     entries.forEach(entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        if (entry.isIntersecting) {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+                            entry.target.classList.add("visible");
 
                             observer.unobserve(
                                 entry.target
@@ -79,28 +66,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 },
                 {
-                    threshold: 0.12,
-
-                    rootMargin:
-                        "0px 0px -40px 0px"
+                    threshold: 0.12
                 }
             );
 
-
-        elements.forEach(element => {
-
+        revealElements.forEach(element => {
             observer.observe(element);
-
         });
 
     } else {
 
-        elements.forEach(element => {
-
-            element.classList.add(
-                "visible"
-            );
-
+        revealElements.forEach(element => {
+            element.classList.add("visible");
         });
 
     }
@@ -111,255 +88,181 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================= */
 
     const menuButton =
-        document.querySelector(
-            ".mobile-menu-btn"
-        );
+        document.querySelector(".mobile-menu-btn");
 
     const mobileMenu =
-        document.querySelector(
-            ".mobile-menu"
-        );
+        document.querySelector(".mobile-menu");
+
+    const closeButton =
+        document.querySelector(".mobile-close");
+
+    const overlay =
+        document.querySelector(".menu-overlay");
 
 
-    if (
-        menuButton &&
-        mobileMenu
-    ) {
+    const openMenu = () => {
 
-        const closeMenu = () => {
+        if (!mobileMenu) return;
 
-            mobileMenu.classList.remove(
-                "open"
-            );
+        mobileMenu.classList.add("open");
 
-            menuButton.classList.remove(
-                "active"
-            );
+        if (overlay) {
+            overlay.classList.add("open");
+        }
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        document.body.classList.add("menu-open");
 
-            document.body.classList.remove(
-                "menu-open"
-            );
-
-        };
-
-
-        const openMenu = () => {
-
-            mobileMenu.classList.add(
-                "open"
-            );
-
-            menuButton.classList.add(
-                "active"
-            );
-
+        if (menuButton) {
             menuButton.setAttribute(
                 "aria-expanded",
                 "true"
             );
+        }
 
-            document.body.classList.add(
-                "menu-open"
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+    };
+
+
+    const closeMenu = () => {
+
+        if (!mobileMenu) return;
+
+        mobileMenu.classList.remove("open");
+
+        if (overlay) {
+            overlay.classList.remove("open");
+        }
+
+        document.body.classList.remove("menu-open");
+
+        if (menuButton) {
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
             );
+        }
 
-        };
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
+    };
+
+
+    if (menuButton) {
 
         menuButton.addEventListener(
             "click",
-            () => {
-
-                if (
-                    mobileMenu.classList.contains(
-                        "open"
-                    )
-                ) {
-
-                    closeMenu();
-
-                } else {
-
-                    openMenu();
-
-                }
-
-            }
+            openMenu
         );
 
-
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(link => {
-
-                link.addEventListener(
-                    "click",
-                    closeMenu
-                );
-
-            });
+    }
 
 
-        document.addEventListener(
-            "keydown",
-            event => {
+    if (closeButton) {
 
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    closeMenu();
-
-                }
-
-            }
-        );
-
-
-        document.addEventListener(
+        closeButton.addEventListener(
             "click",
-            event => {
-
-                if (
-                    mobileMenu.classList.contains(
-                        "open"
-                    ) &&
-                    !mobileMenu.contains(
-                        event.target
-                    ) &&
-                    !menuButton.contains(
-                        event.target
-                    )
-                ) {
-
-                    closeMenu();
-
-                }
-
-            }
+            closeMenu
         );
 
+    }
 
-        window.addEventListener(
-            "resize",
-            () => {
 
-                if (
-                    window.innerWidth > 780
-                ) {
+    if (overlay) {
 
-                    closeMenu();
-
-                }
-
-            }
+        overlay.addEventListener(
+            "click",
+            closeMenu
         );
 
     }
 
 
     /* =========================================
-       ANNÉE
+       LIENS DU MENU MOBILE
+       
+       IMPORTANT :
+       Les catégories ne sont jamais supprimées.
+       Le menu se ferme uniquement après navigation.
     ========================================= */
 
-    const year =
-        new Date().getFullYear();
+    if (mobileMenu) {
 
+        const mobileLinks =
+            mobileMenu.querySelectorAll("a");
+
+        mobileLinks.forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    closeMenu();
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =========================================
+       TOUCHE ESCAPE
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       ANNÉE AUTOMATIQUE
+    ========================================= */
+
+    const currentYear =
+        new Date().getFullYear();
 
     document
         .querySelectorAll(".copyright")
         .forEach(element => {
 
             element.textContent =
-                `© ${year} STORMLAB`;
+                `© ${currentYear} STORMLAB`;
 
         });
 
 
     /* =========================================
-       IMAGES
+       EMPÊCHE LE RECHARGEMENT/COMPORTEMENT
+       ÉTRANGE DES ANCRES VIDES
     ========================================= */
 
     document
-        .querySelectorAll("img")
-        .forEach(image => {
+        .querySelectorAll('a[href="#"]')
+        .forEach(link => {
 
-            image.addEventListener(
-                "error",
-                () => {
-
-                    image.classList.add(
-                        "image-error"
-                    );
-
-                    image.alt =
-                        "Image STORMLAB indisponible";
-
+            link.addEventListener(
+                "click",
+                event => {
+                    event.preventDefault();
                 }
             );
 
         });
-
-
-    /* =========================================
-       PARALLAXE DU SYMBOLE
-    ========================================= */
-
-    const heroSymbol =
-        document.querySelector(
-            ".hero-symbol"
-        );
-
-
-    const reducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-
-    if (
-        heroSymbol &&
-        !reducedMotion
-    ) {
-
-        let ticking = false;
-
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (ticking) return;
-
-
-                window.requestAnimationFrame(
-                    () => {
-
-                        const offset =
-                            window.scrollY * 0.06;
-
-
-                        heroSymbol.style.transform =
-                            `translateY(${offset}px)`;
-
-
-                        ticking = false;
-
-                    }
-                );
-
-
-                ticking = true;
-
-            },
-            { passive: true }
-        );
-
-    }
 
 });
 ```
