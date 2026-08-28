@@ -1,96 +1,308 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz météo — STORMLAB</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz — STORMLAB</title>
+
+    <meta name="description"
+          content="STORMLAB — Teste tes connaissances en météorologie avec notre quiz.">
+
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
 <header class="navbar">
-<a href="../index.html" class="logo">🌪️ STORMLAB</a>
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="orages.html">🌩️ Orages</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-</nav>
+
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">🌪️</span>
+        <span>STORMLAB</span>
+    </a>
+
+    <nav class="main-nav">
+
+        <a href="../index.html">Accueil</a>
+        <a href="manuel.html">📚 Manuel</a>
+        <a href="orages.html">🌩️ Orages</a>
+        <a href="supercellules.html">🌀 Supercellules</a>
+        <a href="tornades.html">🌪️ Tornades</a>
+        <a href="foudre.html">⚡ Foudre</a>
+        <a href="radar.html">📡 Radar</a>
+        <a href="satellites.html">🛰️ Satellites</a>
+        <a href="storm-chasing.html">🚗 Chasing</a>
+        <a href="reed-timmer.html">❤️ Reed Timmer</a>
+        <a href="galerie.html">📸 Galerie</a>
+        <a href="cartes.html">🗺️ Cartes</a>
+        <a href="alertes.html">🚨 Alertes</a>
+        <a href="quiz.html" class="active">🧠 Quiz</a>
+        <a href="laboratoire.html">🔬 Laboratoire</a>
+        <a href="videos.html">🎥 Vidéos</a>
+        <a href="actualites.html">📰 Actualités</a>
+
+    </nav>
+
+    <button class="mobile-menu-btn"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+        ☰
+    </button>
+
 </header>
+
+
+<div class="mobile-menu">
+
+    <a href="../index.html">🏠 Accueil</a>
+    <a href="manuel.html">📚 Manuel</a>
+    <a href="orages.html">🌩️ Orages</a>
+    <a href="supercellules.html">🌀 Supercellules</a>
+    <a href="tornades.html">🌪️ Tornades</a>
+    <a href="foudre.html">⚡ Foudre</a>
+    <a href="radar.html">📡 Radar</a>
+    <a href="satellites.html">🛰️ Satellites</a>
+    <a href="storm-chasing.html">🚗 Storm Chasing</a>
+    <a href="reed-timmer.html">❤️ Reed Timmer</a>
+    <a href="galerie.html">📸 Galerie</a>
+    <a href="cartes.html">🗺️ Cartes météo</a>
+    <a href="alertes.html">🚨 Alertes</a>
+    <a href="quiz.html" class="active">🧠 Quiz</a>
+    <a href="laboratoire.html">🔬 Laboratoire</a>
+    <a href="videos.html">🎥 Vidéos</a>
+    <a href="actualites.html">📰 Actualités</a>
+
+</div>
+
 
 <main>
 
 <section class="hero">
-<div class="hero-content">
-<p class="eyebrow">STORMLAB • QUIZ</p>
-<h1>TESTE TES <span>CONNAISSANCES.</span></h1>
-<p class="hero-text">
-Es-tu prêt à tester tes connaissances sur les orages,
-les supercellules et la météorologie ?
-</p>
-</div>
-<div class="hero-symbol">🧠</div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            STORMLAB • TEST
+        </p>
+
+        <h1>
+            TESTE TES
+            <span>CONNAISSANCES.</span>
+        </h1>
+
+        <p class="hero-text">
+            Orages, supercellules, tornades, foudre,
+            radar et météorologie : jusqu'où vont
+            tes connaissances ?
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#quiz" class="btn primary">
+                🧠 Commencer le quiz
+            </a>
+
+            <a href="manuel.html" class="btn secondary">
+                📚 Réviser
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-symbol">
+        🧠
+    </div>
+
 </section>
 
-<section class="section">
-<div class="section-title">
-<p>QUIZ #01</p>
-<h2>Les bases des orages</h2>
-<span>Réponds aux questions puis vérifie tes réponses.</span>
-</div>
 
-<div class="cards">
+<section class="section" id="quiz">
 
-<article class="card">
-<span>01</span>
-<h3>Quel nuage est associé aux orages ?</h3>
-<p>A — Stratus<br>B — Cumulonimbus<br>C — Cirrus</p>
-<p><strong>Réponse : B</strong></p>
-</article>
+    <div class="section-title">
 
-<article class="card">
-<span>02</span>
-<h3>Qu'est-ce qu'une supercellule ?</h3>
-<p>A — Un cyclone tropical<br>B — Un orage organisé avec un courant ascendant en rotation<br>C — Un brouillard</p>
-<p><strong>Réponse : B</strong></p>
-</article>
+        <p>01 • QUIZ</p>
 
-<article class="card">
-<span>03</span>
-<h3>Que produit un éclair ?</h3>
-<p>A — Une décharge électrique<br>B — Une pluie froide<br>C — Une pression</p>
-<p><strong>Réponse : A</strong></p>
-</article>
+        <h2>
+            ES-TU PRÊT ?
+            <span>À TOI DE JOUER.</span>
+        </h2>
 
-<article class="card">
-<span>04</span>
-<h3>Quel outil permet de suivre les précipitations ?</h3>
-<p>A — Radar météo<br>B — Thermomètre uniquement<br>C — Boussole</p>
-<p><strong>Réponse : A</strong></p>
-</article>
+        <span>
+            Réponds aux questions et découvre ton niveau.
+        </span>
 
-</div>
+    </div>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <span>🌩️</span>
+
+            <h3>Question 1</h3>
+
+            <p>
+                Quel nuage est principalement associé
+                aux orages ?
+            </p>
+
+            <button class="btn primary quiz-answer"
+                    data-correct="true">
+                Cumulonimbus
+            </button>
+
+            <button class="btn secondary quiz-answer"
+                    data-correct="false">
+                Cirrus
+            </button>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>⚡</span>
+
+            <h3>Question 2</h3>
+
+            <p>
+                Que produit une décharge électrique
+                atmosphérique ?
+            </p>
+
+            <button class="btn primary quiz-answer"
+                    data-correct="true">
+                Un éclair
+            </button>
+
+            <button class="btn secondary quiz-answer"
+                    data-correct="false">
+                Un arc-en-ciel
+            </button>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🌀</span>
+
+            <h3>Question 3</h3>
+
+            <p>
+                Quel type d'orage est particulièrement
+                organisé et durable ?
+            </p>
+
+            <button class="btn primary quiz-answer"
+                    data-correct="true">
+                Supercellule
+            </button>
+
+            <button class="btn secondary quiz-answer"
+                    data-correct="false">
+                Brouillard
+            </button>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>📡</span>
+
+            <h3>Question 4</h3>
+
+            <p>
+                Quel instrument permet d'observer
+                les précipitations à distance ?
+            </p>
+
+            <button class="btn primary quiz-answer"
+                    data-correct="true">
+                Radar météo
+            </button>
+
+            <button class="btn secondary quiz-answer"
+                    data-correct="false">
+                Thermomètre
+            </button>
+
+        </article>
+
+    </div>
+
 </section>
+
+
+<section class="manual">
+
+    <div class="manual-content">
+
+        <p class="eyebrow">
+            02 • PROGRESSION
+        </p>
+
+        <h2>
+            APPRENDS.
+            <span>RÉESSAIE.</span>
+        </h2>
+
+        <p>
+            Une erreur est une occasion d'apprendre.
+            Retourne dans le manuel pour approfondir
+            les phénomènes météorologiques.
+        </p>
+
+        <a href="manuel.html" class="btn primary">
+            📚 Ouvrir le manuel
+        </a>
+
+    </div>
+
+</section>
+
 
 <section class="chasing">
-<p class="eyebrow">STORMLAB</p>
-<h2>PRÊT POUR LE <span>NIVEAU 2 ?</span></h2>
-<p>De nouveaux quiz pourront être ajoutés progressivement.</p>
-<a href="manuel.html" class="btn secondary">📚 Retour au manuel</a>
+
+    <p class="eyebrow">STORMLAB</p>
+
+    <h2>
+        NEVER STOP
+        <span>LEARNING.</span>
+    </h2>
+
+    <p>
+        Comprendre le ciel, une question après l'autre.
+    </p>
+
+    <a href="../index.html" class="btn secondary">
+        🌪️ Retour à l'accueil
+    </a>
+
 </section>
 
 </main>
 
+
 <footer>
-<div class="footer-logo">🌪️ STORMLAB</div>
-<p>Never Stop Chasing.</p>
-<p class="copyright">© 2026 STORMLAB</p>
+
+    <div class="footer-logo">🌪️ STORMLAB</div>
+
+    <p>Never Stop Chasing.</p>
+
+    <p class="copyright">© 2026 STORMLAB</p>
+
 </footer>
 
+
 <script src="../script.js"></script>
+
 </body>
 </html>
 ```
-
