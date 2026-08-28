@@ -1,15 +1,17 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Alertes — STORMLAB</title>
+    <meta name="theme-color" content="#050816">
+    <meta name="description" content="STORMLAB V2 — Alertes météorologiques et phénomènes violents.">
 
-    <meta name="description"
-          content="STORMLAB — Sécurité et alertes météorologiques.">
+    <title>Alertes — STORMLAB V2</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=9">
 </head>
 
 <body>
@@ -17,148 +19,227 @@
 <header class="navbar">
 
     <a href="../index.html" class="logo">
-        🌪️ <span>STORMLAB</span>
+        <span class="logo-symbol">🌪️</span>
+        <span class="logo-text">STORMLAB</span>
     </a>
 
-    <button class="mobile-menu-btn"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false">
+    <button id="menuButton" class="mobile-menu-btn" type="button"
+        aria-expanded="false" aria-controls="mainNav" aria-label="Ouvrir le menu">
         ☰
     </button>
 
-    <nav class="main-nav">
+    <nav id="mainNav" class="main-nav">
 
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="chasseurs.html">👥 Chasseurs</a>
-        <a href="dominator.html">🚙 Dominator</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html" class="active">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
+        <div class="menu-top">
+            <div class="menu-brand">🌪️ STORMLAB</div>
+            <div class="menu-version">V2 • NEVER STOP CHASING</div>
+            <div class="menu-line"></div>
+            <div class="menu-title">EXPLORER STORMLAB</div>
+        </div>
+
+        <div class="menu-group">
+            <div class="menu-group-title">🌦️ MÉTÉOROLOGIE</div>
+
+            <a href="../index.html" class="menu-link"><span class="menu-icon">🏠</span><span class="menu-name">Accueil</span><span class="menu-arrow">›</span></a>
+            <a href="manuel.html" class="menu-link"><span class="menu-icon">📚</span><span class="menu-name">Manuel</span><span class="menu-arrow">›</span></a>
+            <a href="meteorologie.html" class="menu-link"><span class="menu-icon">🌧️</span><span class="menu-name">Météorologie</span><span class="menu-arrow">›</span></a>
+            <a href="orages.html" class="menu-link"><span class="menu-icon">🌩️</span><span class="menu-name">Orages</span><span class="menu-arrow">›</span></a>
+            <a href="supercellules.html" class="menu-link"><span class="menu-icon">🌀</span><span class="menu-name">Supercellules</span><span class="menu-arrow">›</span></a>
+            <a href="tornades.html" class="menu-link"><span class="menu-icon">🌪️</span><span class="menu-name">Tornades</span><span class="menu-arrow">›</span></a>
+            <a href="foudre.html" class="menu-link"><span class="menu-icon">⚡</span><span class="menu-name">Foudre</span><span class="menu-arrow">›</span></a>
+        </div>
+
+        <div class="menu-separator"></div>
+
+        <div class="menu-group">
+            <div class="menu-group-title">📡 OBSERVATION</div>
+
+            <a href="radar.html" class="menu-link"><span class="menu-icon">📡</span><span class="menu-name">Radar</span><span class="menu-arrow">›</span></a>
+            <a href="satellites.html" class="menu-link"><span class="menu-icon">🛰️</span><span class="menu-name">Satellites</span><span class="menu-arrow">›</span></a>
+            <a href="cartes.html" class="menu-link"><span class="menu-icon">🗺️</span><span class="menu-name">Cartes météo</span><span class="menu-arrow">›</span></a>
+        </div>
+
+        <div class="menu-separator"></div>
+
+        <div class="menu-group">
+            <div class="menu-group-title">🚗 STORM CHASING</div>
+
+            <a href="storm-chasing.html" class="menu-link"><span class="menu-icon">🚗</span><span class="menu-name">Storm Chasing</span><span class="menu-arrow">›</span></a>
+            <a href="chasseurs.html" class="menu-link"><span class="menu-icon">👥</span><span class="menu-name">Chasseurs</span><span class="menu-arrow">›</span></a>
+            <a href="dominator.html" class="menu-link"><span class="menu-icon">🚙</span><span class="menu-name">Dominator</span><span class="menu-arrow">›</span></a>
+            <a href="reed-timmer.html" class="menu-link"><span class="menu-icon">🌪️</span><span class="menu-name">Reed Timmer</span><span class="menu-arrow">›</span></a>
+        </div>
+
+        <div class="menu-separator"></div>
+
+        <div class="menu-group">
+            <div class="menu-group-title">🔬 STORMLAB</div>
+
+            <a href="galerie.html" class="menu-link"><span class="menu-icon">📸</span><span class="menu-name">Galerie</span><span class="menu-arrow">›</span></a>
+            <a href="alertes.html" class="menu-link active"><span class="menu-icon">🚨</span><span class="menu-name">Alertes</span><span class="menu-arrow">›</span></a>
+            <a href="quiz.html" class="menu-link"><span class="menu-icon">🧠</span><span class="menu-name">Quiz</span><span class="menu-arrow">›</span></a>
+            <a href="laboratoire.html" class="menu-link"><span class="menu-icon">🔬</span><span class="menu-name">Laboratoire</span><span class="menu-arrow">›</span></a>
+            <a href="videos.html" class="menu-link"><span class="menu-icon">🎥</span><span class="menu-name">Vidéos</span><span class="menu-arrow">›</span></a>
+            <a href="actualites.html" class="menu-link"><span class="menu-icon">📰</span><span class="menu-name">Actualités</span><span class="menu-arrow">›</span></a>
+        </div>
+
+        <div class="menu-footer">
+            <span>🌪️</span>
+            <span>NEVER STOP CHASING</span>
+            <span>V2</span>
+        </div>
 
     </nav>
-
 </header>
+
 
 <main>
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <p class="eyebrow">STORMLAB • SÉCURITÉ</p>
+            <p class="eyebrow">06 • STORMLAB</p>
 
-        <h1>
-            RESTER
-            <span>ALERTE.</span>
-        </h1>
+            <h1>
+                STORM
+                <span>ALERTS.</span>
+            </h1>
 
-        <p class="hero-text">
-            Comprendre les risques météorologiques
-            permet d'adopter les bons comportements.
-        </p>
+            <p class="hero-text">
+                Comprendre les alertes météorologiques et identifier
+                les principaux niveaux de danger face aux phénomènes violents.
+            </p>
 
-        <div class="hero-buttons">
-
-            <a href="meteorologie.html" class="btn primary">
-                🌧️ Météorologie
-            </a>
-
-            <a href="storm-chasing.html" class="btn secondary">
-                🚗 Chasing
-            </a>
+            <div class="hero-buttons">
+                <a href="radar.html" class="btn primary">📡 Radar</a>
+                <a href="cartes.html" class="btn secondary">🗺️ Cartes météo</a>
+            </div>
 
         </div>
 
-    </div>
+        <div class="hero-symbol">🚨</div>
 
-    <div class="hero-symbol">
-        🚨
-    </div>
-
-</section>
+    </section>
 
 
-<section class="section">
+    <section class="section">
 
-    <div class="section-title">
+        <div class="section-title">
+            <p>SYSTÈME D'ALERTE</p>
 
-        <p>01 • RISQUES</p>
+            <h2>
+                RESTER
+                <span>VIGILANT.</span>
+            </h2>
+
+            <span>
+                Une alerte météorologique permet d'attirer l'attention
+                sur un phénomène pouvant représenter un danger.
+            </span>
+        </div>
+
+
+        <div class="cards">
+
+            <article class="card">
+                <span class="card-icon">🟡</span>
+                <h3>Vigilance</h3>
+                <p>
+                    Les conditions météorologiques nécessitent
+                    une attention particulière.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-icon">🟠</span>
+                <h3>Danger potentiel</h3>
+                <p>
+                    Des phénomènes plus intenses peuvent se produire
+                    et nécessitent une surveillance accrue.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-icon">🔴</span>
+                <h3>Danger important</h3>
+                <p>
+                    Les conditions peuvent devenir dangereuses
+                    et nécessitent de suivre les consignes officielles.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-icon">⚠️</span>
+                <h3>Consignes</h3>
+                <p>
+                    En cas d'alerte, privilégiez toujours les informations
+                    diffusées par les services météorologiques officiels.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="storm-feature">
+
+            <div class="storm-feature-image">
+                <img src="../assets/images/Dom1.jpg"
+                    alt="Observation météorologique"
+                    loading="lazy">
+            </div>
+
+            <div class="storm-feature-content">
+
+                <p class="eyebrow">OBSERVATION</p>
+
+                <h2>
+                    SURVEILLER
+                    <span>LE CIEL.</span>
+                </h2>
+
+                <p>
+                    Le radar, les satellites et les cartes météorologiques
+                    permettent de suivre l'évolution des systèmes orageux.
+                </p>
+
+                <a href="radar.html" class="btn primary">
+                    📡 Voir le radar
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="chasing">
+
+        <p class="eyebrow">STORMLAB V2</p>
 
         <h2>
-            CONNAÎTRE LES
-            <span>DANGERS.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-        <article class="card">
-            <span>⚡</span>
-            <h3>Foudre</h3>
-            <p>Un phénomène électrique particulièrement dangereux.</p>
-        </article>
-
-        <article class="card">
-            <span>💨</span>
-            <h3>Vent violent</h3>
-            <p>De fortes rafales peuvent provoquer des dégâts.</p>
-        </article>
-
-        <article class="card">
-            <span>🧊</span>
-            <h3>Grêle</h3>
-            <p>Les gros grêlons peuvent causer des dommages.</p>
-        </article>
-
-        <article class="card">
-            <span>🌧️</span>
-            <h3>Fortes pluies</h3>
-            <p>De fortes précipitations peuvent être dangereuses.</p>
-        </article>
-
-    </div>
-
-</section>
-
-
-<section class="manual">
-
-    <div class="manual-content">
-
-        <p class="eyebrow">02 • PRIORITÉ</p>
-
-        <h2>
-            LA SÉCURITÉ
-            <span>AVANT TOUT.</span>
+            STAY
+            <span>ALERT.</span>
         </h2>
 
         <p>
-            En situation dangereuse, les informations
-            et consignes officielles doivent toujours être prioritaires.
+            Continue ton exploration des outils météorologiques.
         </p>
 
-    </div>
+        <div class="hero-buttons">
+            <a href="radar.html" class="btn primary">📡 Radar</a>
+            <a href="cartes.html" class="btn secondary">🗺️ Cartes météo</a>
+        </div>
 
-</section>
+    </section>
 
 </main>
+
 
 <footer>
 
@@ -168,7 +249,8 @@
 
 </footer>
 
-<script src="../script.js"></script>
+<script src="../script.js?v=9" defer></script>
 
 </body>
 </html>
+```
