@@ -1,13 +1,15 @@
+```javascript
 /* =========================================================
    STORMLAB V2
-   GLOBAL JAVASCRIPT
+   SCRIPT GLOBAL
+   NAVBAR + INTERACTIONS
 ========================================================= */
 
 "use strict";
 
 
 /* =========================================================
-   NAVBAR
+   NAVBAR STORMLAB
 ========================================================= */
 
 (function () {
@@ -18,12 +20,23 @@
         const button = document.getElementById("menuButton");
         const menu = document.getElementById("mainNav");
 
+        /*
+         * Si la page ne possède pas de navbar,
+         * on arrête proprement le script.
+         */
         if (!navbar || !button || !menu) {
-            console.error(
-                "STORMLAB : navbar introuvable."
+            console.warn(
+                "STORMLAB V2 : navbar absente sur cette page."
             );
             return;
         }
+
+
+        /* =================================================
+           ÉTAT DU MENU
+        ================================================= */
+
+        let isOpen = false;
 
 
         /* =================================================
@@ -32,9 +45,13 @@
 
         function openMenu() {
 
-            navbar.classList.add("menu-open");
+            if (isOpen) {
+                return;
+            }
 
-            button.textContent = "✕";
+            isOpen = true;
+
+            navbar.classList.add("menu-open");
 
             button.setAttribute(
                 "aria-expanded",
@@ -45,6 +62,8 @@
                 "aria-label",
                 "Fermer le menu"
             );
+
+            button.textContent = "✕";
         }
 
 
@@ -54,9 +73,13 @@
 
         function closeMenu() {
 
-            navbar.classList.remove("menu-open");
+            if (!isOpen) {
+                return;
+            }
 
-            button.textContent = "☰";
+            isOpen = false;
+
+            navbar.classList.remove("menu-open");
 
             button.setAttribute(
                 "aria-expanded",
@@ -67,6 +90,8 @@
                 "aria-label",
                 "Ouvrir le menu"
             );
+
+            button.textContent = "☰";
         }
 
 
@@ -81,87 +106,116 @@
                 event.stopPropagation();
             }
 
-            if (
-                navbar.classList.contains("menu-open")
-            ) {
-
+            if (isOpen) {
                 closeMenu();
-
             } else {
-
                 openMenu();
-
             }
         }
 
 
         /* =================================================
-           BOUTON ☰
+           BOUTON MENU
         ================================================= */
 
         button.addEventListener(
             "click",
-            toggleMenu
+            toggleMenu,
+            false
+        );
+
+
+        /*
+         * Certains navigateurs/appareils utilisent
+         * pointerup pour les boutons tactiles.
+         *
+         * On ne l'utilise pas ici afin d'éviter
+         * un double déclenchement click + pointerup.
+         */
+
+
+        /* =================================================
+           CLIC DANS LE MENU
+        ================================================= */
+
+        menu.addEventListener(
+            "click",
+            function (event) {
+
+                const link =
+                    event.target.closest(".menu-link");
+
+                /*
+                 * Si ce n'est pas un lien STORMLAB,
+                 * on ne fait rien.
+                 */
+                if (!link) {
+                    return;
+                }
+
+                /*
+                 * On ferme le menu immédiatement,
+                 * puis le navigateur suit normalement
+                 * le href du lien.
+                 */
+                closeMenu();
+            },
+            false
         );
 
 
         /* =================================================
-           LIENS DU MENU
-           
-           IMPORTANT :
-           on ne bloque PAS la navigation.
+           CLIC SUR LE LOGO
         ================================================= */
 
-        const menuLinks =
-            menu.querySelectorAll(".menu-link");
+        const logo =
+            navbar.querySelector(".logo");
 
-        menuLinks.forEach(function (link) {
+        if (logo) {
 
-            link.addEventListener(
+            logo.addEventListener(
                 "click",
                 function () {
 
-                    /*
-                     * Laisse le navigateur suivre
-                     * normalement le href.
-                     */
-
                     closeMenu();
 
-                }
+                },
+                false
             );
-
-        });
+        }
 
 
         /* =================================================
-           CLIC EXTÉRIEUR
+           CLIC EN DEHORS DU MENU
         ================================================= */
 
         document.addEventListener(
             "click",
             function (event) {
 
-                if (
-                    !navbar.classList.contains("menu-open")
-                ) {
+                if (!isOpen) {
                     return;
                 }
 
+                /*
+                 * Si le clic est dans la navbar,
+                 * on ne ferme pas.
+                 */
                 if (
-                    navbar.contains(event.target)
+                    event.target.closest(".navbar")
                 ) {
                     return;
                 }
 
                 closeMenu();
 
-            }
+            },
+            false
         );
 
 
         /* =================================================
-           ÉCHAP
+           TOUCHE ESCAPE
         ================================================= */
 
         document.addEventListener(
@@ -169,22 +223,17 @@
             function (event) {
 
                 if (
-                    event.key !== "Escape"
+                    event.key === "Escape" &&
+                    isOpen
                 ) {
-                    return;
+
+                    closeMenu();
+
+                    button.focus();
                 }
 
-                if (
-                    !navbar.classList.contains("menu-open")
-                ) {
-                    return;
-                }
-
-                closeMenu();
-
-                button.focus();
-
-            }
+            },
+            false
         );
 
 
@@ -192,44 +241,85 @@
            REDIMENSIONNEMENT
         ================================================= */
 
+        let resizeTimer = null;
+
         window.addEventListener(
             "resize",
             function () {
 
-                /*
-                 * On ferme uniquement lorsque
-                 * la fenêtre change réellement de taille.
-                 */
+                clearTimeout(resizeTimer);
 
-                if (
-                    window.innerWidth > 700 &&
-                    navbar.classList.contains("menu-open")
-                ) {
+                resizeTimer =
+                    setTimeout(
+                        function () {
 
-                    closeMenu();
+                            /*
+                             * On ferme uniquement lorsque
+                             * la fenêtre dépasse la largeur
+                             * prévue pour le comportement mobile.
+                             */
+                            if (
+                                window.innerWidth > 700 &&
+                                isOpen
+                            ) {
+                                closeMenu();
+                            }
 
-                }
+                        },
+                        100
+                    );
 
-            }
+            },
+            false
         );
 
 
         /* =================================================
-           ÉTAT INITIAL
+           CHANGEMENT D'ORIENTATION
         ================================================= */
 
-        closeMenu();
+        window.addEventListener(
+            "orientationchange",
+            function () {
+
+                if (isOpen) {
+                    closeMenu();
+                }
+
+            },
+            false
+        );
+
+
+        /* =================================================
+           CHARGEMENT INITIAL
+        ================================================= */
+
+        navbar.classList.remove("menu-open");
+
+        button.textContent = "☰";
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        button.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+        );
+
+        isOpen = false;
 
 
         console.log(
-            "STORMLAB V2 : navbar opérationnelle."
+            "STORMLAB V2 : navbar chargée avec succès."
         );
-
     }
 
 
     /* =====================================================
-       DOM READY
+       INITIALISATION
     ===================================================== */
 
     if (
@@ -238,7 +328,10 @@
 
         document.addEventListener(
             "DOMContentLoaded",
-            initNavbar
+            initNavbar,
+            {
+                once: true
+            }
         );
 
     } else {
@@ -261,31 +354,40 @@
         const images =
             document.querySelectorAll("img");
 
-        images.forEach(function (image) {
+        if (!images.length) {
+            return;
+        }
 
-            image.addEventListener(
-                "error",
-                function () {
+        images.forEach(
+            function (image) {
 
-                    image.classList.add(
-                        "image-error"
-                    );
+                image.addEventListener(
+                    "error",
+                    function () {
 
-                    console.warn(
-                        "STORMLAB : image introuvable :",
-                        image.src
-                    );
+                        image.classList.add(
+                            "image-error"
+                        );
 
-                },
-                {
-                    once: true
-                }
-            );
+                        console.warn(
+                            "STORMLAB V2 : image introuvable :",
+                            image.getAttribute("src")
+                        );
 
-        });
+                    },
+                    {
+                        once: true
+                    }
+                );
 
+            }
+        );
     }
 
+
+    /* =====================================================
+       INITIALISATION
+    ===================================================== */
 
     if (
         document.readyState === "loading"
@@ -293,7 +395,10 @@
 
         document.addEventListener(
             "DOMContentLoaded",
-            initImageFallback
+            initImageFallback,
+            {
+                once: true
+            }
         );
 
     } else {
@@ -306,7 +411,7 @@
 
 
 /* =========================================================
-   LIENS INTERNES
+   STORMLAB V2 — LIENS INTERNES
 ========================================================= */
 
 (function () {
@@ -318,44 +423,72 @@
                 'a[href]'
             );
 
-        links.forEach(function (link) {
+        links.forEach(
+            function (link) {
 
-            link.addEventListener(
-                "click",
-                function (event) {
+                const href =
+                    link.getAttribute("href");
 
-                    const href =
-                        link.getAttribute("href");
-
-                    if (!href) {
-                        return;
-                    }
-
-                    /*
-                     * Les ancres, liens externes,
-                     * téléchargements et nouveaux onglets
-                     * ne sont pas modifiés.
-                     */
-
-                    if (
-                        href.startsWith("#") ||
-                        href.startsWith("http://") ||
-                        href.startsWith("https://") ||
-                        href.startsWith("mailto:") ||
-                        link.target === "_blank"
-                    ) {
-                        return;
-                    }
-
-                    /*
-                     * Navigation classique :
-                     * aucun preventDefault ici.
-                     */
-
+                /*
+                 * Les liens externes, ancres,
+                 * mailto, tel, etc. ne sont pas modifiés.
+                 */
+                if (
+                    !href ||
+                    href.startsWith("#") ||
+                    href.startsWith("http://") ||
+                    href.startsWith("https://") ||
+                    href.startsWith("mailto:") ||
+                    href.startsWith("tel:")
+                ) {
+                    return;
                 }
-            );
 
-        });
+
+                /*
+                 * Lorsque l'utilisateur clique sur
+                 * une page interne, le menu est fermé
+                 * avant la navigation.
+                 */
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        const navbar =
+                            document.querySelector(".navbar");
+
+                        const button =
+                            document.getElementById(
+                                "menuButton"
+                            );
+
+                        if (navbar) {
+                            navbar.classList.remove(
+                                "menu-open"
+                            );
+                        }
+
+                        if (button) {
+
+                            button.textContent = "☰";
+
+                            button.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            button.setAttribute(
+                                "aria-label",
+                                "Ouvrir le menu"
+                            );
+                        }
+
+                    },
+                    false
+                );
+
+            }
+        );
 
     }
 
@@ -366,7 +499,10 @@
 
         document.addEventListener(
             "DOMContentLoaded",
-            initInternalLinks
+            initInternalLinks,
+            {
+                once: true
+            }
         );
 
     } else {
@@ -376,3 +512,63 @@
     }
 
 })();
+
+
+/* =========================================================
+   STORMLAB V2 — PROTECTION DU BOUTON
+========================================================= */
+
+/*
+ * Empêche certains éléments ou scripts de la page
+ * de bloquer involontairement les interactions du bouton.
+ */
+
+(function () {
+
+    function protectMenuButton() {
+
+        const button =
+            document.getElementById("menuButton");
+
+        if (!button) {
+            return;
+        }
+
+        button.style.pointerEvents = "auto";
+
+        button.style.cursor = "pointer";
+
+        button.style.touchAction =
+            "manipulation";
+
+        button.removeAttribute(
+            "disabled"
+        );
+
+        button.removeAttribute(
+            "aria-disabled"
+        );
+
+    }
+
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            protectMenuButton,
+            {
+                once: true
+            }
+        );
+
+    } else {
+
+        protectMenuButton();
+
+    }
+
+})();
+```
