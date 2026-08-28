@@ -41,9 +41,17 @@ img {
 
 
 ```css
+```css
 /* =========================================================
-   STORMLAB V2 — NAVBAR + MENU
+   STORMLAB V2 — NAVBAR
 ========================================================= */
+
+body.menu-active {
+    overflow: hidden;
+}
+
+
+/* NAVBAR */
 
 .navbar {
     position: sticky;
@@ -51,7 +59,8 @@ img {
     left: 0;
 
     width: 100%;
-    min-height: 76px;
+
+    min-height: 74px;
 
     display: flex;
     align-items: center;
@@ -60,18 +69,17 @@ img {
     padding: 0 24px;
 
     background: #000;
+
     border-bottom: 1px solid #222;
 
     z-index: 9999;
-
-    box-sizing: border-box;
 }
 
 
 /* LOGO */
 
 .logo {
-    display: inline-flex;
+    display: flex;
     align-items: center;
 
     gap: 10px;
@@ -91,15 +99,12 @@ img {
     width: 48px;
     height: 48px;
 
-    flex: 0 0 48px;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-left: auto;
-
     padding: 0;
+    margin: 0;
 
     background: #0b0b0b;
     color: #fff;
@@ -108,12 +113,16 @@ img {
     border-radius: 10px;
 
     font-size: 24px;
-    line-height: 1;
+    font-weight: 700;
 
     cursor: pointer;
 
-    position: relative;
-    z-index: 10002;
+    z-index: 10001;
+}
+
+.mobile-menu-btn:hover {
+    background: #fff;
+    color: #000;
 }
 
 
@@ -124,19 +133,16 @@ img {
 }
 
 
-/* =========================================================
-   MENU OUVERT
-========================================================= */
+/* MENU OUVERT */
 
 .navbar.menu-open .main-nav {
     position: fixed;
 
-    top: 76px;
+    top: 74px;
     left: 0;
-    right: 0;
 
     width: 100%;
-    height: calc(100vh - 76px);
+    height: calc(100vh - 74px);
 
     display: flex;
     flex-direction: column;
@@ -147,16 +153,15 @@ img {
 
     margin: 0;
 
-    background: #000;
-
     overflow-y: auto;
-    overflow-x: hidden;
+
+    background: #000;
 
     border-top: 1px solid #222;
 
-    z-index: 10000;
-
     box-sizing: border-box;
+
+    z-index: 10000;
 }
 
 
@@ -164,8 +169,7 @@ img {
 
 .navbar.menu-open .main-nav a {
     width: 100%;
-
-    min-height: 54px;
+    min-height: 52px;
 
     display: flex;
     align-items: center;
@@ -173,7 +177,6 @@ img {
     padding: 14px 18px;
 
     background: #0b0b0b;
-
     color: #fff;
 
     border: 1px solid #222;
@@ -189,20 +192,37 @@ img {
 
 .navbar.menu-open .main-nav a:hover {
     background: #181818;
+
     border-color: #555;
+
     transform: translateX(4px);
 }
 
 .navbar.menu-open .main-nav a.active {
     background: #fff;
     color: #000;
+
     border-color: #fff;
 }
 
 
-/* =========================================================
-   PETIT ÉCRAN
-========================================================= */
+/* SCROLLBAR DU MENU */
+
+.navbar.menu-open .main-nav::-webkit-scrollbar {
+    width: 8px;
+}
+
+.navbar.menu-open .main-nav::-webkit-scrollbar-track {
+    background: #000;
+}
+
+.navbar.menu-open .main-nav::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 20px;
+}
+
+
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -218,7 +238,7 @@ img {
     .mobile-menu-btn {
         width: 44px;
         height: 44px;
-        flex-basis: 44px;
+        font-size: 22px;
     }
 
     .navbar.menu-open .main-nav {
@@ -226,6 +246,12 @@ img {
         height: calc(100vh - 68px);
 
         padding: 14px;
+    }
+
+    .navbar.menu-open .main-nav a {
+        min-height: 50px;
+
+        font-size: 15px;
     }
 
 }
