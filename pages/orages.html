@@ -1,71 +1,121 @@
 <!DOCTYPE html>
-<html lang="fr">
 
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Orages — STORMLAB</title>
-
-    <meta name="description"
-          content="STORMLAB — Comprendre les orages, leur formation et leur évolution.">
-
-    <link rel="stylesheet" href="../style.css">
+    <meta name="theme-color" content="#050816">
+    <meta name="description" content="STORMLAB — Comprendre les orages.">
+    <title>Orages — STORMLAB V2</title>
+    <link rel="stylesheet" href="../style.css?v=9">
 </head>
 
 <body>
 
 <header class="navbar">
 
-    <a href="../index.html" class="logo">
-        🌪️ <span>STORMLAB</span>
-    </a>
+```
+<a href="../index.html" class="logo">
+    <span class="logo-symbol">🌪️</span>
+    <span class="logo-text">STORMLAB</span>
+</a>
 
-    <button
-        class="mobile-menu-btn"
+<button id="menuButton" class="mobile-menu-btn"
         type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false">
-        ☰
-    </button>
+        aria-expanded="false"
+        aria-controls="mainNav"
+        aria-label="Ouvrir le menu">☰</button>
 
-    <nav class="main-nav">
+<nav id="mainNav" class="main-nav" aria-label="Navigation principale">
 
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html">🌧️ Météorologie</a>
-        <a href="orages.html" class="active">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="chasseurs.html">👥 Chasseurs</a>
-        <a href="dominator.html">🚙 Dominator</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
+    <div class="menu-top">
+        <div class="menu-brand">🌪️ STORMLAB</div>
+        <div class="menu-version">V2 • NEVER STOP CHASING</div>
+        <div class="menu-line"></div>
+        <div class="menu-title">EXPLORER STORMLAB</div>
+    </div>
 
-    </nav>
+    <div class="menu-group">
+        <div class="menu-group-title">🌦️ MÉTÉOROLOGIE</div>
+
+        <a href="../index.html" class="menu-link">
+            <span class="menu-icon">🏠</span><span class="menu-name">Accueil</span><span class="menu-arrow">›</span>
+        </a>
+
+        <a href="manuel.html" class="menu-link">
+            <span class="menu-icon">📚</span><span class="menu-name">Manuel</span><span class="menu-arrow">›</span>
+        </a>
+
+        <a href="meteorologie.html" class="menu-link">
+            <span class="menu-icon">🌧️</span><span class="menu-name">Météorologie</span><span class="menu-arrow">›</span>
+        </a>
+
+        <a href="orages.html" class="menu-link active">
+            <span class="menu-icon">🌩️</span><span class="menu-name">Orages</span><span class="menu-arrow">›</span>
+        </a>
+
+        <a href="supercellules.html" class="menu-link">
+            <span class="menu-icon">🌀</span><span class="menu-name">Supercellules</span><span class="menu-arrow">›</span>
+        </a>
+
+        <a href="tornades.html" class="menu-link">
+            <span class="menu-icon">🌪️</span><span class="menu-name">Tornades</span><span class="menu-arrow">›</span>
+        </a>
+
+        <a href="foudre.html" class="menu-link">
+            <span class="menu-icon">⚡</span><span class="menu-name">Foudre</span><span class="menu-arrow">›</span>
+        </a>
+    </div>
+
+    <div class="menu-separator"></div>
+
+    <div class="menu-group">
+        <div class="menu-group-title">📡 OBSERVATION</div>
+
+        <a href="radar.html" class="menu-link"><span class="menu-icon">📡</span><span class="menu-name">Radar</span><span class="menu-arrow">›</span></a>
+        <a href="satellites.html" class="menu-link"><span class="menu-icon">🛰️</span><span class="menu-name">Satellites</span><span class="menu-arrow">›</span></a>
+        <a href="cartes.html" class="menu-link"><span class="menu-icon">🗺️</span><span class="menu-name">Cartes météo</span><span class="menu-arrow">›</span></a>
+    </div>
+
+    <div class="menu-separator"></div>
+
+    <div class="menu-group">
+        <div class="menu-group-title">🚗 STORM CHASING</div>
+
+        <a href="storm-chasing.html" class="menu-link"><span class="menu-icon">🚗</span><span class="menu-name">Storm Chasing</span><span class="menu-arrow">›</span></a>
+        <a href="chasseurs.html" class="menu-link"><span class="menu-icon">👥</span><span class="menu-name">Chasseurs</span><span class="menu-arrow">›</span></a>
+        <a href="dominator.html" class="menu-link"><span class="menu-icon">🚙</span><span class="menu-name">Dominator</span><span class="menu-arrow">›</span></a>
+        <a href="reed-timmer.html" class="menu-link"><span class="menu-icon">🌪️</span><span class="menu-name">Reed Timmer</span><span class="menu-arrow">›</span></a>
+    </div>
+
+    <div class="menu-separator"></div>
+
+    <div class="menu-group">
+        <div class="menu-group-title">🔬 STORMLAB</div>
+
+        <a href="galerie.html" class="menu-link"><span class="menu-icon">📸</span><span class="menu-name">Galerie</span><span class="menu-arrow">›</span></a>
+        <a href="alertes.html" class="menu-link"><span class="menu-icon">🚨</span><span class="menu-name">Alertes</span><span class="menu-arrow">›</span></a>
+        <a href="quiz.html" class="menu-link"><span class="menu-icon">🧠</span><span class="menu-name">Quiz</span><span class="menu-arrow">›</span></a>
+        <a href="laboratoire.html" class="menu-link"><span class="menu-icon">🔬</span><span class="menu-name">Laboratoire</span><span class="menu-arrow">›</span></a>
+        <a href="videos.html" class="menu-link"><span class="menu-icon">🎥</span><span class="menu-name">Vidéos</span><span class="menu-arrow">›</span></a>
+        <a href="actualites.html" class="menu-link"><span class="menu-icon">📰</span><span class="menu-name">Actualités</span><span class="menu-arrow">›</span></a>
+    </div>
+
+    <div class="menu-footer">
+        <span>🌪️</span><span>NEVER STOP CHASING</span><span>V2</span>
+    </div>
+
+</nav>
+```
 
 </header>
 
+<main class="page-content">
 
-<main>
-
+```
 <section class="hero">
-
     <div class="hero-content">
-
-        <p class="eyebrow">
-            STORMLAB • PHÉNOMÈNES
-        </p>
+        <p class="eyebrow">03 • PHÉNOMÈNES</p>
 
         <h1>
             LES
@@ -73,193 +123,81 @@
         </h1>
 
         <p class="hero-text">
-            Un orage est associé à un cumulonimbus
-            et peut produire des éclairs, du tonnerre,
-            de fortes pluies, de la grêle et des vents violents.
+            Découvrez comment l'humidité, l'instabilité
+            et les mouvements verticaux peuvent donner
+            naissance à des orages.
         </p>
-
-        <div class="hero-buttons">
-
-            <a href="supercellules.html" class="btn primary">
-                🌀 Supercellules
-            </a>
-
-            <a href="foudre.html" class="btn secondary">
-                ⚡ Foudre
-            </a>
-
-        </div>
-
     </div>
 
-    <div class="hero-symbol">
-        🌩️
-    </div>
-
+    <div class="hero-symbol">🌩️</div>
 </section>
-
-
-<section class="section">
-
-    <div class="storm-feature">
-
-        <img
-            src="../assets/images/orage.jpg"
-            alt="Orage"
-            loading="eager">
-
-        <div class="storm-feature-content">
-
-            <p class="eyebrow">
-                OBSERVATION
-            </p>
-
-            <h2>
-                QUAND L'ATMOSPHÈRE
-                <span>SE DÉCHAÎNE.</span>
-            </h2>
-
-            <p>
-                Plusieurs ingrédients atmosphériques peuvent
-                favoriser le développement d'une cellule orageuse.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
 
 <section class="section">
 
     <div class="section-title">
-
-        <p>
-            01 • FORMATION
-        </p>
+        <p>COMPRENDRE</p>
 
         <h2>
-            COMMENT NAÎT
-            <span>UN ORAGE ?</span>
+            LA VIE D'UN
+            <span>ORAGE.</span>
         </h2>
 
+        <span>
+            Un orage évolue au cours de plusieurs phases.
+        </span>
     </div>
-
 
     <div class="cards">
 
         <article class="card">
-            <span>🌡️</span>
-            <h3>Instabilité</h3>
+            <span class="card-icon">☁️</span>
+            <h3>Développement</h3>
             <p>
-                De l'air chaud et humide peut favoriser
-                de puissants mouvements ascendants.
+                Les courants ascendants alimentent
+                progressivement le nuage.
             </p>
         </article>
 
         <article class="card">
-            <span>⬆️</span>
-            <h3>Ascendance</h3>
+            <span class="card-icon">🌩️</span>
+            <h3>Maturité</h3>
             <p>
-                L'air chaud monte et se refroidit
-                progressivement.
+                Les courants ascendants et descendants
+                coexistent.
             </p>
         </article>
 
         <article class="card">
-            <span>☁️</span>
-            <h3>Cumulonimbus</h3>
+            <span class="card-icon">🌧️</span>
+            <h3>Dissipation</h3>
             <p>
-                Le nuage d'orage peut atteindre
-                plusieurs kilomètres d'altitude.
+                Les courants descendants prennent
+                progressivement le dessus.
             </p>
         </article>
 
         <article class="card">
-            <span>⚡</span>
-            <h3>Électricité</h3>
+            <span class="card-icon">⚡</span>
+            <h3>Foudre</h3>
             <p>
-                Les interactions entre particules
-                participent à la séparation des charges.
+                Certains orages peuvent produire
+                une activité électrique importante.
             </p>
         </article>
 
     </div>
-
 </section>
-
-
-<section class="manual">
-
-    <div class="manual-content">
-
-        <p class="eyebrow">
-            02 • CYCLE DE VIE
-        </p>
-
-        <h2>
-            NAISSANCE.
-            MATURITÉ.
-            <span>DISSIPATION.</span>
-        </h2>
-
-        <p>
-            Un orage évolue généralement au cours
-            de plusieurs phases.
-        </p>
-
-        <a href="supercellules.html" class="btn primary">
-            🌀 Supercellules
-        </a>
-
-    </div>
-
-</section>
-
-
-<section class="chasing">
-
-    <p class="eyebrow">
-        STORMLAB
-    </p>
-
-    <h2>
-        RESPECT THE
-        <span>STORM.</span>
-    </h2>
-
-    <p>
-        Observer la météo commence par comprendre ses risques.
-    </p>
-
-    <a href="alertes.html" class="btn secondary">
-        🚨 Sécurité
-    </a>
-
-</section>
+```
 
 </main>
 
-
 <footer>
-
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
-
-    <p>
-        Never Stop Chasing.
-    </p>
-
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
-
+    <div class="footer-logo">🌪️ STORMLAB</div>
+    <p>Never Stop Chasing.</p>
+    <p class="copyright">© 2026 STORMLAB</p>
 </footer>
 
-
-<script src="../script.js"></script>
+<script src="../script.js?v=9" defer></script>
 
 </body>
 </html>
