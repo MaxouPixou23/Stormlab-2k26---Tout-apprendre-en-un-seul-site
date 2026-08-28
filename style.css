@@ -1178,3 +1178,204 @@ footer .copyright {
     background: #151515;
     border-color: #555;
 }
+/* =========================================================
+   STORMLAB — FICHES VÉHICULES
+========================================================= */
+
+.vehicle-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.vehicle-card {
+    overflow: hidden;
+
+    background: #080808;
+
+    border: 1px solid #222;
+
+    border-radius: 18px;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+
+    background: #0d0d0d;
+
+    border-color: #444;
+}
+
+.vehicle-image {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    overflow: hidden;
+
+    background: #101010;
+}
+
+.vehicle-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .3s ease;
+}
+
+.vehicle-card:hover .vehicle-image img {
+    transform: scale(1.03);
+}
+
+.vehicle-image.placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    background:
+        radial-gradient(
+            circle,
+            #191919 0%,
+            #080808 70%
+        );
+
+    color: #555;
+}
+
+.vehicle-image.placeholder div {
+    font-size: 55px;
+
+    opacity: .7;
+}
+
+.vehicle-image.placeholder span {
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.vehicle-content {
+    padding: 28px;
+}
+
+.vehicle-kicker {
+    margin-bottom: 9px;
+
+    color: #666;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.vehicle-content h3 {
+    margin-bottom: 15px;
+
+    color: #fff;
+
+    font-size: 25px;
+    line-height: 1;
+}
+
+.vehicle-content p:not(.vehicle-kicker) {
+    margin-bottom: 15px;
+
+    color: #999;
+
+    font-size: 14px;
+}
+
+.vehicle-credit {
+    margin-top: 18px;
+
+    color: #555;
+
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.vehicle-status {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    margin-top: 18px;
+
+    padding: 7px 10px;
+
+    background: #090909;
+
+    color: #777;
+
+    border: 1px solid #2d2d2d;
+
+    border-radius: 7px;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.vehicle-status.active {
+    color: #fff;
+
+    background: #151515;
+
+    border-color: #555;
+}
+
+
+/* =========================================================
+   RESPONSIVE VÉHICULES
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .vehicle-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-image {
+        height: 230px;
+    }
+
+    .vehicle-content {
+        padding: 23px;
+    }
+
+}
