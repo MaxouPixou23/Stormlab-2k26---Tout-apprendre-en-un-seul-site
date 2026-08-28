@@ -1,1225 +1,379 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<meta name="theme-color" content="#050816">
+    <meta name="theme-color" content="#050816">
+    <meta name="description" content="STORMLAB V2 — Sean Casey, Joshua Wurman, Reed Timmer et l'univers du storm chasing.">
 
-<meta name="description"
-    content="STORMLAB — Découvrez Sean Casey, Joshua Wurman et Reed Timmer ainsi que les véhicules et instruments du storm chasing.">
+    <title>Chasseurs — STORMLAB V2</title>
 
-<title>Chasseurs — STORMLAB V2</title>
-
-<link rel="stylesheet" href="../style.css?v=9">
-
-<style>
-    /* =====================================================
-       CHASSEURS — STORMLAB V2
-    ===================================================== */
-
-    .chasers-page {
-        padding-top: 74px;
-    }
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .chasers-hero {
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-        padding: 100px 8%;
-        position: relative;
-        overflow: hidden;
-
-        background:
-            radial-gradient(
-                circle at 80% 45%,
-                rgba(0, 217, 255, 0.14),
-                transparent 35%
-            ),
-            linear-gradient(
-                135deg,
-                #050816,
-                #081426
-            );
-    }
-
-    .chasers-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-
-        background:
-            linear-gradient(
-                90deg,
-                rgba(5, 8, 22, 0.92),
-                rgba(5, 8, 22, 0.55),
-                rgba(5, 8, 22, 0.15)
-            );
-
-        pointer-events: none;
-    }
-
-    .chasers-hero::after {
-        content: "🌪️";
-
-        position: absolute;
-        right: 4%;
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        font-size: clamp(180px, 25vw, 340px);
-
-        opacity: 0.045;
-        pointer-events: none;
-    }
-
-    .chasers-hero-content {
-        position: relative;
-        z-index: 2;
-
-        max-width: 850px;
-    }
-
-    .chasers-hero h1 {
-        margin-top: 12px;
-
-        font-size: clamp(48px, 8vw, 100px);
-
-        line-height: 0.92;
-        letter-spacing: -4px;
-    }
-
-    .chasers-hero h1 span {
-        display: block;
-
-        color: #00d9ff;
-
-        text-shadow:
-            0 0 35px rgba(0, 217, 255, 0.25);
-    }
-
-    .chasers-hero-text {
-        max-width: 680px;
-        margin-top: 28px;
-
-        color: #91a4bf;
-
-        font-size: 18px;
-        line-height: 1.7;
-    }
-
-    /* =====================================================
-       SECTIONS
-    ===================================================== */
-
-    .chasers-section {
-        width: min(1200px, 90%);
-        margin: auto;
-        padding: 100px 0;
-    }
-
-    .section-heading {
-        max-width: 800px;
-        margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-        margin-top: 10px;
-
-        font-size: clamp(36px, 5vw, 65px);
-
-        line-height: 1;
-        letter-spacing: -2px;
-    }
-
-    .section-heading h2 span {
-        color: #00d9ff;
-    }
-
-    .section-heading > span {
-        display: block;
-
-        margin-top: 16px;
-
-        color: #8193ad;
-
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    /* =====================================================
-       PROFILS
-    ===================================================== */
-
-    .chasers-profiles {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .chaser-profile {
-        overflow: hidden;
-
-        background:
-            linear-gradient(
-                145deg,
-                #0c1a2e,
-                #070e19
-            );
-
-        border: 1px solid rgba(79, 151, 255, 0.16);
-        border-radius: 20px;
-
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .chaser-profile:hover {
-        transform: translateY(-8px);
-
-        border-color: rgba(0, 217, 255, 0.40);
-
-        box-shadow:
-            0 25px 60px rgba(0, 0, 0, 0.40);
-    }
-
-    .profile-image {
-        width: 100%;
-        height: 310px;
-
-        display: block;
-
-        object-fit: cover;
-    }
-
-    .profile-content {
-        padding: 26px;
-    }
-
-    .profile-role {
-        color: #00d9ff;
-
-        font-size: 9px;
-        font-weight: 900;
-
-        letter-spacing: 2px;
-    }
-
-    .profile-content h3 {
-        margin-top: 8px;
-
-        font-size: 27px;
-    }
-
-    .profile-content p {
-        margin-top: 12px;
-
-        color: #8497b1;
-
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .profile-link {
-        display: inline-flex;
-
-        margin-top: 20px;
-        padding: 10px 14px;
-
-        color: #fff;
-
-        background:
-            linear-gradient(
-                135deg,
-                #2388ff,
-                #7c4dff
-            );
-
-        border-radius: 8px;
-
-        font-size: 12px;
-        font-weight: 800;
-
-        transition:
-            transform 0.2s ease,
-            filter 0.2s ease;
-    }
-
-    .profile-link:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.1);
-    }
-
-    /* =====================================================
-       GALERIE
-    ===================================================== */
-
-    .gallery {
-        display: grid;
-
-        grid-template-columns: repeat(4, 1fr);
-
-        grid-auto-rows: 210px;
-
-        gap: 12px;
-    }
-
-    .gallery-item {
-        position: relative;
-
-        overflow: hidden;
-
-        min-height: 210px;
-
-        background: #07101c;
-
-        border: 1px solid rgba(79, 151, 255, 0.12);
-        border-radius: 14px;
-    }
-
-    .gallery-item.large {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-
-        display: block;
-
-        object-fit: cover;
-
-        transition:
-            transform 0.4s ease,
-            filter 0.4s ease;
-    }
-
-    .gallery-item:hover img {
-        transform: scale(1.06);
-        filter: brightness(1.08);
-    }
-
-    .gallery-label {
-        position: absolute;
-
-        left: 12px;
-        bottom: 12px;
-
-        padding: 7px 10px;
-
-        color: #fff;
-
-        background: rgba(3, 8, 15, 0.78);
-
-        border: 1px solid rgba(0, 217, 255, 0.20);
-        border-radius: 7px;
-
-        font-size: 9px;
-        font-weight: 900;
-
-        letter-spacing: 1.5px;
-
-        backdrop-filter: blur(8px);
-    }
-
-    /* =====================================================
-       INFO BOX
-    ===================================================== */
-
-    .info-box {
-        padding: 38px;
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(35, 136, 255, 0.09),
-                rgba(124, 77, 255, 0.08)
-            );
-
-        border: 1px solid rgba(0, 217, 255, 0.18);
-        border-radius: 20px;
-    }
-
-    .info-box h2 {
-        margin-top: 10px;
-
-        font-size: 35px;
-    }
-
-    .info-box h2 span {
-        color: #00d9ff;
-    }
-
-    .info-box p:last-child {
-        max-width: 900px;
-
-        margin-top: 14px;
-
-        color: #91a4bf;
-
-        line-height: 1.8;
-    }
-
-    /* =====================================================
-       CTA
-    ===================================================== */
-
-    .chasers-cta {
-        width: min(1100px, 90%);
-
-        margin: 0 auto 100px;
-        padding: 80px 30px;
-
-        text-align: center;
-
-        background:
-            radial-gradient(
-                circle at center,
-                rgba(0, 217, 255, 0.12),
-                transparent 60%
-            ),
-            #07101d;
-
-        border: 1px solid rgba(0, 217, 255, 0.17);
-        border-radius: 24px;
-    }
-
-    .chasers-cta h2 {
-        margin-top: 10px;
-
-        font-size: clamp(38px, 6vw, 70px);
-
-        line-height: 1;
-    }
-
-    .chasers-cta h2 span {
-        color: #00d9ff;
-    }
-
-    .chasers-cta p:not(.eyebrow) {
-        margin-top: 15px;
-
-        color: #8193ad;
-    }
-
-    .chasers-cta .hero-buttons {
-        justify-content: center;
-        margin-top: 25px;
-    }
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-    @media (max-width: 900px) {
-
-        .chasers-profiles {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .gallery {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 600px) {
-
-        .chasers-page {
-            padding-top: 68px;
-        }
-
-        .chasers-hero {
-            min-height: 520px;
-
-            padding: 80px 20px;
-
-            text-align: center;
-        }
-
-        .chasers-hero::after {
-            right: 50%;
-            transform:
-                translate(50%, -50%);
-        }
-
-        .chasers-hero h1 {
-            font-size: 48px;
-            letter-spacing: -2px;
-        }
-
-        .chasers-hero-text {
-            font-size: 15px;
-        }
-
-        .chasers-section {
-            width: calc(100% - 32px);
-            padding: 65px 0;
-        }
-
-        .chasers-profiles {
-            grid-template-columns: 1fr;
-        }
-
-        .gallery {
-            grid-template-columns: 1fr;
-            grid-auto-rows: 210px;
-        }
-
-        .gallery-item.large {
-            grid-column: span 1;
-            grid-row: span 1;
-        }
-
-        .info-box {
-            padding: 27px 21px;
-        }
-
-        .chasers-cta {
-            width: calc(100% - 32px);
-
-            padding: 60px 20px;
-
-            margin-bottom: 65px;
-        }
-    }
-</style>
-```
-
+    <link rel="stylesheet" href="../style.css?v=9">
 </head>
 
 <body>
 
 <header class="navbar">
 
-```
-<a href="../index.html" class="logo">
-    <span class="logo-symbol">🌪️</span>
-    <span class="logo-text">STORMLAB</span>
-</a>
+    <a href="../index.html" class="logo">
+        <span class="logo-symbol">🌪️</span>
+        <span class="logo-text">STORMLAB</span>
+    </a>
 
-<button
-    id="menuButton"
-    class="mobile-menu-btn"
-    type="button"
-    aria-expanded="false"
-    aria-controls="mainNav"
-    aria-label="Ouvrir le menu">
-    ☰
-</button>
+    <button
+        id="menuButton"
+        class="mobile-menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        aria-label="Ouvrir le menu">
+        ☰
+    </button>
 
-<nav
-    id="mainNav"
-    class="main-nav"
-    aria-label="Navigation principale">
+    <nav id="mainNav" class="main-nav" aria-label="Navigation principale">
 
-    <div class="menu-top">
-
-        <div class="menu-brand">
-            🌪️ STORMLAB
+        <div class="menu-top">
+            <div class="menu-brand">🌪️ STORMLAB</div>
+            <div class="menu-version">V2 • NEVER STOP CHASING</div>
+            <div class="menu-line"></div>
+            <div class="menu-title">EXPLORER STORMLAB</div>
         </div>
 
-        <div class="menu-version">
-            V2 • NEVER STOP CHASING
+        <div class="menu-group">
+
+            <div class="menu-group-title">🌦️ MÉTÉOROLOGIE</div>
+
+            <a href="../index.html" class="menu-link">
+                <span class="menu-icon">🏠</span>
+                <span class="menu-name">Accueil</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="manuel.html" class="menu-link">
+                <span class="menu-icon">📚</span>
+                <span class="menu-name">Manuel</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="meteorologie.html" class="menu-link">
+                <span class="menu-icon">🌧️</span>
+                <span class="menu-name">Météorologie</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="orages.html" class="menu-link">
+                <span class="menu-icon">🌩️</span>
+                <span class="menu-name">Orages</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="supercellules.html" class="menu-link">
+                <span class="menu-icon">🌀</span>
+                <span class="menu-name">Supercellules</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="tornades.html" class="menu-link">
+                <span class="menu-icon">🌪️</span>
+                <span class="menu-name">Tornades</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="foudre.html" class="menu-link">
+                <span class="menu-icon">⚡</span>
+                <span class="menu-name">Foudre</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
         </div>
 
-        <div class="menu-line"></div>
+        <div class="menu-separator"></div>
 
-        <div class="menu-title">
-            EXPLORER STORMLAB
+        <div class="menu-group">
+
+            <div class="menu-group-title">📡 OBSERVATION</div>
+
+            <a href="radar.html" class="menu-link">
+                <span class="menu-icon">📡</span>
+                <span class="menu-name">Radar</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="satellites.html" class="menu-link">
+                <span class="menu-icon">🛰️</span>
+                <span class="menu-name">Satellites</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="cartes.html" class="menu-link">
+                <span class="menu-icon">🗺️</span>
+                <span class="menu-name">Cartes météo</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
         </div>
 
-    </div>
+        <div class="menu-separator"></div>
 
-    <div class="menu-group">
+        <div class="menu-group">
 
-        <div class="menu-group-title">
-            🌦️ MÉTÉOROLOGIE
+            <div class="menu-group-title">🚗 STORM CHASING</div>
+
+            <a href="storm-chasing.html" class="menu-link">
+                <span class="menu-icon">🚗</span>
+                <span class="menu-name">Storm Chasing</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="chasseurs.html" class="menu-link active">
+                <span class="menu-icon">👥</span>
+                <span class="menu-name">Chasseurs</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="dominator.html" class="menu-link">
+                <span class="menu-icon">🚙</span>
+                <span class="menu-name">Dominator</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
+            <a href="reed-timmer.html" class="menu-link">
+                <span class="menu-icon">🌪️</span>
+                <span class="menu-name">Reed Timmer</span>
+                <span class="menu-arrow">›</span>
+            </a>
+
         </div>
 
-        <a href="../index.html" class="menu-link">
-            <span class="menu-icon">🏠</span>
-            <span class="menu-name">Accueil</span>
-            <span class="menu-arrow">›</span>
-        </a>
+        <div class="menu-separator"></div>
 
-        <a href="manuel.html" class="menu-link">
-            <span class="menu-icon">📚</span>
-            <span class="menu-name">Manuel</span>
-            <span class="menu-arrow">›</span>
-        </a>
+        <div class="menu-group">
 
-        <a href="meteorologie.html" class="menu-link">
-            <span class="menu-icon">🌧️</span>
-            <span class="menu-name">Météorologie</span>
-            <span class="menu-arrow">›</span>
-        </a>
+            <div class="menu-group-title">🔬 STORMLAB</div>
 
-        <a href="orages.html" class="menu-link">
-            <span class="menu-icon">🌩️</span>
-            <span class="menu-name">Orages</span>
-            <span class="menu-arrow">›</span>
-        </a>
+            <a href="galerie.html" class="menu-link">
+                <span class="menu-icon">📸</span>
+                <span class="menu-name">Galerie</span>
+                <span class="menu-arrow">›</span>
+            </a>
 
-        <a href="supercellules.html" class="menu-link">
-            <span class="menu-icon">🌀</span>
-            <span class="menu-name">Supercellules</span>
-            <span class="menu-arrow">›</span>
-        </a>
+            <a href="alertes.html" class="menu-link">
+                <span class="menu-icon">🚨</span>
+                <span class="menu-name">Alertes</span>
+                <span class="menu-arrow">›</span>
+            </a>
 
-        <a href="tornades.html" class="menu-link">
-            <span class="menu-icon">🌪️</span>
-            <span class="menu-name">Tornades</span>
-            <span class="menu-arrow">›</span>
-        </a>
+            <a href="quiz.html" class="menu-link">
+                <span class="menu-icon">🧠</span>
+                <span class="menu-name">Quiz</span>
+                <span class="menu-arrow">›</span>
+            </a>
 
-        <a href="foudre.html" class="menu-link">
-            <span class="menu-icon">⚡</span>
-            <span class="menu-name">Foudre</span>
-            <span class="menu-arrow">›</span>
-        </a>
+            <a href="laboratoire.html" class="menu-link">
+                <span class="menu-icon">🔬</span>
+                <span class="menu-name">Laboratoire</span>
+                <span class="menu-arrow">›</span>
+            </a>
 
-    </div>
+            <a href="videos.html" class="menu-link">
+                <span class="menu-icon">🎥</span>
+                <span class="menu-name">Vidéos</span>
+                <span class="menu-arrow">›</span>
+            </a>
 
-    <div class="menu-separator"></div>
+            <a href="actualites.html" class="menu-link">
+                <span class="menu-icon">📰</span>
+                <span class="menu-name">Actualités</span>
+                <span class="menu-arrow">›</span>
+            </a>
 
-    <div class="menu-group">
-
-        <div class="menu-group-title">
-            📡 OBSERVATION
         </div>
 
-        <a href="radar.html" class="menu-link">
-            <span class="menu-icon">📡</span>
-            <span class="menu-name">Radar</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="satellites.html" class="menu-link">
-            <span class="menu-icon">🛰️</span>
-            <span class="menu-name">Satellites</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="cartes.html" class="menu-link">
-            <span class="menu-icon">🗺️</span>
-            <span class="menu-name">Cartes météo</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-    </div>
-
-    <div class="menu-separator"></div>
-
-    <div class="menu-group">
-
-        <div class="menu-group-title">
-            🚗 STORM CHASING
+        <div class="menu-footer">
+            <span>🌪️</span>
+            <span>NEVER STOP CHASING</span>
+            <span>V2</span>
         </div>
 
-        <a href="storm-chasing.html" class="menu-link">
-            <span class="menu-icon">🚗</span>
-            <span class="menu-name">Storm Chasing</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="chasseurs.html" class="menu-link active">
-            <span class="menu-icon">👥</span>
-            <span class="menu-name">Chasseurs</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="dominator.html" class="menu-link">
-            <span class="menu-icon">🚙</span>
-            <span class="menu-name">Dominator</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="reed-timmer.html" class="menu-link">
-            <span class="menu-icon">🌪️</span>
-            <span class="menu-name">Reed Timmer</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-    </div>
-
-    <div class="menu-separator"></div>
-
-    <div class="menu-group">
-
-        <div class="menu-group-title">
-            🔬 STORMLAB
-        </div>
-
-        <a href="galerie.html" class="menu-link">
-            <span class="menu-icon">📸</span>
-            <span class="menu-name">Galerie</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="alertes.html" class="menu-link">
-            <span class="menu-icon">🚨</span>
-            <span class="menu-name">Alertes</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="quiz.html" class="menu-link">
-            <span class="menu-icon">🧠</span>
-            <span class="menu-name">Quiz</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="laboratoire.html" class="menu-link">
-            <span class="menu-icon">🔬</span>
-            <span class="menu-name">Laboratoire</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="videos.html" class="menu-link">
-            <span class="menu-icon">🎥</span>
-            <span class="menu-name">Vidéos</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="actualites.html" class="menu-link">
-            <span class="menu-icon">📰</span>
-            <span class="menu-name">Actualités</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-    </div>
-
-    <div class="menu-footer">
-        <span>🌪️</span>
-        <span>NEVER STOP CHASING</span>
-        <span>V2</span>
-    </div>
-
-</nav>
-```
+    </nav>
 
 </header>
 
-<main class="chasers-page">
 
-```
-<!-- =====================================================
-     HERO
-====================================================== -->
+<main>
 
-<section class="chasers-hero">
+    <section class="hero">
 
-    <div class="chasers-hero-content">
+        <div class="hero-content">
 
-        <p class="eyebrow">
-            04 • STORM CHASING
-        </p>
+            <p class="eyebrow">04 • FIGURES</p>
 
-        <h1>
-            LES CHASSEURS
-            <span>DE TEMPÊTES.</span>
-        </h1>
+            <h1>
+                LES
+                <span>CHASSEURS.</span>
+            </h1>
 
-        <p class="chasers-hero-text">
-            Découvrez les passionnés, chercheurs et
-            documentaristes qui ont marqué l'histoire
-            du storm chasing.
-        </p>
+            <p class="hero-text">
+                Découvrez trois figures majeures du storm chasing
+                et différentes façons d'observer les phénomènes violents.
+            </p>
 
-    </div>
+        </div>
 
-</section>
+        <div class="hero-symbol">
+            👥
+        </div>
 
-<!-- =====================================================
-     PROFILS
-====================================================== -->
+    </section>
 
-<section class="chasers-section">
 
-    <div class="section-heading">
+    <section class="section">
 
-        <p class="eyebrow">
-            FIGURES DU STORM CHASING
-        </p>
+        <div class="section-title">
 
-        <h2>
-            TROIS UNIVERS.
-            <span>UNE PASSION.</span>
-        </h2>
+            <p>FIGURES DU STORM CHASING</p>
 
-        <span>
-            Des approches différentes autour de l'observation
-            et de l'étude des phénomènes météorologiques.
-        </span>
+            <h2>
+                TROIS PROFILS.
+                <span>UNE PASSION.</span>
+            </h2>
 
-    </div>
+        </div>
 
-    <div class="chasers-profiles">
 
-        <article class="chaser-profile">
+        <div class="cards">
 
-            <img
-                class="profile-image"
-                src="../assets/images/sean-casey.jpg"
-                alt="Sean Casey"
-                loading="lazy">
+            <article class="card">
 
-            <div class="profile-content">
+                <span class="card-icon">🎬</span>
 
-                <div class="profile-role">
-                    DOCUMENTAIRE • IMAX
-                </div>
-
-                <h3>
-                    Sean Casey
-                </h3>
+                <h3>Sean Casey</h3>
 
                 <p>
-                    Cinéaste et documentariste connu pour
-                    son travail consacré aux phénomènes
-                    météorologiques extrêmes et pour les
-                    véhicules TIV développés pour filmer
-                    les tornades.
+                    Cinéaste et documentariste connu pour ses
+                    travaux sur les tornades et les véhicules TIV.
                 </p>
 
-                <a
-                    href="dominator.html"
-                    class="profile-link">
-                    Découvrir le TIV →
+                <a href="dominator.html" class="btn primary">
+                    Découvrir le TIV
                 </a>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">📡</span>
+
+                <h3>Joshua Wurman</h3>
+
+                <p>
+                    Météorologue et chercheur associé notamment
+                    aux systèmes Doppler on Wheels.
+                </p>
+
+                <a href="radar.html" class="btn primary">
+                    Explorer le radar
+                </a>
+
+            </article>
+
+
+            <article class="card">
+
+                <span class="card-icon">🌪️</span>
+
+                <h3>Reed Timmer</h3>
+
+                <p>
+                    Météorologue et storm chaser américain connu
+                    pour ses observations et ses véhicules Dominator.
+                </p>
+
+                <a href="reed-timmer.html" class="btn primary">
+                    Son profil
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>STORMLAB • PHILOSOPHIE</p>
+
+            <h2>
+                OBSERVER
+                <span>POUR COMPRENDRE.</span>
+            </h2>
+
+            <span>
+                Le chasing peut associer recherche scientifique,
+                documentation et observation de terrain.
+            </span>
+
+        </div>
+
+        <div class="storm-feature">
+
+            <div class="storm-feature-image">
+
+                <img
+                    src="../assets/images/reed-timmer.jpg"
+                    alt="Storm chaser"
+                    loading="lazy">
 
             </div>
 
-        </article>
+            <div class="storm-feature-content">
 
-        <article class="chaser-profile">
+                <p class="eyebrow">STORMLAB V2</p>
 
-            <img
-                class="profile-image"
-                src="../assets/images/Joshua-Wurman.jpg"
-                alt="Joshua Wurman"
-                loading="lazy">
-
-            <div class="profile-content">
-
-                <div class="profile-role">
-                    RECHERCHE • RADAR
-                </div>
-
-                <h3>
-                    Joshua Wurman
-                </h3>
+                <h2>
+                    NEVER STOP
+                    <span>CHASING.</span>
+                </h2>
 
                 <p>
-                    Météorologue et chercheur connu pour
-                    ses travaux sur les tornades et pour
-                    le développement du système Doppler
-                    on Wheels destiné à observer les
-                    phénomènes atmosphériques.
+                    Explore les véhicules, instruments et méthodes
+                    utilisés pour étudier les phénomènes météorologiques.
                 </p>
 
-                <a
-                    href="radar.html"
-                    class="profile-link">
-                    Explorer le radar →
-                </a>
+                <div class="hero-buttons">
+
+                    <a href="dominator.html" class="btn primary">
+                        🚙 Dominator
+                    </a>
+
+                    <a href="storm-chasing.html" class="btn secondary">
+                        🚗 Storm Chasing
+                    </a>
+
+                </div>
 
             </div>
 
-        </article>
-
-        <article class="chaser-profile">
-
-            <img
-                class="profile-image"
-                src="../assets/images/reed-timmer.jpg"
-                alt="Reed Timmer"
-                loading="lazy">
-
-            <div class="profile-content">
-
-                <div class="profile-role">
-                    MÉTÉOROLOGIE • CHASING
-                </div>
-
-                <h3>
-                    Reed Timmer
-                </h3>
-
-                <p>
-                    Météorologue et storm chaser américain
-                    connu pour ses observations de phénomènes
-                    violents et son travail avec les véhicules
-                    de la Team Dominator.
-                </p>
-
-                <a
-                    href="reed-timmer.html"
-                    class="profile-link">
-                    Voir son profil →
-                </a>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     TIV
-====================================================== -->
-
-<section class="chasers-section">
-
-    <div class="section-heading">
-
-        <p class="eyebrow">
-            SEAN CASEY
-        </p>
-
-        <h2>
-            TIV
-            <span>TORNADO INTERCEPT VEHICLE.</span>
-        </h2>
-
-        <span>
-            Les véhicules conçus par Sean Casey pour
-            documenter les tornades.
-        </span>
-
-    </div>
-
-    <div class="gallery">
-
-        <div class="gallery-item large">
-
-            <img
-                src="../assets/images/Tiv1.jpg"
-                alt="Tornado Intercept Vehicle TIV"
-                loading="lazy">
-
-            <span class="gallery-label">
-                TIV 01
-            </span>
-
         </div>
 
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Tiv2.jpg"
-                alt="Tornado Intercept Vehicle TIV"
-                loading="lazy">
-
-            <span class="gallery-label">
-                TIV 02
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     DOPPLER ON WHEELS
-====================================================== -->
-
-<section class="chasers-section">
-
-    <div class="section-heading">
-
-        <p class="eyebrow">
-            JOSHUA WURMAN
-        </p>
-
-        <h2>
-            DOPPLER
-            <span>ON WHEELS.</span>
-        </h2>
-
-        <span>
-            Une plateforme mobile utilisée pour recueillir
-            des observations radar au plus près des phénomènes.
-        </span>
-
-    </div>
-
-    <div class="gallery">
-
-        <div class="gallery-item large">
-
-            <img
-                src="../assets/images/Dow1.jpg"
-                alt="Doppler on Wheels 01"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 01
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow2.jpg"
-                alt="Doppler on Wheels 02"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 02
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow3.jpg"
-                alt="Doppler on Wheels 03"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 03
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow4.jpg"
-                alt="Doppler on Wheels 04"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 04
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow5.jpg"
-                alt="Doppler on Wheels 05"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 05
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow6.jpg"
-                alt="Doppler on Wheels 06"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 06
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow7.jpg"
-                alt="Doppler on Wheels 07"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 07
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dow8.jpg"
-                alt="Doppler on Wheels 08"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOW 08
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     DOMINATOR
-====================================================== -->
-
-<section class="chasers-section">
-
-    <div class="section-heading">
-
-        <p class="eyebrow">
-            REED TIMMER
-        </p>
-
-        <h2>
-            TEAM
-            <span>DOMINATOR.</span>
-        </h2>
-
-        <span>
-            Une sélection de photographies consacrées
-            aux véhicules Dominator.
-        </span>
-
-    </div>
-
-    <div class="gallery">
-
-        <div class="gallery-item large">
-
-            <img
-                src="../assets/images/Dom1.jpg"
-                alt="Dominator 01"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOMINATOR 01
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dom2.jpg"
-                alt="Dominator 02"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOMINATOR 02
-            </span>
-
-        </div>
-
-        <div class="gallery-item">
-
-            <img
-                src="../assets/images/Dom3.jpg"
-                alt="Dominator 03"
-                loading="lazy">
-
-            <span class="gallery-label">
-                DOMINATOR 03
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     INFO
-====================================================== -->
-
-<section class="chasers-section">
-
-    <div class="info-box">
-
-        <p class="eyebrow">
-            STORMLAB • À RETENIR
-        </p>
-
-        <h2>
-            OBSERVER.
-            <span>COMPRENDRE.</span>
-        </h2>
-
-        <p>
-            Le storm chasing rassemble des profils très
-            différents : scientifiques, photographes,
-            documentaristes et observateurs. Leurs travaux
-            permettent de documenter et de mieux comprendre
-            les phénomènes atmosphériques violents.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     CTA
-====================================================== -->
-
-<section class="chasers-cta">
-
-    <p class="eyebrow">
-        STORMLAB V2
-    </p>
-
-    <h2>
-        NEVER STOP
-        <span>CHASING.</span>
-    </h2>
-
-    <p>
-        Continue ton exploration de l'univers STORMLAB.
-    </p>
-
-    <div class="hero-buttons">
-
-        <a
-            href="storm-chasing.html"
-            class="btn primary">
-            🚗 Storm Chasing
-        </a>
-
-        <a
-            href="dominator.html"
-            class="btn secondary">
-            🚙 Dominator
-        </a>
-
-    </div>
-
-</section>
-```
+    </section>
 
 </main>
 
+
 <footer>
 
-```
-<div class="footer-logo">
-    🌪️ STORMLAB
-</div>
+    <div class="footer-logo">🌪️ STORMLAB</div>
 
-<p>
-    Never Stop Chasing.
-</p>
+    <p>Never Stop Chasing.</p>
 
-<p class="copyright">
-    © 2026 STORMLAB
-</p>
-```
+    <p class="copyright">© 2026 STORMLAB</p>
 
 </footer>
 
