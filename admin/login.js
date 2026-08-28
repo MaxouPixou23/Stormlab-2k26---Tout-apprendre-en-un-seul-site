@@ -1,164 +1,313 @@
-<!DOCTYPE html>
+/* =========================================================
+STORMLAB V2 — ADMIN LOGIN
+LOGIN.JS
+========================================================= */
 
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
-<meta name="theme-color" content="#03060d">
-
-<title>STORMLAB — Administration</title>
-
-<link rel="stylesheet" href="admin.css">
-```
-
-</head>
-
-<body>
+(function () {
 
 ```
-<main class="login-page">
-
-    <section class="login-card">
-
-        <div class="login-logo">
-            <span>🌪️</span>
-            <div>
-                <strong>STORMLAB</strong>
-                <small>ADMINISTRATION</small>
-            </div>
-        </div>
+"use strict";
 
 
-        <div class="login-header">
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-            <p class="eyebrow">
-                🔐 ESPACE SÉCURISÉ
-            </p>
+const form =
+    document.getElementById("loginForm");
 
-            <h1>
-                Connexion
-                <span>Admin.</span>
-            </h1>
+const username =
+    document.getElementById("username");
 
-            <p>
-                Connecte-toi pour accéder au
-                panneau d'administration STORMLAB.
-            </p>
+const password =
+    document.getElementById("password");
 
-        </div>
+const button =
+    document.getElementById("loginButton");
 
+const message =
+    document.getElementById("loginMessage");
 
-        <form
-            id="loginForm"
-            class="login-form"
-            autocomplete="on">
-
-            <div class="form-group">
-
-                <label
-                    class="form-label"
-                    for="username">
-                    👤 Identifiant
-                </label>
-
-                <input
-                    id="username"
-                    name="username"
-                    class="form-input"
-                    type="text"
-                    placeholder="Votre identifiant"
-                    autocomplete="username"
-                    required>
-
-            </div>
+const togglePassword =
+    document.getElementById("togglePassword");
 
 
-            <div class="form-group">
+if (
+    !form ||
+    !username ||
+    !password ||
+    !button ||
+    !message
+) {
 
-                <label
-                    class="form-label"
-                    for="password">
-                    🔒 Mot de passe
-                </label>
+    console.error(
+        "STORMLAB : système de connexion introuvable."
+    );
 
-                <div class="password-wrapper">
-
-                    <input
-                        id="password"
-                        name="password"
-                        class="form-input"
-                        type="password"
-                        placeholder="Votre mot de passe"
-                        autocomplete="current-password"
-                        required>
-
-                    <button
-                        id="togglePassword"
-                        class="password-toggle"
-                        type="button"
-                        aria-label="Afficher le mot de passe">
-                        👁️
-                    </button>
-
-                </div>
-
-            </div>
+    return;
+}
 
 
-            <div
-                id="loginMessage"
-                class="login-message"
-                role="alert"
-                aria-live="polite">
-            </div>
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(
+    text,
+    type = "error"
+) {
+
+    message.textContent = text;
+
+    message.className =
+        "login-message " + type;
+
+}
 
 
-            <button
-                id="loginButton"
-                class="admin-btn primary login-button"
-                type="submit">
+function clearMessage() {
 
-                🚀 Se connecter
+    message.textContent = "";
 
-            </button>
+    message.className =
+        "login-message";
 
-        </form>
+}
 
 
-        <div class="login-security">
+/* =====================================================
+   AFFICHER / MASQUER MOT DE PASSE
+===================================================== */
 
-            <span>🛡️</span>
+if (togglePassword) {
 
-            <div>
-                <strong>Zone protégée</strong>
-                <small>
-                    Accès réservé aux administrateurs STORMLAB
-                </small>
-            </div>
+    togglePassword.addEventListener(
+        "click",
+        function () {
 
-        </div>
+            const isPassword =
+                password.type === "password";
+
+            password.type =
+                isPassword
+                    ? "text"
+                    : "password";
+
+            togglePassword.textContent =
+                isPassword
+                    ? "🙈"
+                    : "👁️";
+
+            togglePassword.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Masquer le mot de passe"
+                    : "Afficher le mot de passe"
+            );
+
+        }
+    );
+
+}
 
 
-        <div class="login-footer">
+/* =====================================================
+   ÉTAT DE CHARGEMENT
+===================================================== */
 
-            <span>🌪️ STORMLAB V2</span>
+function setLoading(
+    loading
+) {
 
-            <span>NEVER STOP CHASING</span>
+    button.disabled =
+        loading;
 
-        </div>
+    if (loading) {
 
-    </section>
+        button.textContent =
+            "⏳ Connexion...";
 
-</main>
+    } else {
+
+        button.textContent =
+            "🚀 Se connecter";
+
+    }
+
+}
 
 
-<script src="login.js"></script>
+/* =====================================================
+   CONNEXION
+===================================================== */
+
+form.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+        clearMessage();
+
+
+        const user =
+            username.value.trim();
+
+        const pass =
+            password.value;
+
+
+        if (!user) {
+
+            showMessage(
+                "⚠️ Veuillez entrer votre identifiant."
+            );
+
+            username.focus();
+
+            return;
+        }
+
+
+        if (!pass) {
+
+            showMessage(
+                "⚠️ Veuillez entrer votre mot de passe."
+            );
+
+            password.focus();
+
+            return;
+        }
+
+
+        setLoading(true);
+
+
+        /*
+         * =================================================
+         * CONNEXION SERVEUR
+         *
+         * L'URL /api/admin/login sera fournie
+         * par le backend STORMLAB.
+         * =================================================
+         */
+
+        try {
+
+            const response =
+                await fetch(
+                    "/api/admin/login",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        credentials: "include",
+
+                        body:
+                            JSON.stringify({
+                                username: user,
+                                password: pass
+                            })
+                    }
+                );
+
+
+            let data = {};
+
+            try {
+
+                data =
+                    await response.json();
+
+            } catch {
+
+                data = {};
+
+            }
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.message ||
+                    "Identifiant ou mot de passe incorrect."
+                );
+
+            }
+
+
+            showMessage(
+                "✅ Connexion réussie ! Redirection...",
+                "success"
+            );
+
+
+            /*
+             * Petite pause pour afficher
+             * le message de réussite.
+             */
+
+            setTimeout(
+                function () {
+
+                    window.location.href =
+                        "index.html";
+
+                },
+                600
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "STORMLAB LOGIN:",
+                error
+            );
+
+
+            showMessage(
+                "❌ " +
+                (
+                    error.message ||
+                    "Impossible de se connecter."
+                )
+            );
+
+
+            setLoading(false);
+
+            password.focus();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   RACCOURCI ENTRÉE
+===================================================== */
+
+username.addEventListener(
+    "input",
+    clearMessage
+);
+
+password.addEventListener(
+    "input",
+    clearMessage
+);
+
+
+console.log(
+    "STORMLAB : système de connexion chargé."
+);
 ```
 
-</body>
-
-</html>
-
+})();
