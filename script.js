@@ -1,83 +1,70 @@
-```javascript
+/* =========================================
+   STORMLAB V2 — SCRIPT PRINCIPAL
+========================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =================================
-       NAVBAR AU SCROLL
-    ================================= */
+    /* =====================================
+       MENU HAMBURGER
+    ===================================== */
 
-    const navbar = document.querySelector(".navbar");
-
-    const updateNavbar = () => {
-
-        if (!navbar) return;
-
-        if (window.scrollY > 40) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-
-    };
-
-    updateNavbar();
-
-    window.addEventListener(
-        "scroll",
-        updateNavbar,
-        { passive: true }
-    );
-
-
-    /* =================================
-       MENU MOBILE
-    ================================= */
-
-    const menuButton =
-        document.querySelector(".mobile-menu-btn");
-
-    const mobileMenu =
-        document.querySelector(".mobile-menu");
-
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const mobileMenu = document.querySelector(".mobile-menu");
 
     if (menuButton && mobileMenu) {
 
-        menuButton.addEventListener("click", () => {
+        menuButton.addEventListener("click", (event) => {
+
+            event.stopPropagation();
 
             const isOpen =
                 mobileMenu.classList.toggle("open");
 
+            menuButton.classList.toggle("active", isOpen);
+
             menuButton.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                isOpen ? "true" : "false"
             );
 
-            menuButton.textContent =
-                isOpen ? "✕" : "☰";
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Fermer le menu"
+                    : "Ouvrir le menu"
+            );
 
         });
 
 
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(link => {
+        /* Fermer après avoir choisi une catégorie */
 
-                link.addEventListener("click", () => {
+        mobileMenu.querySelectorAll("a").forEach(link => {
 
-                    mobileMenu.classList.remove("open");
+            link.addEventListener("click", () => {
 
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+                mobileMenu.classList.remove("open");
 
-                    menuButton.textContent = "☰";
+                menuButton.classList.remove("active");
 
-                });
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
 
             });
 
+        });
 
-        document.addEventListener("click", event => {
+
+        /* Fermer en cliquant à l'extérieur */
+
+        document.addEventListener("click", (event) => {
 
             if (
                 mobileMenu.classList.contains("open") &&
@@ -87,12 +74,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 mobileMenu.classList.remove("open");
 
+                menuButton.classList.remove("active");
+
                 menuButton.setAttribute(
                     "aria-expanded",
                     "false"
                 );
 
-                menuButton.textContent = "☰";
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
+
+            }
+
+        });
+
+
+        /* Fermer avec Échap */
+
+        document.addEventListener("keydown", (event) => {
+
+            if (
+                event.key === "Escape" &&
+                mobileMenu.classList.contains("open")
+            ) {
+
+                mobileMenu.classList.remove("open");
+
+                menuButton.classList.remove("active");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
+
+                menuButton.focus();
 
             }
 
@@ -101,17 +123,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =================================
-       ANIMATION DES CARTES
-    ================================= */
+    /* =====================================
+       NAVBAR AU SCROLL
+    ===================================== */
+
+    const navbar = document.querySelector(".navbar");
+
+    if (navbar) {
+
+        const updateNavbar = () => {
+
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+        };
+
+        updateNavbar();
+
+        window.addEventListener(
+            "scroll",
+            updateNavbar,
+            { passive: true }
+        );
+
+    }
+
+
+    /* =====================================
+       ANIMATIONS AU DÉFILEMENT
+    ===================================== */
 
     const animatedElements =
         document.querySelectorAll(
-            ".feature-card, " +
-            ".phenomenon-card, " +
-            ".chaser-card, " +
-            ".experience-card, " +
-            ".section-heading"
+            ".card, .section-title, .storm-feature, .manual, .chasing"
         );
 
 
@@ -119,15 +166,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const observer =
             new IntersectionObserver(
-                entries => {
+                (entries, observer) => {
 
                     entries.forEach(entry => {
 
                         if (entry.isIntersecting) {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+                            entry.target.classList.add("visible");
 
                             observer.unobserve(
                                 entry.target
@@ -146,18 +191,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         animatedElements.forEach(element => {
 
-            element.classList.add("reveal");
-
             observer.observe(element);
+
+        });
+
+    } else {
+
+        /* Compatibilité navigateurs anciens */
+
+        animatedElements.forEach(element => {
+
+            element.classList.add("visible");
 
         });
 
     }
 
 
-    /* =================================
+    /* =====================================
        ANNÉE AUTOMATIQUE
-    ================================= */
+    ===================================== */
 
     document
         .querySelectorAll(".copyright")
@@ -169,37 +222,76 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-    /* =================================
-       FERMER LE MENU AVEC ESC
-    ================================= */
+    /* =====================================
+       LIEN ACTIF
+    ===================================== */
 
-    document.addEventListener(
-        "keydown",
-        event => {
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+
+    document
+        .querySelectorAll(
+            ".main-nav a, .mobile-menu a"
+        )
+        .forEach(link => {
+
+            const linkPage =
+                link.getAttribute("href");
+
+            if (!linkPage) return;
+
+            const cleanLink =
+                linkPage
+                    .split("/")
+                    .pop()
+                    .toLowerCase();
 
             if (
-                event.key === "Escape" &&
-                mobileMenu &&
-                mobileMenu.classList.contains("open")
+                cleanLink === currentPage ||
+                (
+                    currentPage === "" &&
+                    cleanLink === "index.html"
+                )
             ) {
 
-                mobileMenu.classList.remove("open");
-
-                if (menuButton) {
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuButton.textContent = "☰";
-
-                }
+                link.classList.add("active");
 
             }
 
-        }
-    );
+        });
+
+
+    /* =====================================
+       EMPÊCHER LES LIENS CASSÉS
+    ===================================== */
+
+    document
+        .querySelectorAll("a[href]")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                link.classList.add("clicked");
+
+                setTimeout(() => {
+
+                    link.classList.remove("clicked");
+
+                }, 300);
+
+            });
+
+        });
+
+
+    /* =====================================
+       CHARGEMENT TERMINÉ
+    ===================================== */
+
+    document.body.classList.add("loaded");
 
 });
-```
