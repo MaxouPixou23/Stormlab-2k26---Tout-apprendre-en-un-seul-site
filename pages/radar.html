@@ -1,27 +1,120 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Radar météo — STORMLAB</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Radar — STORMLAB</title>
+
+    <meta name="description"
+          content="STORMLAB — Apprendre à comprendre et interpréter les radars météorologiques.">
+
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
 <header class="navbar">
-<a href="../index.html" class="logo"><span class="logo-icon">🌪️</span><span>STORMLAB</span></a>
-<nav class="main-nav">
-<a href="../index.html">Accueil</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="satellites.html">🛰️ Satellites</a>
-<a href="cartes.html">🗺️ Cartes</a>
-<a href="alertes.html">🚨 Alertes</a>
-<a href="galerie.html">📸 Galerie</a>
-</nav>
+
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">🌪️</span>
+        <span>STORMLAB</span>
+    </a>
+
+    <nav class="main-nav">
+        <a href="../index.html">Accueil</a>
+        <a href="manuel.html">📚 Manuel</a>
+        <a href="orages.html">🌩️ Orages</a>
+        <a href="supercellules.html">🌀 Supercellules</a>
+        <a href="tornades.html">🌪️ Tornades</a>
+        <a href="foudre.html">⚡ Foudre</a>
+        <a href="radar.html" class="active">📡 Radar</a>
+        <a href="satellites.html">🛰️ Satellites</a>
+        <a href="storm-chasing.html">🚗 Chasing</a>
+        <a href="reed-timmer.html">❤️ Reed Timmer</a>
+        <a href="galerie.html">📸 Galerie</a>
+        <a href="cartes.html">🗺️ Cartes</a>
+        <a href="alertes.html">🚨 Alertes</a>
+        <a href="quiz.html">🧠 Quiz</a>
+        <a href="laboratoire.html">🔬 Laboratoire</a>
+        <a href="videos.html">🎥 Vidéos</a>
+        <a href="actualites.html">📰 Actualités</a>
+    </nav>
+
+    <button class="mobile-menu-btn"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+        ☰
+    </button>
+
 </header>
-  
-  <section class="section">
+
+
+<div class="mobile-menu">
+    <a href="../index.html">🏠 Accueil</a>
+    <a href="manuel.html">📚 Manuel</a>
+    <a href="orages.html">🌩️ Orages</a>
+    <a href="supercellules.html">🌀 Supercellules</a>
+    <a href="tornades.html">🌪️ Tornades</a>
+    <a href="foudre.html">⚡ Foudre</a>
+    <a href="radar.html" class="active">📡 Radar</a>
+    <a href="satellites.html">🛰️ Satellites</a>
+    <a href="storm-chasing.html">🚗 Storm Chasing</a>
+    <a href="reed-timmer.html">❤️ Reed Timmer</a>
+    <a href="galerie.html">📸 Galerie</a>
+    <a href="cartes.html">🗺️ Cartes météo</a>
+    <a href="alertes.html">🚨 Alertes</a>
+    <a href="quiz.html">🧠 Quiz</a>
+    <a href="laboratoire.html">🔬 Laboratoire</a>
+    <a href="videos.html">🎥 Vidéos</a>
+    <a href="actualites.html">📰 Actualités</a>
+</div>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            STORMLAB • OBSERVATION
+        </p>
+
+        <h1>
+            LE
+            <span>RADAR.</span>
+        </h1>
+
+        <p class="hero-text">
+            Le radar météorologique permet d'observer
+            les précipitations et d'analyser la structure
+            de nombreux systèmes orageux.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="cartes.html" class="btn primary">
+                🗺️ Cartes météo
+            </a>
+
+            <a href="orages.html" class="btn secondary">
+                🌩️ Orages
+            </a>
+        </div>
+
+    </div>
+
+    <div class="hero-symbol">
+        📡
+    </div>
+
+</section>
+
+
+<section class="section">
 
     <div class="storm-feature">
 
@@ -33,18 +126,18 @@
         <div class="storm-feature-content">
 
             <p class="eyebrow">
-                STORMLAB • RADAR
+                RADAR MÉTÉOROLOGIQUE
             </p>
 
             <h2>
-                LIRE
-                <span>LA TEMPÊTE.</span>
+                Observer la météo
+                <span>en temps réel.</span>
             </h2>
 
             <p>
-                Le radar météorologique permet d'observer
-                les précipitations et de suivre leur déplacement,
-                leur intensité et leur évolution.
+                Les radars météorologiques permettent
+                notamment de détecter les précipitations
+                et de suivre leur déplacement.
             </p>
 
         </div>
@@ -53,68 +146,136 @@
 
 </section>
 
-<main>
-
-<section class="hero">
-<div class="hero-content">
-<p class="eyebrow">STORMLAB • OBSERVATION</p>
-<h1>RADAR <span>MÉTÉO.</span></h1>
-<p class="hero-text">
-Apprends à comprendre les images radar, les zones de précipitations
-et les structures qui peuvent révéler l'organisation d'un orage.
-</p>
-<div class="hero-buttons">
-<a href="meteorologie.html" class="btn secondary">← Météorologie</a>
-<a href="supercellules.html" class="btn primary">Supercellules →</a>
-</div>
-</div>
-<div class="hero-symbol">📡</div>
-</section>
 
 <section class="section">
-<div class="section-title">
-<p>01 • LECTURE</p>
-<h2>Que montre un radar ?</h2>
-<span>Un radar météorologique mesure notamment l'énergie renvoyée par les hydrométéores présents dans l'atmosphère.</span>
-</div>
 
-<div class="cards">
-<article class="card"><span>🌧️</span><h3>Précipitations</h3><p>Le radar permet de suivre la position et l'intensité de nombreuses zones précipitantes.</p></article>
-<article class="card"><span>🎨</span><h3>Réflectivité</h3><p>Les valeurs radar sont représentées par une échelle permettant d'identifier les échos plus ou moins forts.</p></article>
-<article class="card"><span>🌀</span><h3>Structure</h3><p>Certaines signatures peuvent aider les météorologues à analyser l'organisation d'un orage.</p></article>
-<article class="card"><span>⏱️</span><h3>Suivi</h3><p>Les images successives permettent d'observer le déplacement et l'évolution des précipitations.</p></article>
-</div>
+    <div class="section-title">
+
+        <p>01 • LECTURE</p>
+
+        <h2>
+            APPRENDRE À LIRE
+            <span>UN RADAR.</span>
+        </h2>
+
+        <span>
+            Plusieurs informations permettent d'interpréter
+            une image radar.
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+        <article class="card">
+            <span>🌧️</span>
+            <h3>Réflectivité</h3>
+            <p>
+                Elle permet notamment d'estimer
+                l'intensité des échos de précipitations.
+            </p>
+        </article>
+
+
+        <article class="card">
+            <span>🎨</span>
+            <h3>Couleurs</h3>
+            <p>
+                Les palettes utilisées permettent
+                de représenter différentes intensités.
+            </p>
+        </article>
+
+
+        <article class="card">
+            <span>➡️</span>
+            <h3>Déplacement</h3>
+            <p>
+                L'animation des images permet
+                de suivre le déplacement des cellules.
+            </p>
+        </article>
+
+
+        <article class="card">
+            <span>🌀</span>
+            <h3>Structure</h3>
+            <p>
+                Certaines structures radar peuvent
+                aider à identifier des phénomènes organisés.
+            </p>
+        </article>
+
+    </div>
+
 </section>
+
 
 <section class="manual">
-<div class="manual-content">
-<p class="eyebrow">ANALYSE</p>
-<h2>Voir la météo <span>en mouvement.</span></h2>
-<p>
-Une seule image donne une information limitée. Une animation radar
-permet de suivre l'évolution des cellules et de leur déplacement.
-</p>
-<a href="satellites.html" class="btn primary">Découvrir les satellites</a>
-</div>
+
+    <div class="manual-content">
+
+        <p class="eyebrow">
+            02 • ANALYSE
+        </p>
+
+        <h2>
+            LE RADAR EST
+            <span>UN OUTIL.</span>
+        </h2>
+
+        <p>
+            Une image radar doit être interprétée avec
+            d'autres informations météorologiques.
+            Elle ne permet pas à elle seule de déterminer
+            tous les phénomènes présents au sol.
+        </p>
+
+        <a href="satellites.html" class="btn primary">
+            🛰️ Découvrir les satellites
+        </a>
+
+    </div>
+
 </section>
 
+
 <section class="chasing">
-<p class="eyebrow">STORMLAB</p>
-<h2>READ THE <span>RADAR.</span></h2>
-<p>Le radar est l'un des outils essentiels de l'observation des orages.</p>
-<a href="../index.html" class="btn secondary">← Retour</a>
+
+    <p class="eyebrow">STORMLAB</p>
+
+    <h2>
+        READ THE
+        <span>RADAR.</span>
+    </h2>
+
+    <p>
+        Observer avant de poursuivre la tempête.
+    </p>
+
+    <a href="storm-chasing.html" class="btn secondary">
+        🚗 Storm Chasing
+    </a>
+
 </section>
 
 </main>
 
+
 <footer>
-<div class="footer-logo">🌪️ STORMLAB</div>
-<p>Never Stop Chasing.</p>
-<p class="copyright">© 2026 STORMLAB</p>
+
+    <div class="footer-logo">🌪️ STORMLAB</div>
+
+    <p>Never Stop Chasing.</p>
+
+    <p class="copyright">© 2026 STORMLAB</p>
+
 </footer>
 
+
 <script src="../script.js"></script>
+
 </body>
 </html>
 ```
-
