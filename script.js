@@ -1,6 +1,5 @@
 /* =========================================================
-   STORMLAB V2
-   SCRIPT NAVIGATION
+   STORMLAB V2 — MENU PRINCIPAL
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,42 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.getElementById("menuButton");
     const mainNav = document.getElementById("mainNav");
 
-    /* Vérification */
-    if (!navbar) {
-        console.error("STORMLAB : .navbar introuvable.");
+    if (!navbar || !menuButton || !mainNav) {
+        console.error("STORMLAB : éléments de navigation introuvables.");
         return;
-    }
-
-    if (!menuButton) {
-        console.error("STORMLAB : #menuButton introuvable.");
-        return;
-    }
-
-    if (!mainNav) {
-        console.error("STORMLAB : #mainNav introuvable.");
-        return;
-    }
-
-
-    /* =====================================================
-       OUVRIR / FERMER LE MENU
-    ===================================================== */
-
-    function toggleMenu() {
-
-        const isOpen = navbar.classList.contains("menu-open");
-
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
     }
 
 
     function openMenu() {
 
         navbar.classList.add("menu-open");
+
+        document.body.classList.add("menu-active");
 
         menuButton.textContent = "✕";
 
@@ -57,14 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-label",
             "Fermer le menu"
         );
-
-        document.body.classList.add("menu-active");
     }
 
 
     function closeMenu() {
 
         navbar.classList.remove("menu-open");
+
+        document.body.classList.remove("menu-active");
 
         menuButton.textContent = "☰";
 
@@ -77,8 +51,21 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-label",
             "Ouvrir le menu"
         );
+    }
 
-        document.body.classList.remove("menu-active");
+
+    function toggleMenu(event) {
+
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        if (navbar.classList.contains("menu-open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     }
 
 
@@ -86,18 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
        BOUTON ☰
     ===================================================== */
 
-    menuButton.addEventListener("click", (event) => {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        toggleMenu();
-
-    });
+    menuButton.addEventListener(
+        "click",
+        toggleMenu
+    );
 
 
     /* =====================================================
-       LIENS DU MENU
+       LIENS
     ===================================================== */
 
     const links = mainNav.querySelectorAll("a");
@@ -105,24 +88,20 @@ document.addEventListener("DOMContentLoaded", () => {
     links.forEach((link) => {
 
         link.addEventListener("click", () => {
-
             closeMenu();
-
         });
 
     });
 
 
     /* =====================================================
-       TOUCHE ESC
+       ÉCHAP
     ===================================================== */
 
     document.addEventListener("keydown", (event) => {
 
         if (event.key === "Escape") {
-
             closeMenu();
-
         }
 
     });
@@ -139,20 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!navbar.contains(event.target)) {
-
             closeMenu();
-
         }
 
     });
 
 
     /* =====================================================
-       INITIALISATION
+       ÉTAT INITIAL
     ===================================================== */
 
     closeMenu();
 
-    console.log("STORMLAB V2 : navigation chargée.");
+    console.log("STORMLAB V2 : menu chargé correctement.");
 
 });
