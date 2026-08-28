@@ -1,210 +1,284 @@
 <!DOCTYPE html>
-<html lang="fr">
 
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Météorologie — STORMLAB</title>
-
-    <meta name="description"
-          content="STORMLAB — Découvrir les bases de la météorologie.">
-
-    <link rel="stylesheet" href="../style.css">
+    <meta name="theme-color" content="#050816">
+    <meta name="description" content="STORMLAB — Découvrez les bases de la météorologie.">
+    <title>Météorologie — STORMLAB V2</title>
+    <link rel="stylesheet" href="../style.css?v=9">
 </head>
 
 <body>
 
 <header class="navbar">
 
-    <a href="../index.html" class="logo">
-        🌪️ <span>STORMLAB</span>
-    </a>
+```
+<a href="../index.html" class="logo">
+    <span class="logo-symbol">🌪️</span>
+    <span class="logo-text">STORMLAB</span>
+</a>
 
-    <button
-        class="mobile-menu-btn"
+<button id="menuButton" class="mobile-menu-btn"
         type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false">
-        ☰
-    </button>
+        aria-expanded="false"
+        aria-controls="mainNav"
+        aria-label="Ouvrir le menu">
+    ☰
+</button>
 
-    <nav class="main-nav">
+<nav id="mainNav" class="main-nav" aria-label="Navigation principale">
 
-        <a href="../index.html">🏠 Accueil</a>
-        <a href="manuel.html">📚 Manuel</a>
-        <a href="meteorologie.html" class="active">🌧️ Météorologie</a>
-        <a href="orages.html">🌩️ Orages</a>
-        <a href="supercellules.html">🌀 Supercellules</a>
-        <a href="tornades.html">🌪️ Tornades</a>
-        <a href="foudre.html">⚡ Foudre</a>
-        <a href="radar.html">📡 Radar</a>
-        <a href="satellites.html">🛰️ Satellites</a>
-        <a href="storm-chasing.html">🚗 Storm Chasing</a>
-        <a href="chasseurs.html">👥 Chasseurs</a>
-        <a href="dominator.html">🚙 Dominator</a>
-        <a href="reed-timmer.html">❤️ Reed Timmer</a>
-        <a href="galerie.html">📸 Galerie</a>
-        <a href="cartes.html">🗺️ Cartes météo</a>
-        <a href="alertes.html">🚨 Alertes</a>
-        <a href="quiz.html">🧠 Quiz</a>
-        <a href="laboratoire.html">🔬 Laboratoire</a>
-        <a href="videos.html">🎥 Vidéos</a>
-        <a href="actualites.html">📰 Actualités</a>
+    <div class="menu-top">
+        <div class="menu-brand">🌪️ STORMLAB</div>
+        <div class="menu-version">V2 • NEVER STOP CHASING</div>
+        <div class="menu-line"></div>
+        <div class="menu-title">EXPLORER STORMLAB</div>
+    </div>
 
-    </nav>
+    <div class="menu-group">
+        <div class="menu-group-title">🌦️ MÉTÉOROLOGIE</div>
+
+        <a href="../index.html" class="menu-link">
+            <span class="menu-icon">🏠</span>
+            <span class="menu-name">Accueil</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="manuel.html" class="menu-link">
+            <span class="menu-icon">📚</span>
+            <span class="menu-name">Manuel</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="meteorologie.html" class="menu-link active">
+            <span class="menu-icon">🌧️</span>
+            <span class="menu-name">Météorologie</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="orages.html" class="menu-link">
+            <span class="menu-icon">🌩️</span>
+            <span class="menu-name">Orages</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="supercellules.html" class="menu-link">
+            <span class="menu-icon">🌀</span>
+            <span class="menu-name">Supercellules</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="tornades.html" class="menu-link">
+            <span class="menu-icon">🌪️</span>
+            <span class="menu-name">Tornades</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="foudre.html" class="menu-link">
+            <span class="menu-icon">⚡</span>
+            <span class="menu-name">Foudre</span>
+            <span class="menu-arrow">›</span>
+        </a>
+    </div>
+
+    <div class="menu-separator"></div>
+
+    <div class="menu-group">
+        <div class="menu-group-title">📡 OBSERVATION</div>
+
+        <a href="radar.html" class="menu-link">
+            <span class="menu-icon">📡</span>
+            <span class="menu-name">Radar</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="satellites.html" class="menu-link">
+            <span class="menu-icon">🛰️</span>
+            <span class="menu-name">Satellites</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="cartes.html" class="menu-link">
+            <span class="menu-icon">🗺️</span>
+            <span class="menu-name">Cartes météo</span>
+            <span class="menu-arrow">›</span>
+        </a>
+    </div>
+
+    <div class="menu-separator"></div>
+
+    <div class="menu-group">
+        <div class="menu-group-title">🚗 STORM CHASING</div>
+
+        <a href="storm-chasing.html" class="menu-link">
+            <span class="menu-icon">🚗</span>
+            <span class="menu-name">Storm Chasing</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="chasseurs.html" class="menu-link">
+            <span class="menu-icon">👥</span>
+            <span class="menu-name">Chasseurs</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="dominator.html" class="menu-link">
+            <span class="menu-icon">🚙</span>
+            <span class="menu-name">Dominator</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="reed-timmer.html" class="menu-link">
+            <span class="menu-icon">🌪️</span>
+            <span class="menu-name">Reed Timmer</span>
+            <span class="menu-arrow">›</span>
+        </a>
+    </div>
+
+    <div class="menu-separator"></div>
+
+    <div class="menu-group">
+        <div class="menu-group-title">🔬 STORMLAB</div>
+
+        <a href="galerie.html" class="menu-link">
+            <span class="menu-icon">📸</span>
+            <span class="menu-name">Galerie</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="alertes.html" class="menu-link">
+            <span class="menu-icon">🚨</span>
+            <span class="menu-name">Alertes</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="quiz.html" class="menu-link">
+            <span class="menu-icon">🧠</span>
+            <span class="menu-name">Quiz</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="laboratoire.html" class="menu-link">
+            <span class="menu-icon">🔬</span>
+            <span class="menu-name">Laboratoire</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="videos.html" class="menu-link">
+            <span class="menu-icon">🎥</span>
+            <span class="menu-name">Vidéos</span>
+            <span class="menu-arrow">›</span>
+        </a>
+
+        <a href="actualites.html" class="menu-link">
+            <span class="menu-icon">📰</span>
+            <span class="menu-name">Actualités</span>
+            <span class="menu-arrow">›</span>
+        </a>
+    </div>
+
+    <div class="menu-footer">
+        <span>🌪️</span>
+        <span>NEVER STOP CHASING</span>
+        <span>V2</span>
+    </div>
+
+</nav>
+```
 
 </header>
 
+<main class="page-content">
 
-<main>
-
+```
 <section class="hero">
-
     <div class="hero-content">
-
-        <p class="eyebrow">
-            STORMLAB • ATMOSPHÈRE
-        </p>
+        <p class="eyebrow">02 • MÉTÉOROLOGIE</p>
 
         <h1>
             LA
-            <span>MÉTÉO.</span>
+            <span>MÉTÉOROLOGIE.</span>
         </h1>
 
         <p class="hero-text">
-            La météorologie étudie l'atmosphère,
-            ses mouvements et les phénomènes
-            qui s'y produisent.
+            Comprendre l'atmosphère, la pression,
+            la température, le vent et les phénomènes
+            qui composent notre météo.
         </p>
-
-        <div class="hero-buttons">
-
-            <a href="orages.html" class="btn primary">
-                🌩️ Étudier les orages
-            </a>
-
-            <a href="radar.html" class="btn secondary">
-                📡 Radar
-            </a>
-
-        </div>
-
     </div>
 
-    <div class="hero-symbol">
-        🌧️
-    </div>
-
+    <div class="hero-symbol">🌦️</div>
 </section>
-
 
 <section class="section">
 
     <div class="section-title">
-
-        <p>
-            01 • PARAMÈTRES
-        </p>
+        <p>LES BASES</p>
 
         <h2>
-            LES GRANDS
-            <span>INGRÉDIENTS.</span>
+            L'ATMOSPHÈRE
+            <span>EN ACTION.</span>
         </h2>
 
+        <span>
+            La météorologie étudie l'état de l'atmosphère
+            et son évolution.
+        </span>
     </div>
-
 
     <div class="cards">
 
         <article class="card">
-            <span>🌡️</span>
+            <span class="card-icon">🌡️</span>
             <h3>Température</h3>
             <p>
-                Elle décrit l'état thermique de l'air
-                et influence sa densité.
+                Mesure de l'énergie thermique présente
+                dans l'atmosphère.
             </p>
         </article>
 
         <article class="card">
-            <span>💧</span>
-            <h3>Humidité</h3>
-            <p>
-                La vapeur d'eau joue un rôle important
-                dans la formation des nuages.
-            </p>
-        </article>
-
-        <article class="card">
-            <span>💨</span>
+            <span class="card-icon">💨</span>
             <h3>Vent</h3>
             <p>
-                Le vent correspond au déplacement
-                de l'air dans l'atmosphère.
+                Mouvement de l'air provoqué notamment
+                par les différences de pression.
             </p>
         </article>
 
         <article class="card">
-            <span>📈</span>
+            <span class="card-icon">📈</span>
             <h3>Pression</h3>
             <p>
-                Les différences de pression participent
-                à la circulation atmosphérique.
+                Force exercée par l'atmosphère sur
+                une surface donnée.
+            </p>
+        </article>
+
+        <article class="card">
+            <span class="card-icon">💧</span>
+            <h3>Humidité</h3>
+            <p>
+                Quantité de vapeur d'eau présente
+                dans l'air.
             </p>
         </article>
 
     </div>
-
 </section>
-
-
-<section class="manual">
-
-    <div class="manual-content">
-
-        <p class="eyebrow">
-            02 • CONVECTION
-        </p>
-
-        <h2>
-            COMPRENDRE
-            <span>L'INSTABILITÉ.</span>
-        </h2>
-
-        <p>
-            Certaines configurations atmosphériques
-            favorisent le développement de nuages convectifs.
-        </p>
-
-        <a href="orages.html" class="btn primary">
-            🌩️ Explorer les orages
-        </a>
-
-    </div>
-
-</section>
+```
 
 </main>
 
-
 <footer>
-
-    <div class="footer-logo">
-        🌪️ STORMLAB
-    </div>
-
-    <p>
-        Never Stop Chasing.
-    </p>
-
-    <p class="copyright">
-        © 2026 STORMLAB
-    </p>
-
+    <div class="footer-logo">🌪️ STORMLAB</div>
+    <p>Never Stop Chasing.</p>
+    <p class="copyright">© 2026 STORMLAB</p>
 </footer>
 
-
-<script src="../script.js"></script>
+<script src="../script.js?v=9" defer></script>
 
 </body>
 </html>
