@@ -654,3 +654,43 @@ footer {
 
 }
 ```
+```css
+/* =========================================
+   STORMLAB — FIX CLIC CARTES / BOUTONS
+========================================= */
+
+.card,
+.card a,
+.btn {
+    transform-origin: center;
+}
+
+.card:active,
+.card a:active,
+.btn:active {
+    transform: none;
+    scale: 1;
+}
+
+.card a,
+.btn {
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Empêche les cartes de changer de taille au clic */
+.card {
+    min-height: 100%;
+}
+
+/* Garde les boutons stables */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+}
+```
