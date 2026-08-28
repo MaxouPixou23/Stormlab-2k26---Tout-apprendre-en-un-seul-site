@@ -1,3 +1,7 @@
+/* =========================================================
+   STORMLAB V2 — MENU
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const navbar = document.querySelector(".navbar");
@@ -5,53 +9,113 @@ document.addEventListener("DOMContentLoaded", function () {
     const menu = document.getElementById("mainNav");
 
     if (!navbar || !button || !menu) {
-        console.error("STORMLAB : navbar introuvable.");
+        console.error("STORMLAB : éléments de navigation introuvables.");
         return;
     }
+
+
+    function openMenu() {
+
+        navbar.classList.add("menu-open");
+
+        button.textContent = "✕";
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        button.setAttribute(
+            "aria-label",
+            "Fermer le menu"
+        );
+
+        document.body.classList.add("menu-active");
+    }
+
+
+    function closeMenu() {
+
+        navbar.classList.remove("menu-open");
+
+        button.textContent = "☰";
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        button.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+        );
+
+        document.body.classList.remove("menu-active");
+    }
+
 
     button.addEventListener("click", function (event) {
 
         event.preventDefault();
         event.stopPropagation();
 
-        navbar.classList.toggle("menu-open");
-
-        const open = navbar.classList.contains("menu-open");
-
-        button.textContent = open ? "✕" : "☰";
-
-        button.setAttribute(
-            "aria-expanded",
-            open ? "true" : "false"
-        );
-
-        button.setAttribute(
-            "aria-label",
-            open ? "Fermer le menu" : "Ouvrir le menu"
-        );
+        if (navbar.classList.contains("menu-open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
 
     });
 
-    menu.querySelectorAll("a").forEach(function (link) {
 
-        link.addEventListener("click", function () {
+    menu.addEventListener("click", function (event) {
 
-            navbar.classList.remove("menu-open");
+        const link = event.target.closest("a");
 
-            button.textContent = "☰";
+        if (!link) {
+            return;
+        }
 
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            button.setAttribute(
-                "aria-label",
-                "Ouvrir le menu"
-            );
-
-        });
+        closeMenu();
 
     });
+
+
+    document.addEventListener("click", function (event) {
+
+        if (!navbar.classList.contains("menu-open")) {
+            return;
+        }
+
+        if (!navbar.contains(event.target)) {
+            closeMenu();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+
+    });
+
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth <= 700) {
+            return;
+        }
+
+        closeMenu();
+
+    });
+
+
+    closeMenu();
+
+    console.log("STORMLAB V2 : menu chargé.");
 
 });
