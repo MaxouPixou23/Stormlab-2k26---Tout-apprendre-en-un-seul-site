@@ -10,14 +10,13 @@
 <meta name="theme-color" content="#050816">
 
 <meta name="description"
-      content="STORMLAB — Découvrez Sean Casey, Joshua Wurman et Reed Timmer ainsi que les véhicules et instruments du storm chasing.">
+    content="STORMLAB — Découvrez Sean Casey, Joshua Wurman et Reed Timmer ainsi que les véhicules et instruments du storm chasing.">
 
 <title>Chasseurs — STORMLAB V2</title>
 
-<link rel="stylesheet" href="../style.css?v=8">
+<link rel="stylesheet" href="../style.css?v=9">
 
 <style>
-
     /* =====================================================
        CHASSEURS — STORMLAB V2
     ===================================================== */
@@ -26,26 +25,22 @@
         padding-top: 74px;
     }
 
-
     /* =====================================================
        HERO
     ===================================================== */
 
     .chasers-hero {
         min-height: 600px;
-
         display: flex;
         align-items: center;
-
         padding: 100px 8%;
-
         position: relative;
         overflow: hidden;
 
         background:
             radial-gradient(
                 circle at 80% 45%,
-                rgba(0,217,255,.14),
+                rgba(0, 217, 255, 0.14),
                 transparent 35%
             ),
             linear-gradient(
@@ -55,60 +50,71 @@
             );
     }
 
-    .chasers-hero::after {
-        content: "🌪️";
-
+    .chasers-hero::before {
+        content: "";
         position: absolute;
+        inset: 0;
 
-        right: 5%;
-        top: 50%;
-
-        transform:
-            translateY(-50%);
-
-        font-size: 300px;
-
-        opacity: .045;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5, 8, 22, 0.92),
+                rgba(5, 8, 22, 0.55),
+                rgba(5, 8, 22, 0.15)
+            );
 
         pointer-events: none;
     }
 
+    .chasers-hero::after {
+        content: "🌪️";
+
+        position: absolute;
+        right: 4%;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        font-size: clamp(180px, 25vw, 340px);
+
+        opacity: 0.045;
+        pointer-events: none;
+    }
+
     .chasers-hero-content {
-        max-width: 850px;
-
         position: relative;
-
         z-index: 2;
+
+        max-width: 850px;
     }
 
     .chasers-hero h1 {
         margin-top: 12px;
 
-        font-size:
-            clamp(48px, 8vw, 100px);
+        font-size: clamp(48px, 8vw, 100px);
 
-        line-height: .92;
-
+        line-height: 0.92;
         letter-spacing: -4px;
     }
 
     .chasers-hero h1 span {
+        display: block;
+
         color: #00d9ff;
 
         text-shadow:
-            0 0 35px rgba(0,217,255,.25);
+            0 0 35px rgba(0, 217, 255, 0.25);
     }
 
     .chasers-hero-text {
         max-width: 680px;
-
         margin-top: 28px;
 
         color: #91a4bf;
 
         font-size: 18px;
+        line-height: 1.7;
     }
-
 
     /* =====================================================
        SECTIONS
@@ -116,26 +122,21 @@
 
     .chasers-section {
         width: min(1200px, 90%);
-
         margin: auto;
-
         padding: 100px 0;
     }
 
     .section-heading {
         max-width: 800px;
-
         margin-bottom: 45px;
     }
 
     .section-heading h2 {
         margin-top: 10px;
 
-        font-size:
-            clamp(36px, 5vw, 65px);
+        font-size: clamp(36px, 5vw, 65px);
 
         line-height: 1;
-
         letter-spacing: -2px;
     }
 
@@ -151,8 +152,8 @@
         color: #8193ad;
 
         font-size: 15px;
+        line-height: 1.7;
     }
-
 
     /* =====================================================
        PROFILS
@@ -160,10 +161,7 @@
 
     .chasers-profiles {
         display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
 
@@ -177,35 +175,31 @@
                 #070e19
             );
 
-        border:
-            1px solid rgba(79,151,255,.16);
-
+        border: 1px solid rgba(79, 151, 255, 0.16);
         border-radius: 20px;
 
         transition:
-            transform .25s ease,
-            border-color .25s ease,
-            box-shadow .25s ease;
+            transform 0.25s ease,
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
     }
 
     .chaser-profile:hover {
-        transform:
-            translateY(-8px);
+        transform: translateY(-8px);
 
-        border-color:
-            rgba(0,217,255,.40);
+        border-color: rgba(0, 217, 255, 0.40);
 
         box-shadow:
-            0 25px 60px rgba(0,0,0,.40);
+            0 25px 60px rgba(0, 0, 0, 0.40);
     }
 
     .profile-image {
         width: 100%;
         height: 310px;
 
-        object-fit: cover;
-
         display: block;
+
+        object-fit: cover;
     }
 
     .profile-content {
@@ -233,7 +227,6 @@
         color: #8497b1;
 
         font-size: 14px;
-
         line-height: 1.7;
     }
 
@@ -241,7 +234,6 @@
         display: inline-flex;
 
         margin-top: 20px;
-
         padding: 10px 14px;
 
         color: #fff;
@@ -257,8 +249,16 @@
 
         font-size: 12px;
         font-weight: 800;
+
+        transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
     }
 
+    .profile-link:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+    }
 
     /* =====================================================
        GALERIE
@@ -267,8 +267,9 @@
     .gallery {
         display: grid;
 
-        grid-template-columns:
-            repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-auto-rows: 210px;
 
         gap: 12px;
     }
@@ -282,41 +283,31 @@
 
         background: #07101c;
 
-        border:
-            1px solid rgba(79,151,255,.12);
-
+        border: 1px solid rgba(79, 151, 255, 0.12);
         border-radius: 14px;
     }
 
     .gallery-item.large {
-        grid-column:
-            span 2;
-
-        grid-row:
-            span 2;
+        grid-column: span 2;
+        grid-row: span 2;
     }
 
     .gallery-item img {
         width: 100%;
         height: 100%;
 
-        min-height: 210px;
-
         display: block;
 
         object-fit: cover;
 
         transition:
-            transform .4s ease,
-            filter .4s ease;
+            transform 0.4s ease,
+            filter 0.4s ease;
     }
 
     .gallery-item:hover img {
-        transform:
-            scale(1.06);
-
-        filter:
-            brightness(1.08);
+        transform: scale(1.06);
+        filter: brightness(1.08);
     }
 
     .gallery-label {
@@ -329,12 +320,9 @@
 
         color: #fff;
 
-        background:
-            rgba(3,8,15,.78);
+        background: rgba(3, 8, 15, 0.78);
 
-        border:
-            1px solid rgba(0,217,255,.20);
-
+        border: 1px solid rgba(0, 217, 255, 0.20);
         border-radius: 7px;
 
         font-size: 9px;
@@ -342,10 +330,8 @@
 
         letter-spacing: 1.5px;
 
-        backdrop-filter:
-            blur(8px);
+        backdrop-filter: blur(8px);
     }
-
 
     /* =====================================================
        INFO BOX
@@ -357,17 +343,17 @@
         background:
             linear-gradient(
                 135deg,
-                rgba(35,136,255,.09),
-                rgba(124,77,255,.08)
+                rgba(35, 136, 255, 0.09),
+                rgba(124, 77, 255, 0.08)
             );
 
-        border:
-            1px solid rgba(0,217,255,.18);
-
+        border: 1px solid rgba(0, 217, 255, 0.18);
         border-radius: 20px;
     }
 
     .info-box h2 {
+        margin-top: 10px;
+
         font-size: 35px;
     }
 
@@ -375,7 +361,7 @@
         color: #00d9ff;
     }
 
-    .info-box p {
+    .info-box p:last-child {
         max-width: 900px;
 
         margin-top: 14px;
@@ -385,7 +371,6 @@
         line-height: 1.8;
     }
 
-
     /* =====================================================
        CTA
     ===================================================== */
@@ -393,9 +378,7 @@
     .chasers-cta {
         width: min(1100px, 90%);
 
-        margin:
-            0 auto 100px;
-
+        margin: 0 auto 100px;
         padding: 80px 30px;
 
         text-align: center;
@@ -403,22 +386,19 @@
         background:
             radial-gradient(
                 circle at center,
-                rgba(0,217,255,.12),
+                rgba(0, 217, 255, 0.12),
                 transparent 60%
             ),
             #07101d;
 
-        border:
-            1px solid rgba(0,217,255,.17);
-
+        border: 1px solid rgba(0, 217, 255, 0.17);
         border-radius: 24px;
     }
 
     .chasers-cta h2 {
         margin-top: 10px;
 
-        font-size:
-            clamp(38px, 6vw, 70px);
+        font-size: clamp(38px, 6vw, 70px);
 
         line-height: 1;
     }
@@ -427,7 +407,7 @@
         color: #00d9ff;
     }
 
-    .chasers-cta p {
+    .chasers-cta p:not(.eyebrow) {
         margin-top: 15px;
 
         color: #8193ad;
@@ -435,10 +415,8 @@
 
     .chasers-cta .hero-buttons {
         justify-content: center;
-
         margin-top: 25px;
     }
-
 
     /* =====================================================
        RESPONSIVE
@@ -447,17 +425,13 @@
     @media (max-width: 900px) {
 
         .chasers-profiles {
-            grid-template-columns:
-                1fr 1fr;
+            grid-template-columns: 1fr 1fr;
         }
 
         .gallery {
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
         }
-
     }
-
 
     @media (max-width: 600px) {
 
@@ -468,15 +442,19 @@
         .chasers-hero {
             min-height: 520px;
 
-            padding:
-                80px 20px;
+            padding: 80px 20px;
 
             text-align: center;
         }
 
+        .chasers-hero::after {
+            right: 50%;
+            transform:
+                translate(50%, -50%);
+        }
+
         .chasers-hero h1 {
             font-size: 48px;
-
             letter-spacing: -2px;
         }
 
@@ -485,29 +463,22 @@
         }
 
         .chasers-section {
-            width:
-                calc(100% - 32px);
-
-            padding:
-                65px 0;
+            width: calc(100% - 32px);
+            padding: 65px 0;
         }
 
         .chasers-profiles {
-            grid-template-columns:
-                1fr;
+            grid-template-columns: 1fr;
         }
 
         .gallery {
-            grid-template-columns:
-                1fr;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 210px;
         }
 
         .gallery-item.large {
-            grid-column:
-                span 1;
-
-            grid-row:
-                span 1;
+            grid-column: span 1;
+            grid-row: span 1;
         }
 
         .info-box {
@@ -515,15 +486,13 @@
         }
 
         .chasers-cta {
-            width:
-                calc(100% - 32px);
+            width: calc(100% - 32px);
 
-            padding:
-                60px 20px;
+            padding: 60px 20px;
+
+            margin-bottom: 65px;
         }
-
     }
-
 </style>
 ```
 
@@ -549,7 +518,6 @@
     ☰
 </button>
 
-
 <nav
     id="mainNav"
     class="main-nav"
@@ -572,7 +540,6 @@
         </div>
 
     </div>
-
 
     <div class="menu-group">
 
@@ -624,9 +591,7 @@
 
     </div>
 
-
     <div class="menu-separator"></div>
-
 
     <div class="menu-group">
 
@@ -654,9 +619,7 @@
 
     </div>
 
-
     <div class="menu-separator"></div>
-
 
     <div class="menu-group">
 
@@ -690,9 +653,7 @@
 
     </div>
 
-
     <div class="menu-separator"></div>
-
 
     <div class="menu-group">
 
@@ -738,17 +699,10 @@
 
     </div>
 
-
     <div class="menu-footer">
-
         <span>🌪️</span>
-
-        <span>
-            NEVER STOP CHASING
-        </span>
-
+        <span>NEVER STOP CHASING</span>
         <span>V2</span>
-
     </div>
 
 </nav>
@@ -786,7 +740,6 @@
 
 </section>
 
-
 <!-- =====================================================
      PROFILS
 ====================================================== -->
@@ -811,11 +764,7 @@
 
     </div>
 
-
     <div class="chasers-profiles">
-
-
-        <!-- SEAN CASEY -->
 
         <article class="chaser-profile">
 
@@ -853,9 +802,6 @@
 
         </article>
 
-
-        <!-- JOSHUA WURMAN -->
-
         <article class="chaser-profile">
 
             <img
@@ -892,9 +838,6 @@
 
         </article>
 
-
-        <!-- REED TIMMER -->
-
         <article class="chaser-profile">
 
             <img
@@ -906,7 +849,7 @@
             <div class="profile-content">
 
                 <div class="profile-role">
-                    METEOROLOGIE • CHASING
+                    MÉTÉOROLOGIE • CHASING
                 </div>
 
                 <h3>
@@ -934,7 +877,6 @@
 
 </section>
 
-
 <!-- =====================================================
      TIV
 ====================================================== -->
@@ -959,32 +901,30 @@
 
     </div>
 
-
     <div class="gallery">
 
         <div class="gallery-item large">
 
             <img
                 src="../assets/images/Tiv1.jpg"
-                alt="TIV"
+                alt="Tornado Intercept Vehicle TIV"
                 loading="lazy">
 
             <span class="gallery-label">
-                TIV
+                TIV 01
             </span>
 
         </div>
-
 
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Tiv2.jpg"
-                alt="TIV"
+                alt="Tornado Intercept Vehicle TIV"
                 loading="lazy">
 
             <span class="gallery-label">
-                TIV
+                TIV 02
             </span>
 
         </div>
@@ -993,9 +933,8 @@
 
 </section>
 
-
 <!-- =====================================================
-     DOW
+     DOPPLER ON WHEELS
 ====================================================== -->
 
 <section class="chasers-section">
@@ -1018,15 +957,13 @@
 
     </div>
 
-
     <div class="gallery">
-
 
         <div class="gallery-item large">
 
             <img
                 src="../assets/images/Dow1.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 01"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1035,12 +972,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow2.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 02"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1049,12 +985,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow3.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 03"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1063,12 +998,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow4.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 04"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1077,12 +1011,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow5.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 05"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1091,12 +1024,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow6.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 06"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1105,12 +1037,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow7.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 07"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1119,12 +1050,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dow8.jpg"
-                alt="Doppler on Wheels"
+                alt="Doppler on Wheels 08"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1136,7 +1066,6 @@
     </div>
 
 </section>
-
 
 <!-- =====================================================
      DOMINATOR
@@ -1162,15 +1091,13 @@
 
     </div>
 
-
     <div class="gallery">
-
 
         <div class="gallery-item large">
 
             <img
                 src="../assets/images/Dom1.jpg"
-                alt="Dominator"
+                alt="Dominator 01"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1179,12 +1106,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dom2.jpg"
-                alt="Dominator"
+                alt="Dominator 02"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1193,12 +1119,11 @@
 
         </div>
 
-
         <div class="gallery-item">
 
             <img
                 src="../assets/images/Dom3.jpg"
-                alt="Dominator"
+                alt="Dominator 03"
                 loading="lazy">
 
             <span class="gallery-label">
@@ -1210,7 +1135,6 @@
     </div>
 
 </section>
-
 
 <!-- =====================================================
      INFO
@@ -1240,7 +1164,6 @@
     </div>
 
 </section>
-
 
 <!-- =====================================================
      CTA
@@ -1300,7 +1223,7 @@
 
 </footer>
 
-<script src="../script.js?v=8" defer></script>
+<script src="../script.js?v=9" defer></script>
 
 </body>
 </html>
