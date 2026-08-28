@@ -1,14 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Orages — STORMLAB</title>
-
-<meta name="description"
-content="STORMLAB — Comprendre les orages, leur formation et leur évolution.">
-
+<meta name="description" content="STORMLAB — Comprendre les orages, leur formation et leur évolution.">
 <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -16,29 +13,36 @@ content="STORMLAB — Comprendre les orages, leur formation et leur évolution."
 
 <header class="navbar">
 
-<a href="../index.html" class="logo">
-🌪️ STORMLAB
-</a>
+<a href="../index.html" class="logo"><span class="logo-icon">🌪️</span><span>STORMLAB</span></a>
 
 <nav class="main-nav">
-<a href="../index.html">Accueil</a>
+<a href="../index.html">🏠 Accueil</a>
 <a href="manuel.html">📚 Manuel</a>
 <a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
+<a href="orages.html" class="active">🌩️ Orages</a>
 <a href="supercellules.html">🌀 Supercellules</a>
 <a href="tornades.html">🌪️ Tornades</a>
 <a href="foudre.html">⚡ Foudre</a>
 <a href="radar.html">📡 Radar</a>
 <a href="satellites.html">🛰️ Satellites</a>
+<a href="storm-chasing.html">🚗 Storm Chasing</a>
+<a href="reed-timmer.html">❤️ Reed Timmer</a>
+<a href="galerie.html">📸 Galerie</a>
+<a href="cartes.html">🗺️ Cartes météo</a>
+<a href="alertes.html">🚨 Alertes</a>
+<a href="quiz.html">🧠 Quiz</a>
+<a href="laboratoire.html">🔬 Laboratoire</a>
+<a href="videos.html">🎥 Vidéos</a>
+<a href="actualites.html">📰 Actualités</a>
 </nav>
 
-<button class="mobile-menu-btn">☰</button>
+<button class="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
 <div class="mobile-menu">
 <a href="../index.html">🏠 Accueil</a>
 <a href="manuel.html">📚 Manuel</a>
 <a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="orages.html">🌩️ Orages</a>
+<a href="orages.html" class="active">🌩️ Orages</a>
 <a href="supercellules.html">🌀 Supercellules</a>
 <a href="tornades.html">🌪️ Tornades</a>
 <a href="foudre.html">⚡ Foudre</a>
@@ -60,12 +64,9 @@ content="STORMLAB — Comprendre les orages, leur formation et leur évolution."
 <main>
 
 <section class="hero">
-
 <div class="hero-content">
 
-<p class="eyebrow">
-STORMLAB • PHÉNOMÈNES
-</p>
+<p class="eyebrow">STORMLAB • PHÉNOMÈNES</p>
 
 <h1>
 LES
@@ -73,9 +74,9 @@ LES
 </h1>
 
 <p class="hero-text">
-Un orage est un phénomène atmosphérique associé
-à un cumulonimbus et pouvant produire des éclairs,
-du tonnerre, de fortes pluies, de la grêle ou des vents violents.
+Un orage est associé à un cumulonimbus et peut produire
+des éclairs, du tonnerre, de fortes pluies, de la grêle
+ou des vents violents.
 </p>
 
 <div class="hero-buttons">
@@ -86,28 +87,26 @@ du tonnerre, de fortes pluies, de la grêle ou des vents violents.
 </div>
 
 <div class="hero-symbol">🌩️</div>
-
 </section>
 
 <section class="section">
 
 <div class="storm-feature">
 
-<img src="../assets/images/orage.jpg" alt="Orage">
+<img src="../assets/images/orage.jpg" alt="Orage" loading="eager">
 
 <div class="storm-feature-content">
 
 <p class="eyebrow">OBSERVATION</p>
 
 <h2>
-Quand l'atmosphère
-<span>se déchaîne.</span>
+QUAND L'ATMOSPHÈRE
+<span>SE DÉCHAÎNE.</span>
 </h2>
 
 <p>
-Les orages apparaissent lorsque l'atmosphère
-présente des conditions favorables à de puissants
-mouvements verticaux de l'air.
+Les orages apparaissent lorsque l'atmosphère présente
+des conditions favorables à de puissants mouvements verticaux.
 </p>
 
 </div>
@@ -118,18 +117,12 @@ mouvements verticaux de l'air.
 <section class="section">
 
 <div class="section-title">
-
 <p>01 • FORMATION</p>
-
 <h2>
 COMMENT NAÎT
 <span>UN ORAGE ?</span>
 </h2>
-
-<span>
-Plusieurs ingrédients atmosphériques doivent être réunis.
-</span>
-
+<span>Plusieurs ingrédients atmosphériques doivent être réunis.</span>
 </div>
 
 <div class="cards">
@@ -137,44 +130,31 @@ Plusieurs ingrédients atmosphériques doivent être réunis.
 <article class="card">
 <span>🌡️</span>
 <h3>Instabilité</h3>
-<p>
-De l'air chaud et humide près du sol peut favoriser
-de puissants mouvements ascendants.
-</p>
+<p>De l'air chaud et humide près du sol peut favoriser des ascendances.</p>
 </article>
 
 <article class="card">
 <span>💨</span>
 <h3>Ascendance</h3>
-<p>
-L'air chaud monte, se refroidit et permet la condensation
-de la vapeur d'eau.
-</p>
+<p>L'air chaud monte et se refroidit progressivement.</p>
 </article>
 
 <article class="card">
 <span>☁️</span>
 <h3>Cumulonimbus</h3>
-<p>
-Le nuage d'orage peut atteindre plusieurs kilomètres
-d'altitude.
-</p>
+<p>Le nuage d'orage peut atteindre plusieurs kilomètres d'altitude.</p>
 </article>
 
 <article class="card">
 <span>⚡</span>
 <h3>Électricité</h3>
-<p>
-Les collisions entre particules participent à la séparation
-des charges électriques.
-</p>
+<p>Les interactions entre particules participent aux charges électriques.</p>
 </article>
 
 </div>
 </section>
 
 <section class="manual">
-
 <div class="manual-content">
 
 <p class="eyebrow">02 • CYCLE DE VIE</p>
@@ -187,29 +167,23 @@ MATURITÉ.
 
 <p>
 Un orage isolé passe généralement par différentes phases.
-La phase mature est celle où les courants ascendants
-et descendants sont particulièrement actifs.
+La phase mature est celle où les courants ascendants et descendants
+sont particulièrement actifs.
 </p>
 
-<a href="supercellules.html" class="btn primary">
-🌀 Découvrir les supercellules
-</a>
+<a href="supercellules.html" class="btn primary">🌀 Supercellules</a>
 
 </div>
-
 </section>
 
 <section class="section dark-section">
 
 <div class="section-title">
-
 <p>03 • PHÉNOMÈNES ASSOCIÉS</p>
-
 <h2>
 UN ORAGE PEUT DEVENIR
 <span>VIOLENT.</span>
 </h2>
-
 </div>
 
 <div class="cards">
@@ -217,74 +191,40 @@ UN ORAGE PEUT DEVENIR
 <article class="card">
 <span>⚡</span>
 <h3>Foudre</h3>
-<p>
-Décharges électriques produisant des éclairs et du tonnerre.
-</p>
+<p>Décharges électriques produisant éclairs et tonnerre.</p>
 <a href="foudre.html" class="btn primary">Explorer →</a>
 </article>
 
 <article class="card">
 <span>🧊</span>
 <h3>Grêle</h3>
-<p>
-Des morceaux de glace peuvent se former dans les puissants
-courants ascendants.
-</p>
+<p>Des morceaux de glace peuvent se former dans les ascendances.</p>
 </article>
 
 <article class="card">
 <span>💨</span>
 <h3>Vents violents</h3>
-<p>
-Les courants descendants peuvent provoquer de fortes rafales.
-</p>
+<p>Les courants descendants peuvent provoquer de fortes rafales.</p>
 </article>
 
 <article class="card">
 <span>🌧️</span>
 <h3>Pluies intenses</h3>
-<p>
-Certaines cellules peuvent produire des précipitations
-très importantes en peu de temps.
-</p>
+<p>Certaines cellules peuvent produire de fortes précipitations.</p>
 </article>
 
 </div>
-
-</section>
-
-<section class="chasing">
-
-<p class="eyebrow">STORMLAB</p>
-
-<h2>
-RESPECT THE
-<span>STORM.</span>
-</h2>
-
-<p>
-Comprendre le phénomène est la première étape.
-</p>
-
-<a href="manuel.html" class="btn secondary">
-📚 Continuer le manuel
-</a>
-
 </section>
 
 </main>
 
 <footer>
-
 <div class="footer-logo">🌪️ STORMLAB</div>
-
 <p>Never Stop Chasing.</p>
-
 <p class="copyright">© 2026 STORMLAB</p>
-
 </footer>
 
 <script src="../script.js"></script>
-
 </body>
 </html>
+```
