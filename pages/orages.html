@@ -1,378 +1,642 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Orages — STORMLAB</title>
+    <meta charset="UTF-8">
 
-<meta name="description"
-content="STORMLAB — Comprendre les orages, leur formation et leur évolution.">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="../style.css">
+    <meta name="description"
+          content="STORMLAB — Comprendre les orages, leur formation, leur évolution et leurs phénomènes associés.">
+
+    <meta name="theme-color" content="#000000">
+
+    <title>Orages — STORMLAB</title>
+
+    <link rel="stylesheet" href="../style.css">
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
 <header class="navbar">
 
-<a href="../index.html" class="logo">
-🌪️ STORMLAB
-</a>
+    <a href="../index.html" class="logo">
 
-<nav class="main-nav">
+        <span class="logo-icon">🌪️</span>
+        <span>STORMLAB</span>
 
-<a href="../index.html">Accueil</a>
-<a href="manuel.html">📚 Manuel</a>
-<a href="meteorologie.html">🌧️ Météorologie</a>
-<a href="supercellules.html">🌀 Supercellules</a>
-<a href="tornades.html">🌪️ Tornades</a>
-<a href="radar.html">📡 Radar</a>
+    </a>
 
-</nav>
+
+    <nav class="main-nav" aria-label="Navigation principale">
+
+        <a href="../index.html">Accueil</a>
+
+        <a href="manuel.html">📚 Manuel</a>
+
+        <a href="orages.html" class="active">🌩️ Orages</a>
+
+        <a href="supercellules.html">🌀 Supercellules</a>
+
+        <a href="tornades.html">🌪️ Tornades</a>
+
+        <a href="foudre.html">⚡ Foudre</a>
+
+        <a href="radar.html">📡 Radar</a>
+
+        <a href="satellites.html">🛰️ Satellites</a>
+
+        <a href="storm-chasing.html">🚗 Chasing</a>
+
+        <a href="reed-timmer.html">❤️ Reed Timmer</a>
+
+        <a href="galerie.html">📸 Galerie</a>
+
+        <a href="cartes.html">🗺️ Cartes</a>
+
+        <a href="alertes.html">🚨 Alertes</a>
+
+        <a href="quiz.html">🧠 Quiz</a>
+
+        <a href="laboratoire.html">🔬 Laboratoire</a>
+
+        <a href="videos.html">🎥 Vidéos</a>
+
+        <a href="actualites.html">📰 Actualités</a>
+
+    </nav>
+
+
+    <!-- MENU MOBILE -->
+
+    <button
+        class="mobile-menu-btn"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </header>
 
 
+<!-- =========================================
+     MENU MOBILE
+========================================= -->
+
+<div class="mobile-menu" aria-hidden="true">
+
+    <div class="mobile-menu-header">
+
+        <strong>
+            STORMLAB
+        </strong>
+
+        <button
+            class="mobile-close"
+            type="button"
+            aria-label="Fermer le menu">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div class="mobile-menu-links">
+
+        <a href="../index.html">
+            🏠 Accueil
+        </a>
+
+        <a href="manuel.html">
+            📚 Manuel
+        </a>
+
+        <a href="orages.html" class="active">
+            🌩️ Orages
+        </a>
+
+        <a href="supercellules.html">
+            🌀 Supercellules
+        </a>
+
+        <a href="tornades.html">
+            🌪️ Tornades
+        </a>
+
+        <a href="foudre.html">
+            ⚡ Foudre
+        </a>
+
+        <a href="radar.html">
+            📡 Radar
+        </a>
+
+        <a href="satellites.html">
+            🛰️ Satellites
+        </a>
+
+        <a href="storm-chasing.html">
+            🚗 Storm Chasing
+        </a>
+
+        <a href="reed-timmer.html">
+            ❤️ Reed Timmer
+        </a>
+
+        <a href="galerie.html">
+            📸 Galerie
+        </a>
+
+        <a href="cartes.html">
+            🗺️ Cartes météo
+        </a>
+
+        <a href="alertes.html">
+            🚨 Alertes
+        </a>
+
+        <a href="quiz.html">
+            🧠 Quiz
+        </a>
+
+        <a href="laboratoire.html">
+            🔬 Laboratoire
+        </a>
+
+        <a href="videos.html">
+            🎥 Vidéos
+        </a>
+
+        <a href="actualites.html">
+            📰 Actualités
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="menu-overlay"></div>
+
+
+
+<!-- =========================================
+     CONTENU
+========================================= -->
+
 <main>
 
 
-<!-- HERO -->
+<!-- =========================================
+     HERO
+========================================= -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<p class="eyebrow">
-STORMLAB • PHÉNOMÈNES
-</p>
-
-<h1>
-LES
-<span>ORAGES.</span>
-</h1>
-
-<p class="hero-text">
-
-Un orage est un phénomène atmosphérique associé
-à un cumulonimbus et pouvant produire des éclairs,
-du tonnerre, de fortes pluies, de la grêle ou des vents violents.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="manuel.html"
-class="btn primary">
-📚 Manuel
-</a>
-
-<a href="supercellules.html"
-class="btn secondary">
-🌀 Supercellules
-</a>
-
-</div>
-
-</div>
+        <p class="eyebrow">
+            STORMLAB • PHÉNOMÈNES
+        </p>
 
 
-<div class="hero-symbol">
-🌩️
-</div>
+        <h1>
 
-</section>
+            LES
+            <span>ORAGES.</span>
+
+        </h1>
 
 
+        <p class="hero-text">
 
-<!-- IMAGE -->
+            Un orage est un phénomène atmosphérique
+            associé à un cumulonimbus et pouvant produire
+            des éclairs, du tonnerre, de fortes pluies,
+            de la grêle ou des vents violents.
 
-<section class="section">
+        </p>
 
-<div class="storm-feature">
 
-<img
-src="../assets/images/orage.jpg"
-alt="Orage"
-loading="eager">
+        <div class="hero-buttons">
 
-<div class="storm-feature-content">
+            <a href="manuel.html"
+               class="btn primary">
 
-<p class="eyebrow">
-OBSERVATION
-</p>
+                📚 Manuel
 
-<h2>
-Quand l'atmosphère
-<span>se déchaîne.</span>
-</h2>
+            </a>
 
-<p>
-Les orages apparaissent lorsque l'atmosphère
-présente des conditions favorables à de puissants
-mouvements verticaux de l'air.
-</p>
 
-</div>
+            <a href="supercellules.html"
+               class="btn secondary">
 
-</div>
+                🌀 Supercellules
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-symbol"
+         aria-hidden="true">
+
+        🌩️
+
+    </div>
 
 </section>
 
 
 
-<!-- FORMATION -->
+<!-- =========================================
+     IMAGE
+========================================= -->
 
-<section class="section">
+<section class="section reveal">
 
-<div class="section-title">
-
-<p>
-01 • FORMATION
-</p>
-
-<h2>
-Comment naît
-<span>un orage ?</span>
-</h2>
-
-<span>
-Plusieurs ingrédients atmosphériques doivent être réunis.
-</span>
-
-</div>
+    <div class="storm-feature">
 
 
-<div class="cards">
+        <div class="storm-feature-image">
+
+            <img
+                src="../assets/images/orage.jpg"
+                alt="Orage"
+                loading="eager">
+
+        </div>
 
 
-<article class="card">
+        <div class="storm-feature-content">
 
-<span>🌡️</span>
-
-<h3>
-Instabilité
-</h3>
-
-<p>
-De l'air chaud et humide près du sol peut favoriser
-de puissants mouvements ascendants.
-</p>
-
-</article>
+            <p class="eyebrow">
+                OBSERVATION
+            </p>
 
 
-<article class="card">
+            <h2>
 
-<span>💨</span>
+                Quand l'atmosphère
+                <span>se déchaîne.</span>
 
-<h3>
-Ascendance
-</h3>
-
-<p>
-L'air chaud monte, se refroidit et permet la condensation
-de la vapeur d'eau.
-</p>
-
-</article>
+            </h2>
 
 
-<article class="card">
+            <p>
 
-<span>☁️</span>
+                Les orages apparaissent lorsque
+                l'atmosphère présente des conditions
+                favorables à de puissants mouvements
+                verticaux de l'air.
 
-<h3>
-Cumulonimbus
-</h3>
+            </p>
 
-<p>
-Le nuage d'orage peut atteindre plusieurs kilomètres
-d'altitude.
-</p>
+        </div>
 
-</article>
-
-
-<article class="card">
-
-<span>⚡</span>
-
-<h3>
-Électricité
-</h3>
-
-<p>
-Les collisions entre particules de glace et d'eau
-participent à la séparation des charges électriques.
-</p>
-
-</article>
-
-</div>
+    </div>
 
 </section>
 
 
 
-<!-- CYCLE -->
+<!-- =========================================
+     FORMATION
+========================================= -->
 
-<section class="manual">
+<section class="section reveal">
 
-<div class="manual-content">
+    <div class="section-title">
 
-<p class="eyebrow">
-02 • CYCLE DE VIE
-</p>
-
-<h2>
-Naissance.
-Maturité.
-<span>Dissipation.</span>
-</h2>
-
-<p>
-
-Un orage isolé passe généralement par différentes phases.
-La phase mature est celle où les courants ascendants
-et descendants sont particulièrement actifs.
-
-</p>
-
-<a href="supercellules.html"
-class="btn primary">
-
-🌀 Découvrir les supercellules
-
-</a>
-
-</div>
-
-</section>
+        <p>
+            01 • FORMATION
+        </p>
 
 
+        <h2>
 
-<!-- DANGERS -->
+            Comment naît
+            <span>un orage ?</span>
 
-<section class="section dark-section">
-
-<div class="section-title">
-
-<p>
-03 • PHÉNOMÈNES ASSOCIÉS
-</p>
-
-<h2>
-Un orage peut devenir
-<span>violent.</span>
-</h2>
-
-</div>
+        </h2>
 
 
-<div class="cards">
+        <span>
+
+            Plusieurs ingrédients atmosphériques
+            doivent être réunis.
+
+        </span>
+
+    </div>
 
 
-<article class="card">
-
-<span>⚡</span>
-
-<h3>
-Foudre
-</h3>
-
-<p>
-Décharges électriques produisant des éclairs
-et du tonnerre.
-</p>
-
-<a href="foudre.html"
-class="btn primary">
-
-Explorer →
-
-</a>
-
-</article>
+    <div class="cards">
 
 
-<article class="card">
+        <article class="card">
 
-<span>🧊</span>
+            <div class="card-icon">
+                🌡️
+            </div>
 
-<h3>
-Grêle
-</h3>
+            <h3>
+                Instabilité
+            </h3>
 
-<p>
-Des morceaux de glace peuvent se former dans
-les puissants courants ascendants.
-</p>
+            <p>
 
-</article>
+                De l'air chaud et humide près du sol
+                peut favoriser de puissants mouvements
+                ascendants.
 
+            </p>
 
-<article class="card">
-
-<span>💨</span>
-
-<h3>
-Vents violents
-</h3>
-
-<p>
-Les courants descendants peuvent provoquer
-de fortes rafales.
-</p>
-
-</article>
+        </article>
 
 
-<article class="card">
+        <article class="card">
 
-<span>🌧️</span>
+            <div class="card-icon">
+                💨
+            </div>
 
-<h3>
-Pluies intenses
-</h3>
+            <h3>
+                Ascendance
+            </h3>
 
-<p>
-Certaines cellules peuvent produire des précipitations
-très importantes en peu de temps.
-</p>
+            <p>
 
-</article>
+                L'air chaud monte, se refroidit et permet
+                la condensation de la vapeur d'eau.
 
-</div>
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                ☁️
+            </div>
+
+            <h3>
+                Cumulonimbus
+            </h3>
+
+            <p>
+
+                Le nuage d'orage peut atteindre
+                plusieurs kilomètres d'altitude.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Électricité
+            </h3>
+
+            <p>
+
+                Les collisions entre particules de glace
+                et d'eau participent à la séparation
+                des charges électriques.
+
+            </p>
+
+        </article>
+
+
+    </div>
 
 </section>
 
 
 
-<!-- FINAL -->
+<!-- =========================================
+     CYCLE DE VIE
+========================================= -->
 
-<section class="chasing">
+<section class="manual reveal">
 
-<p class="eyebrow">
-STORMLAB
-</p>
+    <div class="manual-content">
 
-<h2>
-RESPECT THE
-<span>STORM.</span>
-</h2>
+        <p class="eyebrow">
+            02 • CYCLE DE VIE
+        </p>
 
-<p>
-Comprendre le phénomène est la première étape.
-</p>
 
-<a href="manuel.html"
-class="btn secondary">
+        <h2>
 
-📚 Continuer le manuel
+            Naissance.
+            Maturité.
+            <span>Dissipation.</span>
 
-</a>
+        </h2>
+
+
+        <p>
+
+            Un orage isolé passe généralement par
+            différentes phases. La phase mature est
+            celle où les courants ascendants et
+            descendants sont particulièrement actifs.
+
+        </p>
+
+
+        <a href="supercellules.html"
+           class="btn primary">
+
+            🌀 Découvrir les supercellules
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PHÉNOMÈNES ASSOCIÉS
+========================================= -->
+
+<section class="section dark-section reveal">
+
+    <div class="section-title">
+
+        <p>
+            03 • PHÉNOMÈNES ASSOCIÉS
+        </p>
+
+
+        <h2>
+
+            Un orage peut devenir
+            <span>violent.</span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Foudre
+            </h3>
+
+            <p>
+
+                Décharges électriques produisant
+                des éclairs et du tonnerre.
+
+            </p>
+
+
+            <a href="foudre.html"
+               class="btn primary">
+
+                Explorer →
+
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                🧊
+            </div>
+
+            <h3>
+                Grêle
+            </h3>
+
+            <p>
+
+                Des morceaux de glace peuvent se former
+                dans les puissants courants ascendants.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                💨
+            </div>
+
+            <h3>
+                Vents violents
+            </h3>
+
+            <p>
+
+                Les courants descendants peuvent provoquer
+                de fortes rafales.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                🌧️
+            </div>
+
+            <h3>
+                Pluies intenses
+            </h3>
+
+            <p>
+
+                Certaines cellules peuvent produire
+                des précipitations très importantes
+                en peu de temps.
+
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL
+========================================= -->
+
+<section class="chasing reveal">
+
+    <p class="eyebrow">
+        STORMLAB
+    </p>
+
+
+    <h2>
+
+        RESPECT THE
+        <span>STORM.</span>
+
+    </h2>
+
+
+    <p>
+        Comprendre le phénomène est la première étape.
+    </p>
+
+
+    <a href="manuel.html"
+       class="btn secondary">
+
+        📚 Continuer le manuel
+
+    </a>
 
 </section>
 
@@ -381,25 +645,54 @@ class="btn secondary">
 
 
 
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer>
 
-<div class="footer-logo">
-🌪️ STORMLAB
-</div>
+    <div class="footer-logo">
+        🌪️ STORMLAB
+    </div>
 
-<p>
-Never Stop Chasing.
-</p>
 
-<p class="copyright">
-© 2026 STORMLAB
-</p>
+    <p>
+        Never Stop Chasing.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="manuel.html">
+            Manuel
+        </a>
+
+        <a href="galerie.html">
+            Galerie
+        </a>
+
+        <a href="storm-chasing.html">
+            Storm Chasing
+        </a>
+
+        <a href="alertes.html">
+            Alertes
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+        © 2026 STORMLAB
+    </p>
 
 </footer>
+
 
 
 <script src="../script.js"></script>
 
 </body>
+
 </html>
 ```
