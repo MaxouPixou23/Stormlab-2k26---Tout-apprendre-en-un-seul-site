@@ -1,297 +1,196 @@
-/* =========================================
+```javascript
+/* =========================================================
    STORMLAB V2 — SCRIPT PRINCIPAL
-========================================= */
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================
-       MENU HAMBURGER
-    ===================================== */
-
+    const navbar = document.querySelector(".navbar");
     const menuButton = document.querySelector(".mobile-menu-btn");
-    const mobileMenu = document.querySelector(".mobile-menu");
+    const menuLinks = document.querySelectorAll(".main-nav a");
 
-    if (menuButton && mobileMenu) {
+    if (!navbar || !menuButton) {
+        console.warn("STORMLAB : navbar ou bouton de menu introuvable.");
+        return;
+    }
 
-        menuButton.addEventListener("click", (event) => {
 
-            event.stopPropagation();
+    /* =====================================================
+       MENU ☰
+    ===================================================== */
 
-            const isOpen =
-                mobileMenu.classList.toggle("open");
+    const toggleMenu = () => {
 
-            menuButton.classList.toggle("active", isOpen);
+        const isOpen = navbar.classList.toggle("menu-open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Fermer le menu" : "Ouvrir le menu"
+        );
+
+        menuButton.textContent = isOpen ? "✕" : "☰";
+
+        /*
+         * Empêche le défilement de la page lorsque
+         * le menu plein écran est ouvert.
+         */
+        document.body.style.overflow = isOpen ? "hidden" : "";
+
+    };
+
+
+    menuButton.addEventListener("click", toggleMenu);
+
+
+    /* =====================================================
+       FERMER APRÈS AVOIR CHOISI UNE PAGE
+    ===================================================== */
+
+    menuLinks.forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+            navbar.classList.remove("menu-open");
 
             menuButton.setAttribute(
                 "aria-expanded",
-                isOpen ? "true" : "false"
+                "false"
             );
 
             menuButton.setAttribute(
                 "aria-label",
-                isOpen
-                    ? "Fermer le menu"
-                    : "Ouvrir le menu"
+                "Ouvrir le menu"
             );
 
-        });
+            menuButton.textContent = "☰";
 
-
-        /* Fermer après avoir choisi une catégorie */
-
-        mobileMenu.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                mobileMenu.classList.remove("open");
-
-                menuButton.classList.remove("active");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Ouvrir le menu"
-                );
-
-            });
+            document.body.style.overflow = "";
 
         });
 
-
-        /* Fermer en cliquant à l'extérieur */
-
-        document.addEventListener("click", (event) => {
-
-            if (
-                mobileMenu.classList.contains("open") &&
-                !mobileMenu.contains(event.target) &&
-                !menuButton.contains(event.target)
-            ) {
-
-                mobileMenu.classList.remove("open");
-
-                menuButton.classList.remove("active");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Ouvrir le menu"
-                );
-
-            }
-
-        });
+    });
 
 
-        /* Fermer avec Échap */
+    /* =====================================================
+       FERMER AVEC LA TOUCHE ÉCHAP
+    ===================================================== */
 
-        document.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", (event) => {
 
-            if (
-                event.key === "Escape" &&
-                mobileMenu.classList.contains("open")
-            ) {
+        if (event.key === "Escape") {
 
-                mobileMenu.classList.remove("open");
+            navbar.classList.remove("menu-open");
 
-                menuButton.classList.remove("active");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Ouvrir le menu"
-                );
-
-                menuButton.focus();
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================
-       NAVBAR AU SCROLL
-    ===================================== */
-
-    const navbar = document.querySelector(".navbar");
-
-    if (navbar) {
-
-        const updateNavbar = () => {
-
-            if (window.scrollY > 40) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-
-        };
-
-        updateNavbar();
-
-        window.addEventListener(
-            "scroll",
-            updateNavbar,
-            { passive: true }
-        );
-
-    }
-
-
-    /* =====================================
-       ANIMATIONS AU DÉFILEMENT
-    ===================================== */
-
-    const animatedElements =
-        document.querySelectorAll(
-            ".card, .section-title, .storm-feature, .manual, .chasing"
-        );
-
-
-    if ("IntersectionObserver" in window) {
-
-        const observer =
-            new IntersectionObserver(
-                (entries, observer) => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("visible");
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
             );
 
+            menuButton.setAttribute(
+                "aria-label",
+                "Ouvrir le menu"
+            );
 
-        animatedElements.forEach(element => {
+            menuButton.textContent = "☰";
 
-            observer.observe(element);
+            document.body.style.overflow = "";
 
-        });
+        }
 
-    } else {
-
-        /* Compatibilité navigateurs anciens */
-
-        animatedElements.forEach(element => {
-
-            element.classList.add("visible");
-
-        });
-
-    }
+    });
 
 
-    /* =====================================
-       ANNÉE AUTOMATIQUE
-    ===================================== */
+    /* =====================================================
+       FERMER SI ON CLIQUE EN DEHORS DU MENU
+    ===================================================== */
 
-    document
-        .querySelectorAll(".copyright")
-        .forEach(element => {
+    document.addEventListener("click", (event) => {
 
-            element.textContent =
-                `© ${new Date().getFullYear()} STORMLAB`;
+        if (!navbar.classList.contains("menu-open")) {
+            return;
+        }
 
-        });
+        const clickedInsideNavbar = navbar.contains(event.target);
 
+        if (!clickedInsideNavbar) {
 
-    /* =====================================
-       LIEN ACTIF
-    ===================================== */
+            navbar.classList.remove("menu-open");
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .toLowerCase();
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
+            menuButton.setAttribute(
+                "aria-label",
+                "Ouvrir le menu"
+            );
 
-    document
-        .querySelectorAll(
-            ".main-nav a, .mobile-menu a"
-        )
-        .forEach(link => {
+            menuButton.textContent = "☰";
 
-            const linkPage =
-                link.getAttribute("href");
+            document.body.style.overflow = "";
 
-            if (!linkPage) return;
+        }
 
-            const cleanLink =
-                linkPage
-                    .split("/")
-                    .pop()
-                    .toLowerCase();
-
-            if (
-                cleanLink === currentPage ||
-                (
-                    currentPage === "" &&
-                    cleanLink === "index.html"
-                )
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
+    });
 
 
-    /* =====================================
-       EMPÊCHER LES LIENS CASSÉS
-    ===================================== */
+    /* =====================================================
+       EFFET NAVBAR AU SCROLL
+    ===================================================== */
 
-    document
-        .querySelectorAll("a[href]")
-        .forEach(link => {
+    const updateNavbar = () => {
 
-            link.addEventListener("click", () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
 
-                link.classList.add("clicked");
-
-                setTimeout(() => {
-
-                    link.classList.remove("clicked");
-
-                }, 300);
-
-            });
-
-        });
+    };
 
 
-    /* =====================================
-       CHARGEMENT TERMINÉ
-    ===================================== */
+    window.addEventListener(
+        "scroll",
+        updateNavbar,
+        { passive: true }
+    );
 
-    document.body.classList.add("loaded");
+    updateNavbar();
+
+
+    /* =====================================================
+       RETOUR À L'ÉTAT NORMAL SI LA FENÊTRE EST AGRANDIE
+    ===================================================== */
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 1000) {
+
+            navbar.classList.remove("menu-open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                "Ouvrir le menu"
+            );
+
+            menuButton.textContent = "☰";
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
 
 });
+```
