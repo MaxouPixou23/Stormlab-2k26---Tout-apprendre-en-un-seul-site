@@ -1,11 +1,5 @@
 /* =========================================================
-   STORMLAB V2
-   STYLE.CSS COMPLET
-========================================================= */
-
-
-/* =========================================================
-   RESET
+   STORMLAB V2 — STYLE.CSS
 ========================================================= */
 
 * {
@@ -17,21 +11,18 @@
 html {
     width: 100%;
     min-height: 100%;
-    background: #050505;
-    color: #ffffff;
+    background: #000;
+    color: #fff;
     scroll-behavior: smooth;
 }
 
 body {
     width: 100%;
     min-height: 100vh;
-
-    background: #050505;
-    color: #ffffff;
-
+    background: #000;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-
     overflow-x: hidden;
 }
 
@@ -49,10 +40,6 @@ img {
     max-width: 100%;
 }
 
-button {
-    font: inherit;
-}
-
 
 /* =========================================================
    NAVBAR
@@ -60,7 +47,6 @@ button {
 
 .navbar {
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -73,17 +59,15 @@ button {
 
     padding: 0 35px 0 24px;
 
-    background: rgba(5, 5, 5, 0.97);
+    background: rgba(0, 0, 0, 0.97);
 
-    border-bottom: 1px solid #202020;
+    border-bottom: 1px solid #222;
 
     z-index: 99999;
 }
 
 
-/* =========================================================
-   LOGO
-========================================================= */
+/* LOGO */
 
 .logo {
     display: flex;
@@ -91,30 +75,18 @@ button {
 
     gap: 10px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: 21px;
     font-weight: 900;
 
-    line-height: 1;
-
     white-space: nowrap;
-
-    transition: opacity 0.2s ease;
-}
-
-.logo:hover {
-    opacity: 0.8;
 }
 
 
-/* =========================================================
-   BOUTON MENU
-========================================================= */
+/* BOUTON */
 
 .mobile-menu-btn {
-    position: relative;
-
     width: 46px;
     height: 46px;
 
@@ -124,11 +96,11 @@ button {
     align-items: center;
     justify-content: center;
 
-    margin: 0;
     padding: 0;
+    margin: 0;
 
     background: #101010;
-    color: #ffffff;
+    color: #fff;
 
     border: 1px solid #3a3a3a;
     border-radius: 11px;
@@ -143,43 +115,23 @@ button {
     z-index: 100001;
 
     appearance: none;
-    -webkit-appearance: none;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.15s ease;
 }
 
 .mobile-menu-btn:hover {
-    background: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-}
-
-.mobile-menu-btn:active {
-    transform: scale(0.96);
-}
-
-.mobile-menu-btn:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
+    background: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
 
-/* =========================================================
-   NAVIGATION FERMÉE
-========================================================= */
+/* MENU FERMÉ */
 
 .main-nav {
     display: none;
 }
 
 
-/* =========================================================
-   MENU OUVERT
-========================================================= */
+/* MENU OUVERT */
 
 .navbar.menu-open .main-nav {
     position: fixed;
@@ -198,35 +150,33 @@ button {
 
     padding: 14px;
 
-    margin: 0;
-
-    overflow-x: hidden;
     overflow-y: auto;
+    overflow-x: hidden;
 
     background:
         radial-gradient(
             circle at top right,
-            rgba(255,255,255,0.07),
+            rgba(255,255,255,.07),
             transparent 32%
         ),
         #070707;
 
-    border: 1px solid #2c2c2c;
+    border: 1px solid #2b2b2b;
     border-radius: 16px;
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.85);
+        0 25px 80px rgba(0,0,0,.85);
 
     z-index: 100000;
 
-    animation: stormMenuOpen 0.2s ease-out;
+    animation: menuOpen .18s ease-out;
 }
 
-@keyframes stormMenuOpen {
+@keyframes menuOpen {
 
     from {
         opacity: 0;
-        transform: translateY(-10px) scale(0.98);
+        transform: translateY(-8px) scale(.98);
     }
 
     to {
@@ -246,25 +196,20 @@ button {
 }
 
 .menu-brand {
-    color: #ffffff;
-
+    color: #fff;
     font-size: 22px;
     font-weight: 900;
-
-    letter-spacing: 0.5px;
 }
 
 .menu-version {
     margin-top: 4px;
 
-    color: #666666;
+    color: #666;
 
     font-size: 9px;
     font-weight: 800;
 
     letter-spacing: 2px;
-
-    text-transform: uppercase;
 }
 
 .menu-top-line {
@@ -273,20 +218,18 @@ button {
 
     margin-top: 12px;
 
-    background: #ffffff;
+    background: #fff;
 }
 
 .menu-title {
     margin-top: 10px;
 
-    color: #9a9a9a;
+    color: #999;
 
     font-size: 9px;
     font-weight: 800;
 
     letter-spacing: 2px;
-
-    text-transform: uppercase;
 }
 
 
@@ -297,29 +240,26 @@ button {
 .menu-group {
     display: flex;
     flex-direction: column;
-
     gap: 4px;
 }
 
 .menu-group-title {
     padding: 8px 9px 6px;
 
-    color: #595959;
+    color: #555;
 
     font-size: 9px;
     font-weight: 900;
 
     letter-spacing: 2px;
-
-    text-transform: uppercase;
 }
 
 
 /* =========================================================
-   LIENS DU MENU
+   LIENS
 ========================================================= */
 
-.navbar.menu-open .menu-link {
+.menu-link {
     width: 100%;
     min-height: 46px;
 
@@ -335,8 +275,7 @@ button {
     padding: 9px 11px;
 
     background: #0c0c0c;
-
-    color: #ffffff;
+    color: #fff;
 
     border: 1px solid #1f1f1f;
     border-radius: 10px;
@@ -344,77 +283,49 @@ button {
     font-size: 13px;
     font-weight: 700;
 
-    line-height: 1.3;
-
     transition:
-        background 0.18s ease,
-        color 0.18s ease,
-        border-color 0.18s ease,
-        transform 0.18s ease;
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
 }
 
-.navbar.menu-open .menu-link:hover {
+.menu-link:hover {
     background: #171717;
-
-    border-color: #444444;
-
+    border-color: #444;
     transform: translateX(3px);
 }
 
-.navbar.menu-open .menu-link.active {
-    background: #ffffff;
-
-    color: #000000;
-
-    border-color: #ffffff;
+.menu-link.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
-
-/* =========================================================
-   ICÔNES / TEXTE / FLÈCHES
-========================================================= */
-
 .menu-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     font-size: 17px;
-
     line-height: 1;
 }
 
 .menu-name {
-    min-width: 0;
-
     overflow: hidden;
-
     white-space: nowrap;
-
     text-overflow: ellipsis;
 }
 
 .menu-arrow {
-    color: #555555;
+    color: #555;
 
     font-size: 19px;
 
-    line-height: 1;
-
     text-align: right;
-
-    transition:
-        color 0.18s ease,
-        transform 0.18s ease;
 }
 
 .menu-link:hover .menu-arrow {
-    color: #ffffff;
-    transform: translateX(3px);
+    color: #fff;
 }
 
 .menu-link.active .menu-arrow {
-    color: #777777;
+    color: #777;
 }
 
 
@@ -439,7 +350,7 @@ button {
 
 
 /* =========================================================
-   BAS DU MENU
+   FOOTER DU MENU
 ========================================================= */
 
 .menu-footer {
@@ -452,41 +363,35 @@ button {
 
     border-top: 1px solid #202020;
 
-    color: #555555;
+    color: #555;
 
     font-size: 8px;
     font-weight: 800;
 
     letter-spacing: 2px;
-
-    text-transform: uppercase;
 }
 
 
 /* =========================================================
-   SCROLLBAR DU MENU
+   SCROLLBAR
 ========================================================= */
 
-.navbar.menu-open .main-nav {
+.main-nav {
     scrollbar-width: thin;
-    scrollbar-color: #3a3a3a #070707;
+    scrollbar-color: #333 #070707;
 }
 
-.navbar.menu-open .main-nav::-webkit-scrollbar {
+.main-nav::-webkit-scrollbar {
     width: 7px;
 }
 
-.navbar.menu-open .main-nav::-webkit-scrollbar-track {
+.main-nav::-webkit-scrollbar-track {
     background: #070707;
 }
 
-.navbar.menu-open .main-nav::-webkit-scrollbar-thumb {
-    background: #333333;
+.main-nav::-webkit-scrollbar-thumb {
+    background: #333;
     border-radius: 20px;
-}
-
-.navbar.menu-open .main-nav::-webkit-scrollbar-thumb:hover {
-    background: #555555;
 }
 
 
@@ -496,10 +401,7 @@ button {
 
 main {
     width: 100%;
-    max-width: 100%;
-
     padding-top: 74px;
-
     overflow-x: hidden;
 }
 
@@ -526,43 +428,23 @@ main {
         radial-gradient(
             circle at 80% 45%,
             #1a1a1a 0%,
-            #080808 28%,
-            #000000 67%
+            #080808 30%,
+            #000 65%
         );
 
     overflow: hidden;
 }
 
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent,
-            rgba(255,255,255,0.015),
-            transparent
-        );
-
-    pointer-events: none;
-}
-
 .hero-content {
-    position: relative;
-
-    z-index: 2;
-
     max-width: 850px;
+    position: relative;
+    z-index: 2;
 }
 
 .eyebrow {
     margin-bottom: 18px;
 
-    color: #777777;
+    color: #777;
 
     font-size: 12px;
     font-weight: 800;
@@ -575,11 +457,11 @@ main {
 .hero h1 {
     margin-bottom: 28px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: clamp(55px, 9vw, 120px);
 
-    line-height: 0.9;
+    line-height: .9;
 
     font-weight: 900;
 
@@ -587,7 +469,7 @@ main {
 }
 
 .hero h1 span {
-    color: #777777;
+    color: #777;
 }
 
 .hero-text {
@@ -595,23 +477,17 @@ main {
 
     margin-bottom: 35px;
 
-    color: #aaaaaa;
+    color: #aaa;
 
     font-size: 18px;
 }
 
 .hero-symbol {
-    position: relative;
-
-    z-index: 2;
-
     flex: 0 0 auto;
 
     font-size: clamp(100px, 15vw, 220px);
 
-    opacity: 0.75;
-
-    filter: grayscale(1);
+    opacity: .75;
 
     user-select: none;
 }
@@ -624,9 +500,7 @@ main {
 .hero-buttons {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
     flex-wrap: wrap;
 }
 
@@ -647,10 +521,10 @@ main {
     border: 1px solid transparent;
 
     transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
 }
 
 .btn:hover {
@@ -658,27 +532,25 @@ main {
 }
 
 .btn.primary {
-    background: #ffffff;
-    color: #000000;
-
-    border-color: #ffffff;
+    background: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
 .btn.primary:hover {
-    background: #dddddd;
-    border-color: #dddddd;
+    background: #ddd;
+    border-color: #ddd;
 }
 
 .btn.secondary {
     background: transparent;
-    color: #ffffff;
-
-    border-color: #444444;
+    color: #fff;
+    border-color: #444;
 }
 
 .btn.secondary:hover {
     background: #151515;
-    border-color: #666666;
+    border-color: #666;
 }
 
 
@@ -688,10 +560,8 @@ main {
 
 .section {
     width: 100%;
-
     padding: 105px 8%;
-
-    background: #000000;
+    background: #000;
 }
 
 .dark-section {
@@ -700,14 +570,13 @@ main {
 
 .section-title {
     max-width: 850px;
-
     margin-bottom: 50px;
 }
 
 .section-title > p {
     margin-bottom: 12px;
 
-    color: #666666;
+    color: #666;
 
     font-size: 12px;
     font-weight: 800;
@@ -720,11 +589,11 @@ main {
 .section-title h2 {
     margin-bottom: 18px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: clamp(38px, 6vw, 74px);
 
-    line-height: 0.95;
+    line-height: .95;
 
     font-weight: 900;
 
@@ -732,14 +601,12 @@ main {
 }
 
 .section-title h2 span {
-    color: #777777;
+    color: #777;
 }
 
 .section-title > span {
     display: block;
-
-    color: #888888;
-
+    color: #888;
     font-size: 16px;
 }
 
@@ -763,7 +630,7 @@ main {
 
     background: #080808;
 
-    border: 1px solid #222222;
+    border: 1px solid #222;
     border-radius: 20px;
 }
 
@@ -787,23 +654,22 @@ main {
 .storm-feature-content h2 {
     margin-bottom: 20px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: clamp(35px, 5vw, 64px);
 
-    line-height: 0.95;
+    line-height: .95;
 
     font-weight: 900;
-
-    letter-spacing: -2px;
 }
 
 .storm-feature-content h2 span {
-    color: #777777;
+    color: #777;
 }
 
-.storm-feature-content p:last-child {
-    color: #999999;
+.storm-feature-content p:not(.eyebrow) {
+    margin-bottom: 25px;
+    color: #999;
 }
 
 
@@ -836,9 +702,9 @@ main {
     border-radius: 16px;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
 }
 
 .card:hover {
@@ -846,7 +712,7 @@ main {
 
     background: #101010;
 
-    border-color: #444444;
+    border-color: #444;
 }
 
 .card > span {
@@ -862,7 +728,7 @@ main {
 .card h3 {
     margin-bottom: 12px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: 22px;
 
@@ -872,14 +738,13 @@ main {
 .card p {
     margin-bottom: 20px;
 
-    color: #999999;
+    color: #999;
 
     font-size: 14px;
 }
 
 .card .btn {
     margin-top: auto;
-
     align-self: flex-start;
 }
 
@@ -898,11 +763,11 @@ main {
             circle at 80% 20%,
             #151515 0%,
             #070707 40%,
-            #000000 75%
+            #000 75%
         );
 
-    border-top: 1px solid #111111;
-    border-bottom: 1px solid #111111;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
 }
 
 .manual-content {
@@ -912,11 +777,11 @@ main {
 .manual h2 {
     margin-bottom: 25px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: clamp(42px, 7vw, 88px);
 
-    line-height: 0.92;
+    line-height: .92;
 
     font-weight: 900;
 
@@ -924,7 +789,7 @@ main {
 }
 
 .manual h2 span {
-    color: #777777;
+    color: #777;
 }
 
 .manual p:not(.eyebrow) {
@@ -932,7 +797,7 @@ main {
 
     margin-bottom: 30px;
 
-    color: #999999;
+    color: #999;
 
     font-size: 18px;
 }
@@ -949,17 +814,17 @@ main {
 
     text-align: center;
 
-    background: #000000;
+    background: #000;
 }
 
 .chasing h2 {
     margin-bottom: 20px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: clamp(45px, 8vw, 105px);
 
-    line-height: 0.9;
+    line-height: .9;
 
     font-weight: 900;
 
@@ -967,15 +832,13 @@ main {
 }
 
 .chasing h2 span {
-    color: #777777;
+    color: #777;
 }
 
 .chasing > p:not(.eyebrow) {
     margin-bottom: 30px;
 
-    color: #888888;
-
-    font-size: 17px;
+    color: #888;
 }
 
 
@@ -1003,14 +866,8 @@ main {
 
     background: #080808;
 
-    border: 1px solid #222222;
+    border: 1px solid #222;
     border-radius: 16px;
-
-    transition: transform 0.2s ease;
-}
-
-.storm-photo:hover {
-    transform: translateY(-4px);
 }
 
 .storm-photo img {
@@ -1022,35 +879,18 @@ main {
     object-fit: cover;
 }
 
-.storm-photo::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.8),
-            transparent 60%
-        );
-
-    pointer-events: none;
-}
-
 .storm-photo figcaption {
     position: absolute;
 
     left: 18px;
     bottom: 15px;
 
-    z-index: 2;
-
-    color: #ffffff;
+    color: #fff;
 
     font-size: 15px;
     font-weight: 800;
+
+    z-index: 2;
 }
 
 
@@ -1065,7 +905,7 @@ footer {
 
     text-align: center;
 
-    background: #000000;
+    background: #000;
 
     border-top: 1px solid #202020;
 }
@@ -1073,14 +913,14 @@ footer {
 .footer-logo {
     margin-bottom: 10px;
 
-    color: #ffffff;
+    color: #fff;
 
     font-size: 22px;
     font-weight: 900;
 }
 
 footer p {
-    color: #777777;
+    color: #777;
 }
 
 footer .copyright {
@@ -1093,17 +933,7 @@ footer .copyright {
 
 
 /* =========================================================
-   SÉLECTION
-========================================================= */
-
-::selection {
-    background: #ffffff;
-    color: #000000;
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLETTE
+   RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1000px) {
@@ -1111,19 +941,6 @@ footer .copyright {
     .navbar {
         padding-left: 20px;
         padding-right: 25px;
-    }
-
-    .mobile-menu-btn {
-        width: 46px;
-        height: 46px;
-    }
-
-    .navbar.menu-open .main-nav {
-        right: 25px;
-
-        width: 330px;
-
-        max-width: calc(100vw - 50px);
     }
 
     .cards {
@@ -1147,10 +964,6 @@ footer .copyright {
 
 }
 
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
 
 @media (max-width: 700px) {
 
@@ -1176,7 +989,6 @@ footer .copyright {
 
     .navbar.menu-open .main-nav {
         top: 78px;
-
         right: 16px;
 
         width: 310px;
@@ -1184,11 +996,12 @@ footer .copyright {
         max-width: calc(100vw - 32px);
 
         max-height: calc(100vh - 92px);
+
+        padding: 11px;
     }
 
     .navbar.menu-open .menu-link {
         min-height: 44px;
-
         font-size: 12px;
     }
 
@@ -1204,7 +1017,6 @@ footer .copyright {
 
     .hero h1 {
         font-size: clamp(50px, 15vw, 82px);
-
         letter-spacing: -4px;
     }
 
@@ -1253,17 +1065,8 @@ footer .copyright {
         min-height: 240px;
     }
 
-    footer {
-        padding-left: 6%;
-        padding-right: 6%;
-    }
-
 }
 
-
-/* =========================================================
-   TRÈS PETITS ÉCRANS
-========================================================= */
 
 @media (max-width: 420px) {
 
@@ -1275,13 +1078,11 @@ footer .copyright {
     .mobile-menu-btn {
         width: 42px;
         height: 42px;
-
         flex-basis: 42px;
     }
 
     .navbar.menu-open .main-nav {
         right: 10px;
-
         width: calc(100vw - 20px);
     }
 
