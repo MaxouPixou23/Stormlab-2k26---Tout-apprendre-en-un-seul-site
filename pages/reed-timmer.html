@@ -1,53 +1,126 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Reed Timmer — STORMLAB</title>
+    <title>Reed Timmer — STORMLAB</title>
 
-<meta name="description"
-content="STORMLAB — Portrait de Reed Timmer, chasseur de tempêtes.">
+    <meta name="description"
+          content="STORMLAB — Découvrir Reed Timmer, le storm chasing et les véhicules Dominator.">
 
-<link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
-
 
 <body>
 
-
 <header class="navbar">
 
-<a href="../index.html" class="logo">
-🌪️ STORMLAB
-</a>
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">🌪️</span>
+        <span>STORMLAB</span>
+    </a>
 
-<nav class="main-nav">
+    <nav class="main-nav">
 
-<a href="../index.html">
-Accueil
-</a>
+        <a href="../index.html">Accueil</a>
+        <a href="manuel.html">📚 Manuel</a>
+        <a href="orages.html">🌩️ Orages</a>
+        <a href="supercellules.html">🌀 Supercellules</a>
+        <a href="tornades.html">🌪️ Tornades</a>
+        <a href="foudre.html">⚡ Foudre</a>
+        <a href="radar.html">📡 Radar</a>
+        <a href="satellites.html">🛰️ Satellites</a>
+        <a href="storm-chasing.html">🚗 Chasing</a>
+        <a href="reed-timmer.html" class="active">❤️ Reed Timmer</a>
+        <a href="galerie.html">📸 Galerie</a>
+        <a href="cartes.html">🗺️ Cartes</a>
+        <a href="alertes.html">🚨 Alertes</a>
+        <a href="quiz.html">🧠 Quiz</a>
+        <a href="laboratoire.html">🔬 Laboratoire</a>
+        <a href="videos.html">🎥 Vidéos</a>
+        <a href="actualites.html">📰 Actualités</a>
 
-<a href="storm-chasing.html">
-🚗 Storm Chasing
-</a>
+    </nav>
 
-<a href="chasseurs.html">
-👨‍🚀 Chasseurs
-</a>
-
-<a href="reed-timmer.html">
-❤️ Reed Timmer
-</a>
-
-<a href="galerie.html">
-📸 Galerie
-</a>
-
-</nav>
+    <button class="mobile-menu-btn"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+        ☰
+    </button>
 
 </header>
+
+
+<div class="mobile-menu">
+
+    <a href="../index.html">🏠 Accueil</a>
+    <a href="manuel.html">📚 Manuel</a>
+    <a href="orages.html">🌩️ Orages</a>
+    <a href="supercellules.html">🌀 Supercellules</a>
+    <a href="tornades.html">🌪️ Tornades</a>
+    <a href="foudre.html">⚡ Foudre</a>
+    <a href="radar.html">📡 Radar</a>
+    <a href="satellites.html">🛰️ Satellites</a>
+    <a href="storm-chasing.html">🚗 Storm Chasing</a>
+    <a href="reed-timmer.html" class="active">❤️ Reed Timmer</a>
+    <a href="galerie.html">📸 Galerie</a>
+    <a href="cartes.html">🗺️ Cartes météo</a>
+    <a href="alertes.html">🚨 Alertes</a>
+    <a href="quiz.html">🧠 Quiz</a>
+    <a href="laboratoire.html">🔬 Laboratoire</a>
+    <a href="videos.html">🎥 Vidéos</a>
+    <a href="actualites.html">📰 Actualités</a>
+
+</div>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            STORMLAB • STORM CHASER
+        </p>
+
+        <h1>
+            REED
+            <span>TIMMER.</span>
+        </h1>
+
+        <p class="hero-text">
+            Reed Timmer est connu pour ses activités
+            de storm chasing, ses observations de
+            phénomènes violents et ses véhicules
+            spécialement conçus pour l'observation
+            des tempêtes.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="storm-chasing.html" class="btn primary">
+                🚗 Storm Chasing
+            </a>
+
+            <a href="galerie.html" class="btn secondary">
+                📸 Galerie
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-symbol">
+        ❤️
+    </div>
+
+</section>
+
 
 <section class="section">
 
@@ -61,19 +134,19 @@ Accueil
         <div class="storm-feature-content">
 
             <p class="eyebrow">
-                STORMLAB • STORM CHASER
+                STORM CHASER
             </p>
 
             <h2>
-                REED
-                <span>TIMMER.</span>
+                Au cœur des
+                <span>tempêtes.</span>
             </h2>
 
             <p>
-                Reed Timmer est un météorologue et chasseur
-                de tempêtes américain connu pour ses
-                observations de phénomènes météorologiques
-                extrêmes et ses véhicules Dominator.
+                Son travail est notamment associé
+                à l'observation rapprochée de phénomènes
+                météorologiques violents et à la
+                documentation des tempêtes.
             </p>
 
         </div>
@@ -81,429 +154,158 @@ Accueil
     </div>
 
 </section>
-    
+
+
 <section class="section">
 
-    <div class="storm-feature">
+    <div class="section-title">
 
-        <img
-            src="../assets/images/dominator.jpg"
-            alt="Dominator de Reed Timmer"
-            loading="lazy">
+        <p>01 • DOMINATOR</p>
 
-        <div class="storm-feature-content">
+        <h2>
+            DES VÉHICULES
+            <span>UNIQUES.</span>
+        </h2>
 
-            <p class="eyebrow">
-                STORMLAB • DOMINATOR
-            </p>
+        <span>
+            Les véhicules Dominator sont conçus
+            pour les activités de storm chasing.
+        </span>
 
-            <h2>
-                BUILT TO
-                <span>CHASE.</span>
-            </h2>
+    </div>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <span>🚙</span>
+
+            <h3>Dominator</h3>
 
             <p>
-                Les véhicules Dominator ont été conçus
-                pour permettre à Reed Timmer et son équipe
-                d'étudier les phénomènes météorologiques
-                violents au plus près du terrain.
+                Une série de véhicules développés
+                pour résister aux conditions
+                rencontrées lors de certaines chasses.
             </p>
 
-        </div>
+        </article>
+
+
+        <article class="card">
+
+            <span>📡</span>
+
+            <h3>Instrumentation</h3>
+
+            <p>
+                Les véhicules peuvent intégrer
+                différents équipements destinés
+                à l'observation et à la mesure.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🎥</span>
+
+            <h3>Documentation</h3>
+
+            <p>
+                Les tempêtes sont documentées
+                à travers des images et des vidéos.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <span>🌪️</span>
+
+            <h3>Storm Chasing</h3>
+
+            <p>
+                L'objectif est d'observer les phénomènes
+                météorologiques violents sur le terrain.
+            </p>
+
+        </article>
 
     </div>
 
 </section>
-    
-<main>
-
-
-<section class="hero">
-
-<div class="hero-content">
-
-<p class="eyebrow">
-STORMLAB • CHASER PROFILE
-</p>
-
-
-<h1>
-
-REED
-<span>TIMMER.</span>
-
-</h1>
-
-
-<p class="hero-text">
-
-Reed Timmer est un météorologue et chasseur de tempêtes
-américain connu pour ses observations rapprochées des
-phénomènes météorologiques violents.
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a href="chasseurs.html"
-class="btn secondary">
-
-← Les chasseurs
-
-</a>
-
-
-<a href="storm-chasing.html"
-class="btn primary">
-
-🚗 Storm Chasing
-
-</a>
-
-</div>
-
-</div>
-
-
-<div class="hero-symbol">
-
-🌪️
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-
-<div class="section-title">
-
-<p>
-01 • LE CHASSEUR
-</p>
-
-
-<h2>
-
-Une approche basée sur
-<span>la recherche.</span>
-
-</h2>
-
-
-<span>
-
-Son travail associe observation de terrain,
-météorologie et technologies destinées à documenter
-les phénomènes extrêmes.
-
-</span>
-
-</div>
-
-
-
-<div class="cards">
-
-
-<article class="card">
-
-<span>
-🎓
-</span>
-
-<h3>
-Météorologie
-</h3>
-
-<p>
-
-Reed Timmer possède une formation en météorologie
-et s'intéresse particulièrement aux phénomènes convectifs
-violents.
-
-</p>
-
-</article>
-
-
-
-<article class="card">
-
-<span>
-🚗
-</span>
-
-<h3>
-Véhicules
-</h3>
-
-<p>
-
-Ses véhicules de recherche ont été développés pour
-permettre des observations rapprochées dans des
-environnements météorologiques difficiles.
-
-</p>
-
-</article>
-
-
-
-<article class="card">
-
-<span>
-📡
-</span>
-
-<h3>
-Recherche
-</h3>
-
-<p>
-
-Les observations de terrain peuvent contribuer à
-mieux documenter les caractéristiques des tempêtes.
-
-</p>
-
-</article>
-
-
-
-<article class="card">
-
-<span>
-📹
-</span>
-
-<h3>
-Documentation
-</h3>
-
-<p>
-
-Photos et vidéos permettent également de conserver
-des archives des phénomènes observés.
-
-</p>
-
-</article>
-
-</div>
-
-</section>
-
 
 
 <section class="manual">
 
+    <div class="manual-content">
 
-<div class="manual-content">
+        <p class="eyebrow">
+            02 • STORMLAB
+        </p>
 
-<p class="eyebrow">
-STORMLAB • SPECIAL
-</p>
+        <h2>
+            NEVER STOP
+            <span>CHASING.</span>
+        </h2>
 
+        <p>
+            STORMLAB s'intéresse à la météorologie,
+            à l'observation des tempêtes et à la
+            compréhension des phénomènes extrêmes.
+        </p>
 
-<h2>
+        <a href="storm-chasing.html" class="btn primary">
+            🚗 Explorer le Storm Chasing
+        </a>
 
-THE
-<span>DOMINATOR.</span>
-
-</h2>
-
-
-<p>
-
-Le nom Dominator est associé aux véhicules de chasse
-de Reed Timmer, conçus pour résister à certaines
-conditions extrêmes et permettre des observations
-scientifiques et visuelles.
-
-</p>
-
-
-<a href="galerie.html"
-class="btn primary">
-
-📸 Voir la galerie
-
-</a>
-
-</div>
+    </div>
 
 </section>
-
-
-
-<section class="section dark-section">
-
-
-<div class="section-title">
-
-<p>
-L'ESPRIT STORMLAB
-</p>
-
-
-<h2>
-
-Observe.
-Analyse.
-<span>Respecte.</span>
-
-</h2>
-
-
-<span>
-
-La fascination pour les tempêtes doit toujours
-s'accompagner d'une compréhension de leur danger.
-
-</span>
-
-</div>
-
-
-
-<div class="cards">
-
-
-<article class="card">
-
-<span>
-🔬
-</span>
-
-<h3>
-Science
-</h3>
-
-<p>
-
-Comprendre avant de vouloir observer.
-
-</p>
-
-</article>
-
-
-
-<article class="card">
-
-<span>
-🌪️
-</span>
-
-<h3>
-Passion
-</h3>
-
-<p>
-
-Le chasing permet de découvrir des phénomènes
-atmosphériques extraordinaires.
-
-</p>
-
-</article>
-
-
-
-<article class="card">
-
-<span>
-🛡️
-</span>
-
-<h3>
-Sécurité
-</h3>
-
-<p>
-
-Aucune image ne vaut de prendre un risque inutile.
-
-</p>
-
-</article>
-
-</div>
-
-</section>
-
 
 
 <section class="chasing">
 
-<p class="eyebrow">
-STORMLAB
-</p>
+    <p class="eyebrow">
+        STORMLAB
+    </p>
 
+    <h2>
+        RESPECT THE
+        <span>STORM.</span>
+    </h2>
 
-<h2>
+    <p>
+        Observer les tempêtes commence par les comprendre.
+    </p>
 
-NEVER STOP
-<span>CHASING.</span>
-
-</h2>
-
-
-<p>
-
-THE SKY IS NEVER THE SAME.
-
-</p>
-
-
-<a href="../index.html"
-class="btn secondary">
-
-← Retour à STORMLAB
-
-</a>
+    <a href="manuel.html" class="btn secondary">
+        📚 Retour au manuel
+    </a>
 
 </section>
-
 
 </main>
 
 
-
 <footer>
 
-<div class="footer-logo">
+    <div class="footer-logo">
+        🌪️ STORMLAB
+    </div>
 
-🌪️ STORMLAB
+    <p>Never Stop Chasing.</p>
 
-</div>
-
-
-<p>
-
-Never Stop Chasing.
-
-</p>
-
-
-<p class="copyright">
-
-© 2026 STORMLAB
-
-</p>
+    <p class="copyright">© 2026 STORMLAB</p>
 
 </footer>
-
 
 
 <script src="../script.js"></script>
 
 </body>
-
 </html>
 ```
-
