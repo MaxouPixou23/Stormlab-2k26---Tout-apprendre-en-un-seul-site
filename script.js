@@ -14,25 +14,16 @@
 
     function initNavbar() {
 
-        const navbar =
-            document.querySelector(".navbar");
-
-        const button =
-            document.getElementById("menuButton");
-
-        const menu =
-            document.getElementById("mainNav");
-
+        const navbar = document.querySelector(".navbar");
+        const button = document.getElementById("menuButton");
+        const menu = document.getElementById("mainNav");
 
         if (!navbar || !button || !menu) {
-
             console.error(
                 "STORMLAB : éléments de navigation introuvables."
             );
-
             return;
         }
-
 
         function openMenu() {
 
@@ -49,9 +40,7 @@
                 "aria-label",
                 "Fermer le menu"
             );
-
         }
-
 
         function closeMenu() {
 
@@ -68,40 +57,35 @@
                 "aria-label",
                 "Ouvrir le menu"
             );
-
         }
-
 
         function toggleMenu() {
 
             if (
                 navbar.classList.contains("menu-open")
             ) {
-
                 closeMenu();
-
             } else {
-
                 openMenu();
-
             }
-
         }
 
+
+        /* BOUTON MENU */
 
         button.addEventListener(
             "click",
             function (event) {
 
                 event.preventDefault();
-
                 event.stopPropagation();
 
                 toggleMenu();
-
             }
         );
 
+
+        /* LIENS DU MENU */
 
         menu.addEventListener(
             "click",
@@ -111,14 +95,13 @@
                     event.target.closest("a");
 
                 if (link) {
-
                     closeMenu();
-
                 }
-
             }
         );
 
+
+        /* CLIC EN DEHORS */
 
         document.addEventListener(
             "click",
@@ -128,14 +111,13 @@
                     navbar.classList.contains("menu-open") &&
                     !navbar.contains(event.target)
                 ) {
-
                     closeMenu();
-
                 }
-
             }
         );
 
+
+        /* TOUCHE ÉCHAP */
 
         document.addEventListener(
             "keydown",
@@ -149,12 +131,12 @@
                     closeMenu();
 
                     button.focus();
-
                 }
-
             }
         );
 
+
+        /* REDIMENSIONNEMENT */
 
         window.addEventListener(
             "resize",
@@ -164,21 +146,19 @@
                     window.innerWidth > 700 &&
                     navbar.classList.contains("menu-open")
                 ) {
-
                     closeMenu();
-
                 }
-
             }
         );
 
+
+        /* ÉTAT INITIAL */
 
         closeMenu();
 
         console.log(
             "STORMLAB V2 : navbar opérationnelle."
         );
-
     }
 
 
@@ -194,7 +174,6 @@
     } else {
 
         initNavbar();
-
     }
 
 })();
@@ -211,29 +190,28 @@
         const images =
             document.querySelectorAll("img");
 
-        images.forEach(function (image) {
+        images.forEach(
+            function (image) {
 
-            image.addEventListener(
-                "error",
-                function () {
+                image.addEventListener(
+                    "error",
+                    function () {
 
-                    image.classList.add(
-                        "image-error"
-                    );
+                        image.classList.add(
+                            "image-error"
+                        );
 
-                    console.warn(
-                        "STORMLAB : image introuvable :",
-                        image.src
-                    );
-
-                },
-                {
-                    once: true
-                }
-            );
-
-        });
-
+                        console.warn(
+                            "STORMLAB : image introuvable :",
+                            image.src
+                        );
+                    },
+                    {
+                        once: true
+                    }
+                );
+            }
+        );
     }
 
 
@@ -249,7 +227,6 @@
     } else {
 
         initImageFallback();
-
     }
 
 })();
