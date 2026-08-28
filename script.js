@@ -1,60 +1,40 @@
-/* =========================================================
-   STORMLAB V2 — NAVIGATION
-========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-(() => {
+    const navbar = document.querySelector(".navbar");
+    const button = document.getElementById("menuButton");
+    const menu = document.getElementById("mainNav");
 
-    "use strict";
+    if (!navbar || !button || !menu) {
+        console.error("STORMLAB : navbar introuvable.");
+        return;
+    }
 
+    button.addEventListener("click", function (event) {
 
-    function initStormlabMenu() {
+        event.preventDefault();
+        event.stopPropagation();
 
-        const navbar = document.querySelector(".navbar");
-        const button = document.getElementById("menuButton");
-        const menu = document.getElementById("mainNav");
+        navbar.classList.toggle("menu-open");
 
+        const open = navbar.classList.contains("menu-open");
 
-        if (!navbar || !button || !menu) {
+        button.textContent = open ? "✕" : "☰";
 
-            console.error(
-                "STORMLAB : navbar, menuButton ou mainNav introuvable."
-            );
+        button.setAttribute(
+            "aria-expanded",
+            open ? "true" : "false"
+        );
 
-            return;
-        }
+        button.setAttribute(
+            "aria-label",
+            open ? "Fermer le menu" : "Ouvrir le menu"
+        );
 
+    });
 
-        console.log("STORMLAB V2 : navigation initialisée");
+    menu.querySelectorAll("a").forEach(function (link) {
 
-
-        /* =================================================
-           OUVRIR
-        ================================================= */
-
-        function openMenu() {
-
-            navbar.classList.add("menu-open");
-
-            button.textContent = "✕";
-
-            button.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            button.setAttribute(
-                "aria-label",
-                "Fermer le menu"
-            );
-
-        }
-
-
-        /* =================================================
-           FERMER
-        ================================================= */
-
-        function closeMenu() {
+        link.addEventListener("click", function () {
 
             navbar.classList.remove("menu-open");
 
@@ -70,109 +50,8 @@
                 "Ouvrir le menu"
             );
 
-        }
-
-
-        /* =================================================
-           BOUTON
-        ================================================= */
-
-        button.addEventListener("click", (event) => {
-
-            event.preventDefault();
-            event.stopPropagation();
-
-            if (
-                navbar.classList.contains("menu-open")
-            ) {
-
-                closeMenu();
-
-            } else {
-
-                openMenu();
-
-            }
-
         });
 
+    });
 
-        /* =================================================
-           LIENS
-        ================================================= */
-
-        menu.querySelectorAll("a").forEach((link) => {
-
-            link.addEventListener("click", () => {
-
-                closeMenu();
-
-            });
-
-        });
-
-
-        /* =================================================
-           ESC
-        ================================================= */
-
-        document.addEventListener("keydown", (event) => {
-
-            if (event.key === "Escape") {
-
-                closeMenu();
-
-            }
-
-        });
-
-
-        /* =================================================
-           CLIC EN DEHORS
-        ================================================= */
-
-        document.addEventListener("click", (event) => {
-
-            if (!navbar.classList.contains("menu-open")) {
-
-                return;
-
-            }
-
-
-            if (!navbar.contains(event.target)) {
-
-                closeMenu();
-
-            }
-
-        });
-
-
-        /* =================================================
-           INITIALISATION
-        ================================================= */
-
-        closeMenu();
-
-    }
-
-
-    /* =====================================================
-       LANCEMENT
-    ===================================================== */
-
-    if (document.readyState === "loading") {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            initStormlabMenu
-        );
-
-    } else {
-
-        initStormlabMenu();
-
-    }
-
-})();
+});
